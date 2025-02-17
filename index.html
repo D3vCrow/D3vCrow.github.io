@@ -197,17 +197,20 @@
     .video-card p {
       color: #ccc;
     }
-    /* Skills Section with Star Ratings */
+    /* Skills Section with Two-Column Layout */
     .skills ul {
       list-style: none;
       padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
     .skills li {
+      flex: 0 0 calc(50% - 1rem);
       background: #1e1e1e;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin: 0.5rem 0;
       padding: 0.5rem 1rem;
       border: 1px solid #333;
       border-radius: 20px;
@@ -362,7 +365,7 @@
       </div>
     </section>
     
-    <!-- Skills Section with Star Ratings -->
+    <!-- Skills Section with Two-Column Layout -->
     <section id="skills" class="animate__animated animate__fadeInUp">
       <h2>Skills</h2>
       <div class="skills">
