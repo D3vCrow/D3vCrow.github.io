@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name | Game Developer Portfolio</title>
+  <title>Christoforos Papachristoforou | Software Engineer & IT Specialist</title>
   <style>
-    /* Basic styling */
+    /* Basic Styling */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -16,67 +16,212 @@
     header {
       background-color: #333;
       color: #fff;
-      padding: 1rem;
+      padding: 1.5rem;
       text-align: center;
     }
-    .content {
+    nav {
+      background: #444;
+      padding: 0.5rem;
+      text-align: center;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
       padding: 2rem;
     }
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+    .experience, .education, .projects {
+      margin-bottom: 1rem;
     }
     .project {
       background: #fff;
       border: 1px solid #ccc;
       padding: 1rem;
-      width: calc(33% - 2rem);
-      box-sizing: border-box;
+      margin-bottom: 1rem;
       border-radius: 5px;
     }
-    @media (max-width: 768px) {
-      .project {
-        width: calc(50% - 2rem);
-      }
+    .skills ul {
+      list-style: none;
+      padding: 0;
     }
-    @media (max-width: 480px) {
-      .project {
-        width: 100%;
+    .skills li {
+      background: #fff;
+      display: inline-block;
+      margin: 0.3rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #333;
+      color: #fff;
+    }
+    @media (max-width: 768px) {
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Your Name</h1>
-    <p>Game Developer Portfolio</p>
+    <h1>Christoforos Papachristoforou</h1>
+    <p>Software Engineer & IT Specialist | Game Developer</p>
   </header>
-  <div class="content">
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="container">
+    <!-- About Section -->
     <section id="about">
       <h2>About Me</h2>
-      <p>Hi, I'm a game developer specializing in [your specialty]. I love creating interactive and engaging games. Welcome to my portfolio!</p>
+      <p>
+        With a strong passion for programming and a deep love for game development, I bring over 5 years of Unity experience along with proven skills in troubleshooting, team leadership, and effective communication. I excel at working both collaboratively and independently, taking initiative, and thriving under pressure. I am excited to contribute to your team in Unity development or other software projects, delivering innovative solutions and impactful results.
+      </p>
     </section>
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects">
-        <div class="project">
-          <h3>Project Title 1</h3>
-          <p>Brief description of project.</p>
-          <a href="https://link-to-project.com" target="_blank">View Project</a>
-        </div>
-        <div class="project">
-          <h3>Project Title 2</h3>
-          <p>Brief description of project.</p>
-          <a href="https://link-to-project.com" target="_blank">View Project</a>
-        </div>
-        <!-- Add more project blocks as needed -->
+    
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <div class="experience">
+        <h3>Software Engineer / Product Owner / Generalist, Renderapp</h3>
+        <p><em>Feb 2021 — Present | Athens (Full Remote)</em></p>
+        <ul>
+          <li>Maintained and optimized assets for deployment across web, VR, physical, and cloud servers.</li>
+          <li>Integrated legacy projects into "Lite" and "Web Players", reconfigured Azure VMs, and implemented scale sets.</li>
+          <li>Migrated products from Unity's Built-In Render Pipeline to HDRP to enhance visual fidelity.</li>
+          <li>Collaborated with project managers on estimations, schedules, and timelines.</li>
+          <li>Served as the go-to expert for Unity-related and general technical issues.</li>
+        </ul>
+      </div>
+      <div class="experience">
+        <h3>Team Leader, Service Operations Engineers/Site Administrators/System Engineers for SITA, NetSquare</h3>
+        <p><em>May 2018 — Feb 2021 | Athens</em></p>
+        <ul>
+          <li>Managed team schedules and provided guidance to ensure smooth operations.</li>
+          <li>Oversaw staff training and maintained quality assurance.</li>
+          <li>Managed network operations to ensure seamless connectivity and troubleshooting.</li>
+        </ul>
+      </div>
+      <div class="experience">
+        <h3>Customer Support - Tech Support, IQOS Call Center, Teleperformance</h3>
+        <p><em>Dec 2017 — Mar 2018 | Athens</em></p>
+        <ul>
+          <li>Responded to customer inquiries via phone, email, and social media.</li>
+          <li>Achieved high customer satisfaction and maintained positive client reviews.</li>
+        </ul>
+      </div>
+      <div class="experience">
+        <h3>CUTE Specialist, Athens International Airport / Printec SA Project</h3>
+        <p><em>Aug 2014 — Nov 2016 | Athens</em></p>
+        <ul>
+          <li>Managed and resolved CUTE inquiries, maintained SLAs, and collaborated with flight companies.</li>
+          <li>Led the upgrade and renewal of Terminal Equipment, including software and hardware installations.</li>
+        </ul>
+      </div>
+      <div class="experience">
+        <h3>IT Help Desk Intern, Athens International Airport / Printec SA Project</h3>
+        <p><em>Jan 2014 — Jul 2014 | Athens</em></p>
+        <ul>
+          <li>Provided desktop support and maintained operational documentation.</li>
+          <li>Handled 1st/2nd level support for IT equipment.</li>
+        </ul>
       </div>
     </section>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>VR Unity Project Upgrade for German Fraport Airport</h3>
+        <p><em>Jun 2024 — Nov 2024 | Remote</em></p>
+        <p>
+          Worked as an external partner for e-Point as a Senior Unity Developer to upgrade a VR Unity project for German Fraport Airport, enhancing functionality, compatibility, and user experience.
+        </p>
+      </div>
+      <div class="project">
+        <h3>Super Pokemon Bros, iConnect</h3>
+        <p><em>Sep 2024 — Oct 2024 | Remote</em></p>
+        <p>
+          Solo developed a fan-based game combining Super Mario Bros mechanics with a Pokémon theme for Pokefest 2, delivering a unique and engaging experience to over 200 players.
+        </p>
+      </div>
+      <!-- You can add additional project blocks as needed -->
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <ul>
+          <li>Unity</li>
+          <li>C#</li>
+          <li>Video & Image Editing</li>
+          <li>Image Generative</li>
+          <li>Python</li>
+          <li>Azure VMs & Scalesets</li>
+          <li>RizomUV</li>
+          <li>3DS Max</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Education Section -->
+    <section id="education">
+      <h2>Education & Certifications</h2>
+      <div class="education">
+        <h3>Bachelor’s Degree in Electronic Computer Systems Engineer</h3>
+        <p><em>ATEI of Piraeus | Feb 2008 — Sep 2014</em></p>
+      </div>
+      <div class="education">
+        <h3>Certification: 640-822 ICND1 - Cisco</h3>
+        <p><em>New York College | Feb 2012 — Jul 2012</em></p>
+      </div>
+      <div class="education">
+        <h3>Additional Courses</h3>
+        <p>
+          Complete C# Unity Developer 2D, Complete C# Unity Game Developer 3D, Unity Multiplayer (Mirror), JavaScript: Getting Started, Front-End Web Development, The Ultimate Python Basics, Automate the Boring Stuff with Python.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Contact Section -->
     <section id="contact">
       <h2>Contact</h2>
-      <p>Get in touch via <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+      <p><strong>Location:</strong> Athens, Greece</p>
+      <p><strong>Phone:</strong> +30 6948461402</p>
+      <p><strong>Email:</strong> <a href="mailto:chr.papachristoforou@gmail.com">chr.papachristoforou@gmail.com</a></p>
+      <p>
+        <strong>Links:</strong>
+        <a href="https://github.com/D3vCrow/" target="_blank">GitHub</a> | 
+        <a href="https://yourgamedevportfolio.com" target="_blank">Game Dev Portfolio</a> | 
+        <a href="https://renderapp.com" target="_blank">Renderapp Portfolio</a> | 
+        <a href="https://unityvrproject.com" target="_blank">Unity VR Project</a>
+      </p>
     </section>
   </div>
+  <footer>
+    <p>© 2025 Christoforos Papachristoforou. All rights reserved.</p>
+  </footer>
 </body>
 </html>
