@@ -194,26 +194,27 @@
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
+      justify-content: center;
     }
     .game-card {
       background: #1e1e1e;
       border: 1px solid #333;
       border-radius: 8px;
       padding: 1rem;
-      flex: 1 1 100%;
+      max-width: 400px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.8);
       text-align: center;
     }
     .game-card h3 {
       font-family: 'Poppins', sans-serif;
       color: #e0e0e0;
+      margin-bottom: 0.5rem;
     }
     .game-thumbnail {
       margin-bottom: 1rem;
     }
     .game-thumbnail img {
       width: 100%;
-      max-width: 600px;
       border-radius: 4px;
       cursor: pointer;
     }
@@ -226,26 +227,10 @@
       border-radius: 4px;
       font-weight: 600;
       cursor: pointer;
+      text-decoration: none;
     }
     .game-button:hover {
       background: #42a5f5;
-    }
-    .game-reviews {
-      margin-top: 1rem;
-      text-align: left;
-    }
-    .game-reviews h4 {
-      margin-bottom: 0.5rem;
-      font-family: 'Poppins', sans-serif;
-      color: #e0e0e0;
-    }
-    .game-reviews .review {
-      background: #121212;
-      padding: 0.5rem;
-      border-radius: 4px;
-      margin-bottom: 0.5rem;
-      color: #ccc;
-      font-size: 0.9rem;
     }
     .skill-category {
       margin-bottom: 2rem;
@@ -423,16 +408,8 @@
               <img src="darn-my-barn.png" alt="Darn My Barn">
             </a>
           </div>
-          <a class="game-button" href="https://d3vcrow.itch.io/darn-my-barn" target="_blank">View on itch.io</a>
-          <div class="game-reviews">
-            <h4>Reviews</h4>
-            <div class="review">
-              <p>"Amazing game with creative design and engaging gameplay!" – User123</p>
-            </div>
-            <div class="review">
-              <p>"A fresh take on barn-themed puzzles. Highly recommended!" – GamerGal</p>
-            </div>
-          </div>
+          <p>Darn My Barn is a quirky puzzle adventure where you help a determined farmer restore his run-down barn. Solve inventive puzzles and enjoy a humorous, retro-inspired narrative in a charming world.</p>
+          <a class="game-button" href="https://d3vcrow.itch.io/darn-my-barn" target="_blank">Play Now</a>
         </div>
       </div>
     </section>
