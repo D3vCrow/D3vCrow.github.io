@@ -3,25 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Christoforos Papachristoforou | Software Engineer & IT Specialist</title>
+  <title>Christoforos Papachristoforou | Career Map & Skills</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600&display=swap" rel="stylesheet">
-  <!-- Font Awesome for star icons -->
+  <!-- Font Awesome for arrow and star icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <!-- Optional: Animate.css for scroll animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
-    /* Global styles */
+    /* Global Styles */
     body {
       font-family: 'Open Sans', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f4f4f4;
       color: #333;
-    }
-    a {
-      text-decoration: none;
-      color: inherit;
     }
     header {
       background: linear-gradient(135deg, #667eea, #764ba2);
@@ -66,12 +62,13 @@
       margin-bottom: 1.5rem;
       color: #444;
     }
-    /* Career Map styling */
-    .career-map {
+    /* Timeline (Career Map) Styles */
+    .timeline {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      align-items: center;
       justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-bottom: 2rem;
     }
     .career-node {
@@ -81,45 +78,58 @@
       width: 120px;
       height: 120px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
     .career-node:hover {
       transform: scale(1.05);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-    /* Experience card styling */
-    .experience {
-      margin-bottom: 2rem;
+    .career-node.active-node {
+      border-color: #ffd700;
     }
-    .experience h3 {
+    .career-node .job-title {
+      font-weight: bold;
+      font-size: 1rem;
       margin-bottom: 0.3rem;
     }
-    .experience p {
+    .career-node .job-years {
+      font-size: 0.8rem;
+      color: #666;
+    }
+    .arrow {
+      font-size: 1.5rem;
+      color: #667eea;
+    }
+    /* Job Details Container */
+    .job-details-container {
+      margin-top: 2rem;
+    }
+    .job-details {
+      display: none;
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+    .job-details.active {
+      display: block;
+    }
+    .job-details h3 {
+      margin-bottom: 0.3rem;
+    }
+    .job-details p {
       margin: 0.3rem 0;
       font-style: italic;
       color: #666;
     }
-    .experience ul {
+    .job-details ul {
       margin: 0.5rem 0 0 1.2rem;
     }
-    /* Project Card styling */
-    .project {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    /* Skills with star rating */
+    /* Skills with Star Ratings */
     .skills ul {
       list-style: none;
       padding: 0;
@@ -128,22 +138,21 @@
       background: #fff;
       display: flex;
       align-items: center;
+      justify-content: space-between;
       margin: 0.5rem 0;
       padding: 0.5rem 1rem;
       border: 1px solid #ddd;
       border-radius: 20px;
-      justify-content: space-between;
     }
     .skills li .rating {
       color: #ffd700;
       font-size: 1.2rem;
     }
-    /* Education courses list */
+    /* Courses List */
     .courses ul {
       list-style: disc;
       padding-left: 1.5rem;
     }
-    /* Footer */
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -170,8 +179,6 @@
   <nav>
     <a href="#about">About</a>
     <a href="#career-map">Career Map</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
@@ -181,98 +188,85 @@
     <section id="about" class="animate__animated animate__fadeInUp">
       <h2>About Me</h2>
       <p>
-        With a strong passion for programming and a deep love for game development, I bring over 5 years of Unity experience along with proven skills in troubleshooting, team leadership, and effective communication. I excel at working both collaboratively and independently, taking initiative, and thriving under pressure.
+        With a strong passion for programming and game development, I bring over 5 years of Unity experience alongside proven skills in troubleshooting, team leadership, and communication. I thrive under pressure, working both independently and as part of a team.
       </p>
     </section>
     
-    <!-- Career Map Section -->
+    <!-- Interactive Career Map Section -->
     <section id="career-map" class="animate__animated animate__fadeInUp">
       <h2>Career Map</h2>
       <p style="text-align:center; color:#666;">Click on a job to view details</p>
-      <div class="career-map">
-        <a href="#job-renderapp" class="career-node">
-          <span style="font-size:0.9rem;">Renderapp</span>
-        </a>
-        <a href="#job-sita" class="career-node">
-          <span style="font-size:0.85rem;">SITA / NetSquare</span>
-        </a>
-        <a href="#job-iqos" class="career-node">
-          <span style="font-size:0.8rem;">IQOS Call Center</span>
-        </a>
-        <a href="#job-cute" class="career-node">
-          <span style="font-size:0.8rem;">CUTE Specialist</span>
-        </a>
-        <a href="#job-helpdesk" class="career-node">
-          <span style="font-size:0.8rem;">IT Help Desk</span>
-        </a>
+      <div class="timeline">
+        <div class="career-node active-node" data-job="job-renderapp">
+          <span class="job-title">Renderapp</span>
+          <span class="job-years">2021–Present</span>
+        </div>
+        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="career-node" data-job="job-sita">
+          <span class="job-title">SITA / NetSquare</span>
+          <span class="job-years">2018–2021</span>
+        </div>
+        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="career-node" data-job="job-iqos">
+          <span class="job-title">IQOS Call Center</span>
+          <span class="job-years">2017–2018</span>
+        </div>
+        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="career-node" data-job="job-cute">
+          <span class="job-title">CUTE Specialist</span>
+          <span class="job-years">2014–2016</span>
+        </div>
+        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="career-node" data-job="job-helpdesk">
+          <span class="job-title">IT Help Desk</span>
+          <span class="job-years">2014</span>
+        </div>
       </div>
-    </section>
-    
-    <!-- Experience Section -->
-    <section id="experience" class="animate__animated animate__fadeInUp">
-      <h2>Professional Experience</h2>
-      <div id="job-renderapp" class="experience">
-        <h3>Software Engineer / Product Owner / Generalist, Renderapp</h3>
-        <p>Feb 2021 — Present | Athens (Full Remote)</p>
-        <ul>
-          <li>Maintained and optimized assets for deployment across web, VR, physical, and cloud servers.</li>
-          <li>Integrated legacy projects into "Lite" and "Web Players", reconfigured Azure VMs, and implemented scale sets.</li>
-          <li>Migrated products from Unity's Built-In Render Pipeline to HDRP to enhance visual fidelity.</li>
-          <li>Collaborated on project estimations, schedules, and timelines.</li>
-          <li>Acted as the go-to expert for Unity-related and technical issues.</li>
-        </ul>
-      </div>
-      <div id="job-sita" class="experience">
-        <h3>Team Leader, Service Operations Engineers/Site Administrators/System Engineers for SITA, NetSquare</h3>
-        <p>May 2018 — Feb 2021 | Athens</p>
-        <ul>
-          <li>Managed team schedules and provided guidance to ensure smooth operations.</li>
-          <li>Oversaw staff training and maintained quality assurance.</li>
-          <li>Managed network operations to ensure seamless connectivity and troubleshooting.</li>
-        </ul>
-      </div>
-      <div id="job-iqos" class="experience">
-        <h3>Customer Support - Tech Support, IQOS Call Center (Teleperformance)</h3>
-        <p>Dec 2017 — Mar 2018 | Athens</p>
-        <ul>
-          <li>Responded to customer inquiries via phone, email, and social media.</li>
-          <li>Achieved high customer satisfaction and maintained positive client reviews.</li>
-        </ul>
-      </div>
-      <div id="job-cute" class="experience">
-        <h3>CUTE Specialist, Athens International Airport / Printec SA Project</h3>
-        <p>Aug 2014 — Nov 2016 | Athens</p>
-        <ul>
-          <li>Managed and resolved CUTE inquiries, maintained SLAs, and collaborated with flight companies.</li>
-          <li>Led the upgrade and renewal of Terminal Equipment, including software and hardware installations.</li>
-        </ul>
-      </div>
-      <div id="job-helpdesk" class="experience">
-        <h3>IT Help Desk Intern, Athens International Airport / Printec SA Project</h3>
-        <p>Jan 2014 — Jul 2014 | Athens</p>
-        <ul>
-          <li>Provided desktop support and maintained operational documentation.</li>
-          <li>Handled 1st/2nd level support for IT equipment.</li>
-        </ul>
-      </div>
-    </section>
-    
-    <!-- Projects Section -->
-    <section id="projects" class="animate__animated animate__fadeInUp">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3>VR Unity Project Upgrade for German Fraport Airport</h3>
-        <p><em>Jun 2024 — Nov 2024 | Remote</em></p>
-        <p>
-          Served as a Senior Unity Developer for e-Point, upgrading a VR Unity project to enhance functionality, compatibility, and user experience.
-        </p>
-      </div>
-      <div class="project">
-        <h3>Super Pokemon Bros, iConnect</h3>
-        <p><em>Sep 2024 — Oct 2024 | Remote</em></p>
-        <p>
-          Developed a fan-based game combining Super Mario Bros mechanics with a Pokémon theme for Pokefest 2, engaging over 200 players.
-        </p>
+      <div class="job-details-container">
+        <div id="job-renderapp" class="job-details active">
+          <h3>Software Engineer / Product Owner / Generalist, Renderapp</h3>
+          <p><em>Feb 2021 — Present | Athens (Full Remote)</em></p>
+          <ul>
+            <li>Maintained and optimized assets for deployment across web, VR, physical, and cloud servers.</li>
+            <li>Integrated legacy projects into "Lite" and "Web Players", reconfigured Azure VMs, and implemented scale sets.</li>
+            <li>Migrated products from Unity's Built-In Render Pipeline to HDRP for enhanced visual fidelity.</li>
+            <li>Collaborated on project estimations, schedules, and timelines.</li>
+            <li>Served as the go-to expert for Unity and technical issues.</li>
+          </ul>
+        </div>
+        <div id="job-sita" class="job-details">
+          <h3>Team Leader, Service Operations Engineers/Site Administrators/System Engineers for SITA, NetSquare</h3>
+          <p><em>May 2018 — Feb 2021 | Athens</em></p>
+          <ul>
+            <li>Managed team schedules and provided guidance to ensure smooth operations.</li>
+            <li>Oversaw staff training and maintained quality assurance.</li>
+            <li>Ensured seamless connectivity and troubleshooting through effective network management.</li>
+          </ul>
+        </div>
+        <div id="job-iqos" class="job-details">
+          <h3>Customer Support - Tech Support, IQOS Call Center (Teleperformance)</h3>
+          <p><em>Dec 2017 — Mar 2018 | Athens</em></p>
+          <ul>
+            <li>Responded to customer inquiries via phone, email, and social media.</li>
+            <li>Achieved high customer satisfaction with consistently positive reviews.</li>
+          </ul>
+        </div>
+        <div id="job-cute" class="job-details">
+          <h3>CUTE Specialist, Athens International Airport / Printec SA Project</h3>
+          <p><em>Aug 2014 — Nov 2016 | Athens</em></p>
+          <ul>
+            <li>Managed and resolved CUTE inquiries, maintained SLAs, and collaborated with flight companies.</li>
+            <li>Led the upgrade and renewal of Terminal Equipment, including software and hardware installations.</li>
+          </ul>
+        </div>
+        <div id="job-helpdesk" class="job-details">
+          <h3>IT Help Desk Intern, Athens International Airport / Printec SA Project</h3>
+          <p><em>Jan 2014 — Jul 2014 | Athens</em></p>
+          <ul>
+            <li>Provided desktop support and maintained operational documentation.</li>
+            <li>Handled 1st/2nd level support for IT equipment.</li>
+          </ul>
+        </div>
       </div>
     </section>
     
@@ -283,10 +277,10 @@
         <ul>
           <li>Unity <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></li>
           <li>C# <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></li>
-          <li>Video & Image Editing <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span></li>
+          <li>Video &amp; Image Editing <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span></li>
           <li>Image Generative <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></li>
           <li>Python <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span></li>
-          <li>Azure VMs & Scalesets <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span></li>
+          <li>Azure VMs &amp; Scalesets <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span></li>
           <li>RizomUV <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></li>
           <li>3DS Max <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></li>
           <li>JavaScript <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></li>
@@ -294,9 +288,9 @@
       </div>
     </section>
     
-    <!-- Education Section with Course List -->
+    <!-- Education Section with Courses List -->
     <section id="education" class="animate__animated animate__fadeInUp">
-      <h2>Education & Certifications</h2>
+      <h2>Education &amp; Certifications</h2>
       <div class="education">
         <h3>Bachelor’s Degree in Electronic Computer Systems Engineer</h3>
         <p><em>ATEI of Piraeus | Feb 2008 — Sep 2014</em></p>
@@ -310,7 +304,7 @@
         <ul>
           <li>Complete C# Unity Developer 2D: Learn to Code Making Games (Udemy)</li>
           <li>Complete C# Unity Game Developer 3D (Udemy)</li>
-          <li>Unity Multiplayer (Mirror): Intermediate C# & Networking (Udemy)</li>
+          <li>Unity Multiplayer (Mirror): Intermediate C# &amp; Networking (Udemy)</li>
           <li>JavaScript: Getting Started (Pluralsight)</li>
           <li>Front-End Web Development Quick Start with HTML5, CSS, and JavaScript (Pluralsight)</li>
           <li>The Ultimate Python Basics - Bootcamp (Udemy)</li>
@@ -337,5 +331,29 @@
   <footer>
     <p>© 2025 Christoforos Papachristoforou. All rights reserved.</p>
   </footer>
+  
+  <!-- JavaScript for Interactive Timeline -->
+  <script>
+    // Get all career nodes and job details
+    const nodes = document.querySelectorAll('.career-node');
+    const jobDetails = document.querySelectorAll('.job-details');
+    
+    nodes.forEach(node => {
+      node.addEventListener('click', () => {
+        // Remove active class from all nodes and hide all job details
+        nodes.forEach(n => n.classList.remove('active-node'));
+        jobDetails.forEach(detail => detail.classList.remove('active'));
+        
+        // Mark the clicked node as active
+        node.classList.add('active-node');
+        // Get the related job details ID from the data attribute
+        const jobId = node.getAttribute('data-job');
+        const activeJob = document.getElementById(jobId);
+        if (activeJob) {
+          activeJob.classList.add('active');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
