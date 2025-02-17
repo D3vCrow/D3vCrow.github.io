@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Christoforos Papachristoforou | Career Timeline</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Christoforos Papachristoforou | Career Timeline & Skills</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600&display=swap" rel="stylesheet">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Optional: Animate.css for subtle animations -->
+  <!-- Font Awesome for star icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- Optional: Animate.css for scroll animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
     /* Global Styles */
@@ -24,21 +24,13 @@
       color: #fff;
       padding: 3rem 1rem;
       text-align: center;
-      animation: gradientBG 10s ease infinite;
-      background-size: 400% 400%;
-    }
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      position: relative;
+      overflow: hidden;
     }
     header h1 {
       font-family: 'Montserrat', sans-serif;
       font-size: 2.8rem;
       margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
     }
     nav {
       background: #333;
@@ -69,62 +61,70 @@
       margin-bottom: 1.5rem;
       color: #444;
     }
-    /* Horizontal Timeline Styles */
-    .timeline {
+    /* Two-column timeline layout */
+    .timeline-wrapper {
       display: flex;
-      align-items: center;
-      justify-content: center;
+      gap: 2rem;
+      align-items: flex-start;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 2rem;
     }
-    .career-node {
-      background: #fff;
-      border: 2px solid #667eea;
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    .vertical-timeline {
+      flex: 0 0 250px;
+      position: relative;
+      padding: 1rem;
+    }
+    .vertical-timeline::before {
+      content: "";
+      position: absolute;
+      left: 30px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #667eea;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-left: 60px;
       cursor: pointer;
-      transition: transform 0.3s ease, border-color 0.3s ease;
     }
-    .career-node:hover {
-      transform: scale(1.05);
-    }
-    .career-node.active-node {
-      border-color: #ffd700;
-    }
-    .career-node .job-title {
+    .timeline-item .timeline-title {
       font-weight: bold;
       font-size: 1rem;
       margin-bottom: 0.3rem;
     }
-    .career-node .job-years {
+    .timeline-item .timeline-date {
       font-size: 0.85rem;
       color: #666;
     }
-    .arrow {
-      font-size: 1.5rem;
-      color: #667eea;
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #667eea;
     }
-    /* Job Details Container */
+    .timeline-item.active .timeline-title,
+    .timeline-item.active .timeline-date {
+      color: #ffd700;
+      font-weight: 700;
+    }
+    /* Job Details Panel */
     .job-details-container {
+      flex: 1;
+      padding: 1rem;
       background: #fff;
       border: 1px solid #ddd;
       border-radius: 8px;
-      padding: 1.5rem;
-      animation: fadeIn 0.5s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      min-height: 200px;
     }
     .job-details {
       display: none;
+      animation: fadeIn 0.5s ease;
     }
     .job-details.active {
       display: block;
@@ -133,12 +133,40 @@
       margin-bottom: 0.5rem;
     }
     .job-details p {
+      margin: 0.3rem 0;
       font-style: italic;
       color: #666;
-      margin-bottom: 0.5rem;
     }
     .job-details ul {
       margin: 0.5rem 0 0 1.2rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    /* Skills Section with Star Ratings */
+    .skills ul {
+      list-style: none;
+      padding: 0;
+    }
+    .skills li {
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0.5rem 0;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+    }
+    .skills li .rating {
+      color: #ffd700;
+      font-size: 1.2rem;
+    }
+    /* Courses List */
+    .courses ul {
+      list-style: disc;
+      padding-left: 1.5rem;
     }
     footer {
       text-align: center;
@@ -147,9 +175,11 @@
       color: #fff;
     }
     @media (max-width: 768px) {
-      .career-node {
-        width: 100px;
-        height: 100px;
+      .timeline-wrapper {
+        flex-direction: column;
+      }
+      .vertical-timeline {
+        flex: 1 0 auto;
       }
     }
   </style>
@@ -161,7 +191,7 @@
   </header>
   <nav>
     <a href="#about">About</a>
-    <a href="#career-map">Career</a>
+    <a href="#career-map">Career Timeline</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
@@ -172,83 +202,83 @@
       <h2>About Me</h2>
       <p>
         I bring over 5 years of Unity experience and a strong passion for programming and game development.
-        With a track record in troubleshooting, team leadership, and creative problem solving, I thrive in fast-paced, collaborative environments.
+        With proven skills in troubleshooting, team leadership, and creative problem solving, I thrive in fast‐paced, collaborative environments.
       </p>
     </section>
     
-    <!-- Horizontal Timeline Section -->
+    <!-- Two-Column Career Timeline Section -->
     <section id="career-map" class="animate__animated animate__fadeInUp">
       <h2>Career Timeline</h2>
-      <div class="timeline">
-        <div class="career-node active-node" data-job="job-renderapp">
-          <div class="job-title">Renderapp</div>
-          <div class="job-years">2021–Present</div>
+      <div class="timeline-wrapper">
+        <!-- Left Column: Timeline -->
+        <div class="vertical-timeline">
+          <div class="timeline-item active" data-job="job-renderapp">
+            <div class="timeline-title">Renderapp</div>
+            <div class="timeline-date">2021 – Present</div>
+          </div>
+          <div class="timeline-item" data-job="job-sita">
+            <div class="timeline-title">SITA / NetSquare</div>
+            <div class="timeline-date">2018 – 2021</div>
+          </div>
+          <div class="timeline-item" data-job="job-iqos">
+            <div class="timeline-title">IQOS Call Center</div>
+            <div class="timeline-date">2017 – 2018</div>
+          </div>
+          <div class="timeline-item" data-job="job-cute">
+            <div class="timeline-title">CUTE Specialist</div>
+            <div class="timeline-date">2014 – 2016</div>
+          </div>
+          <div class="timeline-item" data-job="job-helpdesk">
+            <div class="timeline-title">IT Help Desk</div>
+            <div class="timeline-date">2014</div>
+          </div>
         </div>
-        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-        <div class="career-node" data-job="job-sita">
-          <div class="job-title">SITA / NetSquare</div>
-          <div class="job-years">2018–2021</div>
-        </div>
-        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-        <div class="career-node" data-job="job-iqos">
-          <div class="job-title">IQOS Call Center</div>
-          <div class="job-years">2017–2018</div>
-        </div>
-        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-        <div class="career-node" data-job="job-cute">
-          <div class="job-title">CUTE Specialist</div>
-          <div class="job-years">2014–2016</div>
-        </div>
-        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-        <div class="career-node" data-job="job-helpdesk">
-          <div class="job-title">IT Help Desk</div>
-          <div class="job-years">2014</div>
-        </div>
-      </div>
-      <div class="job-details-container">
-        <div id="job-renderapp" class="job-details active">
-          <h3>Software Engineer / Product Owner / Generalist, Renderapp</h3>
-          <p><em>Feb 2021 — Present | Athens (Full Remote)</em></p>
-          <ul>
-            <li>Maintained and optimized assets for deployment across web, VR, physical, and cloud servers.</li>
-            <li>Integrated legacy projects into "Lite" and "Web Players", reconfigured Azure VMs, and implemented scale sets.</li>
-            <li>Migrated products from Unity's Built-In Render Pipeline to HDRP for enhanced visual fidelity.</li>
-            <li>Collaborated on project estimations, schedules, and timelines.</li>
-            <li>Served as the go-to expert for Unity and technical issues.</li>
-          </ul>
-        </div>
-        <div id="job-sita" class="job-details">
-          <h3>Team Leader, SITA / NetSquare</h3>
-          <p><em>May 2018 — Feb 2021 | Athens</em></p>
-          <ul>
-            <li>Managed team schedules and provided guidance to ensure smooth operations.</li>
-            <li>Oversaw staff training and maintained quality assurance.</li>
-            <li>Ensured seamless connectivity and troubleshooting through effective network management.</li>
-          </ul>
-        </div>
-        <div id="job-iqos" class="job-details">
-          <h3>Customer Support - Tech Support, IQOS Call Center (Teleperformance)</h3>
-          <p><em>Dec 2017 — Mar 2018 | Athens</em></p>
-          <ul>
-            <li>Responded to customer inquiries via phone, email, and social media.</li>
-            <li>Achieved high customer satisfaction with consistently positive reviews.</li>
-          </ul>
-        </div>
-        <div id="job-cute" class="job-details">
-          <h3>CUTE Specialist, Athens International Airport / Printec SA Project</h3>
-          <p><em>Aug 2014 — Nov 2016 | Athens</em></p>
-          <ul>
-            <li>Managed and resolved CUTE inquiries, maintained SLAs, and collaborated with flight companies.</li>
-            <li>Led the upgrade and renewal of Terminal Equipment, including software and hardware installations.</li>
-          </ul>
-        </div>
-        <div id="job-helpdesk" class="job-details">
-          <h3>IT Help Desk Intern, Athens International Airport / Printec SA Project</h3>
-          <p><em>Jan 2014 — Jul 2014 | Athens</em></p>
-          <ul>
-            <li>Provided desktop support and maintained operational documentation.</li>
-            <li>Handled 1st/2nd level support for IT equipment.</li>
-          </ul>
+        <!-- Right Column: Job Details -->
+        <div class="job-details-container">
+          <div id="job-renderapp" class="job-details active">
+            <h3>Software Engineer / Product Owner / Generalist, Renderapp</h3>
+            <p><em>Feb 2021 — Present | Athens (Full Remote)</em></p>
+            <ul>
+              <li>Maintained and optimized assets for deployment across web, VR, physical, and cloud servers.</li>
+              <li>Integrated legacy projects into "Lite" and "Web Players", reconfigured Azure VMs, and implemented scale sets.</li>
+              <li>Migrated products from Unity's Built-In Render Pipeline to HDRP for enhanced visual fidelity.</li>
+              <li>Collaborated on project estimations, schedules, and timelines.</li>
+              <li>Served as the go-to expert for Unity and technical issues.</li>
+            </ul>
+          </div>
+          <div id="job-sita" class="job-details">
+            <h3>Team Leader, SITA / NetSquare</h3>
+            <p><em>May 2018 — Feb 2021 | Athens</em></p>
+            <ul>
+              <li>Managed team schedules and provided guidance to ensure smooth operations.</li>
+              <li>Oversaw staff training and maintained quality assurance.</li>
+              <li>Ensured seamless connectivity and troubleshooting through effective network management.</li>
+            </ul>
+          </div>
+          <div id="job-iqos" class="job-details">
+            <h3>Customer Support - Tech Support, IQOS Call Center (Teleperformance)</h3>
+            <p><em>Dec 2017 — Mar 2018 | Athens</em></p>
+            <ul>
+              <li>Responded to customer inquiries via phone, email, and social media.</li>
+              <li>Achieved high customer satisfaction with consistently positive reviews.</li>
+            </ul>
+          </div>
+          <div id="job-cute" class="job-details">
+            <h3>CUTE Specialist, Athens International Airport / Printec SA Project</h3>
+            <p><em>Aug 2014 — Nov 2016 | Athens</em></p>
+            <ul>
+              <li>Managed and resolved CUTE inquiries, maintained SLAs, and collaborated with flight companies.</li>
+              <li>Led the upgrade and renewal of Terminal Equipment, including software and hardware installations.</li>
+            </ul>
+          </div>
+          <div id="job-helpdesk" class="job-details">
+            <h3>IT Help Desk Intern, Athens International Airport / Printec SA Project</h3>
+            <p><em>Jan 2014 — Jul 2014 | Athens</em></p>
+            <ul>
+              <li>Provided desktop support and maintained operational documentation.</li>
+              <li>Handled 1st/2nd level support for IT equipment.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -317,18 +347,21 @@
   
   <!-- JavaScript for Interactive Timeline -->
   <script>
-    const nodes = document.querySelectorAll('.career-node');
+    const timelineItems = document.querySelectorAll('.timeline-item');
     const jobDetails = document.querySelectorAll('.job-details');
     
-    nodes.forEach(node => {
-      node.addEventListener('click', () => {
-        nodes.forEach(n => n.classList.remove('active-node'));
+    timelineItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Remove active state from all timeline items and hide all job details
+        timelineItems.forEach(i => i.classList.remove('active'));
         jobDetails.forEach(detail => detail.classList.remove('active'));
-        node.classList.add('active-node');
-        const jobId = node.getAttribute('data-job');
-        const activeJob = document.getElementById(jobId);
-        if(activeJob) {
-          activeJob.classList.add('active');
+        
+        // Mark clicked item as active and display the matching job details
+        item.classList.add('active');
+        const jobId = item.getAttribute('data-job');
+        const activeDetail = document.getElementById(jobId);
+        if (activeDetail) {
+          activeDetail.classList.add('active');
         }
       });
     });
