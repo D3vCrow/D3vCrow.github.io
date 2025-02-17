@@ -3,48 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Christoforos Papachristoforou | Career Timeline & Skills</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600&display=swap" rel="stylesheet">
-  <!-- Font Awesome for star icons -->
+  <title>Christoforos Papachristoforou | Dark Mode Portfolio</title>
+  <!-- Google Fonts: Poppins for headings, Roboto for body -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <!-- Optional: Animate.css for scroll animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
-    /* Global Styles */
+    /* Global Dark Mode Styles */
     body {
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
-      color: #333;
+      background: #121212;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    a {
+      color: #64b5f6;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
     header {
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: #fff;
+      background: linear-gradient(135deg, #1f1f1f, #333333);
+      color: #e0e0e0;
       padding: 3rem 1rem;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
     header h1 {
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.8rem;
       margin-bottom: 0.5rem;
     }
+    header p {
+      font-size: 1.2rem;
+    }
     nav {
-      background: #333;
+      background: #1e1e1e;
       padding: 0.75rem;
       text-align: center;
     }
     nav a {
-      color: #fff;
+      color: #e0e0e0;
       margin: 0 1rem;
       font-weight: 600;
       transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #ffd700;
+      color: #64b5f6;
     }
     .container {
       max-width: 1100px;
@@ -55,13 +66,13 @@
       margin-bottom: 3rem;
     }
     h2 {
-      font-family: 'Montserrat', sans-serif;
-      border-bottom: 2px solid #ddd;
+      font-family: 'Poppins', sans-serif;
+      border-bottom: 2px solid #333;
       padding-bottom: 0.5rem;
       margin-bottom: 1.5rem;
-      color: #444;
+      color: #e0e0e0;
     }
-    /* Two-column timeline layout */
+    /* Two-Column Timeline Layout in Dark Mode */
     .timeline-wrapper {
       display: flex;
       gap: 2rem;
@@ -80,7 +91,7 @@
       top: 0;
       bottom: 0;
       width: 4px;
-      background: #667eea;
+      background: #64b5f6;
     }
     .timeline-item {
       position: relative;
@@ -89,13 +100,15 @@
       cursor: pointer;
     }
     .timeline-item .timeline-title {
-      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
       font-size: 1rem;
       margin-bottom: 0.3rem;
+      color: #e0e0e0;
     }
     .timeline-item .timeline-date {
       font-size: 0.85rem;
-      color: #666;
+      color: #aaa;
     }
     .timeline-item::before {
       content: "";
@@ -105,20 +118,20 @@
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: #fff;
-      border: 4px solid #667eea;
+      background: #121212;
+      border: 4px solid #64b5f6;
     }
     .timeline-item.active .timeline-title,
     .timeline-item.active .timeline-date {
-      color: #ffd700;
+      color: #64b5f6;
       font-weight: 700;
     }
     /* Job Details Panel */
     .job-details-container {
       flex: 1;
       padding: 1rem;
-      background: #fff;
-      border: 1px solid #ddd;
+      background: #1e1e1e;
+      border: 1px solid #333;
       border-radius: 8px;
       min-height: 200px;
     }
@@ -130,15 +143,18 @@
       display: block;
     }
     .job-details h3 {
+      font-family: 'Poppins', sans-serif;
       margin-bottom: 0.5rem;
+      color: #e0e0e0;
     }
     .job-details p {
       margin: 0.3rem 0;
       font-style: italic;
-      color: #666;
+      color: #aaa;
     }
     .job-details ul {
       margin: 0.5rem 0 0 1.2rem;
+      color: #ccc;
     }
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -151,15 +167,17 @@
       gap: 2rem;
     }
     .video-card {
-      background: #fff;
-      border: 1px solid #ddd;
+      background: #1e1e1e;
+      border: 1px solid #333;
       border-radius: 8px;
       padding: 1rem;
       flex: 1 1 calc(50% - 2rem);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
     .video-card h3 {
       margin-top: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #e0e0e0;
     }
     .video-wrapper {
       position: relative;
@@ -176,19 +194,22 @@
       width: 100%;
       height: 100%;
     }
+    .video-card p {
+      color: #ccc;
+    }
     /* Skills Section with Star Ratings */
     .skills ul {
       list-style: none;
       padding: 0;
     }
     .skills li {
-      background: #fff;
+      background: #1e1e1e;
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin: 0.5rem 0;
       padding: 0.5rem 1rem;
-      border: 1px solid #ddd;
+      border: 1px solid #333;
       border-radius: 20px;
     }
     .skills li .rating {
@@ -199,12 +220,13 @@
     .courses ul {
       list-style: disc;
       padding-left: 1.5rem;
+      color: #ccc;
     }
     footer {
       text-align: center;
       padding: 1.5rem;
-      background: #333;
-      color: #fff;
+      background: #1e1e1e;
+      color: #aaa;
     }
     @media (max-width: 768px) {
       .timeline-wrapper {
@@ -409,11 +431,8 @@
     
     timelineItems.forEach(item => {
       item.addEventListener('click', () => {
-        // Remove active state from all timeline items and hide all job details
         timelineItems.forEach(i => i.classList.remove('active'));
         jobDetails.forEach(detail => detail.classList.remove('active'));
-        
-        // Mark clicked item as active and display the matching job details
         item.classList.add('active');
         const jobId = item.getAttribute('data-job');
         const activeDetail = document.getElementById(jobId);
