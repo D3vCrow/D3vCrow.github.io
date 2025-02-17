@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Christoforos Papachristoforou | Career Map & Skills</title>
+  <title>Christoforos Papachristoforou | Career Timeline & Skills</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600&display=swap" rel="stylesheet">
-  <!-- Font Awesome for arrow and star icons -->
+  <!-- Font Awesome for star icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <!-- Optional: Animate.css for scroll animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -16,7 +16,7 @@
       font-family: 'Open Sans', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background: #f4f4f4;
       color: #333;
     }
     header {
@@ -24,14 +24,13 @@
       color: #fff;
       padding: 3rem 1rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
     header h1 {
       font-family: 'Montserrat', sans-serif;
       font-size: 2.8rem;
       margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
     }
     nav {
       background: #333;
@@ -62,49 +61,74 @@
       margin-bottom: 1.5rem;
       color: #444;
     }
-    /* Timeline (Career Map) Styles */
-    .timeline {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 2rem;
+    /* Vertical Timeline Styles */
+    .vertical-timeline {
+      position: relative;
+      margin: 0 auto;
+      padding: 1rem 0;
+      width: 90%;
     }
-    .career-node {
+    /* The vertical line */
+    .vertical-timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #667eea;
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 1rem 2rem;
+      box-sizing: border-box;
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+    }
+    .timeline-item .timeline-content {
       background: #fff;
-      border: 2px solid #667eea;
-      border-radius: 50%;
-      width: 120px;
-      height: 120px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      padding: 1rem;
+      border-radius: 8px;
+      position: relative;
+      transition: transform 0.3s ease, opacity 0.3s ease;
       cursor: pointer;
-      text-align: center;
-      transition: transform 0.3s ease, border-color 0.3s ease;
     }
-    .career-node:hover {
-      transform: scale(1.05);
+    .timeline-item .timeline-content:hover {
+      transform: scale(1.02);
     }
-    .career-node.active-node {
-      border-color: #ffd700;
+    /* The circle (node) */
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      top: 1.2rem;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #667eea;
+      z-index: 1;
     }
-    .career-node .job-title {
-      font-weight: bold;
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
+    .timeline-item:nth-child(odd)::before {
+      right: -10px;
     }
-    .career-node .job-years {
-      font-size: 0.8rem;
+    .timeline-item:nth-child(even)::before {
+      left: -10px;
+    }
+    .timeline-date {
+      display: block;
+      font-size: 0.85rem;
       color: #666;
+      margin-top: 0.5rem;
     }
-    .arrow {
-      font-size: 1.5rem;
-      color: #667eea;
-    }
-    /* Job Details Container */
+    /* Job Details Section */
     .job-details-container {
       margin-top: 2rem;
     }
@@ -114,12 +138,13 @@
       border: 1px solid #ddd;
       padding: 1.5rem;
       border-radius: 8px;
+      animation: fadeIn 0.5s ease;
     }
     .job-details.active {
       display: block;
     }
     .job-details h3 {
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
     }
     .job-details p {
       margin: 0.3rem 0;
@@ -129,7 +154,7 @@
     .job-details ul {
       margin: 0.5rem 0 0 1.2rem;
     }
-    /* Skills with Star Ratings */
+    /* Skills Section with Star Ratings */
     .skills ul {
       list-style: none;
       padding: 0;
@@ -159,14 +184,21 @@
       background: #333;
       color: #fff;
     }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
     @media (max-width: 768px) {
-      nav a {
-        display: block;
-        margin: 0.5rem 0;
+      .timeline-item {
+        width: 100%;
+        text-align: left !important;
+        padding: 1rem;
       }
-      .career-node {
-        width: 100px;
-        height: 100px;
+      .vertical-timeline::before {
+        left: 20px;
+      }
+      .timeline-item::before {
+        left: 10px !important;
       }
     }
   </style>
@@ -178,7 +210,7 @@
   </header>
   <nav>
     <a href="#about">About</a>
-    <a href="#career-map">Career Map</a>
+    <a href="#career-map">Career Timeline</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
@@ -188,40 +220,51 @@
     <section id="about" class="animate__animated animate__fadeInUp">
       <h2>About Me</h2>
       <p>
-        With a strong passion for programming and game development, I bring over 5 years of Unity experience alongside proven skills in troubleshooting, team leadership, and communication. I thrive under pressure, working both independently and as part of a team.
+        I bring over 5 years of Unity experience and a strong passion for programming and game development. With a track record in troubleshooting, team leadership, and creative problem solving, I thrive in fast-paced, collaborative environments.
       </p>
     </section>
     
-    <!-- Interactive Career Map Section -->
+    <!-- Vertical Timeline Section -->
     <section id="career-map" class="animate__animated animate__fadeInUp">
-      <h2>Career Map</h2>
-      <p style="text-align:center; color:#666;">Click on a job to view details</p>
-      <div class="timeline">
-        <div class="career-node active-node" data-job="job-renderapp">
-          <span class="job-title">Renderapp</span>
-          <span class="job-years">2021–Present</span>
+      <h2>Career Timeline</h2>
+      <div class="vertical-timeline">
+        <!-- Timeline Item 1 -->
+        <div class="timeline-item" data-job="job-renderapp">
+          <div class="timeline-content">
+            <h3>Renderapp</h3>
+            <span class="timeline-date">2021 – Present</span>
+          </div>
         </div>
-        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-        <div class="career-node" data-job="job-sita">
-          <span class="job-title">SITA / NetSquare</span>
-          <span class="job-years">2018–2021</span>
+        <!-- Timeline Item 2 -->
+        <div class="timeline-item" data-job="job-sita">
+          <div class="timeline-content">
+            <h3>SITA / NetSquare</h3>
+            <span class="timeline-date">2018 – 2021</span>
+          </div>
         </div>
-        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-        <div class="career-node" data-job="job-iqos">
-          <span class="job-title">IQOS Call Center</span>
-          <span class="job-years">2017–2018</span>
+        <!-- Timeline Item 3 -->
+        <div class="timeline-item" data-job="job-iqos">
+          <div class="timeline-content">
+            <h3>IQOS Call Center</h3>
+            <span class="timeline-date">2017 – 2018</span>
+          </div>
         </div>
-        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-        <div class="career-node" data-job="job-cute">
-          <span class="job-title">CUTE Specialist</span>
-          <span class="job-years">2014–2016</span>
+        <!-- Timeline Item 4 -->
+        <div class="timeline-item" data-job="job-cute">
+          <div class="timeline-content">
+            <h3>CUTE Specialist</h3>
+            <span class="timeline-date">2014 – 2016</span>
+          </div>
         </div>
-        <div class="arrow"><i class="fas fa-arrow-right"></i></div>
-        <div class="career-node" data-job="job-helpdesk">
-          <span class="job-title">IT Help Desk</span>
-          <span class="job-years">2014</span>
+        <!-- Timeline Item 5 -->
+        <div class="timeline-item" data-job="job-helpdesk">
+          <div class="timeline-content">
+            <h3>IT Help Desk</h3>
+            <span class="timeline-date">2014</span>
+          </div>
         </div>
       </div>
+      <!-- Job Details Container -->
       <div class="job-details-container">
         <div id="job-renderapp" class="job-details active">
           <h3>Software Engineer / Product Owner / Generalist, Renderapp</h3>
@@ -235,7 +278,7 @@
           </ul>
         </div>
         <div id="job-sita" class="job-details">
-          <h3>Team Leader, Service Operations Engineers/Site Administrators/System Engineers for SITA, NetSquare</h3>
+          <h3>Team Leader, SITA / NetSquare</h3>
           <p><em>May 2018 — Feb 2021 | Athens</em></p>
           <ul>
             <li>Managed team schedules and provided guidance to ensure smooth operations.</li>
@@ -334,20 +377,18 @@
   
   <!-- JavaScript for Interactive Timeline -->
   <script>
-    // Get all career nodes and job details
-    const nodes = document.querySelectorAll('.career-node');
+    const timelineItems = document.querySelectorAll('.timeline-item');
     const jobDetails = document.querySelectorAll('.job-details');
     
-    nodes.forEach(node => {
-      node.addEventListener('click', () => {
-        // Remove active class from all nodes and hide all job details
-        nodes.forEach(n => n.classList.remove('active-node'));
+    timelineItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Remove active state from all timeline items and hide all job details
+        timelineItems.forEach(i => i.classList.remove('active'));
         jobDetails.forEach(detail => detail.classList.remove('active'));
         
-        // Mark the clicked node as active
-        node.classList.add('active-node');
-        // Get the related job details ID from the data attribute
-        const jobId = node.getAttribute('data-job');
+        // Set this item as active
+        item.classList.add('active');
+        const jobId = item.getAttribute('data-job');
         const activeJob = document.getElementById(jobId);
         if (activeJob) {
           activeJob.classList.add('active');
