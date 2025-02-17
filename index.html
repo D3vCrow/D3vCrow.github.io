@@ -197,25 +197,32 @@
     .video-card p {
       color: #ccc;
     }
-    /* Skills Section with Two-Column Layout */
-    .skills ul {
+    /* Skills Section with Categories and Two-Column Layout */
+    .skill-category {
+      margin-bottom: 2rem;
+    }
+    .skill-category h3 {
+      font-family: 'Poppins', sans-serif;
+      color: #e0e0e0;
+      margin-bottom: 1rem;
+    }
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
       list-style: none;
       padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
     }
-    .skills li {
-      flex: 0 0 calc(50% - 1rem);
+    .skills-list li {
       background: #1e1e1e;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       padding: 0.5rem 1rem;
       border: 1px solid #333;
       border-radius: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .skills li .rating {
+    .skills-list li .rating {
       color: #ffd700;
       font-size: 1.2rem;
     }
@@ -365,20 +372,112 @@
       </div>
     </section>
     
-    <!-- Skills Section with Two-Column Layout -->
+    <!-- Skills Section with Categories and Two-Column Layout -->
     <section id="skills" class="animate__animated animate__fadeInUp">
       <h2>Skills</h2>
-      <div class="skills">
-        <ul>
-          <li>Unity <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></li>
-          <li>C# <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></li>
-          <li>Video &amp; Image Editing <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span></li>
-          <li>Image Generative <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></li>
-          <li>Python <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span></li>
-          <li>Azure VMs &amp; Scalesets <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span></li>
-          <li>RizomUV <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></li>
-          <li>3DS Max <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></li>
-          <li>JavaScript <span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></li>
+      <div class="skill-category">
+        <h3>Programming &amp; Scripting</h3>
+        <ul class="skills-list">
+          <li>
+            Unity 
+            <span class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </span>
+          </li>
+          <li>
+            C# 
+            <span class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </span>
+          </li>
+          <li>
+            Python 
+            <span class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+          </li>
+          <li>
+            JavaScript 
+            <span class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>Design &amp; Creative</h3>
+        <ul class="skills-list">
+          <li>
+            Video &amp; Image Editing 
+            <span class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+          </li>
+          <li>
+            Image Generative 
+            <span class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+          </li>
+          <li>
+            3DS Max 
+            <span class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+          </li>
+          <li>
+            RizomUV 
+            <span class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="skill-category">
+        <h3>Infrastructure &amp; Tools</h3>
+        <ul class="skills-list">
+          <li>
+            Azure VMs &amp; Scalesets 
+            <span class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </span>
+          </li>
         </ul>
       </div>
     </section>
