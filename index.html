@@ -4,14 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Christoforos Papachristoforou | Dark Mode Portfolio</title>
-  <!-- Google Fonts: Poppins for headings, Roboto for body -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <!-- Optional: Animate.css for scroll animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
   <style>
-    /* Global Dark Mode Styles */
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
@@ -72,7 +68,6 @@
       margin-bottom: 1.5rem;
       color: #e0e0e0;
     }
-    /* Two-Column Timeline Layout in Dark Mode */
     .timeline-wrapper {
       display: flex;
       gap: 2rem;
@@ -126,7 +121,6 @@
       color: #64b5f6;
       font-weight: 700;
     }
-    /* Job Details Panel */
     .job-details-container {
       flex: 1;
       padding: 1rem;
@@ -160,7 +154,6 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-    /* Showcase Videos Section */
     .video-cards {
       display: flex;
       flex-wrap: wrap;
@@ -197,7 +190,6 @@
     .video-card p {
       color: #ccc;
     }
-    /* Published Games Section */
     .game-cards {
       display: flex;
       flex-wrap: wrap;
@@ -210,17 +202,37 @@
       padding: 1rem;
       flex: 1 1 100%;
       box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+      text-align: center;
     }
     .game-card h3 {
       font-family: 'Poppins', sans-serif;
       color: #e0e0e0;
     }
+    .game-thumbnail {
+      margin-bottom: 1rem;
+    }
     .game-thumbnail img {
       width: 100%;
+      max-width: 600px;
       border-radius: 4px;
+      cursor: pointer;
+    }
+    .game-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #64b5f6;
+      color: #121212;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .game-button:hover {
+      background: #42a5f5;
     }
     .game-reviews {
       margin-top: 1rem;
+      text-align: left;
     }
     .game-reviews h4 {
       margin-bottom: 0.5rem;
@@ -235,7 +247,6 @@
       color: #ccc;
       font-size: 0.9rem;
     }
-    /* Skills Section with Categories and Two-Column Layout */
     .skill-category {
       margin-bottom: 2rem;
     }
@@ -264,7 +275,6 @@
       color: #ffd700;
       font-size: 1.2rem;
     }
-    /* Courses List */
     .courses ul {
       list-style: disc;
       padding-left: 1.5rem;
@@ -304,7 +314,6 @@
     <a href="#contact">Contact</a>
   </nav>
   <div class="container">
-    <!-- About Section -->
     <section id="about" class="animate__animated animate__fadeInUp">
       <h2>About Me</h2>
       <p>
@@ -312,12 +321,9 @@
         With proven skills in troubleshooting, team leadership, and creative problem solving, I thrive in fast‐paced, collaborative environments.
       </p>
     </section>
-    
-    <!-- Two-Column Career Timeline Section -->
     <section id="career-map" class="animate__animated animate__fadeInUp">
       <h2>Career Timeline</h2>
       <div class="timeline-wrapper">
-        <!-- Left Column: Timeline -->
         <div class="vertical-timeline">
           <div class="timeline-item active" data-job="job-renderapp">
             <div class="timeline-title">Renderapp</div>
@@ -340,7 +346,6 @@
             <div class="timeline-date">2014</div>
           </div>
         </div>
-        <!-- Right Column: Job Details -->
         <div class="job-details-container">
           <div id="job-renderapp" class="job-details active">
             <h3>Software Engineer / Product Owner / Generalist, Renderapp</h3>
@@ -389,8 +394,6 @@
         </div>
       </div>
     </section>
-    
-    <!-- Showcase Videos Section -->
     <section id="videos" class="animate__animated animate__fadeInUp">
       <h2>Showcase Videos</h2>
       <div class="video-cards">
@@ -410,19 +413,17 @@
         </div>
       </div>
     </section>
-    
-    <!-- Published Games Section -->
     <section id="published-games" class="animate__animated animate__fadeInUp">
       <h2>Published Games</h2>
       <div class="game-cards">
         <div class="game-card">
           <h3>Darn My Barn</h3>
           <div class="game-thumbnail">
-            <!-- Replace this placeholder image with an actual thumbnail if available -->
-            <img src="https://via.placeholder.com/600x300?text=Darn+My+Barn" alt="Darn My Barn">
+            <a href="https://d3vcrow.itch.io/darn-my-barn" target="_blank">
+              <img src="darn-my-barn.png" alt="Darn My Barn">
+            </a>
           </div>
-          <p>Check out my published game on itch.io:</p>
-          <a href="https://d3vcrow.itch.io/darn-my-barn" target="_blank">View Game on itch.io</a>
+          <a class="game-button" href="https://d3vcrow.itch.io/darn-my-barn" target="_blank">View on itch.io</a>
           <div class="game-reviews">
             <h4>Reviews</h4>
             <div class="review">
@@ -431,13 +432,10 @@
             <div class="review">
               <p>"A fresh take on barn-themed puzzles. Highly recommended!" – GamerGal</p>
             </div>
-            <!-- Additional reviews can be added here -->
           </div>
         </div>
       </div>
     </section>
-    
-    <!-- Skills Section with Categories and Two-Column Layout -->
     <section id="skills" class="animate__animated animate__fadeInUp">
       <h2>Skills</h2>
       <div class="skill-category">
@@ -546,8 +544,6 @@
         </ul>
       </div>
     </section>
-    
-    <!-- Education Section with Courses List -->
     <section id="education" class="animate__animated animate__fadeInUp">
       <h2>Education &amp; Certifications</h2>
       <div class="education">
@@ -571,8 +567,6 @@
         </ul>
       </div>
     </section>
-    
-    <!-- Contact Section -->
     <section id="contact" class="animate__animated animate__fadeInUp">
       <h2>Contact</h2>
       <p><strong>Location:</strong> Athens, Greece</p>
@@ -590,12 +584,9 @@
   <footer>
     <p>© 2025 Christoforos Papachristoforou. All rights reserved.</p>
   </footer>
-  
-  <!-- JavaScript for Interactive Timeline -->
   <script>
     const timelineItems = document.querySelectorAll('.timeline-item');
     const jobDetails = document.querySelectorAll('.job-details');
-    
     timelineItems.forEach(item => {
       item.addEventListener('click', () => {
         timelineItems.forEach(i => i.classList.remove('active'));
