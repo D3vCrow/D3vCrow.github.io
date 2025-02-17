@@ -144,6 +144,38 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    /* Showcase Videos Section */
+    .video-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .video-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      flex: 1 1 calc(50% - 2rem);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .video-card h3 {
+      margin-top: 0;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
     /* Skills Section with Star Ratings */
     .skills ul {
       list-style: none;
@@ -181,6 +213,9 @@
       .vertical-timeline {
         flex: 1 0 auto;
       }
+      .video-card {
+        flex: 1 1 100%;
+      }
     }
   </style>
 </head>
@@ -192,6 +227,7 @@
   <nav>
     <a href="#about">About</a>
     <a href="#career-map">Career Timeline</a>
+    <a href="#videos">Showcase Videos</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
@@ -279,6 +315,27 @@
               <li>Handled 1st/2nd level support for IT equipment.</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Showcase Videos Section -->
+    <section id="videos" class="animate__animated animate__fadeInUp">
+      <h2>Showcase Videos</h2>
+      <div class="video-cards">
+        <div class="video-card">
+          <h3>GameDev Portfolio Showcase</h3>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/o-XRYep4vts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <p>This video highlights my gamedev portfolio, providing a brief overview of key projects and creative accomplishments.</p>
+        </div>
+        <div class="video-card">
+          <h3>Unity VR Project for German Airport (Fraport)</h3>
+          <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/U6li63-H0Y0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <p>Discover the innovative Unity VR project developed for German Airport (Fraport), showcasing immersive design and technical expertise.</p>
         </div>
       </div>
     </section>
