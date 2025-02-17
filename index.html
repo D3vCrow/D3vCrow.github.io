@@ -1,36 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D3vcrow - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name | Game Developer Portfolio</title>
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .content {
+      padding: 2rem;
+    }
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .project {
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 1rem;
+      width: calc(33% - 2rem);
+      box-sizing: border-box;
+      border-radius: 5px;
+    }
+    @media (max-width: 768px) {
+      .project {
+        width: calc(50% - 2rem);
+      }
+    }
+    @media (max-width: 480px) {
+      .project {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>D3vcrow</h1>
-        <p>Unity Developer | C# Programmer</p>
-    </header>
-    
+  <header>
+    <h1>Your Name</h1>
+    <p>Game Developer Portfolio</p>
+  </header>
+  <div class="content">
     <section id="about">
-        <h2>About Me</h2>
-        <p>Passionate game developer specializing in Unity and C#.</p>
+      <h2>About Me</h2>
+      <p>Hi, I'm a game developer specializing in [your specialty]. I love creating interactive and engaging games. Welcome to my portfolio!</p>
     </section>
-    
     <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-list">
-            <!-- Project entries will go here -->
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <h3>Project Title 1</h3>
+          <p>Brief description of project.</p>
+          <a href="https://link-to-project.com" target="_blank">View Project</a>
         </div>
+        <div class="project">
+          <h3>Project Title 2</h3>
+          <p>Brief description of project.</p>
+          <a href="https://link-to-project.com" target="_blank">View Project</a>
+        </div>
+        <!-- Add more project blocks as needed -->
+      </div>
     </section>
-    
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Reach me at <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <h2>Contact</h2>
+      <p>Get in touch via <a href="mailto:your-email@example.com">your-email@example.com</a></p>
     </section>
-    
-    <footer>
-        <p>&copy; 2025 D3vcrow. All rights reserved.</p>
-    </footer>
+  </div>
 </body>
 </html>
