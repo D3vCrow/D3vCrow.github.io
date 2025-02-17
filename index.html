@@ -197,6 +197,44 @@
     .video-card p {
       color: #ccc;
     }
+    /* Published Games Section */
+    .game-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .game-card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 1rem;
+      flex: 1 1 100%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+    }
+    .game-card h3 {
+      font-family: 'Poppins', sans-serif;
+      color: #e0e0e0;
+    }
+    .game-thumbnail img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .game-reviews {
+      margin-top: 1rem;
+    }
+    .game-reviews h4 {
+      margin-bottom: 0.5rem;
+      font-family: 'Poppins', sans-serif;
+      color: #e0e0e0;
+    }
+    .game-reviews .review {
+      background: #121212;
+      padding: 0.5rem;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      color: #ccc;
+      font-size: 0.9rem;
+    }
     /* Skills Section with Categories and Two-Column Layout */
     .skill-category {
       margin-bottom: 2rem;
@@ -254,12 +292,13 @@
 <body>
   <header class="animate__animated animate__fadeIn">
     <h1>Christoforos Papachristoforou</h1>
-    <p>Software Engineer & IT Specialist | Game Developer</p>
+    <p>Software Engineer &amp; IT Specialist | Game Developer</p>
   </header>
   <nav>
     <a href="#about">About</a>
     <a href="#career-map">Career Timeline</a>
     <a href="#videos">Showcase Videos</a>
+    <a href="#published-games">Published Games</a>
     <a href="#skills">Skills</a>
     <a href="#education">Education</a>
     <a href="#contact">Contact</a>
@@ -368,6 +407,32 @@
             <iframe src="https://www.youtube.com/embed/U6li63-H0Y0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <p>Discover the innovative Unity VR project developed for German Airport (Fraport), showcasing immersive design and technical expertise.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Published Games Section -->
+    <section id="published-games" class="animate__animated animate__fadeInUp">
+      <h2>Published Games</h2>
+      <div class="game-cards">
+        <div class="game-card">
+          <h3>Darn My Barn</h3>
+          <div class="game-thumbnail">
+            <!-- Replace this placeholder image with an actual thumbnail if available -->
+            <img src="https://via.placeholder.com/600x300?text=Darn+My+Barn" alt="Darn My Barn">
+          </div>
+          <p>Check out my published game on itch.io:</p>
+          <a href="https://d3vcrow.itch.io/darn-my-barn" target="_blank">View Game on itch.io</a>
+          <div class="game-reviews">
+            <h4>Reviews</h4>
+            <div class="review">
+              <p>"Amazing game with creative design and engaging gameplay!" – User123</p>
+            </div>
+            <div class="review">
+              <p>"A fresh take on barn-themed puzzles. Highly recommended!" – GamerGal</p>
+            </div>
+            <!-- Additional reviews can be added here -->
+          </div>
         </div>
       </div>
     </section>
