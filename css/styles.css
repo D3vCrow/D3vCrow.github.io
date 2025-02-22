@@ -19,6 +19,13 @@ a:hover {
   color: #90caf9;
 }
 
+/* Container */
+#content, .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 /* Header */
 header {
   background: linear-gradient(135deg, #1f1f1f, #333333);
@@ -59,13 +66,7 @@ nav a:hover {
   color: #90caf9;
 }
 
-/* Container & Sections */
-#content, .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
+/* Sections */
 section {
   margin-bottom: 3rem;
 }

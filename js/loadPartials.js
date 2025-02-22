@@ -1,7 +1,7 @@
 const partials = [
   { id: "about-section", url: "partials/about.html" },
   { id: "review-section", url: "partials/review.html" },
-  { id: "videos-section", url: "partials/videos.html" },
+  { id: "videos-section", url: "partials/showcases.html" },
   { id: "freelancing-section", url: "partials/freelancing.html" },
   { id: "published-games-section", url: "partials/published-games.html" },
   { id: "contact-section", url: "partials/contact.html" }
@@ -16,7 +16,7 @@ const fetchPromises = partials.map(partial => {
 });
 
 Promise.all(fetchPromises).then(() => {
-  // Initialize tab and timeline functionality after all partials load.
+  // Initialize tabs and timeline functionality after all partials load.
   initTabs();
   initTimeline();
 });
@@ -24,6 +24,7 @@ Promise.all(fetchPromises).then(() => {
 function initTabs() {
   const tabButtons = document.querySelectorAll(".tab-button");
   const tabContents = document.querySelectorAll(".tab-content");
+
   tabButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       tabButtons.forEach(b => b.classList.remove("active"));
@@ -41,6 +42,7 @@ function initTabs() {
 function initTimeline() {
   const timelineItems = document.querySelectorAll(".timeline-item");
   const jobDetails = document.querySelectorAll(".job-details");
+
   timelineItems.forEach(item => {
     item.addEventListener("click", () => {
       timelineItems.forEach(i => i.classList.remove("active"));
