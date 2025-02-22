@@ -1,10 +1,10 @@
-// matrix-effect.js
+// js/matrix-effect.js
 
-// Get the canvas and its context
+// Get the canvas and context
 var canvas = document.getElementById("matrix");
 var ctx = canvas.getContext("2d");
 
-// Resize the canvas to full screen
+// Resize canvas to full screen
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -18,29 +18,49 @@ letters = letters.split("");
 
 // Set font size and calculate columns
 var fontSize = 16;
-var columns = canvas.width / fontSize;
+var columns = Math.floor(canvas.width / fontSize);
 
-// Create an array of drops - one per column
+// Create an array of drops—one per column
 var drops = [];
 for (var i = 0; i < columns; i++) {
-  drops[i] = 1; // start at the top
+  drops[i] = 1;
+}
+
+// Define the excluded region (central 40% of the screen)
+function getExcludeRegion() {
+  return {
+    start: canvas.width * 0.3,
+    end: canvas.width * 0.7
+  };
 }
 
 // Draw function
 function draw() {
-  // Create a semi-transparent black background to produce the fade effect
+  // Create a semi-transparent black background for the fade effect
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "#0F0"; // Matrix green
+  // Set font properties
   ctx.font = fontSize + "px monospace";
+  ctx.fillStyle = "#0F0"; // Matrix green
 
-  // Loop over drops
+  // Get the excluded central region
+  var region = getExcludeRegion();
+
+  // Loop over drops (columns)
   for (var i = 0; i < drops.length; i++) {
-    var text = letters[Math.floor(Math.random() * letters.length)];
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    var x = i * fontSize;
+    // If the x-coordinate falls within the central exclusion region, skip drawing
+    if (x >= region.start && x <= region.end) {
+      continue;
+    }
 
-    // Reset drop after it passes the bottom, or at random
+    // Pick a random character
+    var text = letters[Math.floor(Math.random() * letters.length)];
+    // Draw the character at the computed column and drop position
+    ctx.fillText(text, x, drops[i] * fontSize);
+
+    // Reset drop if it reaches the bottom (or with a slight random chance)
     if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
       drops[i] = 0;
     }
@@ -48,4 +68,5 @@ function draw() {
   }
 }
 
+// Run the draw function repeatedly (~30fps)
 setInterval(draw, 33);
