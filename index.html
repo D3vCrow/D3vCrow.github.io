@@ -5,47 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Christoforos Papachristoforou | Dark Mode Portfolio</title>
   <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
   <!-- Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <!-- Animate.css (Optional) -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <style>
     /* Global Dark Mode Styles */
     body {
       font-family: "Roboto", sans-serif;
       margin: 0;
       padding: 0;
-      background: #121212;
-      background: radial-gradient(
-        circle at top left,
-        #1f1f1f 20%,
-        #121212 80%
-      );
+      background: radial-gradient(circle at top left, #1f1f1f 20%, #121212 80%);
       color: #e0e0e0;
       line-height: 1.6;
     }
-
     a {
       color: #64b5f6;
       text-decoration: none;
       transition: color 0.3s ease;
     }
     a:hover {
-      text-decoration: underline;
       color: #90caf9;
+      text-decoration: underline;
     }
-
-    /* Header */
     header {
       background: linear-gradient(135deg, #1f1f1f, #333333);
       color: #e0e0e0;
@@ -63,8 +46,6 @@
       font-size: 1.2rem;
       color: #bdbdbd;
     }
-
-    /* Navigation */
     nav {
       background: #1e1e1e;
       padding: 0.75rem;
@@ -75,13 +56,7 @@
       color: #e0e0e0;
       margin: 0 1rem;
       font-weight: 600;
-      transition: color 0.3s ease;
     }
-    nav a:hover {
-      color: #90caf9;
-    }
-
-    /* Container & Sections */
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -102,7 +77,38 @@
       color: #90caf9;
       border-color: #90caf9;
     }
-
+    /* Tabs Styles */
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .tab-button {
+      flex: 1;
+      padding: 0.75rem;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 4px;
+      color: #e0e0e0;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .tab-button.active {
+      background: #64b5f6;
+      color: #121212;
+    }
+    .tab-contents {
+      background: #1e1e1e;
+      padding: 1rem;
+      border-radius: 4px;
+      border: 1px solid #333;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
     /* Timeline Layout */
     .timeline-wrapper {
       display: flex;
@@ -161,7 +167,6 @@
       color: #64b5f6;
       font-weight: 700;
     }
-
     .job-details-container {
       flex: 1;
       padding: 1rem;
@@ -192,16 +197,10 @@
       margin: 0.5rem 0 0 1.2rem;
       color: #ccc;
     }
-
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-
     /* Video Cards */
     .video-cards {
       display: flex;
@@ -214,12 +213,12 @@
       border-radius: 8px;
       padding: 1rem;
       flex: 1 1 calc(50% - 2rem);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.8);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .video-card:hover {
       transform: scale(1.02);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.6);
     }
     .video-card h3 {
       margin-top: 0;
@@ -244,7 +243,6 @@
     .video-card p {
       color: #ccc;
     }
-
     /* Published Games */
     .game-cards {
       display: flex;
@@ -258,13 +256,13 @@
       border-radius: 8px;
       padding: 1rem;
       max-width: 400px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.8);
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .game-card:hover {
       transform: scale(1.02);
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.6);
     }
     .game-card h3 {
       font-family: "Poppins", sans-serif;
@@ -294,7 +292,6 @@
     .game-button:hover {
       background: #42a5f5;
     }
-
     /* Skills Section */
     .skill-category {
       margin-bottom: 2rem;
@@ -329,15 +326,12 @@
       color: #ffd700;
       font-size: 1.2rem;
     }
-
     /* Courses */
     .courses ul {
       list-style: disc;
       padding-left: 1.5rem;
       color: #ccc;
     }
-
-    /* Footer */
     footer {
       text-align: center;
       padding: 1.5rem;
@@ -345,7 +339,6 @@
       color: #aaa;
       box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4);
     }
-
     @media (max-width: 768px) {
       .timeline-wrapper {
         flex-direction: column;
@@ -357,15 +350,6 @@
         flex: 1 1 100%;
       }
     }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
   </style>
 </head>
 <body>
@@ -375,12 +359,10 @@
   </header>
   <nav>
     <a href="#about">About</a>
-    <a href="#career-map">Career Timeline</a>
+    <a href="#review-tabs">Review</a>
     <a href="#videos">Showcase Videos</a>
     <a href="#freelancing">Freelancing</a>
     <a href="#published-games">Published Games</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
     <a href="#contact">Contact</a>
   </nav>
   <div class="container">
@@ -392,94 +374,214 @@
         With proven skills in troubleshooting, team leadership, and creative problem solving, I thrive in fast‐paced, collaborative environments.
       </p>
     </section>
-    
-    <!-- CAREER TIMELINE -->
-    <section id="career-map" class="animate__animated animate__fadeInUp">
-      <h2>Career Timeline</h2>
-      <div class="timeline-wrapper">
-        <div class="vertical-timeline">
-          <div class="timeline-item active" data-job="job-renderapp">
-            <div class="timeline-title">Renderapp</div>
-            <div class="timeline-date">2021 – Present</div>
-          </div>
-          <div class="timeline-item" data-job="job-sita">
-            <div class="timeline-title">SITA / NetSquare</div>
-            <div class="timeline-date">2018 – 2021</div>
-          </div>
-          <div class="timeline-item" data-job="job-iqos">
-            <div class="timeline-title">IQOS Call Center</div>
-            <div class="timeline-date">2017 – 2018</div>
-          </div>
-          <div class="timeline-item" data-job="job-cute">
-            <div class="timeline-title">CUTE Specialist</div>
-            <div class="timeline-date">2014 – 2016</div>
-          </div>
-          <div class="timeline-item" data-job="job-helpdesk">
-            <div class="timeline-title">IT Help Desk</div>
-            <div class="timeline-date">2014</div>
-          </div>
-          <div class="timeline-item" data-job="job-earlyroles">
-            <div class="timeline-title">Early Roles</div>
-            <div class="timeline-date">2007 – 2013</div>
+
+    <!-- TABS SECTION: REVIEW -->
+    <section id="review-tabs" class="animate__animated animate__fadeInUp">
+      <h2>Review</h2>
+      <div class="tabs">
+        <button class="tab-button active" data-tab="career-tab">Career Timeline</button>
+        <button class="tab-button" data-tab="skills-tab">Skills</button>
+        <button class="tab-button" data-tab="education-tab">Education</button>
+      </div>
+      <div class="tab-contents">
+        <div class="tab-content active" id="career-tab">
+          <div class="timeline-wrapper">
+            <div class="vertical-timeline">
+              <div class="timeline-item active" data-job="job-renderapp">
+                <div class="timeline-title">Renderapp</div>
+                <div class="timeline-date">2021 – Present</div>
+              </div>
+              <div class="timeline-item" data-job="job-sita">
+                <div class="timeline-title">SITA / NetSquare</div>
+                <div class="timeline-date">2018 – 2021</div>
+              </div>
+              <div class="timeline-item" data-job="job-iqos">
+                <div class="timeline-title">IQOS Call Center</div>
+                <div class="timeline-date">2017 – 2018</div>
+              </div>
+              <div class="timeline-item" data-job="job-cute">
+                <div class="timeline-title">CUTE Specialist</div>
+                <div class="timeline-date">2014 – 2016</div>
+              </div>
+              <div class="timeline-item" data-job="job-helpdesk">
+                <div class="timeline-title">IT Help Desk</div>
+                <div class="timeline-date">2014</div>
+              </div>
+              <div class="timeline-item" data-job="job-earlyroles">
+                <div class="timeline-title">Early Roles</div>
+                <div class="timeline-date">2007 – 2013</div>
+              </div>
+            </div>
+            <div class="job-details-container">
+              <div id="job-renderapp" class="job-details active">
+                <h3>Software Engineer / Product Owner / Generalist, Renderapp</h3>
+                <p><em>Feb 2021 — Present | Athens (Full Remote)</em></p>
+                <ul>
+                  <li>Maintained and optimized assets for deployment across web, VR, physical, and cloud servers.</li>
+                  <li>Integrated legacy projects into "Lite" and "Web Players", reconfigured Azure VMs, and implemented scale sets.</li>
+                  <li>Migrated products from Unity's Built-In Render Pipeline to HDRP for enhanced visual fidelity.</li>
+                  <li>Collaborated on project estimations, schedules, and timelines.</li>
+                  <li>Served as the go-to expert for Unity and technical issues.</li>
+                </ul>
+              </div>
+              <div id="job-sita" class="job-details">
+                <h3>Team Leader, SITA / NetSquare</h3>
+                <p><em>May 2018 — Feb 2021 | Athens</em></p>
+                <ul>
+                  <li>Managed team schedules and provided guidance to ensure smooth operations.</li>
+                  <li>Oversaw staff training and maintained quality assurance.</li>
+                  <li>Ensured seamless connectivity and troubleshooting through effective network management.</li>
+                </ul>
+              </div>
+              <div id="job-iqos" class="job-details">
+                <h3>Customer Support - Tech Support, IQOS Call Center (Teleperformance)</h3>
+                <p><em>Dec 2017 — Mar 2018 | Athens</em></p>
+                <ul>
+                  <li>Responded to customer inquiries via phone, email, and social media.</li>
+                  <li>Achieved high customer satisfaction with consistently positive reviews.</li>
+                </ul>
+              </div>
+              <div id="job-cute" class="job-details">
+                <h3>CUTE Specialist, Athens International Airport / Printec SA Project</h3>
+                <p><em>Aug 2014 — Nov 2016 | Athens</em></p>
+                <ul>
+                  <li>Managed and resolved CUTE inquiries, maintained SLAs, and collaborated with flight companies.</li>
+                  <li>Led the upgrade and renewal of Terminal Equipment, including software and hardware installations.</li>
+                </ul>
+              </div>
+              <div id="job-helpdesk" class="job-details">
+                <h3>IT Help Desk Intern, Athens International Airport / Printec SA Project</h3>
+                <p><em>Jan 2014 — Jul 2014 | Athens</em></p>
+                <ul>
+                  <li>Provided desktop support and maintained operational documentation.</li>
+                  <li>Handled 1st/2nd level support for IT equipment.</li>
+                </ul>
+              </div>
+              <div id="job-earlyroles" class="job-details">
+                <h3>Early Roles (2007 – 2013)</h3>
+                <ul>
+                  <li>Breeze café (1/8/2010 – 9/11/2013) – Service</li>
+                  <li>Simplex Computer Services (28/5/2009 – 1/9/2009) – Service and quality check dept</li>
+                  <li>Citibank (5/9/2007 – 1/2/2008) – Credit card promotion</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="job-details-container">
-          <div id="job-renderapp" class="job-details active">
-            <h3>Software Engineer / Product Owner / Generalist, Renderapp</h3>
-            <p><em>Feb 2021 — Present | Athens (Full Remote)</em></p>
-            <ul>
-              <li>Maintained and optimized assets for deployment across web, VR, physical, and cloud servers.</li>
-              <li>Integrated legacy projects into "Lite" and "Web Players", reconfigured Azure VMs, and implemented scale sets.</li>
-              <li>Migrated products from Unity's Built-In Render Pipeline to HDRP for enhanced visual fidelity.</li>
-              <li>Collaborated on project estimations, schedules, and timelines.</li>
-              <li>Served as the go-to expert for Unity and technical issues.</li>
+        <div class="tab-content" id="skills-tab">
+          <div class="skill-category">
+            <h3>Programming &amp; Scripting</h3>
+            <ul class="skills-list">
+              <li>
+                Unity 
+                <span class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </li>
+              <li>
+                C# 
+                <span class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+              </li>
+              <li>
+                Python 
+                <span class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </span>
+              </li>
+              <li>
+                JavaScript 
+                <span class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </span>
+              </li>
             </ul>
           </div>
-          <div id="job-sita" class="job-details">
-            <h3>Team Leader, SITA / NetSquare</h3>
-            <p><em>May 2018 — Feb 2021 | Athens</em></p>
-            <ul>
-              <li>Managed team schedules and provided guidance to ensure smooth operations.</li>
-              <li>Oversaw staff training and maintained quality assurance.</li>
-              <li>Ensured seamless connectivity and troubleshooting through effective network management.</li>
+          <div class="skill-category">
+            <h3>Design &amp; Creative</h3>
+            <ul class="skills-list">
+              <li>
+                Video &amp; Image Editing 
+                <span class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </span>
+              </li>
+              <li>
+                Image Generative 
+                <span class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </span>
+              </li>
+              <li>
+                3DS Max 
+                <span class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </span>
+              </li>
+              <li>
+                RizomUV 
+                <span class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="far fa-star"></i>
+                  <i class="far fa-star"></i>
+                </span>
+              </li>
             </ul>
           </div>
-          <div id="job-iqos" class="job-details">
-            <h3>Customer Support - Tech Support, IQOS Call Center (Teleperformance)</h3>
-            <p><em>Dec 2017 — Mar 2018 | Athens</em></p>
-            <ul>
-              <li>Responded to customer inquiries via phone, email, and social media.</li>
-              <li>Achieved high customer satisfaction with consistently positive reviews.</li>
+          <div class="skill-category">
+            <h3>Infrastructure &amp; Tools</h3>
+            <ul class="skills-list">
+              <li>
+                Azure VMs &amp; Scalesets 
+                <span class="rating">
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </span>
+              </li>
             </ul>
           </div>
-          <div id="job-cute" class="job-details">
-            <h3>CUTE Specialist, Athens International Airport / Printec SA Project</h3>
-            <p><em>Aug 2014 — Nov 2016 | Athens</em></p>
-            <ul>
-              <li>Managed and resolved CUTE inquiries, maintained SLAs, and collaborated with flight companies.</li>
-              <li>Led the upgrade and renewal of Terminal Equipment, including software and hardware installations.</li>
-            </ul>
+        </div>
+        <div class="tab-content" id="education-tab">
+          <div class="education">
+            <h3>Bachelor’s Degree in Electronic Computer Systems Engineer</h3>
+            <p><em>ATEI of Piraeus | Feb 2008 — Sep 2014</em></p>
           </div>
-          <div id="job-helpdesk" class="job-details">
-            <h3>IT Help Desk Intern, Athens International Airport / Printec SA Project</h3>
-            <p><em>Jan 2014 — Jul 2014 | Athens</em></p>
-            <ul>
-              <li>Provided desktop support and maintained operational documentation.</li>
-              <li>Handled 1st/2nd level support for IT equipment.</li>
-            </ul>
+          <div class="education">
+            <h3>Certification: 640-822 ICND1 - Cisco</h3>
+            <p><em>New York College | Feb 2012 — Jul 2012</em></p>
           </div>
-          <div id="job-earlyroles" class="job-details">
-            <h3>Early Roles (2007 – 2013)</h3>
+          <div class="courses">
+            <h3>Courses</h3>
             <ul>
-              <li>Breeze café (1/8/2010 – 9/11/2013) – Service</li>
-              <li>Simplex Computer Services (28/5/2009 – 1/9/2009) – Service and quality check dept</li>
-              <li>Citibank (5/9/2007 – 1/2/2008) – Credit card promotion</li>
+              <li>Complete C# Unity Developer 2D: Learn to Code Making Games (Udemy, Oct 2018 — Dec 2018)</li>
+              <li>Complete C# Unity Game Developer 3D (Udemy, Feb 2019 — Apr 2019)</li>
+              <li>Unity Multiplayer (Mirror): Intermediate C# &amp; Networking (Udemy, Nov 2020)</li>
+              <li>JavaScript: Getting Started (Pluralsight, Apr 2021)</li>
+              <li>Front-End Web Development Quick Start with HTML5, CSS, and JavaScript (Pluralsight, Apr 2021)</li>
+              <li>The Ultimate Python Basics - Bootcamp (Udemy, May 2021)</li>
+              <li>Automate the Boring Stuff with Python (Youtube + e-book, May 2021)</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
-    
+
     <!-- SHOWCASE VIDEOS -->
     <section id="videos" class="animate__animated animate__fadeInUp">
       <h2>Showcase Videos</h2>
@@ -487,37 +589,20 @@
         <div class="video-card">
           <h3>GameDev Portfolio Showcase</h3>
           <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/o-XRYep4vts"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <iframe src="https://www.youtube.com/embed/o-XRYep4vts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-          <p>
-            This video highlights my gamedev portfolio, providing a brief
-            overview of key projects and creative accomplishments.
-          </p>
+          <p>This video highlights my gamedev portfolio, providing a brief overview of key projects and creative accomplishments.</p>
         </div>
         <div class="video-card">
           <h3>17-Day Solo Game Dev Timeline</h3>
           <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/7ekmQ8gnBOc"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <iframe src="https://www.youtube.com/embed/7ekmQ8gnBOc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-          <p>
-            Watch as I build and publish a game from scratch in just 17 days.
-            This timeline captures every step—from the initial concept to the
-            final release.
-          </p>
+          <p>Watch as I build and publish a game from scratch in just 17 days. This timeline captures every step—from the initial concept to the final release.</p>
         </div>
       </div>
     </section>
-    
+
     <!-- FREELANCING -->
     <section id="freelancing" class="animate__animated animate__fadeInUp">
       <h2>Freelancing</h2>
@@ -526,40 +611,21 @@
           <h3>VR Unity Project Upgrade for German Fraport Airport, e-Point</h3>
           <p><em>Jun 2024 — Nov 2024 | Remote</em></p>
           <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/U6li63-H0Y0"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <iframe src="https://www.youtube.com/embed/U6li63-H0Y0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-          <p>
-            Worked as an external partner for e-Point, serving as a Senior Unity
-            Developer to upgrade a VR Unity project for German Fraport Airport,
-            enhancing functionality, compatibility, and user experience.
-          </p>
+          <p>Worked as an external partner for e-Point, serving as a Senior Unity Developer to upgrade a VR Unity project for German Fraport Airport, enhancing functionality, compatibility, and user experience.</p>
         </div>
         <div class="video-card">
           <h3>Super Pokemon Bros, iConnect</h3>
           <p><em>Sep 2024 — Oct 2024 | Remote</em></p>
           <div class="video-wrapper">
-            <iframe
-              src="https://www.youtube.com/embed/fU8lNrKd_2s"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+            <iframe src="https://www.youtube.com/embed/fU8lNrKd_2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
-          <p>
-            Solo developed a fan-based game combining Super Mario Bros mechanics
-            with a Pokémon theme for Pokefest 2, hosted by iConnect Technology
-            stores. Played by over 200 unique players, delivering a unique and
-            engaging experience.
-          </p>
+          <p>Solo developed a fan-based game combining Super Mario Bros mechanics with a Pokémon theme for Pokefest 2, hosted by iConnect Technology stores. Played by over 200 unique players, delivering a unique and engaging experience.</p>
         </div>
       </div>
     </section>
-    
+
     <!-- PUBLISHED GAMES -->
     <section id="published-games" class="animate__animated animate__fadeInUp">
       <h2>Published Games</h2>
@@ -567,213 +633,51 @@
         <div class="game-card">
           <h3>Darn My Barn</h3>
           <div class="game-thumbnail">
-            <a
-              href="https://d3vcrow.itch.io/darn-my-barn"
-              target="_blank"
-            >
-              <img
-                src="darn-my-barn.png"
-                alt="Darn My Barn"
-              />
+            <a href="https://d3vcrow.itch.io/darn-my-barn" target="_blank">
+              <img src="darn-my-barn.png" alt="Darn My Barn" />
             </a>
           </div>
           <p>
-            Darn My Barn is a quirky puzzle adventure where you help a
-            determined farmer restore his run-down barn. Solve inventive puzzles
-            and enjoy a humorous, retro-inspired narrative in a charming world.
+            Darn My Barn is a quirky puzzle adventure where you help a determined farmer restore his run-down barn. Solve inventive puzzles and enjoy a humorous, retro-inspired narrative in a charming world.
           </p>
-          <a
-            class="game-button"
-            href="https://d3vcrow.itch.io/darn-my-barn"
-            target="_blank"
-            >Play Now</a
-          >
+          <a class="game-button" href="https://d3vcrow.itch.io/darn-my-barn" target="_blank">Play Now</a>
         </div>
       </div>
     </section>
-    
-    <!-- SKILLS -->
-    <section id="skills" class="animate__animated animate__fadeInUp">
-      <h2>Skills</h2>
-      <div class="skill-category">
-        <h3>Programming &amp; Scripting</h3>
-        <ul class="skills-list">
-          <li>
-            Unity
-            <span class="rating"
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-            ></span>
-          </li>
-          <li>
-            C#
-            <span class="rating"
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-            ></span>
-          </li>
-          <li>
-            Python
-            <span class="rating"
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="far fa-star"></i
-            ></span>
-          </li>
-          <li>
-            JavaScript
-            <span class="rating"
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="far fa-star"></i
-              ><i class="far fa-star"></i
-            ></span>
-          </li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h3>Design &amp; Creative</h3>
-        <ul class="skills-list">
-          <li>
-            Video &amp; Image Editing
-            <span class="rating"
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="far fa-star"></i
-            ></span>
-          </li>
-          <li>
-            Image Generative
-            <span class="rating"
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="far fa-star"></i
-              ><i class="far fa-star"></i
-            ></span>
-          </li>
-          <li>
-            3DS Max
-            <span class="rating"
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="far fa-star"></i
-              ><i class="far fa-star"></i
-            ></span>
-          </li>
-          <li>
-            RizomUV
-            <span class="rating"
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="far fa-star"></i
-              ><i class="far fa-star"></i
-            ></span>
-          </li>
-        </ul>
-      </div>
-      <div class="skill-category">
-        <h3>Infrastructure &amp; Tools</h3>
-        <ul class="skills-list">
-          <li>
-            Azure VMs &amp; Scalesets
-            <span class="rating"
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="fas fa-star"></i
-              ><i class="far fa-star"></i
-            ></span>
-          </li>
-        </ul>
-      </div>
-    </section>
-    
-    <!-- EDUCATION -->
-    <section id="education" class="animate__animated animate__fadeInUp">
-      <h2>Education &amp; Certifications</h2>
-      <div class="education">
-        <h3>Bachelor’s Degree in Electronic Computer Systems Engineer</h3>
-        <p><em>ATEI of Piraeus | Feb 2008 — Sep 2014</em></p>
-      </div>
-      <div class="education">
-        <h3>Certification: 640-822 ICND1 - Cisco</h3>
-        <p><em>New York College | Feb 2012 — Jul 2012</em></p>
-      </div>
-      <div class="courses">
-        <h3>Courses</h3>
-        <ul>
-          <li>
-            Complete C# Unity Developer 2D: Learn to Code Making Games (Udemy,
-            Oct 2018 — Dec 2018)
-          </li>
-          <li>
-            Complete C# Unity Game Developer 3D (Udemy, Feb 2019 — Apr 2019)
-          </li>
-          <li>
-            Unity Multiplayer (Mirror): Intermediate C# &amp; Networking (Udemy,
-            Nov 2020)
-          </li>
-          <li>
-            JavaScript: Getting Started (Pluralsight, Apr 2021)
-          </li>
-          <li>
-            Front-End Web Development Quick Start with HTML5, CSS, and
-            JavaScript (Pluralsight, Apr 2021)
-          </li>
-          <li>The Ultimate Python Basics - Bootcamp (Udemy, May 2021)</li>
-          <li>
-            Automate the Boring Stuff with Python (Youtube + e-book, May 2021)
-          </li>
-        </ul>
-      </div>
-    </section>
-    
+
     <!-- CONTACT -->
     <section id="contact" class="animate__animated animate__fadeInUp">
       <h2>Contact</h2>
       <p><strong>Location:</strong> Athens, Greece</p>
       <p><strong>Phone:</strong> +30 6948461402</p>
-      <p>
-        <strong>Email:</strong>
-        <a href="mailto:chr.papachristoforou@gmail.com"
-          >chr.papachristoforou@gmail.com</a
-        >
-      </p>
+      <p><strong>Email:</strong> <a href="mailto:chr.papachristoforou@gmail.com">chr.papachristoforou@gmail.com</a></p>
       <p>
         <strong>Links:</strong>
         <a href="https://github.com/D3vCrow/" target="_blank">GitHub</a> |
-        <a href="https://yourgamedevportfolio.com" target="_blank"
-          >Game Dev Portfolio</a
-        > |
-        <a href="https://renderapp.com" target="_blank"
-          >Renderapp Portfolio</a
-        > |
-        <a href="https://unityvrproject.com" target="_blank"
-          >Unity VR Project</a
-        >
+        <a href="https://yourgamedevportfolio.com" target="_blank">Game Dev Portfolio</a> |
+        <a href="https://renderapp.com" target="_blank">Renderapp Portfolio</a> |
+        <a href="https://unityvrproject.com" target="_blank">Unity VR Project</a>
       </p>
     </section>
   </div>
   <footer>
     <p>© 2025 Christoforos Papachristoforou. All rights reserved.</p>
   </footer>
-
-  <!-- Interactive Timeline Script -->
   <script>
+    // Tab switching logic for the Review section
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabContents = document.querySelectorAll(".tab-content");
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        tabContents.forEach((tc) => tc.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.getAttribute("data-tab")).classList.add("active");
+      });
+    });
+
+    // Interactive Timeline within Career Tab
     const timelineItems = document.querySelectorAll(".timeline-item");
     const jobDetails = document.querySelectorAll(".job-details");
 
