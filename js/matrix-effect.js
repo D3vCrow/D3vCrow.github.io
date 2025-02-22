@@ -1,10 +1,10 @@
 // matrix-effect.js
 
-// Get the canvas and context
+// Get the canvas and its context
 var canvas = document.getElementById("matrix");
 var ctx = canvas.getContext("2d");
 
-// Resize canvas to full screen
+// Resize the canvas to full screen
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -23,26 +23,24 @@ var columns = canvas.width / fontSize;
 // Create an array of drops - one per column
 var drops = [];
 for (var i = 0; i < columns; i++) {
-  drops[i] = 1; // start at the top of each column
+  drops[i] = 1; // start at the top
 }
 
 // Draw function
 function draw() {
-  // Black semi-transparent background to create fade effect
+  // Create a semi-transparent black background to produce the fade effect
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "#0F0"; // Green text
+  ctx.fillStyle = "#0F0"; // Matrix green
   ctx.font = fontSize + "px monospace";
 
   // Loop over drops
   for (var i = 0; i < drops.length; i++) {
-    // Pick a random character
     var text = letters[Math.floor(Math.random() * letters.length)];
-    // Draw the character at the column and drop position
     ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-    // Reset drop to top if it has reached the bottom or a random chance
+    // Reset drop after it passes the bottom, or at random
     if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
       drops[i] = 0;
     }
@@ -50,5 +48,4 @@ function draw() {
   }
 }
 
-// Run the draw function repeatedly
 setInterval(draw, 33);

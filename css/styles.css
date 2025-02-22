@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #888;
-  --hover-color: #aaa;
+  --primary-color: #888; /* Gray tone */
+  --hover-color: #aaa;   /* Lighter gray */
   --background: #121212;
   --container-bg: #1e1e1e;
   --text-color: #e0e0e0;
@@ -19,14 +19,15 @@ body {
   overflow-x: hidden;
 }
 
-/* Canvas for Matrix Effect */
+/* Canvas for Matrix Effect - placed in the background */
 canvas#matrix {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1; /* behind all content */
+  z-index: -9999; /* Very low to ensure it's behind everything */
+  pointer-events: none;
   background: black;
 }
 
@@ -125,8 +126,258 @@ h2:hover {
   border-color: var(--hover-color);
 }
 
-/* (Keep your advanced review, timeline, video cards, published games, skills, and footer styles as before) */
+/* Advanced Review Tabs Styling */
+/* (Keep your review tabs styling unchanged from your previous version) */
 
-/* --- Review Tabs, Timeline, etc. remain unchanged from your previous version --- */
+/* Timeline Layout */
+.timeline-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.vertical-timeline {
+  flex: 0 0 250px;
+  position: relative;
+  padding: 1rem;
+}
+.vertical-timeline::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--primary-color);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-left: 60px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.timeline-item:hover {
+  transform: translateX(2px);
+  box-shadow: 0 4px 10px rgba(100, 181, 246, 0.5);
+}
+.timeline-item .timeline-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-color);
+}
+.timeline-item .timeline-date {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--background);
+  border: 4px solid var(--primary-color);
+}
+.timeline-item.active .timeline-title,
+.timeline-item.active .timeline-date {
+  color: var(--primary-color);
+  font-weight: 700;
+}
 
-/* Cube styles are no longer used. */
+/* Job Details */
+.job-details-container {
+  flex: 1;
+  padding: 1rem;
+  background: var(--container-bg);
+  border: 1px solid #333;
+  border-radius: 8px;
+  min-height: 200px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.job-details {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+.job-details.active {
+  display: block;
+}
+.job-details h3 {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+}
+.job-details p {
+  margin: 0.3rem 0;
+  font-style: italic;
+  color: #aaa;
+}
+.job-details ul {
+  margin: 0.5rem 0 0 1.2rem;
+  color: #ccc;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Video Cards */
+.video-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.video-card {
+  background: var(--container-bg);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  flex: 1 1 calc(50% - 2rem);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.video-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+.video-card h3 {
+  margin-top: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+}
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.video-card p {
+  color: #ccc;
+}
+
+/* Published Games */
+.game-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.game-card {
+  background: var(--container-bg);
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 400px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.game-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.6);
+}
+.game-card h3 {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+.game-thumbnail {
+  margin-bottom: 1rem;
+}
+.game-thumbnail img {
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.game-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: #121212;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+.game-button:hover {
+  background: var(--hover-color);
+}
+
+/* Skills Section */
+.skill-category {
+  margin-bottom: 2rem;
+}
+.skill-category h3 {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.skills-list li {
+  background: var(--container-bg);
+  padding: 0.5rem 1rem;
+  border: 1px solid #333;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.skills-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+}
+.skills-list li .rating {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+/* Courses */
+.courses ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  color: #ccc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--container-bg);
+  color: #aaa;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.4);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .timeline-wrapper {
+    flex-direction: column;
+  }
+  .vertical-timeline {
+    flex: 1 0 auto;
+  }
+  .video-card {
+    flex: 1 1 100%;
+  }
+}
