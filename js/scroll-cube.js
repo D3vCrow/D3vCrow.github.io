@@ -1,11 +1,8 @@
-document.addEventListener('scroll', () => {
-  // Calculate the scroll fraction (from 0 to 1)
+window.addEventListener('scroll', () => {
   const scrollFraction = window.pageYOffset / (document.body.scrollHeight - window.innerHeight);
-  // Select the cube element
-  const cube = document.querySelector('.cube');
-  if (cube) {
-    // Rotate the cube on both the X and Y axes based on scroll position.
-    // Adjust the multiplier (e.g., 360) to control rotation amount.
+  // Apply rotation to all cube elements
+  const cubes = document.querySelectorAll('.cube');
+  cubes.forEach(cube => {
     cube.style.transform = `rotateX(${scrollFraction * 360}deg) rotateY(${scrollFraction * 360}deg)`;
-  }
+  });
 });
