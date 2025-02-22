@@ -8,18 +8,25 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: "contact-section", url: "partials/contact.html" }
   ];
 
-  Promise.all(
-    partials.map(partial =>
-      fetch(partial.url)
-        .then(resp => {
-          if (!resp.ok) throw new Error(`Error fetching ${partial.url}`);
-          return resp.text();
-        })
-        .then(data => {
-          document.getElementById(partial.id).innerHTML = data;
-        })
-    )
-  )
+  const fetchPromises = partials.map(partial =>
+    fetch(partial.url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Error fetching ${partial.url}: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(data => {
+        const elem = document.getElementById(partial.id);
+        if (elem) {
+          elem.innerHTML = data;
+        } else {
+          console.warn(`Element with id "${partial.id}" not found.`);
+        }
+      })
+  );
+
+  Promise.all(fetchPromises)
     .then(() => {
       console.log("All partials loaded");
       initTabs();
@@ -29,10 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error loading partials:", err);
     });
 
-  // Tab functionality for the review section
   function initTabs() {
     const tabButtons = document.querySelectorAll(".tab-button");
     const tabContents = document.querySelectorAll(".tab-content");
+
     console.log("Tab buttons found:", tabButtons.length, "Tab contents found:", tabContents.length);
     tabButtons.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -50,10 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Timeline functionality in the Career tab
   function initTimeline() {
     const timelineItems = document.querySelectorAll(".timeline-item");
     const jobDetails = document.querySelectorAll(".job-details");
+
     console.log("Timeline items found:", timelineItems.length, "Job details found:", jobDetails.length);
     timelineItems.forEach(item => {
       item.addEventListener("click", () => {
