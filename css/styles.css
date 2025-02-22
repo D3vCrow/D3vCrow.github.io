@@ -2,7 +2,7 @@
   --primary-color: #888; /* Gray tone */
   --hover-color: #aaa;   /* Lighter gray */
   --background: #121212;
-  --container-bg: #1e1e1e;
+  --container-bg: rgba(17, 17, 17, 0.85); /* Semi-transparent dark background for readability */
   --text-color: #e0e0e0;
   --accent: #bdbdbd;
 }
@@ -19,14 +19,14 @@ body {
   overflow-x: hidden;
 }
 
-/* Canvas for Matrix Effect - placed in the background */
+/* Canvas for Matrix Effect - stays in background */
 canvas#matrix {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -9999; /* Very low to ensure it's behind everything */
+  z-index: -9999;
   pointer-events: none;
   background: black;
 }
@@ -56,11 +56,19 @@ a:hover {
   color: var(--hover-color);
 }
 
-/* Container */
+/* Container for main content with semi-transparent background */
 #content, .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem;
+  background: var(--container-bg);
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Apply text shadow for enhanced readability */
+h1, h2, h3, p, a {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* Header */
@@ -127,7 +135,78 @@ h2:hover {
 }
 
 /* Advanced Review Tabs Styling */
-/* (Keep your review tabs styling unchanged from your previous version) */
+#review-tabs h2 {
+  position: relative;
+  overflow: hidden;
+}
+#review-tabs h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-25deg);
+  animation: shimmer 2s infinite;
+}
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+#review-tabs .tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+#review-tabs .tab-button {
+  flex: 1;
+  padding: 0.75rem;
+  background: transparent;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: var(--text-color);
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  outline: none;
+}
+#review-tabs .tab-button:hover {
+  color: var(--hover-color);
+}
+#review-tabs .tab-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--hover-color));
+  transition: width 0.3s ease, left 0.3s ease;
+}
+#review-tabs .tab-button.active {
+  color: var(--hover-color);
+}
+#review-tabs .tab-button.active::after {
+  left: 0;
+  width: 100%;
+}
+#review-tabs .tab-contents {
+  background: var(--container-bg);
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  animation: fadeIn 0.5s ease;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
 
 /* Timeline Layout */
 .timeline-wrapper {
@@ -368,6 +447,9 @@ footer {
   color: #aaa;
   box-shadow: 0 -2px 6px rgba(0,0,0,0.4);
 }
+
+/* Matrix (or alternative background) styles are handled by matrix-effect.js */
+/* In this case we’re using a canvas so no further canvas styles are needed here */
 
 /* Media Queries */
 @media (max-width: 768px) {
