@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const partials = [
     { id: "about-section", url: "partials/about.html" },
     { id: "review-section", url: "partials/review.html" },
-    { id: "videos-section", url: "partials/showcases.html" },
+    { id: "showcases-section", url: "partials/showcases.html" },
     { id: "freelancing-section", url: "partials/freelancing.html" },
     { id: "published-games-section", url: "partials/published-games.html" },
     { id: "contact-section", url: "partials/contact.html" }
