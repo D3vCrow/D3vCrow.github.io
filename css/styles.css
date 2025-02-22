@@ -2,9 +2,10 @@
   --primary-color: #0af;       /* Neon blue for accents */
   --hover-color: #0cf;         /* Brighter neon blue on hover */
   --background: #000;          /* Pure black for overall background */
-  --container-bg: rgba(0, 0, 0, 0.9); /* Nearly opaque black for content */
-  --text-color: #e0e0e0;        /* Light gray for normal text */
-  --accent: #0af;              /* Neon blue for accents */
+  --container-bg: rgba(0, 0, 0, 0.9); /* Nearly opaque black for main content */
+  --header-bg: linear-gradient(135deg, #111, #333); /* Solid dark gradient for header */
+  --text-color: #e0e0e0;        /* Light gray for body text */
+  --accent: #0af;              /* Accent color (neon blue) */
 }
 
 /* Global Styles */
@@ -19,7 +20,17 @@ body {
   overflow-x: hidden;
 }
 
-/* Canvas for Matrix Effect is defined in index.html */
+/* Canvas for Matrix Effect */
+canvas#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -9999;
+  pointer-events: none;
+  background: var(--background);
+}
 
 /* Custom Scrollbar (optional) */
 ::-webkit-scrollbar {
@@ -53,29 +64,28 @@ a:hover {
   padding: 2rem;
   background: var(--container-bg);
   border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Enhance readability with text shadows */
+/* Text Shadow for Enhanced Readability */
 h1, h2, h3, p, a {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-/* Header - Transparent overlay so Matrix shows through */
+/* Header */
 header {
-  background: rgba(0,0,0,0.5); /* Semi-transparent black overlay */
-  padding: 2rem 1rem;
+  background: var(--header-bg);
+  padding: 3rem 1rem;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 header h1 {
   font-family: "Poppins", sans-serif;
-  font-size: 3rem; /* Slightly larger for impact */
+  font-size: 3rem; /* Larger for impact */
   margin-bottom: 0.5rem;
   color: var(--primary-color);
-  /* Add subtle stroke & shadow for legibility */
-  -webkit-text-stroke: 1px rgba(0,0,0,0.7);
+  -webkit-text-stroke: 1px rgba(0,0,0,0.8);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 header p {
