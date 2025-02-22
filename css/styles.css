@@ -85,36 +85,88 @@ h2:hover {
   border-color: #90caf9;
 }
 
-/* Tabs Styles */
-.tabs {
+/* Advanced Review Section Styling (Tabs) */
+#review-tabs h2 {
+  position: relative;
+  overflow: hidden;
+}
+
+#review-tabs h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-25deg);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+#review-tabs .tabs {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-.tab-button {
+#review-tabs .tab-button {
   flex: 1;
   padding: 0.75rem;
-  background: #1e1e1e;
-  border: 1px solid #333;
-  border-radius: 4px;
+  background: transparent;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
   color: #e0e0e0;
+  position: relative;
   cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease;
+  outline: none;
 }
 
-.tab-button.active {
-  background: #64b5f6;
-  color: #121212;
+#review-tabs .tab-button:hover {
+  color: #90caf9;
 }
 
-.tab-contents {
+#review-tabs .tab-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #64b5f6, #90caf9);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+#review-tabs .tab-button.active {
+  color: #90caf9;
+}
+
+#review-tabs .tab-button.active::after {
+  left: 0;
+  width: 100%;
+}
+
+#review-tabs .tab-contents {
   background: #1e1e1e;
   padding: 1rem;
   border-radius: 4px;
   border: 1px solid #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  animation: fadeIn 0.5s ease;
 }
 
+/* Tabs Content */
 .tab-content {
   display: none;
 }

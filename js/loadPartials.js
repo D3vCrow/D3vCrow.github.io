@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Create a basic Trusted Types policy (if required)
+  // Create a basic Trusted Types policy if required by your browser.
   if (window.trustedTypes) {
     window.trustedTypes.createPolicy("default", {
       createHTML: (input) => input,
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const partials = [
     { id: "about-section", url: "partials/about.html" },
     { id: "review-section", url: "partials/review.html" },
-    { id: "showcases-section", url: "partials/showcases.html" },
+    { id: "videos-section", url: "partials/showcases.html" },
     { id: "freelancing-section", url: "partials/freelancing.html" },
     { id: "published-games-section", url: "partials/published-games.html" },
     { id: "contact-section", url: "partials/contact.html" }
@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function initTabs() {
     const tabButtons = document.querySelectorAll(".tab-button");
     const tabContents = document.querySelectorAll(".tab-content");
-
     console.log("Tab buttons found:", tabButtons.length, "Tab contents found:", tabContents.length);
     tabButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
@@ -67,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function initTimeline() {
     const timelineItems = document.querySelectorAll(".timeline-item");
     const jobDetails = document.querySelectorAll(".job-details");
-
     console.log("Timeline items found:", timelineItems.length, "Job details found:", jobDetails.length);
     timelineItems.forEach((item) => {
       item.addEventListener("click", () => {
