@@ -16,11 +16,14 @@ const fetchPromises = partials.map(partial => {
 });
 
 Promise.all(fetchPromises).then(() => {
-  // Initialize tabs and timeline functionality after all partials load.
-  initTabs();
-  initTimeline();
+  // Add a short delay (e.g., 100ms) to ensure partials are rendered
+  setTimeout(() => {
+    initTabs();
+    initTimeline();
+  }, 100);
 });
 
+// Tab functionality for the review section
 function initTabs() {
   const tabButtons = document.querySelectorAll(".tab-button");
   const tabContents = document.querySelectorAll(".tab-content");
@@ -39,6 +42,7 @@ function initTabs() {
   });
 }
 
+// Timeline functionality in the Career tab
 function initTimeline() {
   const timelineItems = document.querySelectorAll(".timeline-item");
   const jobDetails = document.querySelectorAll(".job-details");
