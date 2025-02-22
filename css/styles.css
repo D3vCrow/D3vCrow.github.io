@@ -1,10 +1,10 @@
 :root {
-  --primary-color: #0af;    /* Neon blue for accents */
-  --hover-color: #0cf;      /* Brighter neon blue */
-  --background: #000;       /* Pure black */
+  --primary-color: #0af;       /* Neon blue for accents */
+  --hover-color: #0cf;         /* Brighter neon blue on hover */
+  --background: #000;          /* Pure black for overall background */
   --container-bg: rgba(0, 0, 0, 0.9); /* Nearly opaque black for content */
-  --text-color: #e0e0e0;     /* Light gray for text */
-  --accent: #0af;           /* Accent color (neon blue) */
+  --text-color: #e0e0e0;        /* Light gray for normal text */
+  --accent: #0af;              /* Neon blue for accents */
 }
 
 /* Global Styles */
@@ -19,17 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Canvas for Matrix Effect */
-canvas#matrix {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -9999;
-  pointer-events: none;
-  background: var(--background);
-}
+/* Canvas for Matrix Effect is defined in index.html */
 
 /* Custom Scrollbar (optional) */
 ::-webkit-scrollbar {
@@ -63,39 +53,30 @@ a:hover {
   padding: 2rem;
   background: var(--container-bg);
   border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
 }
 
-/* Text shadow for enhanced readability */
+/* Enhance readability with text shadows */
 h1, h2, h3, p, a {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-/* Header */
+/* Header - Transparent overlay so Matrix shows through */
 header {
-  background: radial-gradient(circle at center, #000, #333 70%);
-  color: var(--text-color);
-  padding: 3rem 1rem;
+  background: rgba(0,0,0,0.5); /* Semi-transparent black overlay */
+  padding: 2rem 1rem;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 header h1 {
   font-family: "Poppins", sans-serif;
-  font-size: 2.8rem;
+  font-size: 3rem; /* Slightly larger for impact */
   margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, var(--primary-color), var(--hover-color));
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* Add a subtle stroke to improve readability */
-  -webkit-text-stroke: 1px #000;
-  animation: gradientShift 3s ease-in-out infinite;
-}
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  color: var(--primary-color);
+  /* Add subtle stroke & shadow for legibility */
+  -webkit-text-stroke: 1px rgba(0,0,0,0.7);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 }
 header p {
   font-size: 1.2rem;
@@ -148,7 +129,7 @@ h2:hover {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(10, 175, 255, 0.2), transparent);
+  background: linear-gradient(120deg, transparent, rgba(10,175,255,0.2), transparent);
   transform: skewX(-25deg);
   animation: shimmer 2s infinite;
 }
@@ -165,13 +146,12 @@ h2:hover {
 #review-tabs .tab-button {
   flex: 1;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0,0,0,0.8);
   border: 2px solid var(--primary-color);
   border-radius: 4px;
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   color: var(--text-color);
-  position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 5px rgba(0,0,0,0.5);
@@ -209,8 +189,8 @@ h2:hover {
 }
 .vertical-timeline {
   flex: 0 0 250px;
-  position: relative;
   padding: 1rem;
+  position: relative;
 }
 .vertical-timeline::before {
   content: "";
@@ -230,7 +210,7 @@ h2:hover {
 }
 .timeline-item:hover {
   transform: translateX(2px);
-  box-shadow: 0 4px 10px rgba(10, 175, 255, 0.5);
+  box-shadow: 0 4px 10px rgba(10,175,255,0.5);
 }
 .timeline-item .timeline-title {
   font-family: "Poppins", sans-serif;
