@@ -1,32 +1,45 @@
+:root {
+  --primary-color: #64b5f6;
+  --hover-color: #90caf9;
+  --background: #121212;
+  --container-bg: #1e1e1e;
+  --text-color: #e0e0e0;
+  --accent: #bdbdbd;
+}
+
 /* Global Styles */
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top left, #1f1f1f 20%, #121212 80%);
-  color: #e0e0e0;
+  background: radial-gradient(circle at top left, #1f1f1f 20%, var(--background) 80%);
+  color: var(--text-color);
   line-height: 1.6;
 }
 
-/* Scroll Progress Indicator */
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 8px;
-  height: 100%;
-  background: rgba(100, 181, 246, 0.2);
-  z-index: 9999;
+/* Custom Scrollbar (optional) */
+::-webkit-scrollbar {
+  width: 10px;
 }
-.scroll-progress::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: calc(var(--scroll, 0) * 100%);
-  background: linear-gradient(180deg, #64b5f6, #90caf9);
-  transition: height 0.2s ease-out;
+::-webkit-scrollbar-track {
+  background: var(--container-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hover-color);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  text-decoration: underline;
+  color: var(--hover-color);
 }
 
 /* Container */
@@ -39,7 +52,7 @@ body {
 /* Header */
 header {
   background: linear-gradient(135deg, #1f1f1f, #333333);
-  color: #e0e0e0;
+  color: var(--text-color);
   padding: 3rem 1rem;
   text-align: center;
   position: relative;
@@ -49,27 +62,37 @@ header h1 {
   font-family: "Poppins", sans-serif;
   font-size: 2.8rem;
   margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, var(--primary-color), var(--hover-color));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 3s ease-in-out infinite;
+}
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 header p {
   font-size: 1.2rem;
-  color: #bdbdbd;
+  color: var(--accent);
 }
 
 /* Navigation */
 nav {
-  background: #1e1e1e;
+  background: var(--container-bg);
   padding: 0.75rem;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
 }
 nav a {
-  color: #e0e0e0;
+  color: var(--text-color);
   margin: 0 1rem;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 nav a:hover {
-  color: #90caf9;
+  color: var(--hover-color);
 }
 
 /* Sections */
@@ -81,12 +104,12 @@ h2 {
   border-bottom: 2px solid #333;
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
-  color: #e0e0e0;
+  color: var(--text-color);
   transition: color 0.3s ease, border-color 0.3s ease;
 }
 h2:hover {
-  color: #90caf9;
-  border-color: #90caf9;
+  color: var(--hover-color);
+  border-color: var(--hover-color);
 }
 
 /* Advanced Review Tabs Styling */
@@ -122,14 +145,14 @@ h2:hover {
   border: none;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color: #e0e0e0;
+  color: var(--text-color);
   position: relative;
   cursor: pointer;
   transition: color 0.3s ease;
   outline: none;
 }
 #review-tabs .tab-button:hover {
-  color: #90caf9;
+  color: var(--hover-color);
 }
 #review-tabs .tab-button::after {
   content: "";
@@ -138,18 +161,18 @@ h2:hover {
   left: 50%;
   width: 0;
   height: 3px;
-  background: linear-gradient(90deg, #64b5f6, #90caf9);
+  background: linear-gradient(90deg, var(--primary-color), var(--hover-color));
   transition: width 0.3s ease, left 0.3s ease;
 }
 #review-tabs .tab-button.active {
-  color: #90caf9;
+  color: var(--hover-color);
 }
 #review-tabs .tab-button.active::after {
   left: 0;
   width: 100%;
 }
 #review-tabs .tab-contents {
-  background: #1e1e1e;
+  background: var(--container-bg);
   padding: 1rem;
   border-radius: 4px;
   border: 1px solid #333;
@@ -182,7 +205,7 @@ h2:hover {
   top: 0;
   bottom: 0;
   width: 4px;
-  background: #64b5f6;
+  background: var(--primary-color);
 }
 .timeline-item {
   position: relative;
@@ -200,7 +223,7 @@ h2:hover {
   font-weight: 600;
   font-size: 1rem;
   margin-bottom: 0.3rem;
-  color: #e0e0e0;
+  color: var(--text-color);
 }
 .timeline-item .timeline-date {
   font-size: 0.85rem;
@@ -214,12 +237,12 @@ h2:hover {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #121212;
-  border: 4px solid #64b5f6;
+  background: var(--background);
+  border: 4px solid var(--primary-color);
 }
 .timeline-item.active .timeline-title,
 .timeline-item.active .timeline-date {
-  color: #64b5f6;
+  color: var(--primary-color);
   font-weight: 700;
 }
 
@@ -227,7 +250,7 @@ h2:hover {
 .job-details-container {
   flex: 1;
   padding: 1rem;
-  background: #1e1e1e;
+  background: var(--container-bg);
   border: 1px solid #333;
   border-radius: 8px;
   min-height: 200px;
@@ -243,7 +266,7 @@ h2:hover {
 .job-details h3 {
   font-family: "Poppins", sans-serif;
   margin-bottom: 0.5rem;
-  color: #e0e0e0;
+  color: var(--text-color);
 }
 .job-details p {
   margin: 0.3rem 0;
@@ -266,7 +289,7 @@ h2:hover {
   gap: 2rem;
 }
 .video-card {
-  background: #1e1e1e;
+  background: var(--container-bg);
   border: 1px solid #333;
   border-radius: 8px;
   padding: 1rem;
@@ -281,7 +304,7 @@ h2:hover {
 .video-card h3 {
   margin-top: 0;
   font-family: "Poppins", sans-serif;
-  color: #e0e0e0;
+  color: var(--text-color);
 }
 .video-wrapper {
   position: relative;
@@ -310,7 +333,7 @@ h2:hover {
   justify-content: center;
 }
 .game-card {
-  background: #1e1e1e;
+  background: var(--container-bg);
   border: 1px solid #333;
   border-radius: 8px;
   padding: 1rem;
@@ -325,7 +348,7 @@ h2:hover {
 }
 .game-card h3 {
   font-family: "Poppins", sans-serif;
-  color: #e0e0e0;
+  color: var(--text-color);
   margin-bottom: 0.5rem;
 }
 .game-thumbnail {
@@ -340,7 +363,7 @@ h2:hover {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background: #64b5f6;
+  background: var(--primary-color);
   color: #121212;
   border-radius: 4px;
   font-weight: 600;
@@ -349,7 +372,7 @@ h2:hover {
   transition: background 0.3s ease;
 }
 .game-button:hover {
-  background: #42a5f5;
+  background: var(--hover-color);
 }
 
 /* Skills Section */
@@ -358,7 +381,7 @@ h2:hover {
 }
 .skill-category h3 {
   font-family: "Poppins", sans-serif;
-  color: #e0e0e0;
+  color: var(--text-color);
   margin-bottom: 1rem;
 }
 .skills-list {
@@ -369,7 +392,7 @@ h2:hover {
   padding: 0;
 }
 .skills-list li {
-  background: #1e1e1e;
+  background: var(--container-bg);
   padding: 0.5rem 1rem;
   border: 1px solid #333;
   border-radius: 20px;
@@ -380,7 +403,7 @@ h2:hover {
 }
 .skills-list li:hover {
   transform: translateY(-3px);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
 }
 .skills-list li .rating {
   color: #ffd700;
@@ -398,11 +421,50 @@ h2:hover {
 footer {
   text-align: center;
   padding: 1.5rem;
-  background: #1e1e1e;
+  background: var(--container-bg);
   color: #aaa;
-  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.4);
 }
 
+/* Cube Styles (Scroll Animated Cube) */
+.cube-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 150px;
+  height: 150px;
+  perspective: 800px;
+  z-index: 1;
+  opacity: 0.7;
+}
+.cube {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
+  transition: transform 0.2s ease-out;
+}
+.cube .face {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  background: rgba(100, 181, 246, 0.8);
+  border: 2px solid var(--primary-color);
+}
+.cube .front  { transform: translateZ(75px); }
+.cube .back   { transform: rotateY(180deg) translateZ(75px); }
+.cube .right  { transform: rotateY(90deg) translateZ(75px); }
+.cube .left   { transform: rotateY(-90deg) translateZ(75px); }
+.cube .top    { transform: rotateX(90deg) translateZ(75px); }
+.cube .bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+/* Media Queries */
 @media (max-width: 768px) {
   .timeline-wrapper {
     flex-direction: column;
