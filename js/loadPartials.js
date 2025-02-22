@@ -1,12 +1,16 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Create a Trusted Types policy if not already created.
   if (window.trustedTypes) {
-    try {
-      window.trustedTypes.createPolicy("default", {
-        createHTML: function(input) { return input; }
-      });
-    } catch (error) {
-      console.warn("Trusted Types policy 'default' already exists:", error);
+    // Check if a policy named "default" already exists
+    if (!window.trustedTypes.getPolicy || !window.trustedTypes.getPolicy("default")) {
+      try {
+        window.trustedTypes.createPolicy("default", {
+          createHTML: function(input) { return input; }
+        });
+      } catch (error) {
+        console.warn("Error creating Trusted Types policy:", error);
+      }
+    } else {
+      console.warn("Trusted Types policy 'default' already exists.");
     }
   }
 
