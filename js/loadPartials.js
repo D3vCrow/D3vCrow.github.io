@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Create a basic Trusted Types policy (if required)
+  if (window.trustedTypes) {
+    window.trustedTypes.createPolicy("default", {
+      createHTML: (input) => input,
+    });
+  }
+
   const partials = [
     { id: "about-section", url: "partials/about.html" },
     { id: "review-section", url: "partials/review.html" },
@@ -8,15 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
     { id: "contact-section", url: "partials/contact.html" }
   ];
 
-  const fetchPromises = partials.map(partial =>
+  const fetchPromises = partials.map((partial) =>
     fetch(partial.url)
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw new Error(`Error fetching ${partial.url}: ${response.status}`);
         }
         return response.text();
       })
-      .then(data => {
+      .then((data) => {
         const elem = document.getElementById(partial.id);
         if (elem) {
           elem.innerHTML = data;
@@ -32,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
       initTabs();
       initTimeline();
     })
-    .catch(err => {
+    .catch((err) => {
       console.error("Error loading partials:", err);
     });
 
@@ -41,10 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const tabContents = document.querySelectorAll(".tab-content");
 
     console.log("Tab buttons found:", tabButtons.length, "Tab contents found:", tabContents.length);
-    tabButtons.forEach(btn => {
+    tabButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
-        tabButtons.forEach(b => b.classList.remove("active"));
-        tabContents.forEach(tc => tc.classList.remove("active"));
+        tabButtons.forEach((b) => b.classList.remove("active"));
+        tabContents.forEach((tc) => tc.classList.remove("active"));
         btn.classList.add("active");
         const target = btn.getAttribute("data-tab");
         const targetContent = document.getElementById(target);
@@ -62,10 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const jobDetails = document.querySelectorAll(".job-details");
 
     console.log("Timeline items found:", timelineItems.length, "Job details found:", jobDetails.length);
-    timelineItems.forEach(item => {
+    timelineItems.forEach((item) => {
       item.addEventListener("click", () => {
-        timelineItems.forEach(i => i.classList.remove("active"));
-        jobDetails.forEach(detail => detail.classList.remove("active"));
+        timelineItems.forEach((i) => i.classList.remove("active"));
+        jobDetails.forEach((detail) => detail.classList.remove("active"));
         item.classList.add("active");
         const jobId = item.getAttribute("data-job");
         const activeDetail = document.getElementById(jobId);
