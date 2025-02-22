@@ -3,6 +3,7 @@
 var canvas = document.getElementById("matrix");
 var ctx = canvas.getContext("2d");
 
+// Resize the canvas to fill the viewport
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -10,57 +11,66 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// Characters for the Matrix effect (default letters)
-var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
-letters = letters.split("");
-
-// Recruiting messages to occasionally appear
-var messages = [
-  "Awesome game developer!",
-  "Hire me!",
-  "Truly innovative!",
-  "Code wizard!",
-  "Next-gen dev!",
-  "Game changer!",
-  "Pixel perfect!"
+// List of common Unity C# commands
+var commands = [
+  "Debug.Log",
+  "GetComponent<>",
+  "Instantiate()",
+  "Destroy()",
+  "transform.position",
+  "transform.rotation",
+  "transform.localScale",
+  "Time.deltaTime",
+  "Input.GetAxis()",
+  "Input.GetKeyDown()",
+  "Application.Quit()",
+  "Rigidbody.AddForce()",
+  "Vector3.zero",
+  "Vector3.one",
+  "Quaternion.identity",
+  "GameObject.Find()",
+  "Random.Range()",
+  "SceneManager.LoadScene()",
+  "Camera.main",
+  "AudioSource.Play()"
 ];
 
+// Set font properties
 var fontSize = 16;
-var columns = canvas.width / fontSize;
+ctx.font = fontSize + "px monospace";
 
-// Create an array of drops – one per column
+// Calculate the number of columns (one drop per column)
+var columns = Math.floor(canvas.width / fontSize);
+
+// Create an array of drop positions (one per column)
 var drops = [];
 for (var i = 0; i < columns; i++) {
-  drops[i] = 1; // start at the top
+  drops[i] = 1; // start at row 1 for each column
 }
 
+// Draw function to create the falling effect
 function draw() {
-  // Create a semi-transparent black background to produce a fade effect
+  // Draw a semi-transparent black rectangle over the canvas for the fade effect
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   
-  // Loop over drops for each column
+  // Set the fill color to a cool blue tone (you can adjust as needed)
+  ctx.fillStyle = "#0af";
+  
+  // Loop through each column
   for (var i = 0; i < drops.length; i++) {
-    var chance = Math.random();
-    var text = "";
-    // With 2% probability, choose a recruiting message instead of a letter
-    if (chance < 0.02) {
-      text = messages[Math.floor(Math.random() * messages.length)];
-      // Use a slightly larger, different font for messages
-      ctx.font = (fontSize + 8) + "px sans-serif";
-    } else {
-      text = letters[Math.floor(Math.random() * letters.length)];
-      ctx.font = fontSize + "px monospace";
-    }
+    // Pick a random command from our array
+    var command = commands[Math.floor(Math.random() * commands.length)];
     
-    // Use a blue tone for the falling text
-    ctx.fillStyle = "#0af";
-    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+    // Draw the command at the current drop position
+    ctx.fillText(command, i * fontSize, drops[i] * fontSize);
     
-    // Reset drop to top if it goes beyond the bottom, with randomness
+    // If the drop has reached the bottom and with a random chance, reset it to the top
     if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
       drops[i] = 0;
     }
+    
+    // Increment the drop's vertical position
     drops[i]++;
   }
 }
