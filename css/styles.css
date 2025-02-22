@@ -1,10 +1,10 @@
 :root {
-  --primary-color: #888; /* Gray tone */
-  --hover-color: #aaa;   /* Lighter gray */
-  --background: #121212;
-  --container-bg: rgba(17, 17, 17, 0.85); /* Semi-transparent dark background for readability */
-  --text-color: #e0e0e0;
-  --accent: #bdbdbd;
+  --primary-color: #0af;    /* Neon blue for accents */
+  --hover-color: #0cf;      /* Brighter blue on hover */
+  --background: #000;       /* Pure black background */
+  --container-bg: rgba(0, 0, 0, 0.9); /* Nearly opaque black for content */
+  --text-color: #e0e0e0;     /* Light gray for normal text */
+  --accent: #0af;           /* Accent color (neon blue) */
 }
 
 /* Global Styles */
@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Canvas for Matrix Effect - stays in background */
+/* Canvas for Matrix Effect (already defined in matrix-effect.js) */
 canvas#matrix {
   position: fixed;
   top: 0;
@@ -28,7 +28,7 @@ canvas#matrix {
   height: 100vh;
   z-index: -9999;
   pointer-events: none;
-  background: black;
+  background: var(--background);
 }
 
 /* Custom Scrollbar (optional) */
@@ -56,24 +56,24 @@ a:hover {
   color: var(--hover-color);
 }
 
-/* Container for main content with semi-transparent background */
+/* Main Content Container */
 #content, .container {
   max-width: 1100px;
   margin: 0 auto;
   padding: 2rem;
   background: var(--container-bg);
   border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Apply text shadow for enhanced readability */
+/* Enhance readability with text shadows */
 h1, h2, h3, p, a {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 /* Header */
 header {
-  background: linear-gradient(135deg, #1f1f1f, #333333);
+  background: linear-gradient(135deg, var(--background), #333);
   color: var(--text-color);
   padding: 3rem 1rem;
   text-align: center;
@@ -105,7 +105,7 @@ nav {
   background: var(--container-bg);
   padding: 0.75rem;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 nav a {
   color: var(--text-color);
@@ -198,7 +198,7 @@ h2:hover {
   padding: 1rem;
   border-radius: 4px;
   border: 1px solid #333;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
   animation: fadeIn 0.5s ease;
 }
 .tab-content {
@@ -238,7 +238,7 @@ h2:hover {
 }
 .timeline-item:hover {
   transform: translateX(2px);
-  box-shadow: 0 4px 10px rgba(100, 181, 246, 0.5);
+  box-shadow: 0 4px 10px rgba(10, 175, 255, 0.5);
 }
 .timeline-item .timeline-title {
   font-family: "Poppins", sans-serif;
@@ -276,7 +276,7 @@ h2:hover {
   border: 1px solid #333;
   border-radius: 8px;
   min-height: 200px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 .job-details {
   display: none;
@@ -447,9 +447,6 @@ footer {
   color: #aaa;
   box-shadow: 0 -2px 6px rgba(0,0,0,0.4);
 }
-
-/* Matrix (or alternative background) styles are handled by matrix-effect.js */
-/* In this case we’re using a canvas so no further canvas styles are needed here */
 
 /* Media Queries */
 @media (max-width: 768px) {
