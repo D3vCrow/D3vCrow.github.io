@@ -1,9 +1,9 @@
 :root {
   --primary-color: #0af;    /* Neon blue for accents */
-  --hover-color: #0cf;      /* Brighter blue on hover */
-  --background: #000;       /* Pure black background */
+  --hover-color: #0cf;      /* Brighter neon blue */
+  --background: #000;       /* Pure black */
   --container-bg: rgba(0, 0, 0, 0.9); /* Nearly opaque black for content */
-  --text-color: #e0e0e0;     /* Light gray for normal text */
+  --text-color: #e0e0e0;     /* Light gray for text */
   --accent: #0af;           /* Accent color (neon blue) */
 }
 
@@ -19,7 +19,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Canvas for Matrix Effect (already defined in matrix-effect.js) */
+/* Canvas for Matrix Effect */
 canvas#matrix {
   position: fixed;
   top: 0;
@@ -66,14 +66,14 @@ a:hover {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
 }
 
-/* Enhance readability with text shadows */
+/* Text shadow for enhanced readability */
 h1, h2, h3, p, a {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 /* Header */
 header {
-  background: linear-gradient(135deg, var(--background), #333);
+  background: radial-gradient(circle at center, #000, #333 70%);
   color: var(--text-color);
   padding: 3rem 1rem;
   text-align: center;
@@ -88,6 +88,8 @@ header h1 {
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* Add a subtle stroke to improve readability */
+  -webkit-text-stroke: 1px #000;
   animation: gradientShift 3s ease-in-out infinite;
 }
 @keyframes gradientShift {
@@ -146,7 +148,7 @@ h2:hover {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(120deg, transparent, rgba(10, 175, 255, 0.2), transparent);
   transform: skewX(-25deg);
   animation: shimmer 2s infinite;
 }
@@ -162,36 +164,26 @@ h2:hover {
 }
 #review-tabs .tab-button {
   flex: 1;
-  padding: 0.75rem;
-  background: transparent;
-  border: none;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
   font-family: "Poppins", sans-serif;
-  font-weight: 600;
+  font-weight: bold;
   color: var(--text-color);
   position: relative;
   cursor: pointer;
-  transition: color 0.3s ease;
-  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 #review-tabs .tab-button:hover {
-  color: var(--hover-color);
-}
-#review-tabs .tab-button::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary-color), var(--hover-color));
-  transition: width 0.3s ease, left 0.3s ease;
+  background: var(--primary-color);
+  color: #000;
 }
 #review-tabs .tab-button.active {
-  color: var(--hover-color);
-}
-#review-tabs .tab-button.active::after {
-  left: 0;
-  width: 100%;
+  background: var(--primary-color);
+  color: #000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
 }
 #review-tabs .tab-contents {
   background: var(--container-bg);
