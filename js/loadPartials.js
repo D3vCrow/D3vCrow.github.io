@@ -7,27 +7,31 @@ const partials = [
   { id: "contact-section", url: "partials/contact.html" }
 ];
 
-const fetchPromises = partials.map(partial => {
-  return fetch(partial.url)
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById(partial.id).innerHTML = data;
-    });
-});
-
-Promise.all(fetchPromises).then(() => {
-  // Add a short delay (e.g., 100ms) to ensure partials are rendered
-  setTimeout(() => {
+Promise.all(
+  partials.map(partial =>
+    fetch(partial.url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById(partial.id).innerHTML = data;
+      })
+  )
+)
+  .then(() => {
+    console.log("All partials loaded");
     initTabs();
     initTimeline();
-  }, 100);
-});
+  })
+  .catch(e => console.error("Error loading partials:", e));
 
-// Tab functionality for the review section
 function initTabs() {
   const tabButtons = document.querySelectorAll(".tab-button");
   const tabContents = document.querySelectorAll(".tab-content");
-
+  console.log("Tabs found:", tabButtons.length, "Tab contents found:", tabContents.length);
   tabButtons.forEach(btn => {
     btn.addEventListener("click", () => {
       tabButtons.forEach(b => b.classList.remove("active"));
@@ -37,16 +41,17 @@ function initTabs() {
       const targetContent = document.getElementById(target);
       if (targetContent) {
         targetContent.classList.add("active");
+      } else {
+        console.warn("No tab content found for:", target);
       }
     });
   });
 }
 
-// Timeline functionality in the Career tab
 function initTimeline() {
   const timelineItems = document.querySelectorAll(".timeline-item");
   const jobDetails = document.querySelectorAll(".job-details");
-
+  console.log("Timeline items found:", timelineItems.length, "Job details found:", jobDetails.length);
   timelineItems.forEach(item => {
     item.addEventListener("click", () => {
       timelineItems.forEach(i => i.classList.remove("active"));
@@ -56,6 +61,8 @@ function initTimeline() {
       const activeDetail = document.getElementById(jobId);
       if (activeDetail) {
         activeDetail.classList.add("active");
+      } else {
+        console.warn("No job detail found for:", jobId);
       }
     });
   });
