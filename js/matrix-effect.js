@@ -3,15 +3,20 @@
 var canvas = document.getElementById("matrix");
 var ctx = canvas.getContext("2d");
 
-// Resize the canvas to fill the viewport
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  columns = Math.floor(canvas.width / fontSize);
+  drops = [];
+  for (var i = 0; i < columns; i++) {
+    // Initialize each drop at a random row within the canvas height
+    drops[i] = Math.floor(Math.random() * (canvas.height / fontSize));
+  }
 }
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// List of common Unity C# commands
+// Array of common Unity C# commands
 var commands = [
   "Debug.Log",
   "GetComponent<>",
@@ -35,43 +40,47 @@ var commands = [
   "AudioSource.Play()"
 ];
 
-// Set font properties
 var fontSize = 16;
 ctx.font = fontSize + "px monospace";
 
 // Calculate the number of columns (one drop per column)
 var columns = Math.floor(canvas.width / fontSize);
 
-// Create an array of drop positions (one per column)
+// Create an array of drops – one per column, starting near the bottom.
 var drops = [];
 for (var i = 0; i < columns; i++) {
-  drops[i] = 1; // start at row 1 for each column
+  drops[i] = Math.floor(Math.random() * (canvas.height / fontSize));
 }
 
-// Draw function to create the falling effect
 function draw() {
-  // Draw a semi-transparent black rectangle over the canvas for the fade effect
+  // Draw a semi-transparent black rectangle to create a fade effect.
   ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   
-  // Set the fill color to a cool blue tone (you can adjust as needed)
+  // Set fill style for the text in a cool blue tone.
   ctx.fillStyle = "#0af";
+  ctx.font = fontSize + "px monospace";
   
-  // Loop through each column
+  // Loop over each column
   for (var i = 0; i < drops.length; i++) {
-    // Pick a random command from our array
+    // Pick a random Unity C# command for this column.
     var command = commands[Math.floor(Math.random() * commands.length)];
     
-    // Draw the command at the current drop position
-    ctx.fillText(command, i * fontSize, drops[i] * fontSize);
+    // Calculate y coordinate so that drops rise upward.
+    // Instead of using drops[i] * fontSize from the top,
+    // we subtract it from the canvas height.
+    var y = canvas.height - drops[i] * fontSize;
     
-    // If the drop has reached the bottom and with a random chance, reset it to the top
-    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-      drops[i] = 0;
+    // Draw the command at the calculated position.
+    ctx.fillText(command, i * fontSize, y);
+    
+    // Move the drop upward.
+    drops[i]--;
+    
+    // If the drop goes off the top, reset it to a random row near the bottom.
+    if (y < 0) {
+      drops[i] = Math.floor(Math.random() * (canvas.height / fontSize));
     }
-    
-    // Increment the drop's vertical position
-    drops[i]++;
   }
 }
 
