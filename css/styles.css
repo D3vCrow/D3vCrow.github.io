@@ -113,8 +113,7 @@ h2:hover {
 }
 
 /* Advanced Review Tabs Styling */
-/* (Keep your existing advanced review styles unchanged) */
-/* --- [Review tabs styling as provided earlier] --- */
+/* (Review tabs styling remains unchanged from previous version) */
 
 /* Timeline Layout */
 .timeline-wrapper {
@@ -359,8 +358,6 @@ footer {
 /* Cube Styles (Scroll Animated Cubes) */
 .cube-container {
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
   width: 150px;
   height: 150px;
   perspective: 800px;
@@ -368,10 +365,14 @@ footer {
   z-index: 1;
 }
 .left-cube {
+  top: 50%;
   left: 20px;
+  transform: translateY(-50%);
 }
 .right-cube {
+  top: 50%;
   right: 20px;
+  transform: translateY(-50%);
 }
 .cube {
   position: relative;
@@ -385,8 +386,8 @@ footer {
   width: 150px;
   height: 150px;
   background: rgba(128, 128, 128, 0.8);
-  border: 2px solid #888;
-  /* No text content, so no font styles */
+  border: 2px solid var(--primary-color);
+  /* No text is displayed on the cube faces */
 }
 .cube .front  { transform: translateZ(75px); }
 .cube .back   { transform: rotateY(180deg) translateZ(75px); }
