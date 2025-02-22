@@ -15,28 +15,9 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <!-- Two animated cubes on the left and right -->
-    <div class="cube-container left-cube">
-      <div class="cube">
-        <div class="face front"></div>
-        <div class="face back"></div>
-        <div class="face right"></div>
-        <div class="face left"></div>
-        <div class="face top"></div>
-        <div class="face bottom"></div>
-      </div>
-    </div>
-    <div class="cube-container right-cube">
-      <div class="cube">
-        <div class="face front"></div>
-        <div class="face back"></div>
-        <div class="face right"></div>
-        <div class="face left"></div>
-        <div class="face top"></div>
-        <div class="face bottom"></div>
-      </div>
-    </div>
-
+    <!-- Fullscreen Canvas for Matrix Effect -->
+    <canvas id="matrix"></canvas>
+    
     <header class="animate__animated animate__fadeIn">
       <h1>Christoforos Papachristoforou</h1>
       <p>Software Engineer &amp; IT Specialist | Game Developer</p>
@@ -62,6 +43,6 @@
       <p>© 2025 Christoforos Papachristoforou. All rights reserved.</p>
     </footer>
     <script src="js/loadPartials.js"></script>
-    <script src="js/scroll-cube.js"></script>
+    <script src="js/matrix-effect.js"></script>
   </body>
 </html>
