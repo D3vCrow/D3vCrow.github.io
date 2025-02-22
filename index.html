@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Christoforos Papachristoforou | Dark Mode Portfolio</title>
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
   <!-- Animate.css (Optional) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
   <style>
+    /* Global Dark Mode Styles */
     body {
-      font-family: 'Roboto', sans-serif;
+      font-family: "Roboto", sans-serif;
       margin: 0;
       padding: 0;
       background: #121212;
+      background: radial-gradient(
+        circle at top left,
+        #1f1f1f 20%,
+        #121212 80%
+      );
       color: #e0e0e0;
       line-height: 1.6;
     }
+
     a {
       color: #64b5f6;
       text-decoration: none;
+      transition: color 0.3s ease;
     }
     a:hover {
       text-decoration: underline;
+      color: #90caf9;
     }
+
+    /* Header */
     header {
       background: linear-gradient(135deg, #1f1f1f, #333333);
       color: #e0e0e0;
@@ -35,17 +55,21 @@
       overflow: hidden;
     }
     header h1 {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       font-size: 2.8rem;
       margin-bottom: 0.5rem;
     }
     header p {
       font-size: 1.2rem;
+      color: #bdbdbd;
     }
+
+    /* Navigation */
     nav {
       background: #1e1e1e;
       padding: 0.75rem;
       text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
     nav a {
       color: #e0e0e0;
@@ -54,8 +78,10 @@
       transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #64b5f6;
+      color: #90caf9;
     }
+
+    /* Container & Sections */
     .container {
       max-width: 1100px;
       margin: 0 auto;
@@ -65,12 +91,18 @@
       margin-bottom: 3rem;
     }
     h2 {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       border-bottom: 2px solid #333;
       padding-bottom: 0.5rem;
       margin-bottom: 1.5rem;
       color: #e0e0e0;
+      transition: color 0.3s ease, border-color 0.3s ease;
     }
+    h2:hover {
+      color: #90caf9;
+      border-color: #90caf9;
+    }
+
     /* Timeline Layout */
     .timeline-wrapper {
       display: flex;
@@ -97,9 +129,13 @@
       margin-bottom: 1.5rem;
       padding-left: 60px;
       cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .timeline-item:hover {
+      transform: translateX(2px);
     }
     .timeline-item .timeline-title {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       font-weight: 600;
       font-size: 1rem;
       margin-bottom: 0.3rem;
@@ -125,6 +161,7 @@
       color: #64b5f6;
       font-weight: 700;
     }
+
     .job-details-container {
       flex: 1;
       padding: 1rem;
@@ -132,6 +169,7 @@
       border: 1px solid #333;
       border-radius: 8px;
       min-height: 200px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
     .job-details {
       display: none;
@@ -141,7 +179,7 @@
       display: block;
     }
     .job-details h3 {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       margin-bottom: 0.5rem;
       color: #e0e0e0;
     }
@@ -154,10 +192,16 @@
       margin: 0.5rem 0 0 1.2rem;
       color: #ccc;
     }
+
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
+
     /* Video Cards */
     .video-cards {
       display: flex;
@@ -170,11 +214,16 @@
       border-radius: 8px;
       padding: 1rem;
       flex: 1 1 calc(50% - 2rem);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .video-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
     }
     .video-card h3 {
       margin-top: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       color: #e0e0e0;
     }
     .video-wrapper {
@@ -195,6 +244,7 @@
     .video-card p {
       color: #ccc;
     }
+
     /* Published Games */
     .game-cards {
       display: flex;
@@ -208,11 +258,16 @@
       border-radius: 8px;
       padding: 1rem;
       max-width: 400px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.8);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .game-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
     }
     .game-card h3 {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       color: #e0e0e0;
       margin-bottom: 0.5rem;
     }
@@ -234,16 +289,18 @@
       font-weight: 600;
       cursor: pointer;
       text-decoration: none;
+      transition: background 0.3s ease;
     }
     .game-button:hover {
       background: #42a5f5;
     }
+
     /* Skills Section */
     .skill-category {
       margin-bottom: 2rem;
     }
     .skill-category h3 {
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       color: #e0e0e0;
       margin-bottom: 1rem;
     }
@@ -262,23 +319,33 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .skills-list li:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
     }
     .skills-list li .rating {
       color: #ffd700;
       font-size: 1.2rem;
     }
+
     /* Courses */
     .courses ul {
       list-style: disc;
       padding-left: 1.5rem;
       color: #ccc;
     }
+
+    /* Footer */
     footer {
       text-align: center;
       padding: 1.5rem;
       background: #1e1e1e;
       color: #aaa;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4);
     }
+
     @media (max-width: 768px) {
       .timeline-wrapper {
         flex-direction: column;
@@ -288,6 +355,15 @@
       }
       .video-card {
         flex: 1 1 100%;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
       }
     }
   </style>
@@ -411,16 +487,33 @@
         <div class="video-card">
           <h3>GameDev Portfolio Showcase</h3>
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/o-XRYep4vts" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe
+              src="https://www.youtube.com/embed/o-XRYep4vts"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
-          <p>This video highlights my gamedev portfolio, providing a brief overview of key projects and creative accomplishments.</p>
+          <p>
+            This video highlights my gamedev portfolio, providing a brief
+            overview of key projects and creative accomplishments.
+          </p>
         </div>
         <div class="video-card">
           <h3>17-Day Solo Game Dev Timeline</h3>
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/7ekmQ8gnBOc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe
+              src="https://www.youtube.com/embed/7ekmQ8gnBOc"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
-          <p>Watch as I build and publish a game from scratch in just 17 days. This timeline captures every step—from the initial concept to the final release.</p>
+          <p>
+            Watch as I build and publish a game from scratch in just 17 days.
+            This timeline captures every step—from the initial concept to the
+            final release.
+          </p>
         </div>
       </div>
     </section>
@@ -429,23 +522,40 @@
     <section id="freelancing" class="animate__animated animate__fadeInUp">
       <h2>Freelancing</h2>
       <div class="video-cards">
-        <!-- VR Unity Project -->
         <div class="video-card">
           <h3>VR Unity Project Upgrade for German Fraport Airport, e-Point</h3>
           <p><em>Jun 2024 — Nov 2024 | Remote</em></p>
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/U6li63-H0Y0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe
+              src="https://www.youtube.com/embed/U6li63-H0Y0"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
-          <p>Worked as an external partner for e-Point, serving as a Senior Unity Developer to upgrade a VR Unity project for German Fraport Airport, enhancing functionality, compatibility, and user experience.</p>
+          <p>
+            Worked as an external partner for e-Point, serving as a Senior Unity
+            Developer to upgrade a VR Unity project for German Fraport Airport,
+            enhancing functionality, compatibility, and user experience.
+          </p>
         </div>
-        <!-- Super Pokemon Bros -->
         <div class="video-card">
           <h3>Super Pokemon Bros, iConnect</h3>
           <p><em>Sep 2024 — Oct 2024 | Remote</em></p>
           <div class="video-wrapper">
-            <iframe src="https://www.youtube.com/embed/fU8lNrKd_2s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe
+              src="https://www.youtube.com/embed/fU8lNrKd_2s"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
-          <p>Solo developed a fan-based game combining Super Mario Bros mechanics with a Pokémon theme for Pokefest 2, hosted by iConnect Technology stores. Played by over 200 unique players, delivering a unique and engaging experience.</p>
+          <p>
+            Solo developed a fan-based game combining Super Mario Bros mechanics
+            with a Pokémon theme for Pokefest 2, hosted by iConnect Technology
+            stores. Played by over 200 unique players, delivering a unique and
+            engaging experience.
+          </p>
         </div>
       </div>
     </section>
@@ -457,12 +567,27 @@
         <div class="game-card">
           <h3>Darn My Barn</h3>
           <div class="game-thumbnail">
-            <a href="https://d3vcrow.itch.io/darn-my-barn" target="_blank">
-              <img src="darn-my-barn.png" alt="Darn My Barn">
+            <a
+              href="https://d3vcrow.itch.io/darn-my-barn"
+              target="_blank"
+            >
+              <img
+                src="darn-my-barn.png"
+                alt="Darn My Barn"
+              />
             </a>
           </div>
-          <p>Darn My Barn is a quirky puzzle adventure where you help a determined farmer restore his run-down barn. Solve inventive puzzles and enjoy a humorous, retro-inspired narrative in a charming world.</p>
-          <a class="game-button" href="https://d3vcrow.itch.io/darn-my-barn" target="_blank">Play Now</a>
+          <p>
+            Darn My Barn is a quirky puzzle adventure where you help a
+            determined farmer restore his run-down barn. Solve inventive puzzles
+            and enjoy a humorous, retro-inspired narrative in a charming world.
+          </p>
+          <a
+            class="game-button"
+            href="https://d3vcrow.itch.io/darn-my-barn"
+            target="_blank"
+            >Play Now</a
+          >
         </div>
       </div>
     </section>
@@ -474,44 +599,44 @@
         <h3>Programming &amp; Scripting</h3>
         <ul class="skills-list">
           <li>
-            Unity 
-            <span class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </span>
+            Unity
+            <span class="rating"
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+            ></span>
           </li>
           <li>
-            C# 
-            <span class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-            </span>
+            C#
+            <span class="rating"
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+            ></span>
           </li>
           <li>
-            Python 
-            <span class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </span>
+            Python
+            <span class="rating"
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="far fa-star"></i
+            ></span>
           </li>
           <li>
-            JavaScript 
-            <span class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </span>
+            JavaScript
+            <span class="rating"
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="far fa-star"></i
+              ><i class="far fa-star"></i
+            ></span>
           </li>
         </ul>
       </div>
@@ -519,44 +644,44 @@
         <h3>Design &amp; Creative</h3>
         <ul class="skills-list">
           <li>
-            Video &amp; Image Editing 
-            <span class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </span>
+            Video &amp; Image Editing
+            <span class="rating"
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="far fa-star"></i
+            ></span>
           </li>
           <li>
-            Image Generative 
-            <span class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </span>
+            Image Generative
+            <span class="rating"
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="far fa-star"></i
+              ><i class="far fa-star"></i
+            ></span>
           </li>
           <li>
-            3DS Max 
-            <span class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </span>
+            3DS Max
+            <span class="rating"
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="far fa-star"></i
+              ><i class="far fa-star"></i
+            ></span>
           </li>
           <li>
-            RizomUV 
-            <span class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-              <i class="far fa-star"></i>
-            </span>
+            RizomUV
+            <span class="rating"
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="far fa-star"></i
+              ><i class="far fa-star"></i
+            ></span>
           </li>
         </ul>
       </div>
@@ -564,14 +689,14 @@
         <h3>Infrastructure &amp; Tools</h3>
         <ul class="skills-list">
           <li>
-            Azure VMs &amp; Scalesets 
-            <span class="rating">
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="fas fa-star"></i>
-              <i class="far fa-star"></i>
-            </span>
+            Azure VMs &amp; Scalesets
+            <span class="rating"
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="fas fa-star"></i
+              ><i class="far fa-star"></i
+            ></span>
           </li>
         </ul>
       </div>
@@ -591,13 +716,28 @@
       <div class="courses">
         <h3>Courses</h3>
         <ul>
-          <li>Complete C# Unity Developer 2D: Learn to Code Making Games (Udemy, Oct 2018 — Dec 2018)</li>
-          <li>Complete C# Unity Game Developer 3D (Udemy, Feb 2019 — Apr 2019)</li>
-          <li>Unity Multiplayer (Mirror): Intermediate C# &amp; Networking (Udemy, Nov 2020)</li>
-          <li>JavaScript: Getting Started (Pluralsight, Apr 2021)</li>
-          <li>Front-End Web Development Quick Start with HTML5, CSS, and JavaScript (Pluralsight, Apr 2021)</li>
+          <li>
+            Complete C# Unity Developer 2D: Learn to Code Making Games (Udemy,
+            Oct 2018 — Dec 2018)
+          </li>
+          <li>
+            Complete C# Unity Game Developer 3D (Udemy, Feb 2019 — Apr 2019)
+          </li>
+          <li>
+            Unity Multiplayer (Mirror): Intermediate C# &amp; Networking (Udemy,
+            Nov 2020)
+          </li>
+          <li>
+            JavaScript: Getting Started (Pluralsight, Apr 2021)
+          </li>
+          <li>
+            Front-End Web Development Quick Start with HTML5, CSS, and
+            JavaScript (Pluralsight, Apr 2021)
+          </li>
           <li>The Ultimate Python Basics - Bootcamp (Udemy, May 2021)</li>
-          <li>Automate the Boring Stuff with Python (Youtube + e-book, May 2021)</li>
+          <li>
+            Automate the Boring Stuff with Python (Youtube + e-book, May 2021)
+          </li>
         </ul>
       </div>
     </section>
@@ -607,34 +747,45 @@
       <h2>Contact</h2>
       <p><strong>Location:</strong> Athens, Greece</p>
       <p><strong>Phone:</strong> +30 6948461402</p>
-      <p><strong>Email:</strong> <a href="mailto:chr.papachristoforou@gmail.com">chr.papachristoforou@gmail.com</a></p>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:chr.papachristoforou@gmail.com"
+          >chr.papachristoforou@gmail.com</a
+        >
+      </p>
       <p>
         <strong>Links:</strong>
-        <a href="https://github.com/D3vCrow/" target="_blank">GitHub</a> | 
-        <a href="https://yourgamedevportfolio.com" target="_blank">Game Dev Portfolio</a> | 
-        <a href="https://renderapp.com" target="_blank">Renderapp Portfolio</a> | 
-        <a href="https://unityvrproject.com" target="_blank">Unity VR Project</a>
+        <a href="https://github.com/D3vCrow/" target="_blank">GitHub</a> |
+        <a href="https://yourgamedevportfolio.com" target="_blank"
+          >Game Dev Portfolio</a
+        > |
+        <a href="https://renderapp.com" target="_blank"
+          >Renderapp Portfolio</a
+        > |
+        <a href="https://unityvrproject.com" target="_blank"
+          >Unity VR Project</a
+        >
       </p>
     </section>
   </div>
   <footer>
     <p>© 2025 Christoforos Papachristoforou. All rights reserved.</p>
   </footer>
-  
+
   <!-- Interactive Timeline Script -->
   <script>
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    const jobDetails = document.querySelectorAll('.job-details');
-    
-    timelineItems.forEach(item => {
-      item.addEventListener('click', () => {
-        timelineItems.forEach(i => i.classList.remove('active'));
-        jobDetails.forEach(detail => detail.classList.remove('active'));
-        item.classList.add('active');
-        const jobId = item.getAttribute('data-job');
+    const timelineItems = document.querySelectorAll(".timeline-item");
+    const jobDetails = document.querySelectorAll(".job-details");
+
+    timelineItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        timelineItems.forEach((i) => i.classList.remove("active"));
+        jobDetails.forEach((detail) => detail.classList.remove("active"));
+        item.classList.add("active");
+        const jobId = item.getAttribute("data-job");
         const activeDetail = document.getElementById(jobId);
         if (activeDetail) {
-          activeDetail.classList.add('active');
+          activeDetail.classList.add("active");
         }
       });
     });
