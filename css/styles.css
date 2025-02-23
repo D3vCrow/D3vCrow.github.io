@@ -1,142 +1,31 @@
-:root {
-  --primary-color: #0af;       /* Neon blue accent */
-  --hover-color: #0cf;         /* Brighter neon blue */
-  --background: #000;          /* Pure black background */
-  --container-bg: rgba(0, 0, 0, 0.9); /* Nearly opaque black for content */
-  --text-color: #e0e0e0;        /* Light gray text */
-  --accent: #0af;              /* Accent (neon blue) */
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome - Choose Your Path</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Background Glitch/Static Effect -->
+    <div class="background-glitch"></div>
 
-/* Global Styles */
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0;
-  padding: 0;
-  background: var(--background);
-  color: var(--text-color);
-  line-height: 1.6;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* Canvas for Matrix Effect (for internal pages) */
-canvas#matrix {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -9999;
-  pointer-events: none;
-  background: var(--background);
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--container-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 10px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--hover-color);
-}
-
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-a:hover {
-  text-decoration: underline;
-  color: var(--hover-color);
-}
-
-/* Main Content Container */
-#content, .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: var(--container-bg);
-  border-radius: 8px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.7);
-}
-
-/* Text Shadow for Readability */
-h1, h2, h3, p, a {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-}
-
-/* Header for Internal Pages */
-header {
-  background: var(--background);
-  padding: 3rem 1rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-header h1 {
-  font-family: "Poppins", sans-serif;
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  color: var(--primary-color);
-  -webkit-text-stroke: 1px rgba(0,0,0,0.8);
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-}
-header p {
-  font-size: 1.2rem;
-  color: var(--accent);
-}
-
-/* Navigation */
-nav {
-  background: var(--container-bg);
-  padding: 0.75rem;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-}
-nav a {
-  color: var(--text-color);
-  margin: 0 1rem;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-nav a:hover {
-  color: var(--hover-color);
-}
-
-/* Sections */
-section {
-  margin-bottom: 3rem;
-}
-h2 {
-  font-family: "Poppins", sans-serif;
-  border-bottom: 2px solid #333;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-  color: var(--text-color);
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-h2:hover {
-  color: var(--hover-color);
-  border-color: var(--hover-color);
-}
-
-/* (Review Tabs, Timeline, Video Cards, Published Games, Skills, Footer, etc. remain unchanged) */
-
-/* Media Queries */
-@media (max-width: 768px) {
-  .timeline-wrapper {
-    flex-direction: column;
-  }
-  .vertical-timeline {
-    flex: 1 0 auto;
-  }
-  .video-card {
-    flex: 1 1 100%;
-  }
-}
+    <!-- Split Screen Container -->
+    <div class="split-container">
+      <!-- Left Panel: Resume -->
+      <div class="split left-split" onclick="location.href='resume.html'">
+        <h2>Resume</h2>
+      </div>
+      <!-- Right Panel: Game Dev Portfolio -->
+      <div class="split right-split" onclick="location.href='portfolio.html'">
+        <h2>Game Dev Portfolio</h2>
+      </div>
+      <!-- Central Divider -->
+      <div class="divider"></div>
+    </div>
+  </body>
+</html>

@@ -1,124 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Welcome - Choose Your Path</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-    <style>
-      /* Welcome Page Custom Styles */
-      .split-container {
-        display: flex;
-        height: 100vh;
-        width: 100vw;
-        position: relative;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome - Choose Your Path</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #0af;       /* Neon blue for resume */
+      --primary-red: #f00;        /* Neon red for portfolio */
+      --background: #000;         /* Pure black */
+      --divider-width: 4px;
+    }
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      overflow: hidden;
+      position: relative;
+    }
+    /* Background Glitch/Static Effect */
+    .bg-glitch {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      /* Base64 noise image (from TransparentTextures.com) */
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABH0lEQVR4nO2aS47DMAxFv/yg6mSLiFi+gZ/oS6CEYEEURRuEZEXi+OLspYEGIxoNeSq7dbem5jkPPOfc/N/57Jsz/nPGkUe0I7m+gh/3S7IoJOocLwR4FzoTNB/E1oQMPujCyCN5B1hAQWkH6yKgPeEPwS+RoQ9T7CnQBChBn8TthE1+F24D88RPRKFBvwH+AxpQeT5egP3Q0mgZpFhoHb+DUl4V/42UhWyB7hHcgaHDiWmg5L1BZAF+g/8KFmDWxqTfrgI0o9w8LYzDAFKd+R1AB6j+Io6hAOsT+Bq9gcgDeQz8ULQwzRwH3o+vUY3h/HJqP9/nkAjb28j4T9dp2EY0Avdp2EZ0AnK21I70DPI+QrAYLEerXAAAAAElFTkSuQmCC");
+      background-size: cover;
+      /* Animate slight shifts and filter variations for a glitchy feel */
+      animation: glitchBG 3s infinite;
+    }
+    @keyframes glitchBG {
+      0% {
+        filter: contrast(1) brightness(1);
+        transform: translate(0);
       }
-      .split {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
-        transition: opacity 0.3s ease;
+      10% {
+        filter: contrast(1.2) brightness(0.9);
+        transform: translate(-3px, 2px);
       }
-      .split:hover {
-        opacity: 0.9;
+      20% {
+        filter: contrast(0.8) brightness(1.1);
+        transform: translate(2px, -3px);
       }
-      /* Left half: Resume (blue theme) */
-      .left-split {
-        background: #001f3f; /* deep blue */
+      30% {
+        filter: contrast(1.1) brightness(0.95);
+        transform: translate(-1px, 1px);
       }
-      /* Right half: Game Dev Portfolio (red theme) */
-      .right-split {
-        background: #330000; /* deep red */
+      40% {
+        filter: contrast(0.9) brightness(1.05);
+        transform: translate(1px, -1px);
       }
-      .split h2 {
-        font-family: "Poppins", sans-serif;
-        font-size: 2rem;
-        color: #0af; /* default blue for left */
-        z-index: 2;
-        text-shadow: 0 2px 4px rgba(0,0,0,0.7);
-        transition: transform 0.3s ease;
+      50% {
+        filter: contrast(1) brightness(1);
+        transform: translate(0);
       }
-      .right-split h2 {
-        color: #f00; /* red for right */
+      100% {
+        filter: contrast(1) brightness(1);
+        transform: translate(0);
       }
-      .split:hover h2 {
-        transform: scale(1.1);
-      }
-      /* Central Divider with Twin Effect */
-      .divider {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 50%;
-        width: 4px;
-        background: linear-gradient(180deg, #0af, #f00);
-        transform: translateX(-50%);
-        z-index: 2;
-        animation: pulse 2s infinite;
-      }
-      @keyframes pulse {
-        0%, 100% { opacity: 0.6; }
-        50% { opacity: 1; }
-      }
-      .divider::before,
-      .divider::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        transform: translateY(-50%);
-      }
-      .divider::before {
-        left: -30px;
-        background: #0af;
-      }
-      .divider::after {
-        right: -30px;
-        background: #f00;
-      }
-      /* Static Noise Overlay for Old TV/Monitor Effect */
-      .noise {
-        pointer-events: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
-        opacity: 0.1;
-        z-index: 1;
-        animation: flicker 0.2s infinite;
-      }
-      @keyframes flicker {
-        0% { opacity: 0.1; }
-        50% { opacity: 0.15; }
-        100% { opacity: 0.1; }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Static Noise Overlay -->
-    <div class="noise"></div>
-    
-    <div class="split-container">
-      <!-- Left Panel: Resume -->
-      <div class="split left-split" onclick="location.href='resume.html'">
-        <h2>Resume</h2>
-      </div>
-      <!-- Right Panel: Game Dev Portfolio -->
-      <div class="split right-split" onclick="location.href='portfolio.html'">
-        <h2>Game Dev Portfolio</h2>
-      </div>
-      <div class="divider"></div>
+    }
+    /* Split Screen Container */
+    .split-container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      z-index: 1;
+    }
+    .split {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+    .split:hover {
+      opacity: 0.9;
+    }
+    /* Left Panel: Resume with blue overlay */
+    .left-split {
+      background: rgba(0, 31, 63, 0.8);
+    }
+    /* Right Panel: Game Dev Portfolio with red overlay */
+    .right-split {
+      background: rgba(51, 0, 0, 0.8);
+    }
+    .split h2 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+    }
+    .left-split h2 {
+      color: var(--primary-blue);
+    }
+    .right-split h2 {
+      color: var(--primary-red);
+    }
+    /* Central Divider with Twin Circles */
+    .divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: var(--divider-width);
+      background: linear-gradient(180deg, var(--primary-blue), var(--primary-red));
+      transform: translateX(-50%);
+      z-index: 10;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    .divider::before,
+    .divider::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+    .divider::before {
+      left: -30px;
+      background: var(--primary-blue);
+    }
+    .divider::after {
+      right: -30px;
+      background: var(--primary-red);
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Glitch/Static Effect -->
+  <div class="bg-glitch"></div>
+  <!-- Split Screen Container -->
+  <div class="split-container">
+    <div class="split left-split" onclick="location.href='resume.html'">
+      <h2>Resume</h2>
     </div>
-  </body>
+    <div class="split right-split" onclick="location.href='portfolio.html'">
+      <h2>Game Dev Portfolio</h2>
+    </div>
+    <div class="divider"></div>
+  </div>
+</body>
 </html>
