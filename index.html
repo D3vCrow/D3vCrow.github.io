@@ -3,46 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Christoforos Papachristoforou | Dark Mode Portfolio</title>
+    <title>Welcome - Choose Your Path</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
     <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      /* Welcome Page Custom Styles */
+      .split-container {
+        display: flex;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+      }
+      .split {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+      }
+      .split:hover {
+        opacity: 0.9;
+      }
+      /* Left half: Resume (blue theme) */
+      .left-split {
+        background: #001f3f; /* deep blue */
+      }
+      /* Right half: Game Dev Portfolio (red theme) */
+      .right-split {
+        background: #330000; /* deep red */
+      }
+      .split h2 {
+        font-family: "Poppins", sans-serif;
+        font-size: 2rem;
+        color: #0af; /* default blue for left */
+        z-index: 2;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+        transition: transform 0.3s ease;
+      }
+      .right-split h2 {
+        color: #f00; /* red for right */
+      }
+      .split:hover h2 {
+        transform: scale(1.1);
+      }
+      /* Central Divider with Twin Effect */
+      .divider {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background: linear-gradient(180deg, #0af, #f00);
+        transform: translateX(-50%);
+        z-index: 2;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.6; }
+        50% { opacity: 1; }
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        transform: translateY(-50%);
+      }
+      .divider::before {
+        left: -30px;
+        background: #0af;
+      }
+      .divider::after {
+        right: -30px;
+        background: #f00;
+      }
+      /* Static Noise Overlay for Old TV/Monitor Effect */
+      .noise {
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+        opacity: 0.1;
+        z-index: 1;
+        animation: flicker 0.2s infinite;
+      }
+      @keyframes flicker {
+        0% { opacity: 0.1; }
+        50% { opacity: 0.15; }
+        100% { opacity: 0.1; }
+      }
+    </style>
   </head>
   <body>
-    <!-- Fullscreen Canvas for Matrix Effect -->
-    <canvas id="matrix"></canvas>
+    <!-- Static Noise Overlay -->
+    <div class="noise"></div>
     
-    <header class="animate__animated animate__fadeIn">
-      <h1>Christoforos Papachristoforou</h1>
-      <p>Software Engineer &amp; IT Specialist | Game Developer</p>
-    </header>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#review-tabs">Review</a>
-      <a href="#showcases">Showcase Videos</a>
-      <a href="#freelancing">Freelancing</a>
-      <a href="#published-games">Published Games</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <!-- Main content container -->
-    <div id="content" class="container">
-      <div id="about-section"></div>
-      <div id="review-section"></div>
-      <div id="showcases-section"></div>
-      <div id="freelancing-section"></div>
-      <div id="published-games-section"></div>
-      <div id="contact-section"></div>
+    <div class="split-container">
+      <!-- Left Panel: Resume -->
+      <div class="split left-split" onclick="location.href='resume.html'">
+        <h2>Resume</h2>
+      </div>
+      <!-- Right Panel: Game Dev Portfolio -->
+      <div class="split right-split" onclick="location.href='portfolio.html'">
+        <h2>Game Dev Portfolio</h2>
+      </div>
+      <div class="divider"></div>
     </div>
-    <footer>
-      <p>© 2025 Christoforos Papachristoforou. All rights reserved.</p>
-    </footer>
-    <script src="js/loadPartials.js"></script>
-    <script src="js/matrix-effect.js"></script>
   </body>
 </html>

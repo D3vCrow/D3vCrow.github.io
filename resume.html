@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome - Choose Your Path</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Additional styles for the welcome page */
+    body {
+      background: #000;
+      margin: 0;
+      overflow: hidden;
+    }
+    .split-container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+    }
+    .split {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .split:hover {
+      background: rgba(0, 170, 255, 0.2);
+    }
+    .split h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 2rem;
+      color: #0af;
+      z-index: 2;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+      transition: transform 0.3s ease;
+    }
+    .split:hover h2 {
+      transform: scale(1.1);
+    }
+    /* Central Divider with twin effect */
+    .divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background: linear-gradient(180deg, transparent, #0af, transparent);
+      transform: translateX(-50%);
+      animation: pulse 2s infinite;
+      z-index: 1;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    /* Optional: a small twin icon in the middle */
+    .divider::before,
+    .divider::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 20px;
+      height: 20px;
+      background: #0af;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+    .divider::before {
+      left: -30px;
+    }
+    .divider::after {
+      right: -30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- You might keep your Matrix background canvas if desired -->
+  <canvas id="matrix"></canvas>
+  
+  <div class="split-container">
+    <!-- Left panel: Resume -->
+    <div class="split" onclick="location.href='resume.html'">
+      <h2>Resume</h2>
+    </div>
+    <!-- Right panel: Portfolio -->
+    <div class="split" onclick="location.href='portfolio.html'">
+      <h2>Game Dev Portfolio</h2>
+    </div>
+    <div class="divider"></div>
+  </div>
+  
+  <script src="js/matrix-effect.js"></script>
+</body>
+</html>
