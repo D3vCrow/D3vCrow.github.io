@@ -2,24 +2,135 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Christoforos Papachristoforou</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Welcome - Choose Your Path</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Import Raleway font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,800,900" rel="stylesheet">
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(rgb(235,236,231), rgb(255,255,255));
+    }
+    /* Centered container for title and action area */
+    .container {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    /* Title with background-clip effect using local image */
+    .title {
+      font-weight: 800;
+      color: transparent;
+      font-size: 140px; /* Larger font */
+      background: url("codebg.png") repeat;
+      /* Default: centered horizontally; vertical offset set to 10% */
+      background-position: 50% 10%;
+      -webkit-background-clip: text;
+              background-clip: text;
+      line-height: 110px;
+      letter-spacing: -8px;
+      transition: background-position 0.5s ease;
+    }
+    /* Sides container: two columns for buttons and roles */
+    .sides {
+      margin-top: 150px; /* Adjust vertical spacing as desired */
+      display: flex;
+      justify-content: space-around;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .side {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    /* Button styling */
+    .side button {
+      padding: 20px 40px;
+      font-size: 1.8rem;
+      text-transform: uppercase;
+      background: #fff;       /* White background */
+      border: 3px solid #000; /* Black border */
+      border-radius: 8px;
+      color: #000;            /* Black text */
+      cursor: pointer;
+      transition: background 0.5s ease, transform 0.5s ease, border-color 0.5s ease;
+    }
+    .side button:hover {
+      transform: scale(1.1);
+    }
+    /* Roles text below the button */
+    .roles {
+      margin-top: 20px;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+      color: #000;
+      text-transform: uppercase;
+      transition: transform 0.3s ease;
+    }
+    .roles:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
-  <!-- Background Glitch/Static Effect -->
-  <div class="bg-glitch"></div>
-  
-  <!-- Split Screen Container -->
-  <div class="split-container">
-    <div class="split left-split" onclick="location.href='resume.html'">
-      <h2>Resume</h2>
+  <div class="container">
+    <div class="title">Christoforos Papachristoforou</div>
+    <div class="sides">
+      <div class="side left">
+        <button class="left-btn" onclick="location.href='resume.html'">
+          Work Experience<br>Resume
+        </button>
+        <div class="roles">Developer, IT Team Leader, IT Engineer</div>
+      </div>
+      <div class="side right">
+        <button class="right-btn" onclick="location.href='portfolio.html'">
+          Game Dev<br>Portfolio
+        </button>
+        <div class="roles">Unity Developer, Unity Specialist, Game Designer</div>
+      </div>
     </div>
-    <div class="split right-split" onclick="location.href='portfolio.html'">
-      <h2>Game Dev Portfolio</h2>
-    </div>
-    <div class="divider"></div>
   </div>
+  
+  <!-- jQuery from CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Dynamic background movement: When the mouse moves, update the background position.
+    $(document).mousemove(function(e){
+      var winW = $(window).width();
+      var winH = $(window).height();
+      var traX = (e.pageX / winW) * 100;
+      // Calculate vertical position so that when centered, it becomes 10%
+      var traY = ((e.pageY / winH) * 100) - 40;
+      $(".title").css({"background-position": traX + "% " + traY + "%"});
+    });
+    
+    // On hover over the left button, lock the background to the left edge (with vertical offset)
+    $(".left-btn").hover(
+      function(){
+        $(".title").css({"background-position": "0% 10%"});
+      },
+      function(){
+        // Dynamic movement resumes automatically via mousemove.
+      }
+    );
+    
+    // On hover over the right button, lock the background to the right edge (with vertical offset)
+    $(".right-btn").hover(
+      function(){
+        $(".title").css({"background-position": "100% 10%"});
+      },
+      function(){
+        // Dynamic movement resumes automatically via mousemove.
+      }
+    );
+  </script>
 </body>
 </html>

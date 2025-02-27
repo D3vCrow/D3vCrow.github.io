@@ -6,29 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Import Raleway and Open Sans fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Open+Sans:300,400,600,700" rel="stylesheet">
+
   <style>
     /* Global Reset & Base Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       background: linear-gradient(235deg, #f5f5f5, #fff);
       color: #333;
       font-family: 'Open Sans', sans-serif;
       line-height: 1.6;
       padding: 40px;
+      transition: background 0.3s ease;
     }
     .container {
       max-width: 1000px;
       margin: 0 auto;
     }
-    /* Header with Contact-style border */
     header {
       text-align: center;
       margin-bottom: 40px;
       padding: 1.5em;
       background: #fff;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      border: 2px solid #0af;
-      border-radius: 12px;
+      border-radius: 4px;
+      transition: transform 0.3s ease;
+    }
+    header:hover {
+      transform: scale(1.02);
     }
     header h1 {
       font-family: 'Raleway', sans-serif;
@@ -42,14 +50,32 @@
       color: #555;
       margin-top: 10px;
     }
-    /* New Current Status Section */
+
+    /* Current Status Section */
     .current-status {
       text-align: center;
       margin-bottom: 40px;
-      font-size: 1.2rem;
-      color: #0af;
-      font-weight: 600;
+      padding: 15px;
+      border-radius: 8px;
+      background: linear-gradient(45deg, #0af, #0cf);
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: glowPulse 2s infinite alternate;
     }
+    @keyframes glowPulse {
+      0% {
+        box-shadow: 0 0 8px rgba(0,170,255,0.5);
+        transform: scale(1);
+      }
+      100% {
+        box-shadow: 0 0 16px rgba(0,170,255,0.8);
+        transform: scale(1.02);
+      }
+    }
+
     /* Section Title */
     .section-title {
       font-size: 2rem;
@@ -60,52 +86,84 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    .section { margin-bottom: 60px; }
+    .section {
+      margin-bottom: 60px;
+    }
+
     /* Executive Profile */
-    #executive-profile p { margin-bottom: 20px; font-size: 1rem; }
-    
-    /* Professional Experience Timeline */
+    #executive-profile p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    /* Timeline Container */
     .timeline-container {
       display: flex;
       gap: 2em;
-      align-items: stretch;
+      align-items: flex-start;
       margin-bottom: 40px;
       flex-wrap: wrap;
       transition: all 0.4s ease;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      padding: 20px;
     }
     /* Timeline Column (Left) */
     .timeline {
       position: relative;
-      padding-left: 30px;
-      border-left: 2px solid #0af;
+      padding-left: 40px;
       flex: 1;
-      transition: background 0.3s ease;
+      margin-left: 10px;
     }
-    /* Reverted to white background, dark text */
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #0af;
+      border-radius: 2px;
+    }
+    /* Each timeline item in a mini-card */
     .timeline-item {
       margin-bottom: 20px;
       position: relative;
       cursor: pointer;
-      padding-left: 10px;
-      transition: background 0.3s ease, transform 0.3s ease;
-      background: #fff;
-      color: #333;
+      transition: transform 0.3s ease;
     }
     .timeline-item:hover {
-      background: rgba(0,170,255,0.1);
       transform: translateX(5px);
     }
+    .timeline-inner {
+      background: #fafafa;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      padding: 8px 12px;
+      transition: box-shadow 0.3s ease, background 0.3s ease;
+      position: relative;
+    }
+    .timeline-item:hover .timeline-inner {
+      background: #f0faff;
+      box-shadow: 0 0 6px rgba(0,170,255,0.1);
+    }
+    /* Dot aligned so center is at 20px + 1px border ~ 21px center */
     .timeline-item::before {
       content: "";
       position: absolute;
-      left: -41px;
-      top: 5px;
-      width: 20px;
-      height: 20px;
+      left: 12px;
+      top: 18px; /* center it in .timeline-inner's top padding */
+      width: 14px;
+      height: 14px;
       background: #fff;
       border: 2px solid #0af;
       border-radius: 50%;
-      transition: background 0.3s ease, transform 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .timeline-item:hover::before {
+      box-shadow: 0 0 8px #0af;
     }
     .timeline-item.active::before {
       background: #0af;
@@ -114,58 +172,65 @@
     .timeline-date {
       font-weight: bold;
       color: #0af;
-      margin-bottom: 5px;
       font-size: 0.9rem;
+      margin-bottom: 5px;
     }
     .timeline-title {
       font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 5px;
-      color: #333;
     }
-    /* Job Details Box Column (Right) */
+
+    /* Job Details Column (Right) */
     .job-details-container {
       flex: 2;
       padding: 20px;
-      border: 1px solid #ddd;
       border-radius: 8px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: box-shadow 0.3s ease;
       min-height: 200px;
+      transition: box-shadow 0.3s ease;
     }
-    .job-details-container:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    .job-details {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
     }
-    .job-details { display: none; opacity: 0; transition: opacity 0.4s ease; }
-    .job-details.active { display: block; opacity: 1; }
+    .job-details.active {
+      display: block;
+      opacity: 1;
+    }
     .job-details h3 {
       font-family: 'Raleway', sans-serif;
-      margin-bottom: 0.5em;
-      color: #0af;
       font-size: 1.1rem;
+      color: #0af;
+      margin-bottom: 0.5em;
     }
-    .job-details p { margin-bottom: 0.5em; font-style: italic; color: #555; }
+    .job-details p {
+      margin-bottom: 0.5em;
+      font-style: italic;
+      color: #555;
+    }
     .job-details ul {
       margin: 0.5em 0 0 1.2em;
       list-style: disc;
       color: #666;
     }
-    /* Format for Renderapp lt (with sub-headings) */
-    .job-details .sub-title {
+    .job-details-container:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .sub-title {
       font-size: 1rem;
       color: #0af;
       font-weight: 600;
       margin-top: 10px;
       margin-bottom: 5px;
     }
-    /* Education & Courses Tabs - Keep unchanged */
+
+    /* Education & Courses Tabs */
     .tabs {
       display: flex;
       gap: 20px;
       margin-bottom: 20px;
       justify-content: center;
-      flex-wrap: wrap;
     }
     .tab-btn {
       padding: 10px 20px;
@@ -174,7 +239,6 @@
       color: #0af;
       cursor: pointer;
       transition: background 0.3s ease;
-      border-radius: 6px;
     }
     .tab-btn.active {
       background: #0af;
@@ -188,34 +252,17 @@
       display: block;
       opacity: 1;
     }
-    /* Skills Section with Hover Tooltip (Updated Categories) */
+
+    /* Skills Section with Hover Tooltip */
     .skills-section {
       display: flex;
       flex-direction: column;
       gap: 1.5em;
     }
-    .skill-category {
-      margin-bottom: 1em;
-    }
-    /* New inline header for skills categories */
-    .skill-category .header {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
     .skill-category h3 {
       font-size: 1.1rem;
       color: #0af;
-      margin: 0;
-    }
-    .skill-category p {
-      font-size: 0.9rem;
-      color: #666;
-      margin: 0;
-      transition: color 0.3s ease;
-    }
-    .skill-category:hover p {
-      color: #0af;
+      margin-bottom: 0.3em;
     }
     .skill-list {
       display: flex;
@@ -258,6 +305,7 @@
     .skill-list li:hover::after {
       opacity: 1;
     }
+
     /* Freelancing Projects */
     .projects {
       list-style: none;
@@ -271,7 +319,9 @@
       border-radius: 2px;
       transition: background 0.3s ease;
     }
-    .project-item:hover { background: #eee; }
+    .project-item:hover {
+      background: #eee;
+    }
     .project-title {
       font-weight: bold;
       color: #0af;
@@ -284,20 +334,29 @@
       color: #666;
       margin-bottom: 0.5em;
     }
-    /* Contact with Rounded Border */
-    #contact.section {
-      background: #fff;
-      border: 2px solid #0af;
-      border-radius: 12px;
-      padding: 20px;
+
+    /* Contact */
+    #contact p {
+      margin-bottom: 0.8em;
+      font-size: 1rem;
     }
-    #contact p { margin-bottom: 0.8em; font-size: 1rem; }
-    #contact a { color: #0af; text-decoration: none; }
+    #contact a {
+      color: #0af;
+      text-decoration: none;
+    }
+
     /* Responsive Adjustments */
     @media (max-width: 800px) {
-      .timeline-container { flex-direction: column; }
-      .job-details-container { margin-top: 20px; }
-      .skills-section, .skill-list { justify-content: center; }
+      .timeline-container {
+        flex-direction: column;
+      }
+      .job-details-container {
+        margin-top: 20px;
+      }
+      .skills-section,
+      .skill-list {
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -311,15 +370,23 @@
     
     <!-- Current Status Section -->
     <section id="current-status" class="section">
-      <div class="section-title">Current Status</div>
-      <p style="text-align: center; font-size: 1.2rem; color: #0af;">Open for work or Projects</p>
+      <div class="current-status">
+        Open for Work or Projects
+      </div>
     </section>
     
     <!-- Executive Profile -->
     <section id="executive-profile" class="section">
       <div class="section-title">Executive Profile</div>
       <p>
-        <p>Hello, my name is Christoforos (you can call me Chris). I'm a <strong>software engineer</strong> with hands-on IT and leadership experience who loves solving problems and exploring new technologies. I've built, maintained, and updated projects using <strong>Unity and C#</strong>, and I have experience in <strong>3D rendering</strong>. Currently, I'm deepening my <strong>Python</strong> skills with a focus on <strong>automation and AI</strong> (including ML and LLM). I've worked in and for high-standard corporate environments, from <strong>airports</strong> to the <strong>automotive industry</strong>, which has taught me to navigate complex projects with efficiency and precision. I'm quick at <strong>prototyping</strong> and adept at finding solutions through targeted research. I believe in using <strong>AI generative tools</strong> as powerful complements to my work, not as shortcuts or a means to replicate others' efforts, and I enjoy turning practical ideas into real-world solutions and workflow tools.</p>
+        I'm a software engineer with hands-on IT and leadership experience who loves solving problems and exploring new technologies. 
+        I've built, maintained, and updated projects using Unity and C#, and I have experience in 3D rendering. 
+        Currently, I'm deepening my Python skills with a focus on automation and AI (including ML and LLM). 
+        I've worked in and for high-standard corporate environments, from airports to the automotive industry, 
+        which has taught me to navigate complex projects with efficiency and precision. 
+        I'm quick at prototyping and adept at finding solutions with targeted Google searches. 
+        I believe in using AI generative tools as powerful complements to my work, not as shortcuts or a means to replicate others' work. 
+        I enjoy turning practical ideas into real-world solutions and workflow tools.
       </p>
     </section>
     
@@ -330,23 +397,34 @@
         <!-- Timeline Column (Left) -->
         <div class="timeline">
           <div class="timeline-item active" data-job="job-renderapp">
-            <div class="timeline-date">Feb 2021 – Dec 2024</div>
-            <div class="timeline-title">Renderapp lt</div>
+            <div class="timeline-inner">
+              <div class="timeline-date">Feb 2021 – Dec 2024</div>
+              <div class="timeline-title">Renderapp lt</div>
+            </div>
           </div>
           <div class="timeline-item" data-job="job-sita">
-            <div class="timeline-date">May 2018 – Feb 2021</div>
-            <div class="timeline-title">SITA @ Athens International Airport</div>
+            <div class="timeline-inner">
+              <div class="timeline-date">May 2018 – Feb 2021</div>
+              <div class="timeline-title">SITA / NetSquare</div>
+            </div>
+          </div>
+          <div class="timeline-item" data-job="job-iqos">
+            <div class="timeline-inner">
+              <div class="timeline-date">Dec 2017 – Mar 2018</div>
+              <div class="timeline-title">IQOS Call Center</div>
+            </div>
           </div>
           <div class="timeline-item" data-job="job-cute">
-            <div class="timeline-date">Aug 2014 – Nov 2016</div>
-            <div class="timeline-title">CUTE Specialist @ Athens International Airport</div>
+            <div class="timeline-inner">
+              <div class="timeline-date">Aug 2014 – Nov 2016</div>
+              <div class="timeline-title">CUTE Specialist, Athens Int'l Airport</div>
+            </div>
           </div>
           <div class="timeline-item" data-job="job-helpdesk">
-            <div class="timeline-date">Jan 2014 – Jul 2014</div>
-            <div class="timeline-title">IT Help Desk Intern @ Athens International Airport</div>
-          </div>
-          <div class="timeline-item" data-job="job-other">
-            <div class="timeline-title">Additional &amp; Prior Roles</div>
+            <div class="timeline-inner">
+              <div class="timeline-date">Jan 2014 – Jul 2014</div>
+              <div class="timeline-title">IT Help Desk Intern, Athens Int'l Airport</div>
+            </div>
           </div>
         </div>
         <!-- Job Details Column (Right) -->
@@ -354,86 +432,64 @@
           <div id="job-renderapp" class="job-details active">
             <h3>Unity Developer / Product Owner / Generalist, Renderapp lt</h3>
             <p><em>Feb 2021 – December 2024 (Company closed) | Remote</em></p>
-            <p class="sub-title">Key Responsibilities:</p>
+            <p class="sub-title">Primary Responsibilities:</p>
             <ul>
-              <li>Managed the complete workflow from receiving 3D car data to final review in the Renderapp's product, online configurator, utilizing Unity, 3DS Max, and Node.js.</li>
-              <li>Developed and maintained custom tools across the workflow to streamline processes and ensure robust quality assurance.</li>
-              <li>Served as Product Owner for Caterham's Configurator (<a href="https://caterhamcars.com/en/configurator" target="_blank" style="color:#0af;">View Configurator</a>).</li>
+              <li>Managed the complete workflow—from receiving 3D car data to final product review in the online configurator—integrating Unity, 3DS Max, and Node.js.</li>
               <li>Acted as the primary technical expert for Unity-related and general technical issues.</li>
-              <li>Provided team leadership during periods of high workload (2023–24), ensuring client requirements were met.</li>
+              <li>Reconfigured live projects for cross-compatibility across cloud/private servers and Azure VMs.</li>
+              <li>Provided team leadership during high workload periods (2023–24) to ensure client requirements were met.</li>
               <li>Authored and reviewed technical requests, responses, estimations, and project timelines.</li>
               <li>Scheduled and executed product updates in live environments (Azure/Cloud/Private servers).</li>
-              <li>Managed version control with GitHub and Dropbox, including backup creation, branch management, data recovery, and reverting changes.</li>
+              <li>Managed version control with GitHub and Dropbox, including backup creation and branch management.</li>
             </ul>
             <p class="sub-title">Key Achievements:</p>
             <ul>
-              <li>Integrated legacy Unity projects into updated systems with modifications to C# scripts, HTML, and JS.</li>
+              <li>Integrated legacy Unity projects into updated systems with modifications to C#, HTML, and JS.</li>
               <li>Reconfigured live projects for cross-compatibility across cloud/private servers and Azure VMs.</li>
-              <li>Solo handled live project's branch migration from Built-in Render Pipeline to HDRP.</li>
+              <li>Handled live project branch migration from the Built-In Render Pipeline to HDRP.</li>
             </ul>
           </div>
           <div id="job-sita" class="job-details">
             <h3>Team Leader, SITA / NetSquare</h3>
             <p><em>May 2018 – Feb 2021 | Athens</em></p>
-            <p class="sub-title">Key Responsibilities:</p>
             <ul>
-              <li>Served as team leader and staff trainer.</li>
-              <li>Monitored service performance and network connectivity, and created detailed reports.</li>
+              <li>Managed team schedules, coordinated staff training, and enforced quality assurance processes.</li>
+              <li>Ensured seamless network connectivity and effective troubleshooting across systems.</li>
               <li>Maintained SLA targets and coordinated escalations for critical airport systems.</li>
-              <li>Supervised and guided the CUTE team.</li>
-              <li>Managed the CRM ticket lifecycle, including creation, editing, and resolution.</li>
-            </ul>
-            <p class="sub-title">Key Achievements:</p>
-            <ul>
-              <li>Developed a reporting tool and procedures that reduced process time by over 90%.</li>
-              <li>Documented key procedures and troubleshooting actions.</li>
             </ul>
           </div>
-          <div id="job-other" class="job-details">
-            <h3>Additional &amp; Prior Roles</h3>
+          <div id="job-iqos" class="job-details">
+            <h3>Customer Support – Tech Support, IQOS Call Center</h3>
             <p><em>Dec 2017 – Mar 2018 | Athens</em></p>
             <ul>
-              <li><strong>IQOS Call Center:</strong> Achieved the highest percentage and number of positive client reviews, showcasing exceptional customer satisfaction in a part-time role.</li>
-              <li><strong>Assistant Store Manager, Breeze café:</strong> Managed daily operations and customer service.</li>
-              <li><strong>IT Technician, Simplex Computer Services:</strong> Performed technical service and quality checks.</li>
-              <li><strong>Sales Advisor, Citibank/Atlas:</strong> Excelled in credit card promotion with top conversion rates.</li>
+              <li>Responded to customer inquiries via phone, email, and social media.</li>
+              <li>Consistently achieved high customer satisfaction through prompt and effective support.</li>
+              <li>Escalated complex issues as needed and maintained detailed records.</li>
             </ul>
           </div>
           <div id="job-cute" class="job-details">
-            <h3>Athens International Airport – CUTE Specialist, Printec SA Project</h3>
-            <p><em>Aug 2014 – Nov 2016 (Fulfilled military service) | Athens</em></p>
-            <p class="sub-title">Key Responsibilities:</p>
+            <h3>CUTE Specialist, Athens International Airport</h3>
+            <p><em>Aug 2014 – Nov 2016 | Athens</em></p>
             <ul>
-              <li>Managed and resolved CUTE inquiries on site and via phone/email.</li>
-              <li>Adhered to strict SLAs while maintaining KPIs.</li>
-              <li>Troubleshot software and hardware issues for Terminal Equipment.</li>
-              <li>Collaborated with flight companies to ensure smooth system operations.</li>
-            </ul>
-            <p class="sub-title">Key Achievements:</p>
-            <ul>
-              <li>Led the upgrade and renewal of Terminal Equipment, including software and hardware updates.</li>
+              <li>Managed and resolved terminal equipment inquiries while upholding strict SLAs.</li>
+              <li>Led the upgrade and renewal of airport terminal systems to ensure operational efficiency.</li>
+              <li>Coordinated with multiple stakeholders to minimize downtime during transitions.</li>
             </ul>
           </div>
           <div id="job-helpdesk" class="job-details">
-            <h3>Athens International Airport IT Help Desk (Internship), Printec SA Project</h3>
+            <h3>IT Support Intern, Athens International Airport</h3>
             <p><em>Jan 2014 – Jul 2014 | Athens</em></p>
-            <p class="sub-title">Key Responsibilities:</p>
             <ul>
-              <li>Provided first- and second-level support for daily IT operations.</li>
-              <li>Produced, updated, and maintained operational documentation.</li>
-              <li>Assisted with troubleshooting desktops, laptops, printers, and mobile devices.</li>
-              <li>Installed anti-virus software and managed centralized deployment tools.</li>
-            </ul>
-            <p class="sub-title">Key Achievements:</p>
-            <ul>
-              <li>Implemented a logging system for IT equipment and conducted comprehensive maintenance.</li>
+              <li>Provided first- and second-level IT support for daily airport operations.</li>
+              <li>Maintained detailed operational documentation and assisted with troubleshooting.</li>
+              <li>Ensured smooth IT operations through proactive issue resolution.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
     
-    <!-- Education & Courses Tabs (Reverted layout) -->
+    <!-- Education & Courses Tabs -->
     <section id="education" class="section">
       <div class="section-title">Education &amp; Courses</div>
       <div class="tabs">
@@ -461,71 +517,34 @@
       </div>
     </section>
     
-    <!-- Skills with Hover Tooltip (Updated Categories) -->
+    <!-- Skills with Hover Tooltip -->
     <section id="skills" class="section">
       <div class="section-title">Skills</div>
       <div class="skills-section">
-<div class="skill-category">
-  <div class="header">
-    <h3>Production-Ready Skills</h3>
-    <p>Fully proficient and ready for professional projects.</p>
-  </div>
-  <ul class="skill-list">
-    <li data-desc="Over 7 years of all-around experience, including 4 years in a professional setting." style="cursor: default;">Unity</li>
-    <li data-desc="7+ years of writing efficient code, particularly within the Unity environment." style="cursor: default;">C#</li>
-  </ul>
-</div>
-
-<div class="skill-category">
-  <div class="header">
-    <h3>Foundational Proficiency</h3>
-    <p>Solid basic knowledge with room for growth through hands-on experience.</p>
-  </div>
-  <ul class="skill-list">
-    <li data-desc="An enthusiastic learner with multiple courses and personal projects—always striving to learn more." style="cursor: default;">Python</li>
-  </ul>
-</div>
-
-<div class="skill-category">
-  <div class="header">
-    <h3>Supplementary Expertise</h3>
-    <p>Competent skills that effectively support my core work.</p>
-  </div>
-  <ul class="skill-list">
-    <li data-desc="Proficient in using these tools for efficient research and problem-solving." style="cursor: default;">Google &amp; ChatGPT</li>
-    <li data-desc="Delivered quality editing work with Photoshop, Filmora, and similar tools as needed." style="cursor: default;">Image &amp; Video Editing</li>
-    <li data-desc="Familiar with updating existing websites. (Fun fact: I built this site!)" style="cursor: default;">Web Development (HTML, CSS)</li>
-    <li data-desc="Very comfortable working with tools like Excel, Word, and more." style="cursor: default;">Office365</li>
-    <li data-desc="Adept at crafting effective prompts for generative AI tools (image, text, video)." style="cursor: default;">Prompting</li>
-  </ul>
-</div>
-
-<div class="skill-category">
-  <div class="header">
-    <h3>Rusty, But Recoverable</h3>
-    <p>Skills that haven't been used recently and may require refreshing.</p>
-  </div>
-  <ul class="skill-list">
-    <li data-desc="Solid foundation from earlier IT roles, supported by Cisco certification (might need a refresher)." style="cursor: default;">Networking</li>
-  </ul>
-</div>
-
-<div class="skill-category">
-  <div class="header">
-    <h3>Honorable Mentions</h3>
-    <p></p>
-  </div>
-  <ul class="skill-list">
-    <li data-desc="2 years of hands-on experience updating Azure VMs and building scale sets." style="cursor: default;">Azure VMs &amp; Scale Sets</li>
-    <li data-desc="Regular use throughout my career for basic automation tasks." style="cursor: default;">Batch Scripting &amp; PowerShell</li>
-    <li data-desc="Over 3 years of experience using 3DS Max for data garaging in the automotive industry." style="cursor: default;">3DS Max</li>
-    <li data-desc="Experience using RizomUV for UV mapping in automotive projects." style="cursor: default;">UV Mapping (RizomUV)</li>
-  </ul>
-</div>
-
-
-
+        <div class="skill-category">
+          <h3>Programming &amp; Scripting</h3>
+          <ul class="skill-list">
+            <li data-desc="Industry-standard game engine for 2D and 3D development.">Unity <span class="rating">★★★★★</span></li>
+            <li data-desc="Primary language for Unity and general software development.">C# <span class="rating">★★★★★</span></li>
+            <li data-desc="Widely used for automation, data analysis, and AI projects.">Python <span class="rating">★★★★☆</span></li>
+            <li data-desc="Used for creating interactive web experiences.">JavaScript <span class="rating">★★★☆☆</span></li>
+          </ul>
         </div>
+        <div class="skill-category">
+          <h3>Design &amp; Creative</h3>
+          <ul class="skill-list">
+            <li data-desc="Professional tools for video and image editing.">Video &amp; Image Editing <span class="rating">★★★★☆</span></li>
+            <li data-desc="3D modeling and animation software for high-quality rendering.">3DS Max <span class="rating">★★★★☆</span></li>
+            <li data-desc="Advanced tool for precise UV mapping and texturing.">RizomUV <span class="rating">★★★★☆</span></li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Infrastructure &amp; Tools</h3>
+          <ul class="skill-list">
+            <li data-desc="Cloud platform for scalable virtual machines and deployments.">Azure VMs &amp; Scale Sets <span class="rating">★★★★☆</span></li>
+          </ul>
+        </div>
+      </div>
     </section>
     
     <!-- Freelancing Projects -->
@@ -542,6 +561,11 @@
             <div class="project-title">Super Pokemon Bros, iConnect</div>
             <div class="project-duration">Sep 2024 – Oct 2024 | Remote</div>
             <p>Developed a fan-based game merging Super Mario Bros mechanics with a Pokémon theme.</p>
+          </li>
+          <li class="project-item">
+            <div class="project-title">Darn My Barn</div>
+            <div class="project-duration">Published on itch.io</div>
+            <p>A quirky puzzle adventure game featuring retro-inspired visuals and inventive puzzles.</p>
           </li>
         </ul>
       </div>
@@ -569,8 +593,8 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  // Interactive Timeline: Clicking timeline items shows job details in the right column.
   $(document).ready(function(){
+    // Interactive Timeline: Clicking timeline items shows job details in the right column.
     $('.timeline-item').click(function(){
       $('.timeline-item').removeClass('active');
       $(this).addClass('active');
