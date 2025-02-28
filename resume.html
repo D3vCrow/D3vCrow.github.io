@@ -81,7 +81,6 @@
       flex: 1;
       transition: background 0.3s ease;
     }
-    /* Reverted to white background, dark text */
     .timeline-item {
       margin-bottom: 20px;
       position: relative;
@@ -151,7 +150,6 @@
       list-style: disc;
       color: #666;
     }
-    /* Format for Renderapp lt (with sub-headings) */
     .job-details .sub-title {
       font-size: 1rem;
       color: #0af;
@@ -197,7 +195,6 @@
     .skill-category {
       margin-bottom: 1em;
     }
-    /* New inline header for skills categories */
     .skill-category .header {
       display: inline-flex;
       align-items: center;
@@ -258,32 +255,100 @@
     .skill-list li:hover::after {
       opacity: 1;
     }
-    /* Freelancing Projects */
-    .projects {
-      list-style: none;
-      padding: 0;
-    }
-    .project-item {
-      margin-bottom: 1em;
-      background: #f5f5f5;
-      padding: 1em;
-      border-left: 4px solid #0af;
-      border-radius: 2px;
-      transition: background 0.3s ease;
-    }
-    .project-item:hover { background: #eee; }
-    .project-title {
-      font-weight: bold;
-      color: #0af;
-      margin-bottom: 0.3em;
-      font-size: 1.2rem;
-    }
-    .project-duration {
-      font-style: italic;
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 0.5em;
-    }
+    /* Freelancing Projects Carousel as Cards */
+.projects {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 20px;
+  padding-bottom: 10px;
+  /* Hide scrollbar on WebKit-based browsers */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;       /* For Firefox */
+  -ms-overflow-style: none;    /* For IE and old Edge */
+}
+.projects::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.projects ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.projects li.project-item {
+  flex: 0 0 auto;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  scroll-snap-align: start;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-image {
+  width: 100%;
+  height: 160px;
+  background: #eee;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card-content {
+  padding: 15px;
+  flex: 1;
+}
+
+.project-title {
+  font-weight: bold;
+  color: #0af;
+  margin-bottom: 0.3em;
+  font-size: 1.2rem;
+}
+
+.project-duration {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5em;
+}
+
+.project-item p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.carousel-controls {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carousel-controls button {
+  background: #0af;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.carousel-controls button:hover {
+  background: #099;
+}
+
     /* Contact with Rounded Border */
     #contact.section {
       background: #fff;
@@ -493,6 +558,7 @@
   </div>
   <ul class="skill-list">
     <li data-desc="Proficient in using these tools for efficient research and problem-solving." style="cursor: default;">Google &amp; ChatGPT</li>
+	<li data-desc="Experienced working with Github,Dropbox,Plasic,Unity Version Control (Previously Plastic SCM),bitBucket." style="cursor: default;">Version Control</li>
     <li data-desc="Delivered quality editing work with Photoshop, Filmora, and similar tools as needed." style="cursor: default;">Image &amp; Video Editing</li>
     <li data-desc="Familiar with updating existing websites. (Fun fact: I built this site!)" style="cursor: default;">Web Development (HTML, CSS)</li>
     <li data-desc="Very comfortable working with tools like Excel, Word, and more." style="cursor: default;">Office365</li>
@@ -528,24 +594,44 @@
         </div>
     </section>
     
-    <!-- Freelancing Projects -->
+    <!-- Freelancing Projects with Carousel as Cards -->
     <section id="freelancing-projects" class="section">
       <div class="section-title">Freelancing Projects</div>
       <div class="section-content">
-        <ul class="projects">
-          <li class="project-item">
-            <div class="project-title">VR Unity Project Upgrade for German Fraport Airport</div>
-            <div class="project-duration">Jun 2024 – Nov 2024 | Remote</div>
-            <p>Served as Senior Unity Developer to upgrade and enhance a VR project for Fraport Airport.</p>
-          </li>
-          <li class="project-item">
-            <div class="project-title">Super Pokemon Bros, iConnect</div>
-            <div class="project-duration">Sep 2024 – Oct 2024 | Remote</div>
-            <p>Developed a fan-based game merging Super Mario Bros mechanics with a Pokémon theme.</p>
-          </li>
-        </ul>
+        <div class="projects">
+          <ul>
+            <li class="project-item">
+              <div class="project-image">
+                <!-- Placeholder image; replace with actual image URL -->
+                <img src="Untitled-2.png" alt="">
+              </div>
+              <div class="project-card-content">
+                <div class="project-title">VR Unity Project Upgrade for German Fraport Airport</div>
+                <div class="project-duration">Jun 2024 – Nov 2024 | Remote</div>
+                <p>Served as Senior Unity Developer to upgrade and enhance a VR project for Fraport Airport.</p>
+              </div>
+            </li>
+            <li class="project-item">
+              <div class="project-image">
+                <!-- Placeholder image; replace with actual image URL -->
+                <img src="Untitled-2.png" alt="">
+              </div>
+              <div class="project-card-content">
+                <div class="project-title">Super Pokemon Bros, iConnect</div>
+                <div class="project-duration">Sep 2024 – Oct 2024 | Remote</div>
+                <p>Developed a fan-based game merging Super Mario Bros mechanics with a Pokémon theme.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="carousel-controls">
+          <button id="prev-projects">&lt;</button>
+          <button id="next-projects">&gt;</button>
+        </div>
       </div>
     </section>
+
+    
     
     <!-- Contact -->
     <section id="contact" class="section">
@@ -569,25 +655,53 @@
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  // Interactive Timeline: Clicking timeline items shows job details in the right column.
-  $(document).ready(function(){
-    $('.timeline-item').click(function(){
-      $('.timeline-item').removeClass('active');
-      $(this).addClass('active');
-      var jobId = $(this).data('job');
-      $('.job-details').removeClass('active');
-      $('#' + jobId).addClass('active');
-    });
-    
-    // Education Tabs: Toggle between Education and Courses.
-    $('.tab-btn').click(function(){
-      $('.tab-btn').removeClass('active');
-      $(this).addClass('active');
-      var tab = $(this).data('tab');
-      $('.tab-content').removeClass('active');
-      $('#' + tab).addClass('active');
-    });
+// Interactive Timeline: Clicking timeline items shows job details in the right column.
+$(document).ready(function(){
+  $('.timeline-item').click(function(){
+    $('.timeline-item').removeClass('active');
+    $(this).addClass('active');
+    var jobId = $(this).data('job');
+    $('.job-details').removeClass('active');
+    $('#' + jobId).addClass('active');
   });
+  
+  // Education Tabs: Toggle between Education and Courses.
+  $('.tab-btn').click(function(){
+    $('.tab-btn').removeClass('active');
+    $(this).addClass('active');
+    var tab = $(this).data('tab');
+    $('.tab-content').removeClass('active');
+    $('#' + tab).addClass('active');
+  });
+  
+  // Carousel Controls for Freelancing Projects as Cards:
+  // This version calculates the width of one card (including its margin)
+  // and moves the carousel exactly one card at a time.
+  var currentIndex = 0;
+  var $carouselList = $('.projects ul');
+  var totalItems = $('.projects ul li.project-item').length;
+  function updateCarousel() {
+    var cardWidth = $('.projects ul li.project-item').outerWidth(true); // include margin
+    $carouselList.animate({ marginLeft: -currentIndex * cardWidth }, 300);
+  }
+  $('#next-projects').click(function(){
+    if (currentIndex < totalItems - 1) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+  $('#prev-projects').click(function(){
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+  $(window).resize(function(){
+    updateCarousel();
+  });
+});
+
+
 </script>
 </body>
 </html>
