@@ -1,98 +1,458 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Welcome - Choose Your Path</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <title>Your Name | Game Dev Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
   <style>
-    /* Additional styles for the welcome page */
+    /* Global Dark Theme */
     body {
-      background: #000;
       margin: 0;
-      overflow: hidden;
+      background: #111;
+      color: #f5f5f5;
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      min-height: 200vh;
     }
-    .split-container {
-      display: flex;
-      height: 100vh;
-      width: 100vw;
-    }
-    .split {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    a { color: #ff9800; }
+
+    /* Header with Glitch Effect, Navigation, and Toggle Button */
+    header {
       position: relative;
-      cursor: pointer;
-      transition: background 0.3s ease;
+      text-align: center;
+      padding: 40px 20px;
+      overflow: hidden;
+      background: #000;
     }
-    .split:hover {
-      background: rgba(0, 170, 255, 0.2);
-    }
-    .split h2 {
-      font-family: "Poppins", sans-serif;
-      font-size: 2rem;
-      color: #0af;
+    header h1 {
+      font-size: 4rem;
+      color: #fff;
+      position: relative;
       z-index: 2;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.7);
-      transition: transform 0.3s ease;
+      margin: 0;
     }
-    .split:hover h2 {
-      transform: scale(1.1);
-    }
-    /* Central Divider with twin effect */
-    .divider {
+    header h1::before,
+    header h1::after {
+      content: attr(data-text);
       position: absolute;
+      left: 0;
       top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 4px;
-      background: linear-gradient(180deg, transparent, #0af, transparent);
-      transform: translateX(-50%);
-      animation: pulse 2s infinite;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      color: #fff;
       z-index: 1;
+      opacity: 0.8;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.6; }
-      50% { opacity: 1; }
+    header h1::before {
+      left: 2px;
+      text-shadow: -2px 0 red;
+      animation: glitch 2s infinite linear alternate-reverse;
     }
-    /* Optional: a small twin icon in the middle */
-    .divider::before,
-    .divider::after {
-      content: "";
+    header h1::after {
+      left: -2px;
+      text-shadow: -2px 0 blue;
+      animation: glitch 3s infinite linear alternate-reverse;
+    }
+    @keyframes glitch {
+      0% { clip: rect(2px, 9999px, 10px, 0); }
+      10% { clip: rect(12px, 9999px, 20px, 0); }
+      20% { clip: rect(22px, 9999px, 30px, 0); }
+      30% { clip: rect(2px, 9999px, 10px, 0); }
+      40% { clip: rect(12px, 9999px, 20px, 0); }
+      50% { clip: rect(22px, 9999px, 30px, 0); }
+      60% { clip: rect(2px, 9999px, 10px, 0); }
+      70% { clip: rect(12px, 9999px, 20px, 0); }
+      80% { clip: rect(22px, 9999px, 30px, 0); }
+      90% { clip: rect(12px, 9999px, 20px, 0); }
+      100% { clip: rect(2px, 9999px, 10px, 0); }
+    }
+    nav {
+      margin-top: 20px;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: inline-flex;
+      gap: 20px;
+    }
+    nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #ff9800; }
+    /* Stylish Toggle Button */
+    #mascot-toggle {
+      background: linear-gradient(45deg, #ff9800, #ffc107);
+      border: none;
+      color: #111;
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      margin-top: 20px;
+    }
+    #mascot-toggle:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    }
+    #mascot-toggle:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    section {
+      margin-bottom: 60px;
+      padding: 40px 20px;
+      background: #222;
+      border: 1px solid #333;
+      border-radius: 8px;
+    }
+    section h2 { color: #ff9800; margin-top: 0; }
+    
+    /* Swiper Gallery Styles */
+    .swiper-container {
+      width: 100%;
+      height: 300px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .swiper-slide-container {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      height: 100%;
+      max-width: 600px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gallery-top { height: 80%; width: 100%; }
+    .gallery-thumbs {
+      height: 20%;
+      box-sizing: border-box;
+      padding: 10px 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .gallery-thumbs .swiper-slide {
+      width: 20%;
+      height: 100%;
+      opacity: 0.4;
+    }
+    .gallery-thumbs .swiper-slide-active { opacity: 1; }
+    
+    /* Mascot Styles – Crow's Face with Beak, Wings & Code Effect */
+    #mascot {
+      position: fixed;
+      left: calc(100% - 170px);
+      top: calc(100% - 170px);
+      width: 150px;
+      height: 150px;
+      background: #222; /* Crow-like dark face */
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 0 15px #fff;
+      display: none; /* Initially hidden */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 101;
+      transition: left 0.3s ease, top 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      overflow: visible; /* So that wings can extend outside the face */
+    }
+    /* Eyes */
+    #mascot .eyes {
+      display: flex;
+      margin-bottom: 2px;
+    }
+    #mascot .eye {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      background: #000;
+      border-radius: 50%;
+      border: 2px solid #444;
+      margin: 0 5px;
+    }
+    #mascot .eye .pupil {
       position: absolute;
       top: 50%;
-      width: 20px;
-      height: 20px;
-      background: #0af;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      background: #fff;
       border-radius: 50%;
-      transform: translateY(-50%);
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s ease-out;
     }
-    .divider::before {
-      left: -30px;
+    /* Crow Beak */
+    #mascot .beak {
+      width: 40px;
+      height: 20px;
+      margin-top: -10px;
     }
-    .divider::after {
-      right: -30px;
+    #mascot .beak svg {
+      width: 100%;
+      height: 100%;
+    }
+    /* Wings with Code Effect */
+    #mascot .wing {
+  position: absolute;
+  width: 40px;
+  height: 80px;
+  font-family: monospace;
+  font-size: 10px;
+  color: #0f0;
+  opacity: 0.8;
+  pointer-events: none;
+  overflow: hidden;
+  white-space: pre;  /* Preserve line breaks */
+}
+#mascot .wing.left {
+  left: -45px;
+  top: 35px;
+  transform: rotate(-10deg);
+}
+#mascot .wing.right {
+  right: -45px;
+  top: 35px;
+  transform: rotate(10deg);
+}
+
+    /* Dialogue Bubble */
+    #dialogue {
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      color: #000;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      pointer-events: none;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px #fff;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 2.5rem; }
+      #mascot {
+        width: 100px;
+        height: 100px;
+        left: calc(100% - 120px);
+        top: calc(100% - 120px);
+      }
+      #mascot .eye { width: 20px; height: 20px; margin: 0 3px; }
+      #mascot .eye .pupil { width: 6px; height: 6px; }
+      #mascot .beak { width: 30px; height: 15px; }
+      #mascot .wing { width: 30px; height: 60px; font-size: 8px; }
+      #dialogue { font-size: 10px; }
+      .swiper-container { height: 200px; }
     }
   </style>
 </head>
 <body>
-  <!-- You might keep your Matrix background canvas if desired -->
-  <canvas id="matrix"></canvas>
+  <!-- Header with Glitch Name, Navigation, and Mascot Toggle Button -->
+  <header>
+    <h1 data-text="YOUR NAME">YOUR NAME</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="mascot-toggle">Show Mascot</button>
+  </header>
   
-  <div class="split-container">
-    <!-- Left panel: Resume -->
-    <div class="split" onclick="location.href='resume.html'">
-      <h2>Resume</h2>
+  <!-- Main Content -->
+  <main>
+    <section id="about" data-dialogue="Hello there! I build worlds through code.">
+      <h2>About Me</h2>
+      <p>
+        I am a passionate game developer who loves exploring the intersection of technology and art.
+        I create immersive experiences that combine clever mechanics with beautiful visuals.
+      </p>
+    </section>
+    <section id="projects" data-dialogue="Explore my projects, from retro shooters to modern platformers.">
+      <h2>Projects</h2>
+      <p>
+        My projects range from nostalgic arcade games to innovative indie titles.
+        Each project is a blend of storytelling, interactive design, and technical expertise.
+      </p>
+    </section>
+    <!-- Gallery Section with Swiper -->
+    <section id="gallery" data-dialogue="Enjoy a preview of my work!">
+      <h2>Gallery</h2>
+      <!-- Swiper -->
+      <div class="swiper-container gallery-top">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><div class="swiper-slide-container">Slide 1</div></div>
+          <div class="swiper-slide"><div class="swiper-slide-container">Slide 2</div></div>
+          <div class="swiper-slide"><div class="swiper-slide-container">Slide 3</div></div>
+          <div class="swiper-slide"><div class="swiper-slide-container">Slide 4</div></div>
+          <div class="swiper-slide"><div class="swiper-slide-container">Slide 5</div></div>
+        </div>
+        <!-- Navigation Arrows -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+      <div class="swiper-container gallery-thumbs">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><div class="swiper-slide-container">Slide 1</div></div>
+          <div class="swiper-slide"><div class="swiper-slide-container">Slide 2</div></div>
+          <div class="swiper-slide"><div class="swiper-slide-container">Slide 3</div></div>
+          <div class="swiper-slide"><div class="swiper-slide-container">Slide 4</div></div>
+          <div class="swiper-slide"><div class="swiper-slide-container">Slide 5</div></div>
+        </div>
+      </div>
+    </section>
+    <section id="skills" data-dialogue="See my skills in game design, programming, and animation.">
+      <h2>Skills</h2>
+      <p>
+        I specialize in HTML, CSS, JavaScript, and various game engines.
+        I also have a deep passion for UI/UX design and animation, ensuring my games are both fun and visually engaging.
+      </p>
+    </section>
+    <section id="contact" data-dialogue="Let's get in touch!">
+      <h2>Contact</h2>
+      <p>
+        Feel free to reach out to me at <a href="mailto:your.email@example.com">your.email@example.com</a>
+        for collaborations, inquiries, or just a friendly chat about games!
+      </p>
+    </section>
+  </main>
+  
+  <!-- Mascot HTML Structure (Crow's Face with Beak, Wings & Code Effect, Dialogue) -->
+  <div id="mascot">
+    <div class="eyes">
+      <div class="eye" id="left-eye">
+        <div class="pupil"></div>
+      </div>
+      <div class="eye" id="right-eye">
+        <div class="pupil"></div>
+      </div>
     </div>
-    <!-- Right panel: Portfolio -->
-    <div class="split" onclick="location.href='portfolio.html'">
-      <h2>Game Dev Portfolio</h2>
+    <!-- Crow Beak -->
+    <div class="beak">
+      <svg id="beak-svg" viewBox="0 0 40 20" width="100%" height="100%">
+        <path d="M5,10 L20,2 L35,10 L20,18 Z" fill="#ffcc00" stroke="#aa8800" stroke-width="1"/>
+      </svg>
     </div>
-    <div class="divider"></div>
+    <!-- Wings with Code Effect -->
+    <div class="wing left"></div>
+    <div class="wing right"></div>
+    <!-- Dialogue Bubble -->
+    <div id="dialogue"></div>
   </div>
   
-  <script src="js/matrix-effect.js"></script>
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script>
+    // SLIDE DESCRIPTIONS: one description per slide.
+    const slideDescriptions = [
+      "Description for Slide 1",
+      "Description for Slide 2",
+      "Description for Slide 3",
+      "Description for Slide 4",
+      "Description for Slide 5"
+    ];
+
+    // Initialize Swiper galleries
+    var galleryTop = new Swiper('.gallery-top', {
+      spaceBetween: 10,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      loopedSlides: 5
+    });
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+      spaceBetween: 10,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      touchRatio: 0.2,
+      slideToClickedSlide: true,
+      loop: true,
+      loopedSlides: 5
+    });
+    galleryTop.controller.control = galleryThumbs;
+    galleryThumbs.controller.control = galleryTop;
+    
+    // On slide change, update dialogue with slide description.
+    galleryTop.on('slideChange', function () {
+      const index = galleryTop.realIndex;
+      const dialogue = document.getElementById('dialogue');
+      dialogue.textContent = slideDescriptions[index] || "";
+      dialogue.style.opacity = 1;
+    });
+  </script>
+  
+  <!-- Toggle Mascot Button Script -->
+  <script>
+    const toggleBtn = document.getElementById('mascot-toggle');
+    const mascotEl = document.getElementById('mascot');
+
+    toggleBtn.addEventListener('click', () => {
+      if (mascotEl.style.display === "none" || mascotEl.style.display === "") {
+        const btnRect = toggleBtn.getBoundingClientRect();
+        const offsetX = Math.floor(Math.random() * 41) - 20;
+        const offsetY = Math.floor(Math.random() * 41) - 20;
+        mascotEl.style.left = `${btnRect.left + offsetX}px`;
+        mascotEl.style.top = `${btnRect.top + offsetY}px`;
+        mascotEl.style.display = "flex";
+        const rect = mascotEl.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+        const distance = Math.hypot(lastMouseX - centerX, lastMouseY - centerY);
+        if (distance < 100) {
+          relocateMascot(lastMouseX, lastMouseY);
+        }
+        toggleBtn.textContent = "Hide Mascot";
+      } else {
+        mascotEl.style.display = "none";
+        toggleBtn.textContent = "Show Mascot";
+      }
+    });
+    
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+    document.addEventListener('mousemove', (e) => {
+      lastMouseX = e.clientX;
+      lastMouseY = e.clientY;
+    });
+  </script>
+  
+  <!-- External Mascot Script -->
+  <script src="mascot.js"></script>
 </body>
 </html>
