@@ -2,457 +2,405 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Your Name | Game Dev Portfolio</title>
+  <title>Christoforos Papachristoforou | Devcrow Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
+  
   <style>
-    /* Global Dark Theme */
-    body {
-      margin: 0;
-      background: #111;
-      color: #f5f5f5;
-      font-family: 'Arial', sans-serif;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      min-height: 200vh;
-    }
-    a { color: #ff9800; }
-
-    /* Header with Glitch Effect, Navigation, and Toggle Button */
-    header {
-      position: relative;
-      text-align: center;
-      padding: 40px 20px;
-      overflow: hidden;
-      background: #000;
-    }
-    header h1 {
-      font-size: 4rem;
-      color: #fff;
-      position: relative;
-      z-index: 2;
-      margin: 0;
-    }
-    header h1::before,
-    header h1::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      color: #fff;
-      z-index: 1;
-      opacity: 0.8;
-    }
-    header h1::before {
-      left: 2px;
-      text-shadow: -2px 0 red;
-      animation: glitch 2s infinite linear alternate-reverse;
-    }
-    header h1::after {
-      left: -2px;
-      text-shadow: -2px 0 blue;
-      animation: glitch 3s infinite linear alternate-reverse;
-    }
-    @keyframes glitch {
-      0% { clip: rect(2px, 9999px, 10px, 0); }
-      10% { clip: rect(12px, 9999px, 20px, 0); }
-      20% { clip: rect(22px, 9999px, 30px, 0); }
-      30% { clip: rect(2px, 9999px, 10px, 0); }
-      40% { clip: rect(12px, 9999px, 20px, 0); }
-      50% { clip: rect(22px, 9999px, 30px, 0); }
-      60% { clip: rect(2px, 9999px, 10px, 0); }
-      70% { clip: rect(12px, 9999px, 20px, 0); }
-      80% { clip: rect(22px, 9999px, 30px, 0); }
-      90% { clip: rect(12px, 9999px, 20px, 0); }
-      100% { clip: rect(2px, 9999px, 10px, 0); }
-    }
-    nav {
-      margin-top: 20px;
-    }
-    nav ul {
-      list-style: none;
+    html, body {
       margin: 0;
       padding: 0;
-      display: inline-flex;
-      gap: 20px;
-    }
-    nav a {
-      color: #f5f5f5;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #ff9800; }
-    /* Stylish Toggle Button */
-    #mascot-toggle {
-      background: linear-gradient(45deg, #ff9800, #ffc107);
-      border: none;
-      color: #111;
-      padding: 10px 20px;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      margin-top: 20px;
-    }
-    #mascot-toggle:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-    }
-    #mascot-toggle:active {
-      transform: scale(0.98);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-    
-    /* Main Content */
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-    section {
-      margin-bottom: 60px;
-      padding: 40px 20px;
-      background: #222;
-      border: 1px solid #333;
-      border-radius: 8px;
-    }
-    section h2 { color: #ff9800; margin-top: 0; }
-    
-    /* Swiper Gallery Styles */
-    .swiper-container {
       width: 100%;
-      height: 300px;
-      margin: 20px auto;
+      height: 100%;
+      font-family: 'Anton', sans-serif;
+      background: radial-gradient(ellipse at 50% 50%, #011116 0%, #000000 100%);
+      color: #f5f5f5;
       overflow: hidden;
-      border-radius: 8px;
+      scroll-behavior: smooth;
     }
-    .swiper-slide {
+
+    /* Fullscreen Scrolling Sections */
+    .container {
+      width: 100%;
+      height: 100vh;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+    }
+
+    section {
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ff9800;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+      scroll-snap-align: start;
+      position: relative;
     }
-    .swiper-slide-container {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      height: 100%;
-      max-width: 600px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .gallery-top { height: 80%; width: 100%; }
-    .gallery-thumbs {
-      height: 20%;
-      box-sizing: border-box;
-      padding: 10px 0;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-    .gallery-thumbs .swiper-slide {
-      width: 20%;
-      height: 100%;
-      opacity: 0.4;
-    }
-    .gallery-thumbs .swiper-slide-active { opacity: 1; }
-    
-    /* Mascot Styles – Crow's Face with Beak, Wings & Code Effect */
-    #mascot {
-      position: fixed;
-      left: calc(100% - 170px);
-      top: calc(100% - 170px);
-      width: 150px;
-      height: 150px;
-      background: #222; /* Crow-like dark face */
+
+    /* Navigation Arrows */
+    .nav-arrow {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 152, 0, 0.7);
       border-radius: 50%;
-      border: 3px solid #fff;
-      box-shadow: 0 0 15px #fff;
-      display: none; /* Initially hidden */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #000;
+      font-size: 20px;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .nav-arrow:hover {
+      background: rgba(255, 152, 0, 1);
+    }
+
+    .nav-arrow-top {
+      top: 20px;
+      left: 20px;
+    }
+
+    .nav-arrow-bottom {
+      bottom: 20px;
+      left: 20px;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      padding: 12px 25px;
+      border-radius: 50px;
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #f5f5f5;
+      transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+      display: inline-block;
+    }
+
+    nav a:hover {
+      color: #ff9800;
+      text-shadow: 0px 0px 10px rgba(255, 152, 0, 0.8);
+      transform: scale(1.1);
+    }
+
+    /* Fullscreen Header Block */
+    header {
+      height: 100vh;
+      background: #000;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 101;
-      transition: left 0.3s ease, top 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      overflow: visible; /* So that wings can extend outside the face */
-    }
-    /* Eyes */
-    #mascot .eyes {
-      display: flex;
-      margin-bottom: 2px;
-    }
-    #mascot .eye {
       position: relative;
-      width: 30px;
-      height: 30px;
-      background: #000;
-      border-radius: 50%;
-      border: 2px solid #444;
-      margin: 0 5px;
+      overflow: hidden;
+      scroll-snap-align: start;
     }
-    #mascot .eye .pupil {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 8px;
-      height: 8px;
-      background: #fff;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      transition: transform 0.1s ease-out;
-    }
-    /* Crow Beak */
-    #mascot .beak {
-      width: 40px;
-      height: 20px;
-      margin-top: -10px;
-    }
-    #mascot .beak svg {
-      width: 100%;
-      height: 100%;
-    }
-    /* Wings with Code Effect */
-    #mascot .wing {
-  position: absolute;
-  width: 40px;
-  height: 80px;
-  font-family: monospace;
-  font-size: 10px;
-  color: #0f0;
-  opacity: 0.8;
-  pointer-events: none;
-  overflow: hidden;
-  white-space: pre;  /* Preserve line breaks */
-}
-#mascot .wing.left {
-  left: -45px;
-  top: 35px;
-  transform: rotate(-10deg);
-}
-#mascot .wing.right {
-  right: -45px;
-  top: 35px;
-  transform: rotate(10deg);
-}
 
-    /* Dialogue Bubble */
-    #dialogue {
-      position: absolute;
-      bottom: 110%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fff;
-      color: #000;
-      padding: 5px 10px;
-      border-radius: 5px;
-      font-size: 12px;
-      white-space: nowrap;
-      opacity: 0;
-      transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      pointer-events: none;
-      border: 2px solid #fff;
-      box-shadow: 0 0 10px #fff;
+    /* Title */
+    .title {
+      font-weight: 900;
+      font-size: 160px;
+      text-align: center;
+      color: transparent;
+      background: url("thrionbg.gif") no-repeat;
+      background-size: cover;
+      background-position: 50% 0%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      line-height: 160px;
+      letter-spacing: -3px;
+      display: inline-block;
+      position: relative;
+      transition: background-position 0.2s ease-out;
     }
-    @media (max-width: 600px) {
-      header h1 { font-size: 2.5rem; }
-      #mascot {
-        width: 100px;
-        height: 100px;
-        left: calc(100% - 120px);
-        top: calc(100% - 120px);
-      }
-      #mascot .eye { width: 20px; height: 20px; margin: 0 3px; }
-      #mascot .eye .pupil { width: 6px; height: 6px; }
-      #mascot .beak { width: 30px; height: 15px; }
-      #mascot .wing { width: 30px; height: 60px; font-size: 8px; }
-      #dialogue { font-size: 10px; }
-      .swiper-container { height: 200px; }
+
+    /* AKA + Rotating Messages */
+    .aka-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      max-width: 1000px;
+      margin-top: 15px;
+      position: relative;
     }
+
+    .aka {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      opacity: 0.9;
+      text-shadow: 0px 0px 8px rgba(255, 152, 0, 0.8);
+    }
+
+    /* Rotating Messages */
+    #rotating-message-container {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      color: #ff9800;
+      text-shadow: 0px 0px 8px rgba(255, 152, 0, 0.6);
+      min-width: 150px;
+      text-align: right;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
   </style>
 </head>
 <body>
-  <!-- Header with Glitch Name, Navigation, and Mascot Toggle Button -->
-  <header>
-    <h1 data-text="YOUR NAME">YOUR NAME</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <button id="mascot-toggle">Show Mascot</button>
-  </header>
-  
-  <!-- Main Content -->
-  <main>
-    <section id="about" data-dialogue="Hello there! I build worlds through code.">
-      <h2>About Me</h2>
-      <p>
-        I am a passionate game developer who loves exploring the intersection of technology and art.
-        I create immersive experiences that combine clever mechanics with beautiful visuals.
-      </p>
-    </section>
-    <section id="projects" data-dialogue="Explore my projects, from retro shooters to modern platformers.">
-      <h2>Projects</h2>
-      <p>
-        My projects range from nostalgic arcade games to innovative indie titles.
-        Each project is a blend of storytelling, interactive design, and technical expertise.
-      </p>
-    </section>
-    <!-- Gallery Section with Swiper -->
-    <section id="gallery" data-dialogue="Enjoy a preview of my work!">
-      <h2>Gallery</h2>
-      <!-- Swiper -->
-      <div class="swiper-container gallery-top">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><div class="swiper-slide-container">Slide 1</div></div>
-          <div class="swiper-slide"><div class="swiper-slide-container">Slide 2</div></div>
-          <div class="swiper-slide"><div class="swiper-slide-container">Slide 3</div></div>
-          <div class="swiper-slide"><div class="swiper-slide-container">Slide 4</div></div>
-          <div class="swiper-slide"><div class="swiper-slide-container">Slide 5</div></div>
-        </div>
-        <!-- Navigation Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Fullscreen Page Scrolling -->
+  <div class="container">
+    
+    <!-- Fullscreen Header Block -->
+    <header id="header">
+      <div class="title">Christoforos<br> Papachristoforou</div>
+      <div class="aka-container">
+        <div class="aka">aka Devcrow</div>
+        <div id="rotating-message-container"></div>
       </div>
-      <div class="swiper-container gallery-thumbs">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide"><div class="swiper-slide-container">Slide 1</div></div>
-          <div class="swiper-slide"><div class="swiper-slide-container">Slide 2</div></div>
-          <div class="swiper-slide"><div class="swiper-slide-container">Slide 3</div></div>
-          <div class="swiper-slide"><div class="swiper-slide-container">Slide 4</div></div>
-          <div class="swiper-slide"><div class="swiper-slide-container">Slide 5</div></div>
-        </div>
-      </div>
+      <div class="nav-arrow nav-arrow-bottom" onclick="scrollToSection(1)">↓</div>
+    </header>
+
+    <!-- Sections with Manual Navigation Buttons -->
+    <section id="about">
+      About
+      <div class="nav-arrow nav-arrow-top" onclick="scrollToSection(-1)">↑</div>
+      <div class="nav-arrow nav-arrow-bottom" onclick="scrollToSection(1)">↓</div>
     </section>
-    <section id="skills" data-dialogue="See my skills in game design, programming, and animation.">
-      <h2>Skills</h2>
-      <p>
-        I specialize in HTML, CSS, JavaScript, and various game engines.
-        I also have a deep passion for UI/UX design and animation, ensuring my games are both fun and visually engaging.
-      </p>
-    </section>
-    <section id="contact" data-dialogue="Let's get in touch!">
-      <h2>Contact</h2>
-      <p>
-        Feel free to reach out to me at <a href="mailto:your.email@example.com">your.email@example.com</a>
-        for collaborations, inquiries, or just a friendly chat about games!
-      </p>
-    </section>
-  </main>
-  
-  <!-- Mascot HTML Structure (Crow's Face with Beak, Wings & Code Effect, Dialogue) -->
-  <div id="mascot">
-    <div class="eyes">
-      <div class="eye" id="left-eye">
-        <div class="pupil"></div>
-      </div>
-      <div class="eye" id="right-eye">
-        <div class="pupil"></div>
-      </div>
+<!-- Gallery Section -->
+<section id="gallery">
+  <h2 style="position: absolute; top: 20px; text-align: center; width: 100%; color: #ff9800;">Gallery</h2>
+  <div class="gallery-container">
+    <div class="gallery-item" onclick="openLightbox(0)">
+      <img src="mq2.webp" alt="Project 1">
     </div>
-    <!-- Crow Beak -->
-    <div class="beak">
-      <svg id="beak-svg" viewBox="0 0 40 20" width="100%" height="100%">
-        <path d="M5,10 L20,2 L35,10 L20,18 Z" fill="#ffcc00" stroke="#aa8800" stroke-width="1"/>
-      </svg>
+    <div class="gallery-item" onclick="openLightbox(1)">
+      <img src="VR1.PNG" alt="Project 2">
     </div>
-    <!-- Wings with Code Effect -->
-    <div class="wing left"></div>
-    <div class="wing right"></div>
-    <!-- Dialogue Bubble -->
-    <div id="dialogue"></div>
+    <div class="gallery-item" onclick="openLightbox(2)">
+      <img src="image3.jpg" alt="Project 3">
+    </div>
+    <div class="gallery-item" onclick="openLightbox(3)">
+      <img src="image4.jpg" alt="Project 4">
+    </div>
   </div>
-  
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-  <script>
-    // SLIDE DESCRIPTIONS: one description per slide.
-    const slideDescriptions = [
-      "Description for Slide 1",
-      "Description for Slide 2",
-      "Description for Slide 3",
-      "Description for Slide 4",
-      "Description for Slide 5"
-    ];
 
-    // Initialize Swiper galleries
-    var galleryTop = new Swiper('.gallery-top', {
-      spaceBetween: 10,
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      loopedSlides: 5
-    });
-    var galleryThumbs = new Swiper('.gallery-thumbs', {
-      spaceBetween: 10,
-      centeredSlides: true,
-      slidesPerView: 'auto',
-      touchRatio: 0.2,
-      slideToClickedSlide: true,
-      loop: true,
-      loopedSlides: 5
-    });
-    galleryTop.controller.control = galleryThumbs;
-    galleryThumbs.controller.control = galleryTop;
-    
-    // On slide change, update dialogue with slide description.
-    galleryTop.on('slideChange', function () {
-      const index = galleryTop.realIndex;
-      const dialogue = document.getElementById('dialogue');
-      dialogue.textContent = slideDescriptions[index] || "";
-      dialogue.style.opacity = 1;
-    });
-  </script>
-  
-  <!-- Toggle Mascot Button Script -->
-  <script>
-    const toggleBtn = document.getElementById('mascot-toggle');
-    const mascotEl = document.getElementById('mascot');
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img">
+    <button class="prev" onclick="changeImage(-1)">❮</button>
+    <button class="next" onclick="changeImage(1)">❯</button>
+  </div>
+</section>
 
-    toggleBtn.addEventListener('click', () => {
-      if (mascotEl.style.display === "none" || mascotEl.style.display === "") {
-        const btnRect = toggleBtn.getBoundingClientRect();
-        const offsetX = Math.floor(Math.random() * 41) - 20;
-        const offsetY = Math.floor(Math.random() * 41) - 20;
-        mascotEl.style.left = `${btnRect.left + offsetX}px`;
-        mascotEl.style.top = `${btnRect.top + offsetY}px`;
-        mascotEl.style.display = "flex";
-        const rect = mascotEl.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const distance = Math.hypot(lastMouseX - centerX, lastMouseY - centerY);
-        if (distance < 100) {
-          relocateMascot(lastMouseX, lastMouseY);
-        }
-        toggleBtn.textContent = "Hide Mascot";
-      } else {
-        mascotEl.style.display = "none";
-        toggleBtn.textContent = "Show Mascot";
+<style>
+  /* Gallery Styles */
+  .gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    width: 80%;
+    max-width: 1000px;
+    margin: auto;
+    position: absolute;
+    bottom: 10%;
+  }
+
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(10, 170, 255, 0.5);
+  }
+
+  /* Lightbox Styles */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 1000;
+  }
+
+  .lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .close:hover {
+    color: #ff9800;
+  }
+
+  .prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 152, 0, 0.7);
+    color: #000;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .prev:hover, .next:hover {
+    background: rgba(255, 152, 0, 1);
+  }
+
+  .prev {
+    left: 10%;
+  }
+
+  .next {
+    right: 10%;
+  }
+
+  @media (max-width: 600px) {
+    .gallery-container {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .lightbox img {
+      max-width: 90%;
+    }
+  }
+</style>
+
+<script>
+  let currentImageIndex = 0;
+  const images = ["mq2.webp", "VR1.PNG", "mq2.webp", "mq2.webp"];
+
+  function openLightbox(index) {
+    currentImageIndex = index;
+    document.getElementById("lightbox-img").src = images[index];
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+
+  function changeImage(direction) {
+    currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+    document.getElementById("lightbox-img").src = images[currentImageIndex];
+  }
+</script>
+
+    <section id="skills">
+      Skills
+      <div class="nav-arrow nav-arrow-top" onclick="scrollToSection(-1)">↑</div>
+      <div class="nav-arrow nav-arrow-bottom" onclick="scrollToSection(1)">↓</div>
+    </section>
+
+    <section id="contact">
+      Contact
+      <div class="nav-arrow nav-arrow-top" onclick="scrollToSection(-1)">↑</div>
+    </section>
+
+  </div>
+
+  <script>
+    function scrollToSection(direction) {
+      const sections = document.querySelectorAll("section, header");
+      let currentSection = [...sections].findIndex(section => Math.abs(section.getBoundingClientRect().top) < window.innerHeight / 2);
+
+      let targetIndex = currentSection + direction;
+      if (targetIndex >= 0 && targetIndex < sections.length) {
+        sections[targetIndex].scrollIntoView({ behavior: 'smooth' });
       }
+    }
+
+    // Smooth Background Effect
+    document.addEventListener("mousemove", (e) => {
+      let traX = (e.pageX / window.innerWidth) * 50;
+      let traY = (e.pageY / window.innerHeight) * 50;
+      document.querySelector(".title").style.backgroundPosition = `${traX}% ${traY}%`;
     });
-    
-    let lastMouseX = 0;
-    let lastMouseY = 0;
-    document.addEventListener('mousemove', (e) => {
-      lastMouseX = e.clientX;
-      lastMouseY = e.clientY;
-    });
+
+    // Fix Rotating Messages
+    const messages = ["Game Development", "Unity Core Engineering", "Game Designer"];
+    let currentMessageIndex = 0;
+    const rotatingContainer = document.getElementById('rotating-message-container');
+
+    function updateMessage() {
+      rotatingContainer.textContent = messages[currentMessageIndex];
+      currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+    }
+
+    updateMessage();
+    setInterval(updateMessage, 4000);
   </script>
-  
-  <!-- External Mascot Script -->
-  <script src="mascot.js"></script>
+
 </body>
 </html>
