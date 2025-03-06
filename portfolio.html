@@ -359,269 +359,317 @@
 
 <!-- Projects Section -->
 <section id="projects">
-  <h2 style="position: absolute; top: 20px; text-align: center; width: 100%; color: #ff9800;">Projects</h2>
-  <div class="projects-container">
-    
-    <div class="card">
-      <div class="side front">
-        <div class="gif-container">
-          <img src="thrionbg.gif" alt="Project 1">
-          <div class="title-overlay">Game Title 1</div>
+    <h2 class="projects-title">Projects</h2>
+
+    <div class="projects-layout">
+        <!-- Left Side: Project Buttons -->
+        <div class="projects-buttons">
+            <div class="project-container">
+                <span class="project-title">Game 1</span>
+                <div class="project-btn" onclick="showGallery(0)">
+                    <div class="gif-overlay">Game Title 1</div>
+                    <img src="thrionbg.gif" alt="Game 1">
+                </div>
+            </div>
+
+            <div class="project-container">
+                <span class="project-title">Game 2</span>
+                <div class="project-btn" onclick="showGallery(1)">
+                    <div class="gif-overlay">Game Title 2</div>
+                    <img src="ezgif-4a031c7f42549.gif" alt="Game 2">
+                </div>
+            </div>
+
+            <div class="project-container">
+                <span class="project-title">Game 3</span>
+                <div class="project-btn" onclick="showGallery(2)">
+                    <div class="gif-overlay">Game Title 3</div>
+                    <img src="ezgif-43fd9aeb1ee5a.gif" alt="Game 3">
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="side back">
-        <div class="info">
-          <h2>Game Title 1</h2>
-          <p>More information about this project, including technologies used, challenges faced, and key features.</p>
+
+<!-- Gallery Container -->
+<div class="gallery-container">
+    <div class="gallery-wrapper">
+        <!-- Project 1 Gallery -->
+        <div class="gallery active" id="gallery-0">
+            <div class="gallery-item"><img class="gif" src="thrionbg.gif" alt="Project 1 GIF"></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/o-XRYep4vts" allowfullscreen></iframe></div>
         </div>
-      </div>
+
+        <!-- Project 2 Gallery -->
+        <div class="gallery" id="gallery-1">
+            <div class="gallery-item"><img class="gif" src="ezgif-4a031c7f42549.gif" alt="Project 2 GIF"></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/o-XRYep4vts" allowfullscreen></iframe></div>
+        </div>
+
+        <!-- Project 3 Gallery -->
+        <div class="gallery" id="gallery-2">
+            <div class="gallery-item"><img class="gif" src="ezgif-43fd9aeb1ee5a.gif" alt="Project 3 GIF"></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/o-XRYep4vts" allowfullscreen></iframe></div>
+        </div>
     </div>
 
-    <div class="card">
-      <div class="side front">
-        <div class="gif-container">
-          <img src="ezgif-4a031c7f42549.gif" alt="Project 2">
-          <div class="title-overlay">Game Title 2</div>
-        </div>
-      </div>
-      <div class="side back">
-        <div class="info">
-          <h2>Game Title 2</h2>
-          <p>More details about this project and what makes it unique.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="side front">
-        <div class="gif-container">
-          <img src="ezgif-43fd9aeb1ee5a.gif" alt="Project 3">
-          <div class="title-overlay">Game Title 3</div>
-        </div>
-      </div>
-      <div class="side back">
-        <div class="info">
-          <h2>Game Title 3</h2>
-          <p>Further details about this game project.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="side front">
-        <div class="gif-container">
-          <img src="ezgif-4382dc1d1fb8a.gif" alt="Project 4">
-          <div class="title-overlay">Game Title 4</div>
-        </div>
-      </div>
-      <div class="side back">
-        <div class="info">
-          <h2>Game Title 4</h2>
-          <p>Extra details about the fourth game project.</p>
-        </div>
-      </div>
-    </div>
-	<div class="card">
-      <div class="side front">
-        <div class="gif-container">
-          <img src="thrionbg.gif" alt="Project 1">
-          <div class="title-overlay">Game Title 1</div>
-        </div>
-      </div>
-      <div class="side back">
-        <div class="info">
-          <h2>Game Title 1</h2>
-          <p>More information about this project, including technologies used, challenges faced, and key features.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="side front">
-        <div class="gif-container">
-          <img src="ezgif-4a031c7f42549.gif" alt="Project 2">
-          <div class="title-overlay">Game Title 2</div>
-        </div>
-      </div>
-      <div class="side back">
-        <div class="info">
-          <h2>Game Title 2</h2>
-          <p>More details about this project and what makes it unique.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="side front">
-        <div class="gif-container">
-          <img src="ezgif-43fd9aeb1ee5a.gif" alt="Project 3">
-          <div class="title-overlay">Game Title 3</div>
-        </div>
-      </div>
-      <div class="side back">
-        <div class="info">
-          <h2>Game Title 3</h2>
-          <p>Further details about this game project.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="side front">
-        <div class="gif-container">
-          <img src="ezgif-4382dc1d1fb8a.gif" alt="Project 4">
-          <div class="title-overlay">Game Title 4</div>
-        </div>
-      </div>
-      <div class="side back">
-        <div class="info">
-          <h2>Game Title 4</h2>
-          <p>Extra details about the fourth game project.</p>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
+    <!-- Navigation Buttons -->
+    <button class="prev-btn" onclick="changeSlide(-1)">❮</button>
+    <button class="next-btn" onclick="changeSlide(1)">❯</button>
+</div>
 </section>
-
 <style>
-  /* Projects Section */
-  .projects-container {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-    width: 80%;
-    max-width: 1200px;
-    margin: auto;
-    position: absolute;
-    bottom: 10%;
-  }
+        /* Move Projects Section to the Top */
+        #projects {
+            position: relative;
+            width: 100%;
+            text-align: center;
+            padding-top: 20px;
+        }
 
-  /* Project Card */
-  .card {
-    width: 320px; /* 16:9 ratio */
-    height: 180px; /* 16:9 ratio */
-    perspective: 1000px;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
+        /* Projects Title */
+        .projects-title {
+            font-size: 2rem;
+            color: #ff9800;
+            margin-bottom: 20px;
+        }
 
-  .card:hover {
-    transform: scale(1.05);
-  }
+        /* Adjust Layout */
+        .projects-layout {
+            display: flex;
+            width: 90%;
+            height: 80vh;
+            margin: auto;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            position: relative;
+        }
 
-  .card .side {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 170, 255, 0);
-    border-radius: 10px;
-    border: 2px solid #ff9800;
-    box-shadow: 0 4px 10px rgba(255, 152, 0, 0.1);
-    text-align: center;
-    padding: 10px;
-    backface-visibility: hidden;
-    transition: transform 0.6s;
-  }
+        /* Left Side: Project Buttons */
+        .projects-buttons {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+            justify-content: center;
+        }
 
-  .card .front {
-    transform: rotateY(0deg);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+        /* Wrap each button and its new title */
+        .project-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
 
-  .card .back {
-    transform: rotateY(180deg);
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.9);
-    color: #ff9800;
-  }
+        /* New Title Outside the Button */
+        .project-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ff9800;
+            text-align: right;
+            width: 80px; /* Adjust width to control alignment */
+        }
 
-  .card.active .front {
-    transform: rotateY(-180deg);
-  }
+        /* Project Button Styling */
+        .project-btn {
+            width: 100%;
+            height: 120px;
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
 
-  .card.active .back {
-    transform: rotateY(0deg);
-  }
+        .project-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 15px rgba(255, 152, 0, 1);
+        }
 
-  /* GIF Display */
-  .gif-container {
-    width: 100%;
-    height: 100%;
+        /* GIF Styling */
+        .project-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* GIF Overlay (Inside the Button) */
+        .gif-overlay {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: #ff9800;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+/* Ensure Gallery Container Uses Full Space */
+.gallery-container {
+    width: 65%;
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-  }
+	bottom:0%;
+}
 
-  .gif-container img {
+/* Keep Gallery Items in a Carousel */
+.gallery {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery.active {
+    display: flex;
+}
+
+/* Only Show One Gallery Item at a Time */
+.gallery-item {
+    width: 100%;
+    height: 100%;
+    display: none; /* Hides all items by default */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Show Active Slide */
+.gallery-item.active {
+    display: flex;
+}
+
+/* Ensure GIFs Fill Space */
+.gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
-  }
+}
 
-  /* Title Overlay */
-  .title-overlay {
+/* Ensure YouTube Video Takes Full Space */
+.gallery-item iframe {
+    width: 100%;
+    height: 100%;
+    min-width: 600px;  /* Prevents it from being too small */
+    min-height: 400px; /* Prevents it from shrinking */
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 16/9; /* Maintains correct video size */
+    border: none;
+    border-radius: 10px;
+}
+/* Navigation Buttons */
+.prev-btn, .next-btn {
     position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: #ff9800;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 5px 15px;
-    border-radius: 5px;
-    text-align: center;
-    transition: opacity 0.3s ease;
-  }
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 152, 0, 0.7);
+    color: #000;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
 
-  .card:hover .title-overlay {
-    opacity: 1;
-  }
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(255, 152, 0, 1);
+}
 
-  /* Card Content */
-  .info h2 {
-    color: #ff9800;
-    font-size: 1.5rem;
-  }
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
 
-  .info p {
-    color: #ccc;
-    font-size: 1rem;
-  }
 
-  @media (max-width: 768px) {
-    .projects-container {
-      flex-direction: column;
-      align-items: center;
+
+
+
+
+        /* Navigation Buttons */
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 152, 0, 0.7);
+            color: #000;
+            font-size: 30px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .prev-btn:hover, .next-btn:hover {
+            background: rgba(255, 152, 0, 1);
+        }
+
+        .prev-btn { left: 10px; }
+        .next-btn { right: 10px; }
+    </style>
+	<script>
+let currentProjectIndex = 0;
+let currentSlideIndex = 0;
+
+function showGallery(index) {
+    // Hide all galleries
+    document.querySelectorAll('.gallery').forEach(gallery => {
+        gallery.classList.remove('active');
+        gallery.style.display = "none";
+    });
+
+    // Show selected gallery
+    const currentGallery = document.getElementById(`gallery-${index}`);
+    if (currentGallery) {
+        currentGallery.classList.add('active');
+        currentGallery.style.display = "flex";
+        currentProjectIndex = index;
+        currentSlideIndex = 0;
+        updateGallery();
     }
+}
 
-    .card {
-      width: 90vw; /* Adjust width to be responsive */
-      height: calc(90vw * 9 / 16); /* Maintain 16:9 ratio */
+function changeSlide(direction) {
+    const slides = document.querySelectorAll(`#gallery-${currentProjectIndex} .gallery-item`);
+    if (!slides.length) return;
+
+    // Hide all slides
+    slides.forEach(slide => slide.classList.remove('active'));
+
+    // Update current slide index
+    currentSlideIndex = (currentSlideIndex + direction + slides.length) % slides.length;
+
+    // Show the selected slide
+    slides[currentSlideIndex].classList.add('active');
+}
+
+function updateGallery() {
+    const slides = document.querySelectorAll(`#gallery-${currentProjectIndex} .gallery-item`);
+    if (slides.length) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[currentSlideIndex].classList.add('active');
     }
-  }
-</style>
+}
 
-<script>
-  const cards = document.querySelectorAll('.card');
+// **Fix: Ensure the first item in each gallery is active on page load**
+document.addEventListener("DOMContentLoaded", () => {
+    showGallery(0); // Show first gallery
+    document.querySelectorAll(".gallery").forEach(gallery => {
+        const firstItem = gallery.querySelector(".gallery-item");
+        if (firstItem) firstItem.classList.add("active"); // Set first item as active
+    });
+});
 
-  function flipCard() {
-    this.classList.toggle('active');
-  }
-
-  cards.forEach(card => card.addEventListener('click', flipCard));
 </script>
-
-
 
     <section id="skills">
       Skills
@@ -667,6 +715,8 @@
     updateMessage();
     setInterval(updateMessage, 4000);
   </script>
+  
+  
 
 </body>
 </html>
