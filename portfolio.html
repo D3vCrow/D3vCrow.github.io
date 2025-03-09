@@ -359,32 +359,34 @@
 
 <!-- Projects Section -->
 <section id="projects">
-    <h2 class="projects-title">Projects</h2>
+    <h2 style="position: absolute; top: 20px; text-align: center; width: 100%; color: #ff9800;">Projects</h2>
 
     <div class="projects-layout">
         <!-- Left Side: Project Buttons -->
         <div class="projects-buttons">
             <div class="project-container">
-                <span class="project-title">Game 1</span>
+                <span class="project-title">Solo Published Game</span>
                 <div class="project-btn" onclick="showGallery(0)">
-                    <div class="gif-overlay">Game Title 1</div>
-                    <img src="thrionbg.gif" alt="Game 1">
+                    <div class="gif-overlay">Darn! My Barn!</div>
+                    <img src="DMB.gif" alt="Game 1">
                 </div>
             </div>
 
-            <div class="project-container">
-                <span class="project-title">Game 2</span>
-                <div class="project-btn" onclick="showGallery(1)">
-                    <div class="gif-overlay">Game Title 2</div>
-                    <img src="ezgif-4a031c7f42549.gif" alt="Game 2">
-                </div>
-            </div>
+           
 
             <div class="project-container">
-                <span class="project-title">Game 3</span>
+                <span class="project-title">Pyles Studio (In Development)</span>
                 <div class="project-btn" onclick="showGallery(2)">
-                    <div class="gif-overlay">Game Title 3</div>
-                    <img src="ezgif-43fd9aeb1ee5a.gif" alt="Game 3">
+                    <div class="gif-overlay">Thrion Tactics</div>
+                    <img src="thrionbg.gif" alt="Game 3">
+                </div>
+            </div>
+			
+			 <div class="project-container">
+                <span class="project-title">Solo Not Published</span>
+                <div class="project-btn" onclick="showGallery(3)">
+                    <div class="gif-overlay">Early Dev Projects</div>
+                    <img src="old_projects.gif" alt="Game 2">
                 </div>
             </div>
         </div>
@@ -394,14 +396,21 @@
     <div class="gallery-wrapper">
         <!-- Project 1 Gallery -->
         <div class="gallery active" id="gallery-0">
-            <div class="gallery-item"><img class="gif" src="thrionbg.gif" alt="Project 1 GIF"></div>
-            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/o-XRYep4vts" allowfullscreen></iframe></div>
+            <div class="gallery-item"><img class="gif" src="DMB_1.gif" alt="Project 1 GIF"></div>
+			<div class="gallery-item"><img class="gif" src="DMB_2.gif" alt="Project 1 GIF"></div>
+			<div class="gallery-item"><img class="gif" src="DMB_3.gif" alt="Project 1 GIF"></div>
+			<div class="gallery-item"><img class="gif" src="DMB_4.gif" alt="Project 1 GIF"></div>
+			<div class="gallery-item"><img class="gif" src="DMB_5.gif" alt="Project 1 GIF"></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/7ekmQ8gnBOc" allowfullscreen></iframe></div>
         </div>
 
         <!-- Project 2 Gallery -->
-        <div class="gallery" id="gallery-1">
-            <div class="gallery-item"><img class="gif" src="ezgif-4a031c7f42549.gif" alt="Project 2 GIF"></div>
-            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/o-XRYep4vts" allowfullscreen></iframe></div>
+        <div class="gallery" id="gallery-3">
+            <div class="gallery-item"><img class="gif" src="post-apo_car.gif" alt="Project 2 GIF"></div>
+			<div class="gallery-item"><img class="gif" src="td_ds.gif" alt="Project 2 GIF"></div>
+			<div class="gallery-item"><img class="gif" src="box.gif" alt="Project 2 GIF"></div>
+			<div class="gallery-item"><img class="gif" src="thriambos.gif" alt="Project 2 GIF"></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/iW2cXzUlMGc" allowfullscreen></iframe></div>
         </div>
 
         <!-- Project 3 Gallery -->
@@ -427,6 +436,9 @@
 
         /* Projects Title */
         .projects-title {
+			position: absolute;
+            top: 80px;
+            left: 50%;
             font-size: 2rem;
             color: #ff9800;
             margin-bottom: 20px;
@@ -446,7 +458,7 @@
 
         /* Left Side: Project Buttons */
         .projects-buttons {
-            width: 30%;
+            width: 25%;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -499,7 +511,7 @@
         .gif-overlay {
             position: absolute;
             bottom: 10px;
-            left: 50%;
+            left: 20%;
             transform: translateX(-50%);
             background: rgba(0, 0, 0, 0.7);
             color: #ff9800;
@@ -561,8 +573,8 @@
 .gallery-item iframe {
     width: 100%;
     height: 100%;
-    min-width: 600px;  /* Prevents it from being too small */
-    min-height: 400px; /* Prevents it from shrinking */
+    min-width: 900px;  /* Prevents it from being too small */
+    min-height: 600px; /* Prevents it from shrinking */
     max-width: 100%;
     max-height: 100%;
     aspect-ratio: 16/9; /* Maintains correct video size */
@@ -587,34 +599,8 @@
     background: rgba(255, 152, 0, 1);
 }
 
-.prev-btn { left: 10px; }
-.next-btn { right: 10px; }
-
-
-
-
-
-
-        /* Navigation Buttons */
-        .prev-btn, .next-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 152, 0, 0.7);
-            color: #000;
-            font-size: 30px;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .prev-btn:hover, .next-btn:hover {
-            background: rgba(255, 152, 0, 1);
-        }
-
-        .prev-btn { left: 10px; }
-        .next-btn { right: 10px; }
+.prev-btn { left: -60px; }
+.next-btn { right: -60px; }
     </style>
 	<script>
 let currentProjectIndex = 0;
