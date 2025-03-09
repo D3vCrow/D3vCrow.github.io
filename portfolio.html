@@ -378,7 +378,7 @@
                 <span class="project-title">Pyles Studio (In Development)</span>
                 <div class="project-btn" onclick="showGallery(2)">
                     <div class="gif-overlay">Thrion Tactics</div>
-                    <img src="thrionbg.gif" alt="Game 3">
+                    <img src="Thriontactics_1.gif" alt="Game 3">
                 </div>
             </div>
 			
@@ -396,12 +396,30 @@
     <div class="gallery-wrapper">
         <!-- Project 1 Gallery -->
         <div class="gallery active" id="gallery-0">
-            <div class="gallery-item"><img class="gif" src="DMB_1.gif" alt="Project 1 GIF"></div>
-			<div class="gallery-item"><img class="gif" src="DMB_2.gif" alt="Project 1 GIF"></div>
-			<div class="gallery-item"><img class="gif" src="DMB_3.gif" alt="Project 1 GIF"></div>
-			<div class="gallery-item"><img class="gif" src="DMB_4.gif" alt="Project 1 GIF"></div>
-			<div class="gallery-item"><img class="gif" src="DMB_5.gif" alt="Project 1 GIF"></div>
-            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/7ekmQ8gnBOc" allowfullscreen></iframe></div>
+            <div class="gallery-item active">
+			<img class="gif" src="DMB_1.gif" alt="Project 1 GIF">
+			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
+			 </div>
+			<div class="gallery-item">
+			<img class="gif" src="DMB_2.gif" alt="Project 1 GIF">
+			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
+			 </div>
+			<div class="gallery-item">
+			<img class="gif" src="DMB_3.gif" alt="Project 1 GIF">
+			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
+			 </div>
+			<div class="gallery-item">
+			<img class="gif" src="DMB_4.gif" alt="Project 1 GIF">
+			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
+			 </div>
+			<div class="gallery-item">
+			<img class="gif" src="DMB_5.gif" alt="Project 1 GIF">
+			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
+			 </div>
+            <div class="gallery-item">
+			<iframe src="https://www.youtube.com/embed/7ekmQ8gnBOc" allowfullscreen></iframe>
+			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
+			 </div>
         </div>
 
         <!-- Project 2 Gallery -->
@@ -415,7 +433,10 @@
 
         <!-- Project 3 Gallery -->
         <div class="gallery" id="gallery-2">
-            <div class="gallery-item"><img class="gif" src="ezgif-43fd9aeb1ee5a.gif" alt="Project 3 GIF"></div>
+            <div class="gallery-item"><img class="gif" src="Thriontactics_1.gif" alt="Project 3 GIF">
+				<p class="gallery-description">Thrion Tactics: Boss fight!</p></div>
+			<div class="gallery-item"><img class="gif" src="Thriontactics_2.gif" alt="Project 3 GIF">
+				<p class="gallery-description">Thrion Tactics: Traps!</p></div>
             <div class="gallery-item"><iframe src="https://www.youtube.com/embed/o-XRYep4vts" allowfullscreen></iframe></div>
         </div>
     </div>
@@ -424,6 +445,8 @@
     <button class="prev-btn" onclick="changeSlide(-1)">❮</button>
     <button class="next-btn" onclick="changeSlide(1)">❯</button>
 </div>
+</div>
+
 </section>
 <style>
         /* Move Projects Section to the Top */
@@ -546,6 +569,26 @@
 .gallery.active {
     display: flex;
 }
+/* Hide descriptions by default */
+.gallery-description {
+    display: none;
+    position: absolute;
+    bottom: -30px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #ff9800;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: 100%;
+    max-width: 80%;
+}
+
+/* Show description only for the active gallery item */
+.gallery-item.active .gallery-description {
+    display: block;
+}
 
 /* Only Show One Gallery Item at a Time */
 .gallery-item {
@@ -620,7 +663,13 @@ function showGallery(index) {
         currentGallery.style.display = "flex";
         currentProjectIndex = index;
         currentSlideIndex = 0;
-        updateGallery();
+
+        // Ensure the first item in the gallery is active
+        const slides = currentGallery.querySelectorAll('.gallery-item');
+        slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+        if (slides.length > 0) {
+            slides[0].classList.add('active'); // Show first slide
+        }
     }
 }
 
@@ -638,23 +687,10 @@ function changeSlide(direction) {
     slides[currentSlideIndex].classList.add('active');
 }
 
-function updateGallery() {
-    const slides = document.querySelectorAll(`#gallery-${currentProjectIndex} .gallery-item`);
-    if (slides.length) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[currentSlideIndex].classList.add('active');
-    }
-}
-
-// **Fix: Ensure the first item in each gallery is active on page load**
+// Ensure the first item in each gallery is active on page load
 document.addEventListener("DOMContentLoaded", () => {
-    showGallery(0); // Show first gallery
-    document.querySelectorAll(".gallery").forEach(gallery => {
-        const firstItem = gallery.querySelector(".gallery-item");
-        if (firstItem) firstItem.classList.add("active"); // Set first item as active
-    });
+    showGallery(0);
 });
-
 </script>
 
     <section id="skills">
