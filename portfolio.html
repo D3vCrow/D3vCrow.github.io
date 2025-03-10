@@ -13,7 +13,8 @@
       width: 100%;
       height: 100%;
       font-family: 'Anton', sans-serif;
-      background: radial-gradient(ellipse at 50% 50%, #011116 0%, #000000 100%);
+	  background: #000;
+      <!--background: radial-gradient(ellipse at 50% 50%, #011116 0%, #000000 100%);-->
       color: #f5f5f5;
       overflow: hidden;
       scroll-behavior: smooth;
@@ -170,6 +171,7 @@
       position: relative;
       overflow: hidden;
     }
+	
 
   </style>
 </head>
@@ -180,7 +182,6 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -205,169 +206,18 @@
       <div class="nav-arrow nav-arrow-top" onclick="scrollToSection(-1)">↑</div>
       <div class="nav-arrow nav-arrow-bottom" onclick="scrollToSection(1)">↓</div>
     </section>
-<!-- Gallery Section -->
-<section id="gallery">
-  <h2 style="position: absolute; top: 20px; text-align: center; width: 100%; color: #ff9800;">Gallery</h2>
-  <div class="gallery-container">
-    <div class="gallery-item" onclick="openLightbox(0)">
-      <img src="mq2.webp" alt="Project 1">
-    </div>
-    <div class="gallery-item" onclick="openLightbox(1)">
-      <img src="VR1.PNG" alt="Project 2">
-    </div>
-    <div class="gallery-item" onclick="openLightbox(2)">
-      <img src="image3.jpg" alt="Project 3">
-    </div>
-    <div class="gallery-item" onclick="openLightbox(3)">
-      <img src="image4.jpg" alt="Project 4">
-    </div>
-  </div>
 
-  <!-- Lightbox Modal -->
-  <div id="lightbox" class="lightbox">
-    <span class="close" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-img">
-    <button class="prev" onclick="changeImage(-1)">❮</button>
-    <button class="next" onclick="changeImage(1)">❯</button>
-  </div>
-</section>
-
-<style>
-  /* Gallery Styles */
-  .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 20px;
-    width: 80%;
-    max-width: 1000px;
-    margin: auto;
-    position: absolute;
-    bottom: 50%;
-  }
-
-  .gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .gallery-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .gallery-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 15px rgba(10, 170, 255, 0.5);
-  }
-
-  /* Lightbox Styles */
-  .lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    z-index: 1000;
-  }
-
-  .lightbox img {
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 10px;
-  }
-
-  .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
-    color: #fff;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-
-  .close:hover {
-    color: #ff9800;
-  }
-
-  .prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 152, 0, 0.7);
-    color: #000;
-    font-size: 30px;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-
-  .prev:hover, .next:hover {
-    background: rgba(255, 152, 0, 1);
-  }
-
-  .prev {
-    left: 10%;
-  }
-
-  .next {
-    right: 10%;
-  }
-
-  @media (max-width: 600px) {
-    .gallery-container {
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    }
-
-    .lightbox img {
-      max-width: 90%;
-    }
-  }
-</style>
-
-<script>
-  let currentImageIndex = 0;
-  const images = ["mq2.webp", "VR1.PNG", "mq2.webp", "mq2.webp"];
-
-  function openLightbox(index) {
-    currentImageIndex = index;
-    document.getElementById("lightbox-img").src = images[index];
-    document.getElementById("lightbox").style.display = "flex";
-  }
-
-  function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-  }
-
-  function changeImage(direction) {
-    currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
-    document.getElementById("lightbox-img").src = images[currentImageIndex];
-  }
-</script>
 
 <!-- Projects Section -->
 <section id="projects">
-    <h2 style="position: absolute; top: 20px; text-align: center; width: 100%; color: #ff9800;">Projects</h2>
+    <h2 style="font-size: 3rem; position: absolute; top: 50px; left: 300px; text-align: Left; width: 100%; color: #ff9800;">Projects</h2>
 
     <div class="projects-layout">
         <!-- Left Side: Project Buttons -->
         <div class="projects-buttons">
             <div class="project-container">
-                <span class="project-title">Solo Published Game</span>
+                <span class="project-title">Published Games</span>
                 <div class="project-btn" onclick="showGallery(0)">
-                    <div class="gif-overlay">Darn! My Barn!</div>
                     <img src="DMB.gif" alt="Game 1">
                 </div>
             </div>
@@ -375,19 +225,24 @@
            
 
             <div class="project-container">
-                <span class="project-title">Pyles Studio (In Development)</span>
+                <span class="project-title">Games In Development</span>
                 <div class="project-btn" onclick="showGallery(2)">
-                    <div class="gif-overlay">Thrion Tactics</div>
                     <img src="Thriontactics_1.gif" alt="Game 3">
                 </div>
             </div>
 			
 			 <div class="project-container">
-                <span class="project-title">Solo Not Published</span>
+                <span class="project-title">Game Concepts</span>
                 <div class="project-btn" onclick="showGallery(3)">
-                    <div class="gif-overlay">Early Dev Projects</div>
                     <img src="old_projects.gif" alt="Game 2">
                 </div>
+			</div>	
+			<div class="project-container">
+                <span class="project-title">Other Projects</span>
+                <div class="project-btn" onclick="showGallery(3)">
+                    <img src="Caterham.PNG" alt="Game 2">
+            </div>
+            
             </div>
         </div>
 
@@ -398,7 +253,7 @@
         <div class="gallery active" id="gallery-0">
             <div class="gallery-item active">
 			<img class="gif" src="DMB_1.gif" alt="Project 1 GIF">
-			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
+			 <p class="gallery-description"><a href="https://d3vcrow.itch.io/darn-my-barn">Try it now on Itch.io</a></p>
 			 </div>
 			<div class="gallery-item">
 			<img class="gif" src="DMB_2.gif" alt="Project 1 GIF">
@@ -433,20 +288,25 @@
 
         <!-- Project 3 Gallery -->
         <div class="gallery" id="gallery-2">
-            <div class="gallery-item"><img class="gif" src="Thriontactics_1.gif" alt="Project 3 GIF">
-				<p class="gallery-description">Thrion Tactics: Boss fight!</p></div>
+		<div class="gallery-item"><img class="gif" src="Thriontactics_4.gif" alt="Project 3 GIF">
+				<p class="gallery-description">Thrion Tactics: !</p></div>
+            <div class="gallery-item"><img class="gif" src="Thriontactics_3.gif" alt="Project 3 GIF">
+				<p class="gallery-description">Thrion Tactics: !</p></div>
 			<div class="gallery-item"><img class="gif" src="Thriontactics_2.gif" alt="Project 3 GIF">
 				<p class="gallery-description">Thrion Tactics: Traps!</p></div>
+			<div class="gallery-item"><img class="gif" src="Thriontactics_1.gif" alt="Project 3 GIF">
+				<p class="gallery-description">Thrion Tactics: Boss fight!</p></div>
             <div class="gallery-item"><iframe src="https://www.youtube.com/embed/o-XRYep4vts" allowfullscreen></iframe></div>
         </div>
     </div>
-
+	
     <!-- Navigation Buttons -->
     <button class="prev-btn" onclick="changeSlide(-1)">❮</button>
     <button class="next-btn" onclick="changeSlide(1)">❯</button>
 </div>
 </div>
-
+<div class="nav-arrow nav-arrow-top" onclick="scrollToSection(-1)">↑</div>
+      <div class="nav-arrow nav-arrow-bottom" onclick="scrollToSection(1)">↓</div>
 </section>
 <style>
         /* Move Projects Section to the Top */
@@ -470,7 +330,7 @@
         /* Adjust Layout */
         .projects-layout {
             display: flex;
-            width: 90%;
+            width: 100%;
             height: 80vh;
             margin: auto;
             align-items: center;
@@ -503,12 +363,12 @@
             font-weight: bold;
             color: #ff9800;
             text-align: right;
-            width: 80px; /* Adjust width to control alignment */
+            width: 160px; /* Adjust width to control alignment */
         }
 
         /* Project Button Styling */
         .project-btn {
-            width: 100%;
+            width: 60%;
             height: 120px;
             border: 2px solid #ff9800;
             border-radius: 10px;
@@ -533,10 +393,10 @@
         /* GIF Overlay (Inside the Button) */
         .gif-overlay {
             position: absolute;
-            bottom: 10px;
-            left: 20%;
+            bottom: -10px;
+            left: 30%;
             transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.4);
             color: #ff9800;
             font-size: 1.2rem;
             font-weight: bold;
@@ -572,8 +432,10 @@
 /* Hide descriptions by default */
 .gallery-description {
     display: none;
-    position: absolute;
-    bottom: -30px;
+    position: absolute; /* Position it relative to the gallery-item */
+    bottom: -80px; /* Adjust to move it further down */
+    left: 50%;
+    transform: translateX(-50%);
     background: rgba(0, 0, 0, 0.8);
     color: #ff9800;
     font-size: 1.2rem;
@@ -581,8 +443,10 @@
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    width: 100%;
+    width: auto;
     max-width: 80%;
+    writing-mode: horizontal-rl; /* Forces vertical text */
+    text-orientation: upright; /* Keeps letters upright */
 }
 
 /* Show description only for the active gallery item */
@@ -602,6 +466,11 @@
 /* Show Active Slide */
 .gallery-item.active {
     display: flex;
+}
+
+.gallery-item.active:hover {
+	transform: scale(1.01);
+    box-shadow: 0px 0px 15px rgba(255, 152, 0, 1);
 }
 
 /* Ensure GIFs Fill Space */
@@ -640,10 +509,11 @@
 
 .prev-btn:hover, .next-btn:hover {
     background: rgba(255, 152, 0, 1);
+	box-shadow: 0px 0px 15px rgba(255, 152, 0, 1);
 }
 
-.prev-btn { left: -60px; }
-.next-btn { right: -60px; }
+.prev-btn { left: -50px; }
+.next-btn { right: -50px; }
     </style>
 	<script>
 let currentProjectIndex = 0;
