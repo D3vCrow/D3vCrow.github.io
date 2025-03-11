@@ -172,6 +172,20 @@
       overflow: hidden;
     }
 	
+	
+	a {
+    color: #1a73e8; /* A vibrant blue */
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease, transform 0.3s ease;
+  }
+  
+  a:hover {
+    color: #0c47a1; /* A deeper blue for intensity */
+    border-bottom: 3px solid #0c47a1;
+    transform: scale(1.05);
+  }
 
   </style>
 </head>
@@ -227,7 +241,7 @@
             <div class="project-container">
                 <span class="project-title">Games In Development</span>
                 <div class="project-btn" onclick="showGallery(2)">
-                    <img src="Thriontactics_1.gif" alt="Game 3">
+                    <img src="Thrion_Tactics_f2.gif" alt="Game 3">
                 </div>
             </div>
 			
@@ -239,7 +253,7 @@
 			</div>	
 			<div class="project-container">
                 <span class="project-title">Other Projects</span>
-                <div class="project-btn" onclick="showGallery(3)">
+                <div class="project-btn" onclick="showGallery(4)">
                     <img src="Caterham.PNG" alt="Game 2">
             </div>
             
@@ -252,30 +266,14 @@
         <!-- Project 1 Gallery -->
         <div class="gallery active" id="gallery-0">
             <div class="gallery-item active">
-			<img class="gif" src="DMB_1.gif" alt="Project 1 GIF">
-			 <p class="gallery-description"><a href="https://d3vcrow.itch.io/darn-my-barn">Try it now on Itch.io</a></p>
-			 </div>
-			<div class="gallery-item">
-			<img class="gif" src="DMB_2.gif" alt="Project 1 GIF">
-			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
-			 </div>
-			<div class="gallery-item">
-			<img class="gif" src="DMB_3.gif" alt="Project 1 GIF">
-			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
-			 </div>
-			<div class="gallery-item">
-			<img class="gif" src="DMB_4.gif" alt="Project 1 GIF">
-			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
-			 </div>
-			<div class="gallery-item">
-			<img class="gif" src="DMB_5.gif" alt="Project 1 GIF">
-			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
-			 </div>
+			<img class="gif" src="DMB gameplay-3.gif" alt="Project 1 GIF">
+			 <p class="gallery-description"><a href="https://d3vcrow.itch.io/darn-my-barn">Try it now on Itch.io</a></p>			 
             <div class="gallery-item">
 			<iframe src="https://www.youtube.com/embed/7ekmQ8gnBOc" allowfullscreen></iframe>
 			 <p class="gallery-description">A sneak peek at the final level of the game.</p>
 			 </div>
         </div>
+		</div>
 
         <!-- Project 2 Gallery -->
         <div class="gallery" id="gallery-3">
@@ -288,15 +286,27 @@
 
         <!-- Project 3 Gallery -->
         <div class="gallery" id="gallery-2">
-		<div class="gallery-item"><img class="gif" src="Thriontactics_4.gif" alt="Project 3 GIF">
+		<div class="gallery-item"><img class="gif" src="Thrion_Tactics_f2.gif" alt="Project 3 GIF">
 				<p class="gallery-description">Thrion Tactics: !</p></div>
-            <div class="gallery-item"><img class="gif" src="Thriontactics_3.gif" alt="Project 3 GIF">
-				<p class="gallery-description">Thrion Tactics: !</p></div>
-			<div class="gallery-item"><img class="gif" src="Thriontactics_2.gif" alt="Project 3 GIF">
-				<p class="gallery-description">Thrion Tactics: Traps!</p></div>
-			<div class="gallery-item"><img class="gif" src="Thriontactics_1.gif" alt="Project 3 GIF">
-				<p class="gallery-description">Thrion Tactics: Boss fight!</p></div>
+
             <div class="gallery-item"><iframe src="https://www.youtube.com/embed/o-XRYep4vts" allowfullscreen></iframe></div>
+        </div>
+		
+		<!-- Project 4 Gallery -->
+        <div class="gallery" id="gallery-4">
+			<div class="gallery-item">
+				<img src="Caterham.PNG" alt="Project 3 GIF">
+				<p class="gallery-description"> Check <a href="https://caterhamcars.com/en/configurator">Caterham's Configurator</a> — one of the projects I was working on for Renderapp. A web-based tool that uses Unity to produce exceptionally high-end, automotive-grade renders. </p></div>
+			<div class="gallery-item">
+				<img src="VR2.PNG" alt="Project 3 GIF">
+				<p class="gallery-description">Served as Contractor Senior Unity Developer for e-Point on a VR project at a major German Fraport Airport. The project featured a shared VR experience for two users with Meta Quest 3 – <a href="https://youtu.be/Wqm-5RkbYoc">check out a sneak peek</a>. </p> </div>
+			
+			<div class="gallery-item"><img class="gif" src="SMB gameplay-2.gif" alt="Project 1 GIF">
+			 <p class="gallery-description">Solo developed a fan-based game combining Super Mario Bros mechanics with a Pokémon 
+theme for Pokefest 2, hosted by iConnect Technology stores. Played by over 200 unique 
+players, delivering a unique and engaging experience.<a href="https://youtu.be/fU8lNrKd_2s" target="_blank" style="color:#0af;">View Gameplay</a></p>
+			 </div>				
+            
         </div>
     </div>
 	
@@ -433,18 +443,18 @@
 .gallery-description {
     display: none;
     position: absolute; /* Position it relative to the gallery-item */
-    bottom: -80px; /* Adjust to move it further down */
+    bottom: -90px; /* Adjust to move it further down */
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 1);
     color: #ff9800;
     font-size: 1.2rem;
     font-weight: bold;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
-    width: auto;
-    max-width: 80%;
+    width: 900px;
+    max-width: 90%;
     writing-mode: horizontal-rl; /* Forces vertical text */
     text-orientation: upright; /* Keeps letters upright */
 }
@@ -470,6 +480,7 @@
 
 .gallery-item.active:hover {
 	transform: scale(1.01);
+	border-radius: 5px;
     box-shadow: 0px 0px 15px rgba(255, 152, 0, 1);
 }
 
