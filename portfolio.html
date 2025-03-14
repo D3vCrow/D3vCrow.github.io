@@ -19,7 +19,9 @@
       overflow: hidden;
       scroll-behavior: smooth;
     }
-
+	body {
+  overflow: hidden;
+}
     /* Fullscreen Scrolling Sections */
     .container {
       width: 100%;
@@ -306,15 +308,16 @@
     loadingBar.style.width = percent + "%";
 
     if (assetsLoaded === totalAssets) {
-      // When complete, fade out the loading screen.
-      setTimeout(() => {
-        loadingScreen.style.opacity = 0;
+        // When complete, fade out the loading screen.
         setTimeout(() => {
-          loadingScreen.style.display = "none";
+            loadingScreen.style.opacity = 0;
+            setTimeout(() => {
+                loadingScreen.style.display = "none";
+                document.body.style.overflow = "auto"; // Enable scrolling
+            }, 500);
         }, 500);
-      }, 500);
     }
-  }
+}
 
   // Preload each asset.
   assets.forEach(src => {
