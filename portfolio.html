@@ -7,6 +7,15 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
   
   <style>
+  html, body {
+  overflow: hidden; /* Completely disable scrolling */
+  height: 100%; /* Ensure no accidental scrolling */
+}
+
+.container {
+  overflow: hidden; /* Disable scrolling inside the container */
+}
+
     html, body {
       margin: 0;
       padding: 0;
@@ -19,9 +28,6 @@
       overflow: hidden;
       scroll-behavior: smooth;
     }
-	body {
-  overflow: hidden;
-}
     /* Fullscreen Scrolling Sections */
     .container {
       width: 100%;
@@ -308,12 +314,15 @@
     loadingBar.style.width = percent + "%";
 
     if (assetsLoaded === totalAssets) {
-        // When complete, fade out the loading screen.
+        // Wait a bit for visual effect, then fade out loading screen
         setTimeout(() => {
             loadingScreen.style.opacity = 0;
             setTimeout(() => {
                 loadingScreen.style.display = "none";
-                document.body.style.overflow = "auto"; // Enable scrolling
+                
+                // Enable scrolling now that everything is loaded
+                document.body.style.overflow = "auto";
+                document.querySelector('.container').style.overflowY = "scroll";
             }, 500);
         }, 500);
     }
