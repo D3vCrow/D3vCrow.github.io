@@ -279,11 +279,250 @@
 	
 
     <!-- Sections with Manual Navigation Buttons -->
-    <section id="about">
-      About
-      <div class="nav-arrow nav-arrow-top" onclick="scrollToSection(-1)">↑</div>
-      <div class="nav-arrow nav-arrow-bottom" onclick="scrollToSection(1)">↓</div>
-    </section>
+    <!-- About Section -->
+<section id="about" class="about-section">
+  <h2 class="section-title">About Me</h2>
+  <nav class="about-nav">
+      <ul>
+        <li class="active" onclick="showAboutContent(0)">Who am I?</li>
+        <li onclick="showAboutContent(1)">Career (so far)</li>
+        <li onclick="showAboutContent(2)">Game Development</li>
+        <li onclick="showAboutContent(3)">Game Design</li>
+        <li onclick="showAboutContent(4)">Unity Core Engineer</li>
+        <li onclick="showAboutContent(5)">Gamer</li>
+        <li onclick="showAboutContent(6)">Ethics</li>
+      </ul>
+    </nav>
+  <div class="about-container">
+    
+
+    <div class="about-content">
+      <div class="content active">
+        <p>Hi, I'm <strong>Christoforos Papachristoforou (Devcrow)</strong>, a passionate game developer driven by creativity and innovation, always eager to craft unique gaming experiences.</p>
+      </div>
+      <div class="content">
+        <div class="career-story">
+  <p>
+    My career truly began after earning my <strong>Cisco certification</strong>, leading me to an <em>internship at Printec</em> working for <strong>Athens International Airport (AIA) IT Helpdesk</strong> (<span class="highlight">Jan 2014</span>).  
+    Through active involvement and initiative, I was soon offered a position on Printec’s new project for <strong>Common Use Terminal Equipment (CUTE)</strong>, where I remained until my military service in <span class="highlight">November 2016</span>.
+  </p>
+
+  <p>
+    One year later, I returned to AIA with <strong>Netsquare</strong> as <em>Site Administrator for SITA</em>, the global leader in airline technologies. Soon promoted to <strong>Team Leader & Trainer</strong>, the flexible schedule allowed me to explore game development.  
+    I started with <em>Game Salad</em>, experimented extensively, and later co-founded indie studio <strong>"Pyles Studio"</strong> with my close friend and talented artist, Dimitris.
+  </p>
+
+  <p>
+    Following valuable advice, I switched to <strong>Unity</strong>, investing <span class="highlight">thousands of hours</span> mastering the engine.  
+    In <span class="highlight">February 2021</span>, I joined <strong>Renderapp (UK)</strong> as a <em>Unity Developer</em>, working on advanced web-based automotive configurators for brands like:
+  </p>
+
+  <ul class="career-list">
+    <li><strong>Ford</strong></li>
+    <li><strong>Subaru</strong></li>
+    <li><strong>Hyundai</strong></li>
+    <li><strong>Genesis</strong></li>
+    <li><strong>Caterham</strong></li>
+  </ul>
+
+  <p>
+    There, I significantly expanded my knowledge of Unity, 3D modeling, rendering pipelines, and optimization.  
+  </p>
+
+  <p>
+    In <span class="highlight">December 2024</span>, shortly after the birth of my twin daughters, Renderapp closed its doors.  
+    I chose to embrace fatherhood fully while focusing on personal growth—successfully developing a game in <span class="highlight">17 days</span>, enhancing my web-development skills, creating this portfolio from scratch, and diving deeper into <strong>Python, AI, and automation tools</strong>, preparing myself for the next chapter.
+  </p>
+</div>
+
+      </div>
+      <div class="content">
+        <p>Game development for me is about merging imagination with technical skill, turning bold ideas into reality through clean code and engaging mechanics.</p>
+      </div>
+      <div class="content">
+        <p>As a game designer, I strive to create immersive worlds, intuitive gameplay, and memorable player experiences. Design thinking lies at the heart of everything I build.</p>
+      </div>
+      <div class="content">
+        <p>With extensive expertise as a Unity Core Engineer, I specialize in optimizing performance, crafting robust architectures, and pushing Unity’s capabilities to their limits.</p>
+      </div>
+      <div class="content">
+        <p>I'm not just a developer but also an avid gamer. Playing games fuels my inspiration, informing my approach to creating experiences that resonate deeply with players.</p>
+      </div>
+      <div class="content">
+        <p>I strongly believe in ethical game development, prioritizing user respect, fairness, transparency, and inclusive design in all my projects.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-arrow nav-arrow-top" onclick="scrollToSection(-1)">↑</div>
+  <div class="nav-arrow nav-arrow-bottom" onclick="scrollToSection(1)">↓</div>
+</section>
+
+<style>
+.about-section {
+  height: 100vh;
+  background: radial-gradient(circle at center, #050505, #000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 3rem;
+  color: #ff9800;
+  text-shadow: 0 0 15px rgba(255,152,0,0.8);
+  margin-bottom: 30px;
+}
+
+.about-container {
+  position: relative;
+  display: flex;
+  width: 80%;
+  max-width: 1100px;
+  height: 70%;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,152,0,0.3);
+  box-shadow: 0 0 20px rgba(255,152,0,0.1);
+  overflow: hidden;
+}
+
+.about-nav {
+  position: absolute;
+  left: 10%;
+  top: 30%;
+  height: 50%;
+  width: 220px; /* Fixed width */
+  background: rgba(0,0,0,0.6);
+  border-right: 1px solid rgba(255,152,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-nav li {
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s, background 0.3s;
+  border-radius: 0 10px 10px 0;
+  margin-left: -10px; /* Slightly overlap border for effect */
+}
+
+.about-nav li:hover, .about-nav li.active {
+  color: #000;
+  background: #ff9800;
+  transform: translateX(10px);
+  box-shadow: 0 0 10px rgba(255,152,0,0.5);
+}
+
+.about-content {
+  margin-left: 220px; /* Adjust to match nav width */
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto; /* Allow content scrolling if needed */
+}
+
+
+.about-content .content {
+  display: none;
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  text-align: left;
+}
+
+.about-content .content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+  
+.career-story {
+  font-size: 0.1rem !important; /* Smaller text */
+  line-height: 1.5 !important; /* Reduced line spacing */
+  color: #bbb; /* Softer gray for better readability */
+  padding: 15px 25px;
+  border-left: 3px solid rgba(255, 152, 0, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+.career-story p {
+  margin-bottom: 12px;
+  text-align: justify;
+}
+
+.career-list {
+  padding-left: 20px;
+  margin: 8px 0;
+  font-size: 0.9rem; /* Even smaller for bullet points */
+}
+
+.career-list li {
+  list-style-type: "• ";
+  margin-bottom: 6px;
+  color: #ff9800;
+}
+
+.highlight {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+/* Smaller & Subtle Emphasis */
+.career-story strong {
+  color: #fff;
+  font-size: 0.95rem; /* Slightly bigger for important words */
+}
+
+.career-story em {
+  font-style: italic;
+  color: rgba(255, 152, 0, 0.8);
+}
+
+
+
+</style>
+
+<script>
+function showAboutContent(index) {
+  const contents = document.querySelectorAll(".about-content .content");
+  const navItems = document.querySelectorAll(".about-nav li");
+
+  contents.forEach((content, idx) => {
+    content.classList.toggle("active", idx === index);
+  });
+
+  navItems.forEach((item, idx) => {
+    item.classList.toggle("active", idx === index);
+  });
+}
+
+// Default show first content
+document.addEventListener("DOMContentLoaded", () => showAboutContent(0));
+</script>
 
 <script>
    // List the asset URLs you want to preload.
@@ -357,20 +596,20 @@
 
             <div class="project-container">
                 <span class="project-title">Games In Development</span>
-                <div class="project-btn" onclick="toggleSelection(this);showGallery(2)">
+                <div class="project-btn" onclick="toggleSelection(this);showGallery(1)">
                     <img src="Thrion_Tactics_f2.gif" alt="Game 3">
                 </div>
             </div>
 			
 			 <div class="project-container">
                 <span class="project-title">Game Concepts</span>
-                <div class="project-btn" onclick="toggleSelection(this);showGallery(3)">
+                <div class="project-btn" onclick="toggleSelection(this);showGallery(2)">
                     <img src="old_projects.gif" alt="Game 2">
                 </div>
 			</div>	
 			<div class="project-container">
                 <span class="project-title">Other Projects</span>
-                <div class="project-btn" onclick="toggleSelection(this);showGallery(4)">
+                <div class="project-btn" onclick="toggleSelection(this);showGallery(3)">
                     <img src="Caterham.PNG" alt="Game 2">
             </div>
             
@@ -382,6 +621,9 @@
     <div class="gallery-wrapper">
         <!-- Project 1 Gallery -->
         <div class="gallery active" id="gallery-0">
+		 <!-- Bullets positioned on top -->
+
+            <ol class="gallery-indicators" id="bullets-0"></ol>
             <div class="gallery-item active">
 			<img class="gif" src="DMB gameplay-3.gif" alt="Project 1 GIF">
 			 <p class="gallery-description"><a href="https://d3vcrow.itch.io/darn-my-barn">Try it now on Itch.io</a></p>	
@@ -392,8 +634,20 @@
 			 </div>
         </div>
 
-        <!-- Project 2 Gallery -->
-        <div class="gallery" id="gallery-3">
+        
+
+        <!-- Project 1 Gallery -->
+        <div class="gallery" id="gallery-1">
+		<ol class="gallery-indicators" id="bullets-1"></ol>
+		<div class="gallery-item"><img class="gif" src="Thrion_Tactics_f2.gif" alt="Project 3 GIF">
+				<p class="gallery-description">Thrion Tactics: !</p></div>
+
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/Xv7wAYQwRvM" allowfullscreen></iframe></div>
+        </div>
+		
+		<!-- Project 2 Gallery -->
+        <div class="gallery" id="gallery-2">
+		<ol class="gallery-indicators" id="bullets-2"></ol>
             <div class="gallery-item"><img class="gif" src="post-apo_car.gif" alt="Project 2 GIF"></div>
 			<div class="gallery-item"><img class="gif" src="td_ds.gif" alt="Project 2 GIF"></div>
 			<div class="gallery-item"><img class="gif" src="box.gif" alt="Project 2 GIF"></div>
@@ -401,17 +655,9 @@
 			<div class="gallery-item"><img class="gif" src="thriambos.gif" alt="Project 2 GIF"></div>
             <div class="gallery-item"><iframe src="https://www.youtube.com/embed/iW2cXzUlMGc" allowfullscreen></iframe></div>
         </div>
-
-        <!-- Project 3 Gallery -->
-        <div class="gallery" id="gallery-2">
-		<div class="gallery-item"><img class="gif" src="Thrion_Tactics_f2.gif" alt="Project 3 GIF">
-				<p class="gallery-description">Thrion Tactics: !</p></div>
-
-            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/Xv7wAYQwRvM" allowfullscreen></iframe></div>
-        </div>
-		
-		<!-- Project 4 Gallery -->
-        <div class="gallery" id="gallery-4">
+		<!-- Project 3 Gallery -->
+        <div class="gallery" id="gallery-3">
+		<ol class="gallery-indicators" id="bullets-3"></ol>
 			<div class="gallery-item">
 				<img src="Caterham.PNG" alt="Project 3 GIF">
 				<p class="gallery-description"> Check <a href="https://caterhamcars.com/en/configurator">Caterham's Configurator</a> — one of the projects I was working on for Renderapp. A web-based tool that uses Unity to produce exceptionally high-end, automotive-grade renders. </p></div>
@@ -431,6 +677,10 @@ players, delivering a unique and engaging experience.<a href="https://youtu.be/f
     <button class="prev-btn" onclick="changeSlide(-1)">❮</button>
     <button class="next-btn" onclick="changeSlide(1)">❯</button>
 </div>
+
+
+
+
 </div>
 <div class="nav-arrow nav-arrow-top" onclick="scrollToSection(-1)">↑</div>
       <div class="nav-arrow nav-arrow-bottom" onclick="scrollToSection(1)">↓</div>
@@ -563,14 +813,14 @@ players, delivering a unique and engaging experience.<a href="https://youtu.be/f
 /* Hide descriptions by default */
 .gallery-description {
     display: none;
-    position: absolute; /* Position it relative to the gallery-item */
-    bottom: -90px; /* Adjust to move it further down */
+    position: absolute; 
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 1);
+    background: rgba(0, 0, 0, 0);
+	box-shadow: 0px 0px 5px rgba(255, 152, 0, .25);
     color: #ff9800;
     font-size: 1.2rem;
-    font-weight: bold;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -644,18 +894,89 @@ players, delivering a unique and engaging experience.<a href="https://youtu.be/f
 	box-shadow: 0px 0px 15px rgba(255, 152, 0, 1);
 }
 
-.prev-btn { left: -50px; }
+.prev-btn { left: 25px; }
 .next-btn { right: -50px; }
+
+/* Indicators (Bullets) */
+.gallery-indicators {
+    position: relative;
+    top: -360px; /* Moves bullets above the gallery */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    list-style: none;
+    display: flex;
+    gap: 8px;
+}
+
+.gallery-indicators li {
+    width: 12px;
+    height: 12px;
+    background-color: #444;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.gallery-indicators li:hover {
+    background-color: #ff9800;
+    transform: scale(1.2);
+}
+
+.gallery-indicators .active {
+    background-color: #ff9800;
+    transform: scale(1.3);
+}
+
+
     </style>
 	<script>
+document.addEventListener("DOMContentLoaded", () => {
+    generateBulletsForAllGalleries();
+    showGallery(0); // Show the first gallery by default
+});
+
+// Store active gallery and slide index
 let currentProjectIndex = 0;
 let currentSlideIndex = 0;
 
+// Generate bullets for each gallery
+function generateBulletsForAllGalleries() {
+    document.querySelectorAll('.gallery').forEach((gallery, index) => {
+        const bulletContainer = document.getElementById(`bullets-${index}`);
+        if (!bulletContainer) return;
+
+        bulletContainer.innerHTML = ""; // Clear existing bullets
+        const slides = gallery.querySelectorAll('.gallery-item');
+
+        slides.forEach((_, slideIndex) => {
+            const bullet = document.createElement("li");
+            bullet.setAttribute("data-slide-to", slideIndex);
+            bullet.classList.add("gallery-bullet");
+            if (slideIndex === 0) bullet.classList.add("active");
+
+            bullet.onclick = () => jumpToSlide(index, slideIndex);
+            bulletContainer.appendChild(bullet);
+        });
+    });
+}
+
+// Show a gallery based on the selected button
 function showGallery(index) {
     // Hide all galleries
     document.querySelectorAll('.gallery').forEach(gallery => {
         gallery.classList.remove('active');
         gallery.style.display = "none";
+    });
+
+    // Stop all playing YouTube videos
+    document.querySelectorAll('.gallery iframe').forEach(iframe => {
+        iframe.src = iframe.src; // Reset src to stop video playback
+    });
+
+    // Deactivate all project buttons
+    document.querySelectorAll('.project-btn').forEach(btn => {
+        btn.classList.remove('selected');
     });
 
     // Show selected gallery
@@ -666,38 +987,97 @@ function showGallery(index) {
         currentProjectIndex = index;
         currentSlideIndex = 0;
 
-        // Ensure the first item in the gallery is active
+        // Highlight the selected project button
+        document.querySelectorAll('.project-btn')[index].classList.add('selected');
+
+        // Reset slides within this gallery
         const slides = currentGallery.querySelectorAll('.gallery-item');
-        slides.forEach(slide => slide.classList.remove('active')); // Hide all slides
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+
         if (slides.length > 0) {
-            slides[0].classList.add('active'); // Show first slide
+            slides[0].classList.add('active');
         }
+
+        updateBulletHighlight(index, 0);
     }
 }
 
+// Change slides within the current gallery
 function changeSlide(direction) {
     const slides = document.querySelectorAll(`#gallery-${currentProjectIndex} .gallery-item`);
     if (!slides.length) return;
 
-    // Hide all slides
-    slides.forEach(slide => slide.classList.remove('active'));
+    // Hide all slides and stop their videos
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+        stopVideo(slide);
+    });
 
-    // Update current slide index
+    // Update slide index
     currentSlideIndex = (currentSlideIndex + direction + slides.length) % slides.length;
 
-    // Show the selected slide
+    // Show the selected slide and play video if applicable
     slides[currentSlideIndex].classList.add('active');
+    <!--playVideo(slides[currentSlideIndex]); -->
+
+    updateBulletHighlight(currentProjectIndex, currentSlideIndex);
 }
 
-// Ensure the first item in each gallery is active on page load
-document.addEventListener("DOMContentLoaded", () => {
-    showGallery(0);
-});
-const projectButtons = document.querySelectorAll('.project-btn');
-function toggleSelection(element) {
-projectButtons.forEach(btn => btn.classList.remove('selected'));
-  element.classList.toggle('selected');
+// Jump to a specific slide when clicking a bullet
+function jumpToSlide(galleryIndex, slideIndex) {
+    const slides = document.querySelectorAll(`#gallery-${galleryIndex} .gallery-item`);
+    if (!slides.length) return;
+
+    slides.forEach(slide => {
+        slide.classList.remove("active");
+        stopVideo(slide);
+    });
+
+    slides[slideIndex].classList.add("active");
+    <!--playVideo(slides[slideIndex]); -->
+
+    updateBulletHighlight(galleryIndex, slideIndex);
 }
+
+// Update which bullet is highlighted
+function updateBulletHighlight(galleryIndex, activeIndex) {
+    const bullets = document.querySelectorAll(`#bullets-${galleryIndex} .gallery-bullet`);
+    bullets.forEach((bullet, index) => {
+        bullet.classList.toggle("active", index === activeIndex);
+    });
+}
+
+// Play a video inside an iframe when a slide is active
+function playVideo(slide) {
+    const iframe = slide.querySelector('iframe');
+    if (iframe) {
+        let src = iframe.src;
+        if (!src.includes("autoplay=1")) {
+            src += (src.includes("?") ? "&" : "?") + "autoplay=1";
+            iframe.src = src;
+        }
+    }
+}
+
+// Stop a video inside an iframe when switching slides
+function stopVideo(slide) {
+    const iframe = slide.querySelector('iframe');
+    if (iframe) {
+        let src = iframe.src.split("?")[0]; // Remove autoplay
+        iframe.src = src;
+    }
+}
+
+// Handle project button selection
+const projectButtons = document.querySelectorAll('.project-btn');
+projectButtons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+        showGallery(index);
+    });
+});
+
 </script>
 
     <section id="skills">
