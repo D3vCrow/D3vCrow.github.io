@@ -1,0 +1,180 @@
+/* Navigation Bar */
+nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8); /* Slightly darker */
+  padding: 12px 25px;
+  border-radius: 50px;
+  backdrop-filter: blur(8px);
+  z-index: 100;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 35px; /* Adjusted for even spacing */
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #f5f5f5;
+  transition: color 0.3s, text-shadow 0.3s, transform 0.3s;
+  display: inline-block;
+}
+
+nav a:hover {
+  color: #ff9800;
+  text-shadow: 0px 0px 10px rgba(255, 152, 0, 0.8);
+  transform: scale(1.05);
+}
+
+nav a.active {
+  color: #ff9800;
+  text-shadow: 0px 0px 10px rgba(255, 152, 0, 0.8);
+  transform: scale(1.1);
+}
+
+/* ---------------------- */
+/* About Section Styles */
+/* ---------------------- */
+.about-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ABOUT PAGE TITLE POSITION */
+.section-title {
+  font-size: 3rem;
+  color: #ff9800;
+  text-shadow: 0 0 15px rgba(255,152,0,0.8);
+  margin-bottom: 30px;
+  text-align: center;
+  position: absolute;
+  top: 10%;
+  left: 10%; 
+}
+
+
+/* ---------------------- */
+/* About Navigation */
+/* ---------------------- */
+.about-nav {
+  position: absolute;
+  left: 15%;
+  top: 30%;
+  height: 50%;
+  width: 15%;
+  background: rgba(0,0,0,0.6);
+  border-right: 1px solid rgba(255,152,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-nav li {
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s, background 0.3s;
+  border-radius: 0 10px 10px 0;
+}
+
+.about-nav li:hover,
+.about-nav li.active {
+  color: #000;
+  background: #ff9800;
+  transform: translateX(10px);
+  box-shadow: 0 0 10px rgba(255,152,0,0.5);
+}
+
+/* ---------------------- */
+/* About Content Styles */
+/* ---------------------- */
+.about-container {
+  display: flex;
+  position: absolute;
+  right: 5%;
+  margin-top: 50px;
+  max-width: 65%;
+  min-height: 75%;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,152,0,0.3);
+  box-shadow: 0 0 20px rgba(255,152,0,0.1);
+  overflow: hidden;
+}
+
+.about-content {
+  min-width: 1200px;
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+/* Hide all content except active one */
+.about-content .content {
+  display: none;
+  color: #fff;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+  text-align: left;
+}
+
+.about-content .content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Responsive Image Inside About Content */
+.about-image-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Makes it responsive on smaller screens */
+}
+
+.about-image-row img {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  display: block;
+  border-radius : 15px;
+   margin: 20px auto 0;
+   filter: blur(4px);
+}
+.about-image-row img:hover {
+	filter: blur(0px);
+	background-color:black;
+}

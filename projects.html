@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects | Devcrow Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
+  <link rel="stylesheet" href="css/main.css"> 
+  <link rel="stylesheet" href="css/projects.css"> 
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="portfolio.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+ <!-- Projects Section -->
+<section id="projects">
+    <div class="projects-layout">
+        <!-- Left Side: Project Buttons -->
+        <div class="projects-buttons">
+            <div class="project-container">
+                <span class="project-title">Published Games</span>
+                <div class="project-btn selected" onclick="toggleSelection(this);showGallery(0)">
+                    <img src="assets/DMB.gif" alt="Game 1">
+                </div>
+            </div>
+
+            <div class="project-container">
+                <span class="project-title">Games In Development</span>
+                <div class="project-btn" onclick="toggleSelection(this);showGallery(1)">
+                    <img src="assets/Thrion_Tactics_f2.gif" alt="Game 3">
+                </div>
+            </div>
+			
+			 <div class="project-container">
+                <span class="project-title">Game Concepts</span>
+                <div class="project-btn" onclick="toggleSelection(this);showGallery(2)">
+                    <img src="assets/old_projects.gif" alt="Game 2">
+                </div>
+			</div>	
+			<div class="project-container">
+                <span class="project-title">Other Projects</span>
+                <div class="project-btn" onclick="toggleSelection(this);showGallery(3)">
+                    <img src="Caterham.PNG" alt="Game 2">
+            </div>
+            </div>
+        </div>
+
+	<!-- Gallery Container -->
+	<div class="gallery-container">
+			<!-- Project 1 Gallery -->
+			<div class="gallery active" id="gallery-0">
+				<ol class="gallery-indicators" id="bullets-0"></ol>
+				<div class="gallery-item active">
+					<img class="gif" src="assets/DMB gameplay-3.gif" alt="Project 1 GIF">
+					<p class="gallery-description"><a href="https://d3vcrow.itch.io/darn-my-barn">Try it now on Itch.io</a></p>	
+				</div>			 
+				<div class="gallery-item">
+					<iframe src="https://www.youtube.com/embed/7ekmQ8gnBOc" allowfullscreen></iframe>
+					<p class="gallery-description">A sneak peek at the final level of the game.</p>
+				</div>
+			</div>
+
+        <!-- Project 2 Gallery -->
+        <div class="gallery" id="gallery-1">
+		    <ol class="gallery-indicators" id="bullets-1"></ol>
+		    <div class="gallery-item"><img class="gif" src="assets/Thrion_Tactics_f2.gif" alt="Project 3 GIF">
+			    <p class="gallery-description">Thrion Tactics: !</p>
+			</div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/Xv7wAYQwRvM" allowfullscreen></iframe></div>
+        </div>
+		
+		<!-- Project 3 Gallery -->
+        <div class="gallery" id="gallery-2">
+		    <ol class="gallery-indicators" id="bullets-2"></ol>
+            <div class="gallery-item"><img class="gif" src="assets/post-apo_car.gif" alt="Project 2 GIF"></div>
+			<div class="gallery-item"><img class="gif" src="assets/td_ds.gif" alt="Project 2 GIF"></div>
+			<div class="gallery-item"><img class="gif" src="assets/box.gif" alt="Project 2 GIF"></div>
+			<div class="gallery-item"><iframe src="https://www.youtube.com/embed/ldTZRpw-oGg" allowfullscreen></iframe></div>
+			<div class="gallery-item"><img class="gif" src="assets/thriambos.gif" alt="Project 2 GIF"></div>
+            <div class="gallery-item"><iframe src="https://www.youtube.com/embed/iW2cXzUlMGc" allowfullscreen></iframe></div>
+        </div>
+		
+		<!-- Project 4 Gallery -->
+        <div class="gallery" id="gallery-3">
+			<ol class="gallery-indicators" id="bullets-3"></ol>
+			<div class="gallery-item"><img src="Caterham.PNG" alt="Project 3 GIF">
+				<p class="gallery-description"> Check <a href="https://caterhamcars.com/en/configurator">Caterham's Configurator</a> — one of the projects I was working on for Renderapp. A web-based tool that uses Unity to produce exceptionally high-end, automotive-grade renders. </p></div>
+			<div class="gallery-item"><img src="VR2.PNG" alt="Project 3 GIF">
+				<p class="gallery-description">Served as Contractor Senior Unity Developer for e-Point on a VR project at a major German Fraport Airport. The project featured a shared VR experience for two users with Meta Quest 3 – <a href="https://youtu.be/Wqm-5RkbYoc">check out a sneak peek</a>. </p> </div>			
+			<div class="gallery-item"><img class="gif" src="assets/SMB gameplay-2.gif" alt="Project 1 GIF">
+				<p class="gallery-description">Solo developed a custom fan-based game combining Super Mario Bros mechanics with a Pokémon theme for Pokefest 2, hosted by iConnect Technology stores. Played by over 200 unique players, delivering a unique and engaging experience.<a href="https://youtu.be/fU8lNrKd_2s" target="_blank" style="color:#0af;">View Gameplay</a></p></div>            
+        </div>
+<!-- Navigation Buttons -->
+    <button class="prev-btn" onclick="changeSlide(-1)">❮</button>
+    <button class="next-btn" onclick="changeSlide(1)">❯</button>
+	</div>
+</div>
+</section>
+
+<script src="js/projects.js"></script>
+</body>
+</html>
