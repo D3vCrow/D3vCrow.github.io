@@ -147,8 +147,65 @@ nav a.active {
   text-align: left;
 }
 
+
 .about-content .content.active {
   display: block;
+}
+
+.whoami-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+  max-width: 95%;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 20px auto;
+  text-align: left;
+  padding: 0 20px; /* helps for smaller screens */
+  box-sizing: border-box;
+}
+
+.whoami-text {
+  animation: fadeInUp 0.8s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.whoami-text p {
+  margin-bottom: 1.2em;
+}
+
+.whoami-text strong {
+  color: #ff9800;
+     text-shadow: 0 0 8px rgba(255,152,0,0.5);
+}
+
+.whoami-text em {
+  font-style: italic;
+  color: #ccc;
+  text-shadow : 0 0 8px rgba(255,152,0,.7);
+}
+
+.whoami-text blockquote {
+  border-left: 4px solid #ff9800;
+  padding-left: 16px;
+  margin: 20px 0;
+  font-style: italic;
+  color: #ffcc80;
+}
+.whoami-layout {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 @keyframes fadeIn {
@@ -157,17 +214,18 @@ nav a.active {
 }
 /* Responsive Image Inside About Content */
 .about-image-row {
+   flex: 1 1 300px;
   display: flex;
+  flex-direction: row;
   gap: 20px;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   flex-wrap: wrap; /* Makes it responsive on smaller screens */
 }
 
 .about-image-row img {
   width: 100%;
-  max-width: 280px;
+  max-width: 260px;
   height: auto;
   display: block;
   border-radius : 15px;
