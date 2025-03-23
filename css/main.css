@@ -25,7 +25,7 @@ header {
 /* Title (Animated GIF Text Effect) */
 .title {
   font-weight: 900;
-  font-size: 160px;
+  font-size: 180px;
   text-align: center;
   color: transparent;
   background: url("../assets/thrionbg.gif") no-repeat;
@@ -33,7 +33,7 @@ header {
   background-position: 50% 0%;
   -webkit-background-clip: text;
   background-clip: text;
-  line-height: 160px;
+  line-height: 180px;
   letter-spacing: -3px;
   display: inline-block;
   position: relative;
@@ -60,6 +60,7 @@ header {
   text-shadow: 0px 0px 8px rgba(255, 152, 0, 0.8);
   text-align: left;
   flex: 1;
+  
 }
 
 /* Rotating Messages Container */
@@ -67,7 +68,7 @@ header {
   font-size: 2rem;
   font-weight: bold;
   color: #ff9800;
-  text-shadow: 0px 0px 8px rgba(255, 152, 0, 0.8);
+  text-shadow: 1px 1px 6px rgba(255, 152, 0, 0.6);
   display: flex;
   align-items: center;
   justify-content: left;

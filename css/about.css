@@ -112,17 +112,18 @@ nav a.active {
 /* About Content Styles */
 /* ---------------------- */
 .about-container {
+	font-family: Roboto;
   display: flex;
   position: absolute;
   right: 5%;
   margin-top: 50px;
   max-width: 65%;
   min-height: 75%;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.01);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  border: 1px solid rgba(255,152,0,0.3);
-  box-shadow: 0 0 20px rgba(255,152,0,0.1);
+  border-left: 2px solid rgba(255,152,0,0.2);
+  box-shadow: 0 0 5px rgba(255,152,0,0.1);
   overflow: hidden;
 }
 
@@ -153,7 +154,8 @@ nav a.active {
 }
 
 .whoami-text {
-  font-size: 1rem;
+	font: Arial;
+  font-size: 1.0rem;
   line-height: 1.6;
   color: #f0f0f0;
   max-width: 95%;
