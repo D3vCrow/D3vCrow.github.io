@@ -423,3 +423,54 @@ border : none;
   100% { opacity: 0.2; }
 }
 
+
+
+
+.gamer-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px 20px;
+  max-width: 1000px;
+  
+  margin: 0 auto;
+}
+
+.decade {
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 5px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.1);
+  min-width: 900px;
+}
+
+.decade h3 {
+  color: #ff9800;
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+  text-shadow: 0 0 8px rgba(255, 152, 0, 0.4);
+  text-align : center;
+}
+
+.game-icons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.game-icons img {
+  max-height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 2px solid #ff9800;
+}
+
+.game-icons img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.6);
+}
+
+

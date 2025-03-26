@@ -32,8 +32,8 @@
 					<li onclick="showAboutContent(2)">Game Development</li>
 					<li onclick="showAboutContent(3)">Game Design</li>
 					<li onclick="showAboutContent(4)">Unity Core Engineer</li>
-					<li onclick="showAboutContent(5)">Gamer</li>
-					<li onclick="showAboutContent(6)">Ethics</li>
+				 <li onclick="showAboutContent(5)">Gamer</li>
+				<!--<li onclick="showAboutContent(6)">Ethics</li> -->
 				</ul>
 			</nav>
 			
@@ -165,105 +165,159 @@
 						</div>
 					</div>
 					<div class="content" id="unity-core-section">
-					
-					
-<div class="unity-core-chat">
-<!-- QUESTION -->
-<div id="unity-question" class="chat-box chat-question">
-  <div class="user-label">I asked ChatGPT:</div>
-  <div class="user-question">Can you tell me the top 5 things a Unity Core Engineer does or is responsible for?</div>
-</div>
-
-<!-- TYPING DOTS -->
-<div id="typing-dots" class="chat-box typing-dots" style="display: none; border:none;box-shadow:none;background:none; text-align :left;">
-  <span>.</span><span>.</span><span>.</span>
-</div>
-
-<!-- CHATGPT INTRO REPLY -->
-<div id="chatgpt-response" class="chat-box chatgpt-response" style="display: none;border:none; box-shadow:none;background:none;">
-  <div class="gpt-label">ChatGPT:</div>
-  <div class="gpt-message">
-    Absolutely! A Unity Core Engineer is often a highly technical role focused on the deeper systems of a Unity project. While the exact responsibilities can vary depending on the team size and the type of project, here are the top 5 things a Unity Core Engineer is usually responsible for:
-  </div>
-</div>
-
-<!-- RESPONSIBILITY BLOCKS (unchanged from previous) -->
-<div id="unity-responsibilities" style="display: none;">
-  <!-- Responsibility Blocks -->
-    <div id="category-1" class="responsibility-block">
-      <h4>1. Project Architecture & Systems Design <span class="main-check-symbol">&#x2610;</span></h4>
-      <ul class="sub-responsibilities">
-        <li><span>Setting up the foundation of the codebase: custom architecture using singletons, scriptable objects, and clean event systems</span><span class="check">&#x2610;</span></li>
-        <li><span>Ensuring the game is scalable, maintainable, and modular</span><span class="check">&#x2610;</span></li>
-        <li><span>Designing reusable systems like save/load, input handling, audio managers, UI navigation, etc.</span><span class="check">&#x2610;</span></li>
-      </ul>
-    </div>
-
-    <div id="category-2" class="responsibility-block" style="display: none;">
-      <h4>2. Performance Optimization <span class="main-check-symbol">&#x2610;</span></h4>
-      <ul class="sub-responsibilities">
-        <li><span>Profiling CPU/GPU performance using Unity Profiler, Frame Debugger, etc.</span><span class="check">&#x2610;</span></li>
-        <li><span>Optimizing rendering, physics, memory, and garbage collection</span><span class="check">&#x2610;</span></li>
-        <li><span>Writing highly performant C# code and knowing when to use structs, jobs, or native containers</span><span class="check">&#x2610;</span></li>
-      </ul>
-    </div>
-
-    <div id="category-3" class="responsibility-block" style="display: none;">
-      <h4>3. Tooling & Editor Extensions <span class="main-check-symbol">&#x2610;</span></h4>
-      <ul class="sub-responsibilities">
-        <li><span>Creating custom tools and inspectors to improve workflow for designers, artists, and other devs</span><span class="check">&#x2610;</span></li>
-        <li><span>Extending the Unity Editor to make content creation easier and less error-prone</span><span class="check">&#x2610;</span></li>
-        <li><span>Automating repetitive tasks or complex configurations</span><span class="check">&#x2610;</span></li>
-      </ul>
-    </div>
-
-    <div id="category-4" class="responsibility-block" style="display: none;">
-      <h4>4. Build Systems & Deployment<span class="main-check-symbol">&#x2610;</span></h4>
-      <ul class="sub-responsibilities">
-        <li><span>Setting up and maintaining build pipelines (local and CI/CD)</span><span class="check">&#x2610;</span></li>
-        <li><span>Managing platform-specific settings and code (e.g. PC, consoles, mobile, VR)</span><span class="check">&#x2610;</span></li>
-        <li><span>Ensuring smooth builds across different environments and configurations</span><span class="check">&#x2610;</span></li>
-      </ul>
-    </div>
-
-    <div id="category-5" class="responsibility-block" style="display: none;">
-      <h4>5. Debugging & Technical Problem Solving <span class="main-check-symbol">&#x2610;</span></h4>
-      <ul class="sub-responsibilities">
-        <li><span>Investigating and resolving hard bugs that require deep engine understanding</span><span class="check">&#x2610;</span></li>
-        <li><span>Bridging the gap between Unity’s high-level tools and low-level system behavior</span><span class="check">&#x2610;</span></li>
-        <li><span>Troubleshooting crashes, memory leaks, unexpected behavior in runtime</span><span class="check">&#x2610;</span></li>
-      </ul>
-    </div>
-
-    <div id="category-6" class="responsibility-block" style="display: none;">
-      <h4>Bonus <span class="main-check-symbol">&#x2610;</span></h4>
-      <ul class="sub-responsibilities">
-        <li><span>A Unity Core Engineer is often the go-to person when something breaks and no one knows why.<br> They dig deep into the project’s guts and make sure everything “just works” under the hood.</span><span class="check">&#x2610;</span></li>
-      </ul>
-    </div>
-</div>
-
-    
-
-  </div>
-</div>
-
-
-
-
-
-
-
-</div>
-
-
+						
+						
+						<div class="unity-core-chat">
+							<!-- QUESTION -->
+							<div id="unity-question" class="chat-box chat-question">
+								<div class="user-label">I asked ChatGPT:</div>
+								<div class="user-question">Can you tell me the top 5 things a Unity Core Engineer does or is responsible for?</div>
+							</div>
+							
+							<!-- TYPING DOTS -->
+							<div id="typing-dots" class="chat-box typing-dots" style="display: none; border:none;box-shadow:none;background:none; text-align :left;">
+								<span>.</span><span>.</span><span>.</span>
+							</div>
+							
+							<!-- CHATGPT INTRO REPLY -->
+							<div id="chatgpt-response" class="chat-box chatgpt-response" style="display: none;border:none; box-shadow:none;background:none;">
+								<div class="gpt-label">ChatGPT:</div>
+								<div class="gpt-message">
+									Absolutely! A Unity Core Engineer is often a highly technical role focused on the deeper systems of a Unity project. While the exact responsibilities can vary depending on the team size and the type of project, here are the top 5 things a Unity Core Engineer is usually responsible for:
+								</div>
+							</div>
+							
+							<!-- RESPONSIBILITY BLOCKS (unchanged from previous) -->
+							<div id="unity-responsibilities" style="display: none;">
+								<!-- Responsibility Blocks -->
+								<div id="category-1" class="responsibility-block">
+									<h4>1. Project Architecture & Systems Design <span class="main-check-symbol">&#x2610;</span></h4>
+									<ul class="sub-responsibilities">
+										<li><span>Setting up the foundation of the codebase: custom architecture using singletons, scriptable objects, and clean event systems</span><span class="check">&#x2610;</span></li>
+										<li><span>Ensuring the game is scalable, maintainable, and modular</span><span class="check">&#x2610;</span></li>
+										<li><span>Designing reusable systems like save/load, input handling, audio managers, UI navigation, etc.</span><span class="check">&#x2610;</span></li>
+									</ul>
+								</div>
+								
+								<div id="category-2" class="responsibility-block" style="display: none;">
+									<h4>2. Performance Optimization <span class="main-check-symbol">&#x2610;</span></h4>
+									<ul class="sub-responsibilities">
+										<li><span>Profiling CPU/GPU performance using Unity Profiler, Frame Debugger, etc.</span><span class="check">&#x2610;</span></li>
+										<li><span>Optimizing rendering, physics, memory, and garbage collection</span><span class="check">&#x2610;</span></li>
+										<li><span>Writing highly performant C# code and knowing when to use structs, jobs, or native containers</span><span class="check">&#x2610;</span></li>
+									</ul>
+								</div>
+								
+								<div id="category-3" class="responsibility-block" style="display: none;">
+									<h4>3. Tooling & Editor Extensions <span class="main-check-symbol">&#x2610;</span></h4>
+									<ul class="sub-responsibilities">
+										<li><span>Creating custom tools and inspectors to improve workflow for designers, artists, and other devs</span><span class="check">&#x2610;</span></li>
+										<li><span>Extending the Unity Editor to make content creation easier and less error-prone</span><span class="check">&#x2610;</span></li>
+										<li><span>Automating repetitive tasks or complex configurations</span><span class="check">&#x2610;</span></li>
+									</ul>
+								</div>
+								
+								<div id="category-4" class="responsibility-block" style="display: none;">
+									<h4>4. Build Systems & Deployment<span class="main-check-symbol">&#x2610;</span></h4>
+									<ul class="sub-responsibilities">
+										<li><span>Setting up and maintaining build pipelines (local and CI/CD)</span><span class="check">&#x2610;</span></li>
+										<li><span>Managing platform-specific settings and code (e.g. PC, consoles, mobile, VR)</span><span class="check">&#x2610;</span></li>
+										<li><span>Ensuring smooth builds across different environments and configurations</span><span class="check">&#x2610;</span></li>
+									</ul>
+								</div>
+								
+								<div id="category-5" class="responsibility-block" style="display: none;">
+									<h4>5. Debugging & Technical Problem Solving <span class="main-check-symbol">&#x2610;</span></h4>
+									<ul class="sub-responsibilities">
+										<li><span>Investigating and resolving hard bugs that require deep engine understanding</span><span class="check">&#x2610;</span></li>
+										<li><span>Bridging the gap between Unity’s high-level tools and low-level system behavior</span><span class="check">&#x2610;</span></li>
+										<li><span>Troubleshooting crashes, memory leaks, unexpected behavior in runtime</span><span class="check">&#x2610;</span></li>
+									</ul>
+								</div>
+								
+								<div id="category-6" class="responsibility-block" style="display: none;">
+									<h4>Bonus <span class="main-check-symbol">&#x2610;</span></h4>
+									<ul class="sub-responsibilities">
+										<li><span>A Unity Core Engineer is often the go-to person when something breaks and no one knows why.<br> They dig deep into the project’s guts and make sure everything “just works” under the hood.</span><span class="check">&#x2610;</span></li>
+									</ul>
+								</div>
+							</div>
+						</div>
 					</div>
+					
+					<div class="content"
+					
+					<div class="gamer-timeline">
+  <div class="decade" data-decade="1990s">
+    <h3>1990s</h3>
+    <div class="game-icons">
+      <img src="assets/1990_atlantis.png" alt="Indiana Jones and the Fate of Atlantis" title="Indiana Jones and the Fate of Atlantis">
+      <img src="assets/1990_TMNT.jpg" alt="TMNT IV: Turtles in Time" title="TMNT IV: Turtles in Time">
+	  <img src="assets/1990_mario.jpg" alt="Super Mario Bros" title="Super Mario Bros">
+	  <img src="assets/1990_sf2.png" alt="Street Fighters II" title="Street Fighters II">
+	  <img src="assets/1990_monkey.jpg" alt="The Curse of Monkey Island" title="The Curse of Monkey Island">
+	  <img src="assets/1990_zelda.jpg" alt="The Curse of Monkey Island" title="The Curse of Monkey Island">
+	  <img src="assets/1990_persia.jpg" alt="The Curse of Monkey Island" title="The Curse of Monkey Island">
+	  <img src="assets/1990_lemmings.jpg" alt="The Curse of Monkey Island" title="The Curse of Monkey Island">
+	  <img src="assets/1990_abes.jpg" alt="The Curse of Monkey Island" title="The Curse of Monkey Island">
+	  <!--<img src="assets/1990_dk.jpg" alt="The Curse of Monkey Island" title="The Curse of Monkey Island"> -->
+	  <img src="assets/1990_gabriel.jpg" alt="The Curse of Monkey Island" title="The Curse of Monkey Island">
+	  <img src="assets/1990_tomba.png" alt="Indiana Jones and the Fate of Atlantis" title="Indiana Jones and the Fate of Atlantis">
+	  <img src="assets/1990_tekken3.png" alt="Indiana Jones and the Fate of Atlantis" title="Indiana Jones and the Fate of Atlantis">
+	  <img src="assets/1990_aoe2.png" alt="Indiana Jones and the Fate of Atlantis" title="Indiana Jones and the Fate of Atlantis">
+	  <img src="assets/1990_candilacs.jpg" alt="Indiana Jones and the Fate of Atlantis" title="Indiana Jones and the Fate of Atlantis">
+	  <img src="assets/1990_hospital.jpg" alt="Indiana Jones and the Fate of Atlantis" title="Indiana Jones and the Fate of Atlantis">
+	  <img src="assets/1990_xfiles.jpg" alt="Indiana Jones and the Fate of Atlantis" title="Indiana Jones and the Fate of Atlantis">
+	  <img src="assets/1990_pokemon.jpg" alt="Indiana Jones and the Fate of Atlantis" title="Indiana Jones and the Fate of Atlantis">
+	  <img src="assets/1990_mariokart.jpg" alt="Super Mario Bros" title="Super Mario Bros">
+	  <img src="assets/1990_wolf.jpg" alt="Super Mario Bros" title="Super Mario Bros">
+	  <img src="assets/1990_broken.png" alt="Super Mario Bros" title="Super Mario Bros">
+	  <img src="assets/1990_silent.jpg" alt="Super Mario Bros" title="Super Mario Bros">
+	  <img src="assets/1990_riven.png" alt="Super Mario Bros" title="Super Mario Bros">
+	  <img src="assets/1990_hercules.jpg" alt="Super Mario Bros" title="Super Mario Bros">
+	  <!--   crash , unreal , riven  , pacman  -->
+    </div>
+  </div>
+
+  <div class="decade" data-decade="2000s">
+    <h3>2000s</h3>
+    <div class="game-icons">
+      <img src="assets/2000s_warcraft.png" alt="Warcraft" title="Warcraft 3">
+      <img src="assets/2000s_gta.png" alt="GTA" title="GTA San Andreas">
+    </div>
+  </div>
+
+  <div class="decade" data-decade="2010s">
+    <h3>2010s</h3>
+    <div class="game-icons">
+      <img src="assets/2010s_dark_souls.png" alt="Dark Souls" title="Dark Souls">
+      <img src="assets/2010s_skyrim.png" alt="Skyrim" title="Skyrim">
+    </div>
+  </div>
+
+  <div class="decade" data-decade="2020s">
+    <h3>2020s</h3>
+    <div class="game-icons">
+      <img src="assets/2020s_elden_ring.png" alt="Elden Ring" title="Elden Ring">
+      <img src="assets/2020s_hades.png" alt="Hades" title="Hades">
+    </div>
+  </div>
+</div>
+
+
+				</div>
+
+
+					
+						
 				</div>
 			</div>
-			
-		</section>
-		
-		<script src="js/about.js"></script>
-		
-	</body>
+		</div>
+	</div>
+	
+</section>
+
+<script src="js/about.js"></script>
+
+</body>
 </html>
