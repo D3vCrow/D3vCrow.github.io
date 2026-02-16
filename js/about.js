@@ -29,27 +29,27 @@ function showAboutContent(index) {
   });
 
   // Trigger Unity animation only for the Unity Core Engineer tab (index 4)
-if (index === 4) {
-  setTimeout(() => {
-    const dots = document.getElementById("typing-dots");
-    const response = document.getElementById("chatgpt-response");
-    const responsibilities = document.getElementById("unity-responsibilities");
+  if (index === 4) {
+    setTimeout(() => {
+      const dots = document.getElementById("typing-dots");
+      const response = document.getElementById("chatgpt-response");
+      const responsibilities = document.getElementById("unity-responsibilities");
 
-    if (dots && response && responsibilities) {
-      dots.style.display = "flex";
-
-      setTimeout(() => {
-        dots.style.display = "none";
-        response.style.display = "block";
+      if (dots && response && responsibilities) {
+        dots.style.display = "flex";
 
         setTimeout(() => {
-          responsibilities.style.display = "block";
-          showCategory(0); // start checkboxes
-        }, 1200); // slight pause before responsibilities appear
-      }, 3000); // simulate 3s "typing..."
-    }
-  }, 2000); // delay after tab opens before "typing..."
-}
+          dots.style.display = "none";
+          response.style.display = "block";
+
+          setTimeout(() => {
+            responsibilities.style.display = "block";
+            showCategory(0); // start checkboxes
+          }, 1200); // slight pause before responsibilities appear
+        }, 3000); // simulate 3s "typing..."
+      }
+    }, 2000); // delay after tab opens before "typing..."
+  }
 
 }
 // Make this globally accessible
@@ -86,7 +86,60 @@ const showCategory = (categoryIndex) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Do not auto-start the animation
+  // 1. Initial Desktop Tab Setup
+  showAboutContent(0);
+
+  // 2. Mobile Hamburger Menu Logic
+  const hamburger = document.querySelector(".hamburger-menu");
+  const navLinks = document.querySelector(".nav-links");
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("open");
+      navLinks.classList.toggle("active");
+    });
+  }
+
+  // 3. Mobile Scroll Trigger for Unity Animation
+  // We only want this observer on mobile, or generally if we are scrolling
+  const unitySection = document.getElementById("unity-core-section");
+
+  if (unitySection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Trigger animation logic
+          // We reuse the existing timeout logic but ensure it runs once
+          if (!unitySection.dataset.animated) {
+            unitySection.dataset.animated = "true";
+
+            // Copy-paste of original animation trigger logic adapted for observer
+            setTimeout(() => {
+              const dots = document.getElementById("typing-dots");
+              const response = document.getElementById("chatgpt-response");
+              const responsibilities = document.getElementById("unity-responsibilities");
+
+              if (dots && response && responsibilities) {
+                dots.style.display = "flex";
+
+                setTimeout(() => {
+                  dots.style.display = "none";
+                  response.style.display = "block";
+
+                  setTimeout(() => {
+                    responsibilities.style.display = "block";
+                    showCategory(0); // start checkboxes
+                  }, 1200);
+                }, 3000);
+              }
+            }, 500); // reduced delay since we are already looking at it
+          }
+        }
+      });
+    }, { threshold: 0.3 }); // Trigger when 30% visible
+
+    observer.observe(unitySection);
+  }
 });
 
 

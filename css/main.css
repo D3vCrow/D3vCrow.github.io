@@ -1,5 +1,6 @@
 /* General Styles */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -43,12 +44,14 @@ header {
 /* AKA & Rotating Messages */
 .aka-container {
   display: flex;
-  justify-content: space-between; /* Pushes AKA to left and messages to right */
+  justify-content: space-between;
+  /* Pushes AKA to left and messages to right */
   align-items: center;
   width: 80%;
   max-width: 1000px;
   position: absolute;
-  bottom: 25%; /* Aligns under the title */
+  bottom: 25%;
+  /* Aligns under the title */
   left: 50%;
   transform: translateX(-50%);
 }
@@ -60,7 +63,7 @@ header {
   text-shadow: 0px 0px 8px rgba(255, 152, 0, 0.8);
   text-align: left;
   flex: 1;
-  
+
 }
 
 /* Rotating Messages Container */
@@ -88,6 +91,7 @@ header {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -102,6 +106,7 @@ header {
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -119,7 +124,8 @@ nav {
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.8); /* Slightly darker */
+  background: rgba(0, 0, 0, 0.8);
+  /* Slightly darker */
   padding: 12px 25px;
   border-radius: 50px;
   backdrop-filter: blur(8px);
@@ -131,7 +137,8 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 35px; /* Adjusted for even spacing */
+  gap: 35px;
+  /* Adjusted for even spacing */
 }
 
 nav a {
@@ -189,4 +196,78 @@ nav a.active {
   width: 0%;
   background-color: #ff9800;
   transition: width 0.25s ease-out;
+}
+
+/* Responsive Adjustments */
+
+@media (max-width: 768px) {
+
+  /* Navigation adjustments */
+  nav {
+    width: 95%;
+    /* Wider container */
+    padding: 8px 10px;
+    /* Smaller padding */
+    border-radius: 30px;
+    top: 10px;
+  }
+
+  nav ul {
+    gap: 10px;
+    /* Smaller gap */
+    justify-content: center;
+    flex-wrap: nowrap;
+    /* Try to keep on one line if possible, or wrap clean */
+    white-space: nowrap;
+  }
+
+  nav a {
+    font-size: 0.9rem;
+    /* Smaller font to fit all items */
+  }
+
+  /* Title adjustments */
+  .title {
+    font-size: 18vw;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    background-position: 50% 50%;
+    /* Center the background image on mobile */
+    /* Ensure background is large enough to pan */
+    background-size: 150% auto;
+  }
+
+  /* AKA Container adjustments */
+  .aka-container {
+    position: relative;
+    /* Remove absolute positioning to flow naturally */
+    bottom: auto;
+    left: auto;
+    transform: none;
+    flex-direction: column;
+    margin-top: 10px;
+    /* Adjust spacing closer to title */
+    gap: 5px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .aka {
+    text-align: center;
+    font-size: 1.5rem;
+    flex: none;
+    width: 100%;
+  }
+
+  #rotating-message-container {
+    justify-content: center;
+    font-size: 1.5rem;
+    height: 2rem;
+    width: 100%;
+  }
+
+  /* Loading screen adjustments */
+  #loading-text {
+    font-size: 1rem;
+  }
 }
