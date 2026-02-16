@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Resume - Christoforos Papachristoforou</title>
@@ -8,7 +9,12 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:400,800,900|Open+Sans:300,400,600,700" rel="stylesheet">
   <style>
     /* Global Reset & Base Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background: linear-gradient(235deg, #f5f5f5, #fff);
       color: #333;
@@ -16,20 +22,23 @@
       line-height: 1.6;
       padding: 40px;
     }
+
     .container {
       max-width: 1000px;
       margin: 0 auto;
     }
+
     /* Header with Contact-style border */
     header {
       text-align: center;
       margin-bottom: 40px;
       padding: 1.5em;
       background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       border: 2px solid #0af;
       border-radius: 12px;
     }
+
     header h1 {
       font-family: 'Raleway', sans-serif;
       font-size: 2.8rem;
@@ -37,11 +46,13 @@
       letter-spacing: 2px;
       margin-bottom: 0.3em;
     }
+
     header p {
       font-size: 1.2rem;
       color: #555;
       margin-top: 10px;
     }
+
     /* New Current Status Section */
     .current-status {
       text-align: center;
@@ -50,6 +61,7 @@
       color: #0af;
       font-weight: 600;
     }
+
     /* Section Title */
     .section-title {
       font-size: 2rem;
@@ -60,10 +72,17 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
-    .section { margin-bottom: 60px; }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
     /* Executive Profile */
-    #executive-profile p { margin-bottom: 20px; font-size: 1rem; }
-    
+    #executive-profile p {
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
     /* Professional Experience Timeline */
     .timeline-container {
       display: flex;
@@ -73,6 +92,7 @@
       flex-wrap: wrap;
       transition: all 0.4s ease;
     }
+
     /* Timeline Column (Left) */
     .timeline {
       position: relative;
@@ -81,6 +101,7 @@
       flex: 1;
       transition: background 0.3s ease;
     }
+
     .timeline-item {
       margin-bottom: 20px;
       position: relative;
@@ -90,21 +111,26 @@
       background: #fff;
       color: #333;
     }
-	.no-timeline-item {
+
+    .no-timeline-item {
       margin-bottom: 20px;
       position: relative;
       cursor: pointer;
       padding-left: 10px;
-      
-       background-color: #E0E0E0; /* Elegant grey background */
-    color: #555555;           /* Darker text for contrast */
-    padding: 10px;
-    border-radius: 4px;
+
+      background-color: #E0E0E0;
+      /* Elegant grey background */
+      color: #555555;
+      /* Darker text for contrast */
+      padding: 10px;
+      border-radius: 4px;
     }
+
     .timeline-item:hover {
-      background: rgba(0,170,255,0.1);
+      background: rgba(0, 170, 255, 0.1);
       transform: translateX(5px);
     }
+
     .timeline-item::before {
       content: "";
       position: absolute;
@@ -117,22 +143,26 @@
       border-radius: 50%;
       transition: background 0.3s ease, transform 0.3s ease;
     }
+
     .timeline-item.active::before {
       background: #0af;
       transform: scale(1.1);
     }
+
     .timeline-date {
       font-weight: bold;
       color: #0af;
       margin-bottom: 5px;
       font-size: 0.9rem;
     }
+
     .timeline-title {
       font-size: 1.2rem;
       font-weight: 700;
       margin-bottom: 5px;
       color: #333;
     }
+
     /* Job Details Box Column (Right) */
     .job-details-container {
       flex: 2;
@@ -140,27 +170,45 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
       transition: box-shadow 0.3s ease;
       min-height: 200px;
     }
+
     .job-details-container:hover {
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
-    .job-details { display: none; opacity: 0; transition: opacity 0.4s ease; }
-    .job-details.active { display: block; opacity: 1; }
+
+    .job-details {
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .job-details.active {
+      display: block;
+      opacity: 1;
+    }
+
     .job-details h3 {
       font-family: 'Raleway', sans-serif;
       margin-bottom: 0.5em;
       color: #0af;
       font-size: 1.1rem;
     }
-    .job-details p { margin-bottom: 0.5em; font-style: italic; color: #555; }
+
+    .job-details p {
+      margin-bottom: 0.5em;
+      font-style: italic;
+      color: #555;
+    }
+
     .job-details ul {
       margin: 0.5em 0 0 1.2em;
       list-style: disc;
       color: #666;
     }
+
     .job-details .sub-title {
       font-size: 1rem;
       color: #0af;
@@ -168,6 +216,7 @@
       margin-top: 10px;
       margin-bottom: 5px;
     }
+
     /* Education & Courses Tabs - Keep unchanged */
     .tabs {
       display: flex;
@@ -176,6 +225,7 @@
       justify-content: center;
       flex-wrap: wrap;
     }
+
     .tab-btn {
       padding: 10px 20px;
       border: 1px solid #0af;
@@ -185,52 +235,63 @@
       transition: background 0.3s ease;
       border-radius: 6px;
     }
+
     .tab-btn.active {
       background: #0af;
       color: #fff;
     }
+
     .edu-content .tab-content {
       display: none;
       transition: opacity 0.3s ease;
     }
+
     .edu-content .tab-content.active {
       display: block;
       opacity: 1;
     }
+
     /* Skills Section with Hover Tooltip (Updated Categories) */
     .skills-section {
       display: flex;
       flex-direction: column;
       gap: 1.5em;
     }
-	.section-title p {
+
+    .section-title p {
       font-size: 0.9rem;
       color: #666;
       margin: 0;
       transition: color 0.3s ease;
     }
+
     .skill-category {
       margin-bottom: 1em;
     }
+
     .skill-category .header {
       display: inline-flex;
       align-items: center;
       gap: 10px;
     }
+
     .skill-category h3 {
       font-size: 1.1rem;
       color: #0af;
       margin: 0;
     }
+
     .skill-category p {
       font-size: 0.9rem;
       color: #666;
       margin: 0;
       transition: color 0.3s ease;
     }
+
     .skill-category:hover p {
       color: #0af;
     }
+
     .skill-list {
       display: flex;
       flex-wrap: wrap;
@@ -239,6 +300,7 @@
       padding: 0;
       margin: 0;
     }
+
     .skill-list li {
       background: #0af;
       color: #fff;
@@ -249,122 +311,141 @@
       transition: transform 0.3s ease;
       cursor: default;
     }
+
     .skill-list li:hover {
       transform: scale(1.05);
+      z-index: 1000;
+      /* Ensure the hovered item (and its tooltip) is on top of others */
     }
+
     .skill-list li::after {
       content: attr(data-desc);
       position: absolute;
       left: 50%;
       top: 110%;
       transform: translateX(-50%);
-      background: rgba(0,0,0,0.8);
+      background: rgba(0, 0, 0, 0.8);
       color: #fff;
       padding: 4px 6px;
       border-radius: 4px;
-      white-space: nowrap;
+      white-space: normal;
+      /* Allow text to wrap */
+      max-width: 250px;
+      /* Limit width to prevent screen overflow */
+      width: max-content;
+      /* wrap tightly around content up to max-width */
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.3s ease;
       font-size: 0.8rem;
       margin-top: 4px;
+      z-index: 100;
+      /* Ensure it's on top */
+      text-align: center;
+      /* Center align the text */
     }
+
     .skill-list li:hover::after {
       opacity: 1;
     }
+
     /* Freelancing Projects Carousel as Cards */
-.projects {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  gap: 20px;
-  padding-bottom: 10px;
-  /* Hide scrollbar on WebKit-based browsers */
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;       /* For Firefox */
-  -ms-overflow-style: none;    /* For IE and old Edge */
-}
-.projects::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
-}
+    .projects {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 20px;
+      padding-bottom: 10px;
+      /* Hide scrollbar on WebKit-based browsers */
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      /* For Firefox */
+      -ms-overflow-style: none;
+      /* For IE and old Edge */
+    }
 
-.projects ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    .projects::-webkit-scrollbar {
+      display: none;
+      /* Chrome, Safari, Opera */
+    }
 
-.projects li.project-item {
-  flex: 0 0 auto;
-  width: 300px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  scroll-snap-align: start;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
+    .projects ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-.project-image {
-  width: 100%;
-  height: 160px;
-  background: #eee;
-}
+    .projects li.project-item {
+      flex: 0 0 auto;
+      width: 300px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: start;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
 
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    .project-image {
+      width: 100%;
+      height: 160px;
+      background: #eee;
+    }
 
-.project-card-content {
-  padding: 15px;
-  flex: 1;
-}
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-.project-title {
-  font-weight: bold;
-  color: #0af;
-  margin-bottom: 0.3em;
-  font-size: 1.2rem;
-}
+    .project-card-content {
+      padding: 15px;
+      flex: 1;
+    }
 
-.project-duration {
-  font-style: italic;
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0.5em;
-}
+    .project-title {
+      font-weight: bold;
+      color: #0af;
+      margin-bottom: 0.3em;
+      font-size: 1.2rem;
+    }
 
-.project-item p {
-  font-size: 0.95rem;
-  color: #555;
-}
+    .project-duration {
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.5em;
+    }
 
-.carousel-controls {
-  text-align: center;
-  margin-top: 10px;
-}
+    .project-item p {
+      font-size: 0.95rem;
+      color: #555;
+    }
 
-.carousel-controls button {
-  background: #0af;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  margin: 0 5px;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background 0.3s ease;
-}
+    .carousel-controls {
+      text-align: center;
+      margin-top: 10px;
+    }
 
-.carousel-controls button:hover {
-  background: #099;
-}
+    .carousel-controls button {
+      background: #0af;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 5px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+    }
+
+    .carousel-controls button:hover {
+      background: #099;
+    }
 
     /* Contact with Rounded Border */
     #contact.section {
@@ -373,22 +454,77 @@
       border-radius: 12px;
       padding: 20px;
     }
-    #contact p { margin-bottom: 0.8em; font-size: 1rem; }
-    #contact a { color: #0af; text-decoration: none; }
+
+    #contact p {
+      margin-bottom: 0.8em;
+      font-size: 1rem;
+    }
+
+    #contact a {
+      color: #0af;
+      text-decoration: none;
+    }
+
     /* Responsive Adjustments */
     @media (max-width: 800px) {
-      .timeline-container { flex-direction: column; }
-      .job-details-container { margin-top: 20px; }
-      .skills-section, .skill-list { justify-content: center; }
+      body {
+        padding: 15px;
+      }
+
+      header {
+        padding: 1em;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .timeline-container {
+        flex-direction: column;
+      }
+
+      .timeline {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      .timeline-item {
+        border-left: 2px solid #0af;
+        padding-left: 15px;
+        margin-left: 10px;
+      }
+
+      .timeline-item::before {
+        left: -21px;
+      }
+
+      /* Adjust dot position relative to new border */
+
+      .job-details-container {
+        margin-top: 20px;
+        padding: 15px;
+      }
+
+      .skills-section,
+      .skill-list {
+        justify-content: center;
+      }
+
+      /* Make timeline items easier to tap */
+      .timeline-item {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
     }
-	
-	.minimal-break {
-  line-height: 1;
-  margin: 0;
-  padding: 0;
-}
+
+    .minimal-break {
+      line-height: 1;
+      margin: 0;
+      padding: 0;
+    }
   </style>
 </head>
+
 <body>
   <div class="container">
     <!-- Header -->
@@ -396,21 +532,31 @@
       <h1>Christoforos Papachristoforou</h1>
       <p>Software Engineer | IT Specialist</p>
     </header>
-    
+
     <!-- Current Status Section -->
     <section id="current-status" class="section">
       <div class="section-title">Current Status</div>
       <p style="text-align: center; font-size: 1.2rem; color: #0af;">Open for work or Projects</p>
     </section>
-    
+
     <!-- Executive Profile -->
     <section id="executive-profile" class="section">
       <div class="section-title">Executive Profile</div>
       <p>
-        <p>Hello, my name is Christoforos (you can call me Chris). I'm a <strong>software engineer</strong> with hands-on IT and leadership experience who loves solving problems and exploring new technologies. I've built, maintained, and updated projects using <strong>Unity and C#</strong>, and I have experience in <strong>3D rendering</strong>. Currently, I'm deepening my <strong>Python</strong> skills with a focus on <strong>automation,Data Science and AI</strong>. I've worked in and for high-standard corporate environments, from <strong>airports</strong> to the <strong>automotive industry</strong>, which has taught me to navigate complex projects with efficiency and precision. I'm quick at <strong>prototyping</strong> and adept at finding solutions through targeted research. I believe in using <strong>AI generative tools</strong> as powerful complements to my work, not as shortcuts or a means to replicate others' efforts, and I enjoy turning practical ideas into real-world solutions and workflow tools.</p>
+      <p>Hello, my name is Christoforos (you can call me Chris). I'm a <strong>software engineer</strong> with hands-on
+        IT and leadership experience who loves solving problems and exploring new technologies. I've built, maintained,
+        and updated projects using <strong>Unity and C#</strong>, and I have experience in <strong>3D
+          rendering</strong>. Currently, I'm deepening my <strong>Python</strong> skills with a focus on
+        <strong>automation,Data Science and AI</strong>. I've worked in and for high-standard corporate environments,
+        from <strong>airports</strong> to the <strong>automotive industry</strong>, which has taught me to navigate
+        complex projects with efficiency and precision. I'm quick at <strong>prototyping</strong> and adept at finding
+        solutions through targeted research. I believe in using <strong>AI generative tools</strong> as powerful
+        complements to my work, not as shortcuts or a means to replicate others' efforts, and I enjoy turning practical
+        ideas into real-world solutions and workflow tools.
+      </p>
       </p>
     </section>
-    
+
     <!-- Professional Experience with Timeline -->
     <section id="professional-experience" class="section">
       <div class="section-title">Professional Experience</div>
@@ -418,14 +564,14 @@
         <!-- Timeline Column (Left) -->
         <div class="timeline">
           <div class="timeline-item active" data-job="job-renderapp">
-            <div class="timeline-date">Feb 2021 – Dec 2024</div>
+            <div class="timeline-date">Feb 2021 – Feb 2026</div>
             <div class="timeline-title">Renderapp lt</div>
           </div>
           <div class="timeline-item" data-job="job-sita">
             <div class="timeline-date">May 2018 – Feb 2021</div>
             <div class="timeline-title">SITA (External) / NetSquare @ Athens International Airport</div>
           </div>
-		  <div class="no-timeline-item">
+          <div class="no-timeline-item">
             <div class="timeline-date">Nov 2016 – Nov 2017</div>
             <div class="timeline-title">Mandatory Military service</div>
           </div>
@@ -448,18 +594,25 @@
             <p><em>Feb 2021 – December 2024 | Remote</em></p>
             <p class="sub-title">Key Responsibilities:</p>
             <ul>
-              <li>Managed the complete workflow from receiving 3D car data to final review in the Renderapp's product, online configurator, utilizing Unity, 3DS Max, and Node.js.</li>
-              <li>Developed and maintained custom tools across the workflow to streamline processes and ensure robust quality assurance.</li>
-              <li>Served as Product Owner for Caterham's Configurator (<a href="https://caterhamcars.com/en/configurator" target="_blank" style="color:#0af;">View Configurator</a>).</li>
+              <li>Managed the complete workflow from receiving 3D car data to final review in the Renderapp's product,
+                online configurator, utilizing Unity, 3DS Max, and Node.js.</li>
+              <li>Developed and maintained custom tools across the workflow to streamline processes and ensure robust
+                quality assurance.</li>
+              <li>Served as Product Owner for Caterham's Configurator (<a
+                  href="https://caterhamcars.com/en/configurator" target="_blank" style="color:#0af;">View
+                  Configurator</a>).</li>
               <li>Acted as the primary technical expert for Unity-related and general technical issues.</li>
-              <li>Provided team leadership during periods of high workload (2023-24), ensuring client requirements were met.</li>
+              <li>Provided team leadership during periods of high workload (2023-24), ensuring client requirements were
+                met.</li>
               <li>Authored and reviewed technical requests, responses, estimations, and project timelines.</li>
               <li>Scheduled and executed product updates in live environments (Azure/Cloud/Private servers).</li>
-              <li>Managed version control with GitHub and Dropbox, including backup creation, branch management, data recovery, and reverting changes.</li>
+              <li>Managed version control with GitHub and Dropbox, including backup creation, branch management, data
+                recovery, and reverting changes.</li>
             </ul>
             <p class="sub-title">Highlights:</p>
             <ul>
-              <li>Integrated legacy Unity projects into updated systems with modifications to C# scripts, HTML, and JS.</li>
+              <li>Integrated legacy Unity projects into updated systems with modifications to C# scripts, HTML, and JS.
+              </li>
               <li>Reconfigured live projects for cross-compatibility across cloud/private servers and Azure VMs.</li>
               <li>Solo handled live project's branch migration from Built-in Render Pipeline to HDRP.</li>
             </ul>
@@ -467,54 +620,57 @@
           <div id="job-sita" class="job-details">
             <h3> Team Leader of Service Operations & Site Administrators</h3>
             <p><em>May 2018 – Feb 2021 | Athens</em></p>
-			<p class="sub-title">Key Responsibilities:</p>
-			<ul>
-			<li>Served as team leader and staff trainer.</li>
-			<li>Monitored service performance and network connectivity, and created detailed reports.</li>
-			<li>Maintained SLA targets and coordinated escalations for critical airport systems.</li>
-			<li>Supervised and guided the CUTE team.</li>
-			<li>Managed the CRM ticket lifecycle, including creation, editing, and resolution.</li>
-			</ul>
-			<p class="sub-title">Highlights:</p>
-			<ul>
-			<li>Developed a reporting tool and procedures that reduced process time by over 90%.</li>
-			<li>Documented key procedures and troubleshooting actions.</li>
-			</ul></div>
-			<div id="job-cute" class="job-details">
+            <p class="sub-title">Key Responsibilities:</p>
+            <ul>
+              <li>Served as team leader and staff trainer.</li>
+              <li>Monitored service performance and network connectivity, and created detailed reports.</li>
+              <li>Maintained SLA targets and coordinated escalations for critical airport systems.</li>
+              <li>Supervised and guided the CUTE team.</li>
+              <li>Managed the CRM ticket lifecycle, including creation, editing, and resolution.</li>
+            </ul>
+            <p class="sub-title">Highlights:</p>
+            <ul>
+              <li>Developed a reporting tool and procedures that reduced process time by over 90%.</li>
+              <li>Documented key procedures and troubleshooting actions.</li>
+            </ul>
+          </div>
+          <div id="job-cute" class="job-details">
             <h3>Common-Use Terminal Equipment(CUTE) Specialist</h3>
             <p><em>Aug 2014 – Nov 2016 | Athens</em></p>
             <p class="sub-title">Key Responsibilities:</p>
-			<ul>
-			<li>Managed and resolved CUTE inquiries on site or via phone and email.</li>
-			<li>Adhered to strict SLAs while maintaining KPIs.</li>
-			<li>Troubleshot software and hardware issues of Terminal Equipment.</li>
-			<li>Utilized remote access tools for monitoring and troubleshooting.</li>
-			<li>Collaborated with flight companies to ensure smooth system operations.</li>
-			</ul>
-			<p class="sub-title">Highlights:</p>
-			<ul>
-			<li>Led the upgrade and renewal of Terminal Equipment, including software and hardware installation and updates.</li>
-			</ul>
+            <ul>
+              <li>Managed and resolved CUTE inquiries on site or via phone and email.</li>
+              <li>Adhered to strict SLAs while maintaining KPIs.</li>
+              <li>Troubleshot software and hardware issues of Terminal Equipment.</li>
+              <li>Utilized remote access tools for monitoring and troubleshooting.</li>
+              <li>Collaborated with flight companies to ensure smooth system operations.</li>
+            </ul>
+            <p class="sub-title">Highlights:</p>
+            <ul>
+              <li>Led the upgrade and renewal of Terminal Equipment, including software and hardware installation and
+                updates.</li>
+            </ul>
           </div>
           <div id="job-other" class="job-details">
             <h3>Customer Support – Tech Support, IQOS Call Center</h3>
             <p><em>Dec 2017 – Mar 2018 | Athens</em></p>
             <ul>
-              <li><strong>Achieved</strong> both the highest percentage and the highest number of positive client reviews, 
-				showcasing exceptional customer satisfaction, even in a part-time capacity.</li>
+              <li><strong>Achieved</strong> both the highest percentage and the highest number of positive client
+                reviews,
+                showcasing exceptional customer satisfaction, even in a part-time capacity.</li>
             </ul>
-			<br class="minimal-break">
-			<h3>Assistant Store Manager, Breeze café</h3>
+            <br class="minimal-break">
+            <h3>Assistant Store Manager, Breeze café</h3>
             <p><em>Aug 2010 — Nov 2013 | Athens</em></p>
-			<br class="minimal-break">
-			<h3>IT Technician, Simplex Computer Services</h3>
+            <br class="minimal-break">
+            <h3>IT Technician, Simplex Computer Services</h3>
             <p><em>May 2009 — Sep 2009 | Athens</em></p>
-			<br class="minimal-break">
-			<h3>Sales Advisor at Citibank, Atlas</h3>
+            <br class="minimal-break">
+            <h3>Sales Advisor at Citibank, Atlas</h3>
             <p><em>Sep 2007 — Feb 2008 | Athens</em></p>
           </div>
-          
-          
+
+
           <div id="job-cute" class="job-details">
             <h3>Athens International Airport – CUTE Specialist, Printec SA Project</h3>
             <p><em>Aug 2014 – Nov 2016 (Fulfilled military service) | Athens</em></p>
@@ -548,7 +704,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Education & Courses Tabs (Reverted layout) -->
     <section id="education" class="section">
       <div class="section-title">Education &amp; Courses</div>
@@ -559,9 +715,9 @@
       <div class="edu-content">
         <div class="tab-content active" id="edu">
           <p><strong>Bachelor’s Degree in Electronic Computer Systems Engineer</strong><br>
-          ATEI of Piraeus | Feb 2008 – Sep 2014</p>
+            ATEI of Piraeus | Feb 2008 – Sep 2014</p>
           <p><strong>Certification: 640-822 ICND1 - Cisco</strong><br>
-          New York College | Feb 2012 – Jul 2012</p>
+            New York College | Feb 2012 – Jul 2012</p>
         </div>
         <div class="tab-content" id="courses">
           <ul>
@@ -576,82 +732,100 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Skills with Hover Tooltip (Updated Categories) -->
     <section id="skills" class="section">
-      <div class="section-title">Skills <p>(Hover for more info)</p></div>
+      <div class="section-title">Skills <p>(Hover for more info)</p>
+      </div>
       <div class="skills-section">
-<div class="skill-category">
-  <div class="header">
-    <h3>Production-Ready Skills</h3>
-    <p>Fully proficient and ready for professional projects.</p>
-  </div>
-  <ul class="skill-list">
-    <li data-desc="Over 7 years of all-around experience, including 4 years in a professional setting." style="cursor: default;">Unity</li>
-    <li data-desc="7+ years of writing efficient code, particularly within the Unity environment." style="cursor: default;">C#</li>
-  </ul>
-</div>
-
-<div class="skill-category">
-  <div class="header">
-    <h3>Foundational Proficiency</h3>
-    <p>Solid basic knowledge with room for growth through hands-on experience.</p>
-  </div>
-  <ul class="skill-list">
-    <li data-desc="An enthusiastic learner with multiple courses and personal projects—always striving to learn more." style="cursor: default;">Python</li>
-  </ul>
-</div>
-
-<div class="skill-category">
-  <div class="header">
-    <h3>Supplementary Expertise</h3>
-    <p>Competent skills that effectively support my core work.</p>
-  </div>
-  <ul class="skill-list">
-    <li data-desc="Proficient in using these tools for efficient research and problem-solving." style="cursor: default;">Google &amp; ChatGPT</li>
-	<li data-desc="Experienced working with Github,Dropbox,Plasic,Unity Version Control (Previously Plastic SCM),bitBucket." style="cursor: default;">Version Control</li>
-    <li data-desc="Delivered quality editing work with Photoshop, Filmora, and similar tools as needed." style="cursor: default;">Image &amp; Video Editing</li>
-    <li data-desc="Familiar with updating existing websites. (Fun fact: I built this site!)" style="cursor: default;">Web Development (HTML, CSS,JS)</li>
-    <li data-desc="Very comfortable working with tools like Excel, Word, and more." style="cursor: default;">Office365</li>
-    <li data-desc="Adept at crafting effective prompts for generative AI tools (image, text, video)." style="cursor: default;">Prompting</li>
-  </ul>
-</div>
-
-<div class="skill-category">
-  <div class="header">
-    <h3>Rusty, But Recoverable</h3>
-    <p>Skills that haven't been used recently and may require refreshing.</p>
-  </div>
-  <ul class="skill-list">
-    <li data-desc="Solid foundation from earlier IT roles, supported by Cisco certification (might need a refresher)." style="cursor: default;">Networking</li>
-  </ul>
-</div>
-
-<div class="skill-category">
-  <div class="header">
-    <h3>Honorable Mentions</h3>
-    <p></p>
-  </div>
-  <ul class="skill-list">
-    <li data-desc="2 years of hands-on experience updating Azure VMs and building scale sets." style="cursor: default;">Azure VMs &amp; Scale Sets</li>
-    <li data-desc="Regular use throughout my career for basic automation tasks." style="cursor: default;">Batch Scripting</li>
-    <li data-desc="Over 3 years of experience using 3DS Max for data garaging in the automotive industry." style="cursor: default;">3DS Max</li>
-    <li data-desc="Experience using RizomUV for UV mapping in automotive projects." style="cursor: default;">UV Mapping (RizomUV)</li>
-  </ul>
-</div>
-
-
-
+        <div class="skill-category">
+          <div class="header">
+            <h3>Production-Ready Skills</h3>
+            <p>Fully proficient and ready for professional projects.</p>
+          </div>
+          <ul class="skill-list">
+            <li data-desc="Over 7 years of all-around experience, including 4 years in a professional setting."
+              style="cursor: default;">Unity</li>
+            <li data-desc="7+ years of writing efficient code, particularly within the Unity environment."
+              style="cursor: default;">C#</li>
+          </ul>
         </div>
+
+        <div class="skill-category">
+          <div class="header">
+            <h3>Foundational Proficiency</h3>
+            <p>Solid basic knowledge with room for growth through hands-on experience.</p>
+          </div>
+          <ul class="skill-list">
+            <li
+              data-desc="An enthusiastic learner with multiple courses and personal projects—always striving to learn more."
+              style="cursor: default;">Python</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <div class="header">
+            <h3>Supplementary Expertise</h3>
+            <p>Competent skills that effectively support my core work.</p>
+          </div>
+          <ul class="skill-list">
+            <li data-desc="Proficient in using these tools for efficient research and problem-solving."
+              style="cursor: default;">Google &amp; ChatGPT</li>
+            <li
+              data-desc="Experienced working with Github,Dropbox,Plasic,Unity Version Control (Previously Plastic SCM),bitBucket."
+              style="cursor: default;">Version Control</li>
+            <li data-desc="Delivered quality editing work with Photoshop, Filmora, and similar tools as needed."
+              style="cursor: default;">Image &amp; Video Editing</li>
+            <li data-desc="Familiar with updating existing websites. (Fun fact: I built this site!)"
+              style="cursor: default;">Web Development (HTML, CSS,JS)</li>
+            <li data-desc="Very comfortable working with tools like Excel, Word, and more." style="cursor: default;">
+              Office365</li>
+            <li data-desc="Adept at crafting effective prompts for generative AI tools (image, text, video)."
+              style="cursor: default;">Prompting</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <div class="header">
+            <h3>Rusty, But Recoverable</h3>
+            <p>Skills that haven't been used recently and may require refreshing.</p>
+          </div>
+          <ul class="skill-list">
+            <li
+              data-desc="Solid foundation from earlier IT roles, supported by Cisco certification (might need a refresher)."
+              style="cursor: default;">Networking</li>
+          </ul>
+        </div>
+
+        <div class="skill-category">
+          <div class="header">
+            <h3>Honorable Mentions</h3>
+            <p></p>
+          </div>
+          <ul class="skill-list">
+            <li data-desc="2 years of hands-on experience updating Azure VMs and building scale sets."
+              style="cursor: default;">Azure VMs &amp; Scale Sets</li>
+            <li data-desc="Regular use throughout my career for basic automation tasks." style="cursor: default;">Batch
+              Scripting</li>
+            <li data-desc="Over 3 years of experience using 3DS Max for data garaging in the automotive industry."
+              style="cursor: default;">3DS Max</li>
+            <li data-desc="Experience using RizomUV for UV mapping in automotive projects." style="cursor: default;">UV
+              Mapping (RizomUV)</li>
+          </ul>
+        </div>
+
+
+
+      </div>
     </section>
-    
+
     <!-- Freelancing Projects with Carousel as Cards -->
     <section id="freelancing-projects" class="section">
       <div class="section-title">Projects Showcase</div>
       <div class="section-content">
         <div class="projects">
           <ul>
-		  <li class="project-item">
+            <li class="project-item">
               <div class="project-image">
                 <!-- Placeholder image; replace with actual image URL -->
                 <img src="Caterham.PNG" alt="">
@@ -659,7 +833,10 @@
               <div class="project-card-content">
                 <div class="project-title">Caterham configurator</div>
                 <div class="project-duration">Dec 2022 – Nov 2024 | Renderapp</div>
-                <p>Served as Product Owner for Caterham's Configurator which is a web-based tool that allows Caterham users to customize their vehicles and view high-quality renderings directly in their browser. <br class="minimal-break"><a href="https://caterhamcars.com/en/configurator" target="_blank" style="color:#0af;">View Configurator</a>.</p>
+                <p>Served as Product Owner for Caterham's Configurator which is a web-based tool that allows Caterham
+                  users to customize their vehicles and view high-quality renderings directly in their browser. <br
+                    class="minimal-break"><a href="https://caterhamcars.com/en/configurator" target="_blank"
+                    style="color:#0af;">View Configurator</a>.</p>
               </div>
             </li>
             <li class="project-item">
@@ -670,7 +847,10 @@
               <div class="project-card-content">
                 <div class="project-title">VR Unity Project Upgrade for German Fraport Airport</div>
                 <div class="project-duration">Jun 2024 – Nov 2024 | Freelancing</div>
-                <p>Served as Contractor Senior Unity Developer for e-Point to work on a VR project for Fraport Airport. Updated and enhanced a system that detects one or two users seated in sensor-equipped chairs with VR headsets, triggering an immersive tour experience. <br class="minimal-break"><a href="https://youtu.be/Wqm-5RkbYoc" target="_blank" style="color:#0af;">View VR Experience</a></p>
+                <p>Served as Contractor Senior Unity Developer for e-Point to work on a VR project for Fraport Airport.
+                  Updated and enhanced a system that detects one or two users seated in sensor-equipped chairs with VR
+                  headsets, triggering an immersive tour experience. <br class="minimal-break"><a
+                    href="https://youtu.be/Wqm-5RkbYoc" target="_blank" style="color:#0af;">View VR Experience</a></p>
               </div>
             </li>
             <li class="project-item">
@@ -681,9 +861,14 @@
               <div class="project-card-content">
                 <div class="project-title">Solo Developed and published short game: Darn!My Barn!</div>
                 <div class="project-duration">13 Jan 2025 – 30 Jan 2025 | Solo dev</div>
-                <p>Challenged my self to building and releasing a game in just 17 days.Focused on rapid prototyping across game design, mechanics, visuals, and Unity core engineering,refining scope on the fly to meet the deadline.<br class="minimal-break"> <a href="https://www.youtube.com/watch?v=7ekmQ8gnBOc" target="_blank" style="color:#0af;">View Development Timeline!</a><br class="minimal-break"><a href="https://d3vcrow.itch.io/darn-my-barn" target="_blank" style="color:#0af;"> Try it on itch.io</a></p>
+                <p>Challenged my self to building and releasing a game in just 17 days.Focused on rapid prototyping
+                  across game design, mechanics, visuals, and Unity core engineering,refining scope on the fly to meet
+                  the deadline.<br class="minimal-break"> <a href="https://www.youtube.com/watch?v=7ekmQ8gnBOc"
+                    target="_blank" style="color:#0af;">View Development Timeline!</a><br class="minimal-break"><a
+                    href="https://d3vcrow.itch.io/darn-my-barn" target="_blank" style="color:#0af;"> Try it on
+                    itch.io</a></p>
               </div>
-            </li>					
+            </li>
             <li class="project-item">
               <div class="project-image">
                 <!-- Placeholder image; replace with actual image URL -->
@@ -692,9 +877,10 @@
               <div class="project-card-content">
                 <div class="project-title">Super Pokemon Bros, iConnect</div>
                 <div class="project-duration">Sep 2024 – Oct 2024 | Remote</div>
-                <p> Solo developed a fan-based game combining Super Mario Bros mechanics with a Pokémon 
-theme for Pokefest 2, hosted by iConnect Technology stores. Played by over 200 unique 
-players, delivering a unique and engaging experience.<br class="minimal-break"> <a href="https://youtu.be/fU8lNrKd_2s" target="_blank" style="color:#0af;">View Gameplay</a></p>
+                <p> Solo developed a fan-based game combining Super Mario Bros mechanics with a Pokémon
+                  theme for Pokefest 2, hosted by iConnect Technology stores. Played by over 200 unique
+                  players, delivering a unique and engaging experience.<br class="minimal-break"> <a
+                    href="https://youtu.be/fU8lNrKd_2s" target="_blank" style="color:#0af;">View Gameplay</a></p>
               </div>
             </li>
           </ul>
@@ -706,7 +892,26 @@ players, delivering a unique and engaging experience.<br class="minimal-break"> 
       </div>
     </section>
 
-<section id="why-hire" class="section"> <div class="section-title">What to Expect If You Hire Me</div> <div class="section-content"> <ul style="list-style: none; padding: 0;"> <li style="margin-bottom: 1em; display: flex; align-items: center;"> <span style="color: #0af; font-size: 1.5rem; margin-right: 10px;">✔</span> <strong>Passion </strong>&nbsp;for developing and delivering projects on time. </li> <li style="margin-bottom: 1em; display: flex; align-items: center;"> <span style="color: #0af; font-size: 1.5rem; margin-right: 10px;">✔</span> <strong>Professionalism</strong>&nbsp;and trained communication skills. </li> <li style="margin-bottom: 1em; display: flex; align-items: center;"> <span style="color: #0af; font-size: 1.5rem; margin-right: 10px;">✔</span> <strong>Experience </strong>&nbsp;in high corporate standards and requirements. </li> <li style="margin-bottom: 1em; display: flex; align-items: center;"> <span style="color: #0af; font-size: 1.5rem; margin-right: 10px;">✔</span> <strong>Responsibility</strong>&nbsp; and accountability. </li> </ul> </div> </section>
+    <section id="why-hire" class="section">
+      <div class="section-title">What to Expect If You Hire Me</div>
+      <div class="section-content">
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 1em; display: flex; align-items: center;"> <span
+              style="color: #0af; font-size: 1.5rem; margin-right: 10px;">✔</span> <strong>Passion </strong>&nbsp;for
+            developing and delivering projects on time. </li>
+          <li style="margin-bottom: 1em; display: flex; align-items: center;"> <span
+              style="color: #0af; font-size: 1.5rem; margin-right: 10px;">✔</span>
+            <strong>Professionalism</strong>&nbsp;and trained communication skills.
+          </li>
+          <li style="margin-bottom: 1em; display: flex; align-items: center;"> <span
+              style="color: #0af; font-size: 1.5rem; margin-right: 10px;">✔</span> <strong>Experience </strong>&nbsp;in
+            high corporate standards and requirements. </li>
+          <li style="margin-bottom: 1em; display: flex; align-items: center;"> <span
+              style="color: #0af; font-size: 1.5rem; margin-right: 10px;">✔</span> <strong>Responsibility</strong>&nbsp;
+            and accountability. </li>
+        </ul>
+      </div>
+    </section>
 
     <!-- Contact -->
     <section id="contact" class="section">
@@ -714,69 +919,78 @@ players, delivering a unique and engaging experience.<br class="minimal-break"> 
       <div class="section-content" id="contact-content">
         <p><strong>Address:</strong> Athens, Greece</p>
         <p><strong>Phone:</strong> +30 6948461402</p>
-        <p><strong>Email:</strong> <a href="mailto:chr.papachristoforou@gmail.com">chr.papachristoforou@gmail.com</a></p>
+        <p><strong>Email:</strong> <a href="mailto:chr.papachristoforou@gmail.com">chr.papachristoforou@gmail.com</a>
+        </p>
         <p>
-          <strong>Links:</strong>		  
-		  <a href="https://d3vcrow.github.io/" target="_blank">Personal website</a> |
+          <strong>Links:</strong>
+          <a href="https://d3vcrow.github.io/" target="_blank">Personal website</a> |
           <a href="https://github.com/D3vCrow/" target="_blank">GitHub</a> |
-		  <a href="https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/" target="_blank">Linkedin</a>
+          <a href="https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/" target="_blank">Linkedin</a>
         </p>
       </div>
     </section>
-    
+
   </div>
-</div>
+  </div>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-// Interactive Timeline: Clicking timeline items shows job details in the right column.
-$(document).ready(function(){
-  $('.timeline-item').click(function(){
-    $('.timeline-item').removeClass('active');
-    $(this).addClass('active');
-    var jobId = $(this).data('job');
-    $('.job-details').removeClass('active');
-    $('#' + jobId).addClass('active');
-  });
-  
-  // Education Tabs: Toggle between Education and Courses.
-  $('.tab-btn').click(function(){
-    $('.tab-btn').removeClass('active');
-    $(this).addClass('active');
-    var tab = $(this).data('tab');
-    $('.tab-content').removeClass('active');
-    $('#' + tab).addClass('active');
-  });
-  
-  // Carousel Controls for Freelancing Projects as Cards:
-  // This version calculates the width of one card (including its margin)
-  // and moves the carousel exactly one card at a time.
-  var currentIndex = 0;
-  var $carouselList = $('.projects ul');
-  var totalItems = $('.projects ul li.project-item').length;
-  function updateCarousel() {
-    var cardWidth = $('.projects ul li.project-item').outerWidth(true); // include margin
-    $carouselList.animate({ marginLeft: -currentIndex * cardWidth }, 300);
-  }
-  $('#next-projects').click(function(){
-    if (currentIndex < totalItems - 1) {
-      currentIndex++;
-      updateCarousel();
-    }
-  });
-  $('#prev-projects').click(function(){
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
-    }
-  });
-  $(window).resize(function(){
-    updateCarousel();
-  });
-});
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Interactive Timeline: Clicking timeline items shows job details in the right column.
+    $(document).ready(function () {
+      $('.timeline-item').click(function () {
+        $('.timeline-item').removeClass('active');
+        $(this).addClass('active');
+        var jobId = $(this).data('job');
+        $('.job-details').removeClass('active');
+        $('#' + jobId).addClass('active');
+
+        // Mobile UX: Scroll to details if active
+        if ($(window).width() <= 800) {
+          $('html, body').animate({
+            scrollTop: $('.job-details-container').offset().top - 60
+          }, 500);
+        }
+      });
+
+      // Education Tabs: Toggle between Education and Courses.
+      $('.tab-btn').click(function () {
+        $('.tab-btn').removeClass('active');
+        $(this).addClass('active');
+        var tab = $(this).data('tab');
+        $('.tab-content').removeClass('active');
+        $('#' + tab).addClass('active');
+      });
+
+      // Carousel Controls for Freelancing Projects as Cards:
+      // This version calculates the width of one card (including its margin)
+      // and moves the carousel exactly one card at a time.
+      var currentIndex = 0;
+      var $carouselList = $('.projects ul');
+      var totalItems = $('.projects ul li.project-item').length;
+      function updateCarousel() {
+        var cardWidth = $('.projects ul li.project-item').outerWidth(true); // include margin
+        $carouselList.animate({ marginLeft: -currentIndex * cardWidth }, 300);
+      }
+      $('#next-projects').click(function () {
+        if (currentIndex < totalItems - 1) {
+          currentIndex++;
+          updateCarousel();
+        }
+      });
+      $('#prev-projects').click(function () {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateCarousel();
+        }
+      });
+      $(window).resize(function () {
+        updateCarousel();
+      });
+    });
 
 
-</script>
+  </script>
 </body>
+
 </html>
