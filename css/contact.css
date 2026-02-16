@@ -1,0 +1,205 @@
+/* Reusing styles from main.css and about.css where possible, adding specific contact styles */
+
+.contact-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  /* Prevent content from touching edges on small screens */
+  box-sizing: border-box;
+}
+
+/* Contact Container - centered glassmorphism card */
+.contact-container {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 152, 0, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  padding: 50px 40px;
+  color: #f5f5f5;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+  position: relative;
+  overflow: visible;
+  /* To allow tooltips to show if needed */
+}
+
+.contact-title {
+  font-size: 3rem;
+  color: #ff9800;
+  text-shadow: 0 0 15px rgba(255, 152, 0, 0.5);
+  margin-bottom: 15px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.contact-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 50px;
+  color: #e0e0e0;
+  max-width: 700px;
+  font-weight: 300;
+}
+
+/* Grids for Contact Options */
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Individual Contact Item Card */
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 25px;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 152, 0, 0.3);
+}
+
+.contact-icon {
+  font-size: 2rem;
+  color: #ff9800;
+  margin-bottom: 15px;
+}
+
+.contact-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Button Group for Visit / Copy */
+.btn-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 152, 0, 0.5);
+  background: transparent;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+}
+
+.action-btn:hover {
+  background: rgba(255, 152, 0, 0.1);
+  border-color: #ff9800;
+  color: #ff9800;
+}
+
+.action-btn.visit {
+  background: rgba(255, 152, 0, 0.8);
+  color: #000;
+  border: none;
+  font-weight: bold;
+}
+
+.action-btn.visit:hover {
+  background: #ffac33;
+  color: #000;
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.4);
+}
+
+/* Tooltip for Copy Feedback */
+.action-btn::after {
+  content: "Copied!";
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.action-btn.copied::after {
+  opacity: 1;
+}
+
+/* Responsive Handling */
+@media (max-width: 768px) {
+  .contact-container {
+    padding: 30px 20px;
+    width: 95%;
+  }
+
+  .contact-title {
+    font-size: 2.2rem;
+  }
+
+  .contact-text {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .contact-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact-item {
+    width: 100%;
+    max-width: 320px;
+    padding: 20px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
