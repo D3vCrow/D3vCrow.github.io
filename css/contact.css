@@ -1,14 +1,15 @@
 /* Reusing styles from main.css and about.css where possible, adding specific contact styles */
 
 .contact-section {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  overflow: hidden;
-  padding: 20px;
+  overflow-y: auto;
+  padding: 100px 20px 40px 20px;
   /* Prevent content from touching edges on small screens */
   box-sizing: border-box;
 }

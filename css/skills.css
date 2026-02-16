@@ -1,0 +1,293 @@
+/* Extracted from skills.html */
+
+/* =========================================
+   Desktop / Default Styles (Flexbox Layout)
+   ========================================= */
+
+/* Main Container - Centered Flexbox */
+.skills-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding-top: 60px;
+    /* Space for fixed header */
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Prevent scroll on desktop if possible */
+}
+
+.section-title {
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ff9800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 5;
+}
+
+/* Nav - Left Side */
+.about-nav {
+    position: relative;
+    /* Changed from absolute */
+    width: 250px;
+    /* Fixed width for consistency */
+    height: 60%;
+    background: rgba(0, 0, 0, 0.6);
+    border-right: 1px solid rgba(255, 152, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: 10px 0 0 10px;
+}
+
+.about-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.about-nav li {
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 0 10px 10px 0;
+    width: 100%;
+    /* Fill width */
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.about-nav li:hover,
+.about-nav li.active {
+    color: #000;
+    background: #ff9800;
+    transform: translateX(10px);
+    box-shadow: 0 0 15px rgba(255, 152, 0, 0.4);
+}
+
+/* Content - Right Side */
+.about-container {
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    /* Changed from absolute */
+    width: 60%;
+    max-width: 900px;
+    flex: 0 0 60%;
+    /* Enforce rigid width */
+    height: 60%;
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(10px);
+    border-radius: 0 10px 10px 0;
+    /* Match nav rounded corners */
+    border: 1px solid rgba(255, 152, 0, 0.2);
+    border-left: none;
+    /* Connect to nav */
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+}
+
+.about-content {
+    padding: 30px;
+    flex: 1;
+    overflow-y: auto;
+    /* Custom Scrollbar for Content */
+    scrollbar-width: thin;
+    scrollbar-color: #ff9800 rgba(255, 152, 0, 0.1);
+    scrollbar-gutter: stable;
+    /* Reserve space for scrollbar to prevent shifts */
+}
+
+.about-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.about-content::-webkit-scrollbar-thumb {
+    background-color: #ff9800;
+    border-radius: 4px;
+}
+
+.about-content .content {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.about-content .content.active {
+    display: block;
+}
+
+/* Table Styles */
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    table-layout: fixed;
+    /* Enforce fixed column widths */
+}
+
+.skills-table th:nth-child(1),
+.skills-table td:nth-child(1) {
+    width: 25%;
+}
+
+.skills-table th:nth-child(2),
+.skills-table td:nth-child(2) {
+    width: 25%;
+}
+
+.skills-table th:nth-child(3),
+.skills-table td:nth-child(3) {
+    width: 50%;
+}
+
+.skills-table th,
+.skills-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 152, 0, 0.1);
+    color: #eee;
+}
+
+.skills-table thead {
+    background: rgba(255, 152, 0, 0.15);
+    color: #ff9800;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    min-width: 80px;
+}
+
+.tag.prod {
+    background-color: #4caf50;
+}
+
+.tag.v-exp {
+    background-color: #ff9800;
+}
+
+.tag.exp {
+    background-color: #03a9f4;
+}
+
+.tag.fam {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.skill-notes {
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+/* =========================================
+   Responsive / Mobile Styles (Max-Width 1366px)
+   ========================================= */
+@media (max-width: 1366px) {
+
+    html,
+    body {
+        overflow-y: auto !important;
+        height: auto !important;
+    }
+
+    .skills-section {
+        flex-direction: column;
+        /* Stack vertically */
+        height: auto;
+        min-height: 100vh;
+        padding-top: 100px;
+        /* Clear header */
+        padding-bottom: 40px;
+        justify-content: flex-start;
+    }
+
+    .section-title {
+        position: static;
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
+
+    /* Stacked Nav */
+    .about-nav {
+        width: 90%;
+        height: auto;
+        flex-direction: row;
+        /* Horizontal Tabs */
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        background: transparent;
+        justify-content: center;
+    }
+
+    .about-nav ul {
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .about-nav li {
+        width: auto;
+        /* Content width */
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.1);
+        text-align: center;
+        padding: 10px 20px;
+        margin: 0;
+    }
+
+    .about-nav li:hover,
+    .about-nav li.active {
+        transform: scale(1.05);
+        /* Simple scale, no translate */
+        background: #ff9800;
+        box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+    }
+
+    /* Stacked Content */
+    .about-container {
+        width: 90%;
+        height: auto;
+        min-height: 50vh;
+        border: 1px solid rgba(255, 152, 0, 0.2);
+        border-radius: 10px;
+    }
+
+    .skills-table {
+        display: block;
+        overflow-x: auto;
+        /* Horizontal scroll for table */
+        white-space: nowrap;
+    }
+
+    .skills-table th,
+    .skills-table td {
+        white-space: normal;
+        /* Allow wrapping text on mobile to avoid excess scrolling */
+        min-width: 120px;
+    }
+}

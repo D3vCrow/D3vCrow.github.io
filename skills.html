@@ -1,290 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<title>About | Devcrow</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
-	</head>
-	<body>
-		
-		<!-- Navigation Bar (Identical to Home Page) -->
-		<nav>
+
+<head>
+	<meta charset="UTF-8">
+	<title>About | Devcrow</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/skills.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
+</head>
+
+<body>
+
+	<!-- Navigation Bar (Identical to Home Page) -->
+	<nav>
+		<ul>
+			<li><a href="portfolio.html">Home</a></li>
+			<li><a href="about.html">About</a></li>
+			<li><a href="projects.html">Projects</a></li>
+			<li><a href="skills.html" class="active">Skills</a></li>
+			<li><a href="contact.html">Contact</a></li>
+		</ul>
+	</nav>
+
+	<section id="skills" class="skills-section">
+		<h2 class="section-title">Skills</h2>
+
+		<nav class="about-nav">
 			<ul>
-				<li><a href="portfolio.html">Home</a></li>
-				<li><a href="about.html">About</a></li>
-				<li><a href="projects.html">Projects</a></li>
-				<li><a href="skills.html" class="active">Skills</a></li>
-				<li><a href="contact.html">Contact</a></li>
+				<li class="active" onclick="showSkillsContent(0)">Unity</li>
+				<li onclick="showSkillsContent(1)">Relevant</li>
+				<li onclick="showSkillsContent(2)">Other</li>
 			</ul>
 		</nav>
-		
-		<section id="skills" class="skills-section">
-			<h2 class="section-title">Skills</h2>
-			
-			<nav class="about-nav">
-				<ul>
-					<li class="active" onclick="showSkillsContent(0)">Unity</li>
-					<li onclick="showSkillsContent(1)">Relevant</li>
-					<li onclick="showSkillsContent(2)">Other</li>
-				</ul>
-			</nav>
-			
-			<div class="about-container">
-				<div class="about-content">
-					<!-- UNITY -->
-					<div class="content active">
-						<table class="skills-table">		 
-							<thead>
-								<tr>
-									<th>Skill</th>
-									<th>Experience</th>
-									<th>Notes</th>
-								</tr>
-							</thead>
-							
-							<tbody>
-								<tr><td>Build Pipeline & Configuration</td><td><span class="tag prod">Production-Ready</span></td><td class="skill-notes">Platforms, IL2CPP, Optimization, Scene Management</td></tr>
-								<tr><td>Custom Editor Tools</td><td><span class="tag prod">Production-Ready</span></td><td class="skill-notes">Workflow Automation, In-Editor UX, Designer-Focused Utilities</td></tr>	
-								<tr><td>Project Settings</td><td><span class="tag prod">Production-Ready</span></td><td class="skill-notes">Quality, Layers, Tags, Player Config</td></tr>
-								<tr><td>Lighting</td><td><span class="tag prod">Production-Ready</span></td><td class="skill-notes">Baked/Mixed, Lightmapping, Debugging</td></tr>
-								<tr><td>C# Development & Code Architecture</td><td><span class="tag prod">Production-Ready</span></td><td class="skill-notes">OOP, Async/Await, LINQ, SOLID Principles, Maintainable Patterns</td></tr>
-								<tr><td>Render Pipelines</td><td><span class="tag v-exp">Very Experienced</span></td><td class="skill-notes">Built-in, URP, HDRP</td></tr>
-								<tr><td>Rendering Optimization</td><td><span class="tag v-exp">Very Experienced</span></td><td class="skill-notes">LOD Groups, Occlusion Culling, Batching, Draw Call Reduction</td></tr>
-								<tr><td>UI Development</td><td><span class="tag  v-exp">Very Experienced</span></td><td class="skill-notes">Canvas, Layouts, Input Modules</td></tr>
-								<tr><td>Scene Management</td><td><span class="tag  v-exp">Very Experienced</span></td><td class="skill-notes">Multi-Scene, Additive Loading</td></tr>
-								<tr><td>Animation System</td><td><span class="tag  v-exp">Very Experienced</span></td><td class="skill-notes">Controllers, Blend Trees, Mecanim</td></tr>
-								<tr><td>Camera Systems</td><td><span class="tag v-exp">Very Experienced</span></td><td class="skill-notes">Cinemachine, Custom Rigs</td></tr>
-								<tr><td>Performance Profiling</td><td><span class="tag v-exp">Very Experienced</span></td><td class="skill-notes">Unity Profiler: CPU, GPU, Memory, Deep Profiling, GC Spikes</td></tr>	
-								<tr><td>Modular & Event-Driven Systems</td>	<td><span class="tag v-exp">Very Experienced</span></td><td class="skill-notes">ScriptableObjects, C# Events, UnityEvents, Decoupled Architecture</td></tr>
-								<tr><td>AI Programming</td><td><span class="tag exp">Experienced</span></td><td class="skill-notes">State Machines, NavMesh, Behavior Trees</td></tr>
-								<tr><td>Input Systems</td><td><span class="tag exp">Experienced</span></td><td class="skill-notes">Legacy Input, Unity Input System</td></tr>								
-								<tr><td>Post-Processing & Visual Profiling</td><td><span class="tag exp">Experienced</span></td><td class="skill-notes">Debug Views, Tweaks, Analysis</td></tr>
-								<tr><td>Physics & Interaction</td><td><span class="tag exp">Experienced</span></td><td class="skill-notes">Rigidbodies, Colliders, Ragdolls</td></tr>								
-								<tr><td>Audio Management</td><td><span class="tag exp">Experienced</span></td><td class="skill-notes">Built-in, FMOD, Custom Audio</td></tr>
-								<tr><td>VFX</td><td><span class="tag exp">Experienced</span></td><td class="skill-notes">Shader/VFX Graph, Particle Systems</td></tr>
-								<tr><td>Timeline & Cutscenes</td><td><span class="tag exp">Experienced</span></td><td class="skill-notes">Playable API, Custom Tracks</td></tr>
-								<tr><td>Level Design & Composition</td><td><span class="tag exp">Experienced</span></td><td class="skill-notes">Prefab Nesting, Grid Tools, Hierarchy</td></tr>	
-								<tr>
-  <td>Asset Management Systems</td>
-  <td><span class="tag exp">Experienced</span></td>
-  <td class="skill-notes">Prefab Variants, Addressables, Asset Bundles</td>
-</tr>
-<tr>
-  <td>Multiplayer Fundamentals</td>
-  <td><span class="tag fam">Familiar</span></td>
-  <td class="skill-notes">Netcode for GameObjects, Photon, Mirror</td>
-</tr>
 
-								</tbody>
-						</table>
-					</div>
-					
-					<!-- RELEVANT -->
-					<div class="content">
-						<table class="skills-table">
-							<thead><tr><th>Skill</th><th>Experience</th><th>Notes</th></tr></thead>
-							<tbody>
-								<tr><td>Python</td><td><span class="tag exp">Experienced</span></td><td>Automation scripts, AI tools</td></tr>
-								<tr><td>Version Control</td><td><span class="tag exp">Experienced</span></td><td>Git, PlasticSCM</td></tr>
-								<tr><td>Prompting</td><td><span class="tag exp">Experienced</span></td><td>ChatGPT, Midjourney</td></tr>
-								<tr><td>Web Dev</td><td><span class="tag fam">Familiar</span></td><td>This portfolio + sites</td></tr>
-							</tbody>
-						</table>
-					</div>
-					
-					<!-- OTHER -->
-					<div class="content">
-						<table class="skills-table">
-							<thead><tr><th>Skill</th><th>Experience</th><th>Notes</th></tr></thead>
-							<tbody>
-								<tr><td>Photoshop / Filmora</td><td><span class="tag fam">Familiar</span></td><td>Game assets & editing</td></tr>
-								<tr><td>Office365</td><td><span class="tag fam">Familiar</span></td><td>Docs, Excel, admin work</td></tr>
-							</tbody>
-						</table>
-					</div>
+		<div class="about-container">
+			<div class="about-content">
+				<!-- UNITY -->
+				<div class="content active">
+					<table class="skills-table">
+						<thead>
+							<tr>
+								<th>Skill</th>
+								<th>Experience</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr>
+								<td>Build Pipeline & Configuration</td>
+								<td><span class="tag prod">Production-Ready</span></td>
+								<td class="skill-notes">Platforms, IL2CPP, Optimization, Scene Management</td>
+							</tr>
+							<tr>
+								<td>Custom Editor Tools</td>
+								<td><span class="tag prod">Production-Ready</span></td>
+								<td class="skill-notes">Workflow Automation, In-Editor UX, Designer-Focused Utilities
+								</td>
+							</tr>
+							<tr>
+								<td>Project Settings</td>
+								<td><span class="tag prod">Production-Ready</span></td>
+								<td class="skill-notes">Quality, Layers, Tags, Player Config</td>
+							</tr>
+							<tr>
+								<td>Lighting</td>
+								<td><span class="tag prod">Production-Ready</span></td>
+								<td class="skill-notes">Baked/Mixed, Lightmapping, Debugging</td>
+							</tr>
+							<tr>
+								<td>C# Development & Code Architecture</td>
+								<td><span class="tag prod">Production-Ready</span></td>
+								<td class="skill-notes">OOP, Async/Await, LINQ, SOLID Principles, Maintainable Patterns
+								</td>
+							</tr>
+							<tr>
+								<td>Render Pipelines</td>
+								<td><span class="tag v-exp">Very Experienced</span></td>
+								<td class="skill-notes">Built-in, URP, HDRP</td>
+							</tr>
+							<tr>
+								<td>Rendering Optimization</td>
+								<td><span class="tag v-exp">Very Experienced</span></td>
+								<td class="skill-notes">LOD Groups, Occlusion Culling, Batching, Draw Call Reduction
+								</td>
+							</tr>
+							<tr>
+								<td>UI Development</td>
+								<td><span class="tag  v-exp">Very Experienced</span></td>
+								<td class="skill-notes">Canvas, Layouts, Input Modules</td>
+							</tr>
+							<tr>
+								<td>Scene Management</td>
+								<td><span class="tag  v-exp">Very Experienced</span></td>
+								<td class="skill-notes">Multi-Scene, Additive Loading</td>
+							</tr>
+							<tr>
+								<td>Animation System</td>
+								<td><span class="tag  v-exp">Very Experienced</span></td>
+								<td class="skill-notes">Controllers, Blend Trees, Mecanim</td>
+							</tr>
+							<tr>
+								<td>Camera Systems</td>
+								<td><span class="tag v-exp">Very Experienced</span></td>
+								<td class="skill-notes">Cinemachine, Custom Rigs</td>
+							</tr>
+							<tr>
+								<td>Performance Profiling</td>
+								<td><span class="tag v-exp">Very Experienced</span></td>
+								<td class="skill-notes">Unity Profiler: CPU, GPU, Memory, Deep Profiling, GC Spikes</td>
+							</tr>
+							<tr>
+								<td>Modular & Event-Driven Systems</td>
+								<td><span class="tag v-exp">Very Experienced</span></td>
+								<td class="skill-notes">ScriptableObjects, C# Events, UnityEvents, Decoupled
+									Architecture</td>
+							</tr>
+							<tr>
+								<td>AI Programming</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td class="skill-notes">State Machines, NavMesh, Behavior Trees</td>
+							</tr>
+							<tr>
+								<td>Input Systems</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td class="skill-notes">Legacy Input, Unity Input System</td>
+							</tr>
+							<tr>
+								<td>Post-Processing & Visual Profiling</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td class="skill-notes">Debug Views, Tweaks, Analysis</td>
+							</tr>
+							<tr>
+								<td>Physics & Interaction</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td class="skill-notes">Rigidbodies, Colliders, Ragdolls</td>
+							</tr>
+							<tr>
+								<td>Audio Management</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td class="skill-notes">Built-in, FMOD, Custom Audio</td>
+							</tr>
+							<tr>
+								<td>VFX</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td class="skill-notes">Shader/VFX Graph, Particle Systems</td>
+							</tr>
+							<tr>
+								<td>Timeline & Cutscenes</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td class="skill-notes">Playable API, Custom Tracks</td>
+							</tr>
+							<tr>
+								<td>Level Design & Composition</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td class="skill-notes">Prefab Nesting, Grid Tools, Hierarchy</td>
+							</tr>
+							<tr>
+								<td>Asset Management Systems</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td class="skill-notes">Prefab Variants, Addressables, Asset Bundles</td>
+							</tr>
+							<tr>
+								<td>Multiplayer Fundamentals</td>
+								<td><span class="tag fam">Familiar</span></td>
+								<td class="skill-notes">Netcode for GameObjects, Photon, Mirror</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+
+				<!-- RELEVANT -->
+				<div class="content">
+					<table class="skills-table">
+						<thead>
+							<tr>
+								<th>Skill</th>
+								<th>Experience</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Python</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td>Automation scripts, AI tools</td>
+							</tr>
+							<tr>
+								<td>Version Control</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td>Git, PlasticSCM</td>
+							</tr>
+							<tr>
+								<td>Prompting</td>
+								<td><span class="tag exp">Experienced</span></td>
+								<td>ChatGPT, Midjourney</td>
+							</tr>
+							<tr>
+								<td>Web Dev</td>
+								<td><span class="tag fam">Familiar</span></td>
+								<td>This portfolio + sites</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- OTHER -->
+				<div class="content">
+					<table class="skills-table">
+						<thead>
+							<tr>
+								<th>Skill</th>
+								<th>Experience</th>
+								<th>Notes</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Photoshop / Filmora</td>
+								<td><span class="tag fam">Familiar</span></td>
+								<td>Game assets & editing</td>
+							</tr>
+							<tr>
+								<td>Office365</td>
+								<td><span class="tag fam">Familiar</span></td>
+								<td>Docs, Excel, admin work</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
-		</section>
-		
-		
-		
-		
-		
-		
-		
-		<style>
-			/* Nav reused from your about section */
-			.about-nav {
-			position: absolute;
-			left: 12%;
-			top: 30%;
-			height: 50%;
-			width: 15%;
-			background: rgba(0,0,0,0.6);
-			border-right: 1px solid rgba(255,152,0,0.2);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			}
-			.about-nav ul {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			}
-			.about-nav li {
-			color: #fff;
-			padding: 12px 20px;
-			font-size: 1.2rem;
-			cursor: pointer;
-			transition: color 0.3s, transform 0.3s, background 0.3s;
-			border-radius: 0 10px 10px 0;
-			}
-			.about-nav li:hover,
-			.about-nav li.active {
-			color: #000;
-			background: #ff9800;
-			transform: translateX(10px);
-			box-shadow: 0 0 10px rgba(255,152,0,0.5);
-			}
-			
-			
-			.skills-table th, .skills-table td {
-			padding: 12px 16px;
-			text-align: left;
-			}
-			.skills-table thead {
-			background: rgba(255,152,0,0.1);
-			color: #ff9800;
-			text-shadow: 0 0 5px rgba(255,152,0,0.4);
-			}
-			.skills-table tr:not(:last-child) {
-			border-bottom: 1px solid rgba(255,152,0,0.1);
-			}
-			
-			/* Ensures the skills table adapts to about-container */
-			.about-content .content.active {
-			display: block;
-			flex-direction: column;
-			align-items: center;
-			overflow-y: auto;
-			max-height: 95%;
-			padding: 20px;
-			}
-			
-			
-			
-			/* Make sure it scrolls nicely inside */
-			.about-content {
-			overflow-y: auto;
-			padding: 20px;
-			scrollbar-width: thin;
-			scrollbar-color: #ff9800 rgba(255,152,0,0.1);
-			}
-			.about-content::-webkit-scrollbar {
-			width: 6px;
-			}
-			.about-content::-webkit-scrollbar-thumb {
-			background-color: #ff9800;
-			border-radius: 3px;
-			}
-			
-			.skills-wrapper {
-			max-height: 100%;
-			width: 100%;
-			overflow-y: auto;
-			}
-			
-			.about-container {
-			font-family: 'Roboto', sans-serif;
-			display: flex;
-			position: absolute;
-			right: 5%;
-			margin-top: 50px;
-			width: 65%;
-			height: 87%;
-			background: rgba(255, 255, 255, 0.01);
-			backdrop-filter: blur(10px);
-			border-radius: 20px;
-			border-left: 2px solid rgba(255,152,0,0.2);
-			box-shadow: 0 0 5px rgba(255,152,0,0.1);
-			overflow: hidden;
-			}
-			
-			.about-content {
-			padding: 20px;
-			flex: 1;
-			overflow-y: auto;
-			}
-			
-			.about-content .content {
-			display: none;
-			animation: fadeIn 0.5s forwards;
-			}
-			
-			.skills-table {
-			width: 100%;
-			border-collapse: collapse;
-			font-size: .9rem;
-			}
-			
-			.skills-table th, .skills-table td {
-			padding: 6px 9px;
-			border-bottom: 1px solid rgba(255,152,0,0.1);
-			text-align: left;
-			color: #fff;
-			}
-			
-			.skills-table thead {
-			background: rgba(255,152,0,0.1);
-			color: #ff9800;
-			}
-			
-			.tag {
-			padding: 4px 10px;
-			border-radius: 4px;
-			font-size: 0.85rem;
-			font-weight: bold;
-			color: #fff;
-			}
-			
-			.skill-notes {
-			font-size : 0.7rem;
-			}
-			
-			.tag.prod { background-color: #4caf50; }
-			.tag.v-exp { background-color: #ff9800; }
-			.tag.exp  { background-color: #03a9f4; }
-			.tag.fam  { background-color: #ffc107; }
-			
-			
-			
-		</style>
-		
-		<script>
-			function showSkillsContent(index) {
-				const contents = document.querySelectorAll(".about-content .content");
-				const navItems = document.querySelectorAll(".about-nav li");
-				
-				contents.forEach((content, idx) => {
-					content.classList.toggle("active", idx === index);
-				});
-				
-				navItems.forEach((item, idx) => {
-					item.classList.toggle("active", idx === index);
-				});
-			}
-			
-			
-			
-			
-		</script>
-		
-		
-	</body>
+		</div>
+	</section>
+
+
+
+
+
+
+
+	<script>
+		function showSkillsContent(index) {
+			const contents = document.querySelectorAll(".about-content .content");
+			const navItems = document.querySelectorAll(".about-nav li");
+
+			contents.forEach((content, idx) => {
+				content.classList.toggle("active", idx === index);
+			});
+
+			navItems.forEach((item, idx) => {
+				item.classList.toggle("active", idx === index);
+			});
+		}
+
+
+
+
+	</script>
+
+
+</body>
+
 </html>

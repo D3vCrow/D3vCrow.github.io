@@ -3,7 +3,8 @@
     position: relative;
     width: 100%;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 80px;
+    /* Increased padding to clear the fixed nav */
 }
 
 /* Project Titles */
@@ -19,13 +20,15 @@
 .projects-layout {
     display: flex;
     width: 100%;
-    height: 90vh; /* Increase height to move it down */
+    height: 90vh;
+    /* Increase height to move it down */
     align-items: center;
     justify-content: center;
     gap: 50px;
     position: relative;
-    padding-top: 40px; /* Adds extra space at the top */
-	
+    padding-top: 40px;
+    /* Adds extra space at the top */
+
 }
 
 /* Left Side: Project Buttons */
@@ -34,9 +37,10 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: 40px; /* Moves them lower */
-	position: absolute;
-	left: 0%;
+    margin-top: 40px;
+    /* Moves them lower */
+    position: absolute;
+    left: 0%;
 }
 
 /* Wrap each button and its new title */
@@ -45,7 +49,7 @@
     align-items: center;
     gap: 10px;
     width: 100%;
-	
+
 }
 
 /* Project Title Styling */
@@ -59,7 +63,8 @@
 
 /* Project Button Styling */
 .project-btn {
-    width: 70%; /* Slightly bigger for better tapping on touch devices */
+    width: 70%;
+    /* Slightly bigger for better tapping on touch devices */
     height: 140px;
     min-height: 80px;
     border: 2px solid #ff9800;
@@ -91,9 +96,10 @@
 .gallery-container {
     display: flex;
     position: absolute;
-	right: 5%;
+    right: 5%;
     margin-top: 50px;
-    max-width: 65%; /* Prevents gallery from becoming too wide on big screens */	
+    max-width: 65%;
+    /* Prevents gallery from becoming too wide on big screens */
 }
 
 /* Gallery Items */
@@ -112,39 +118,32 @@
 
 /* Hide descriptions by default */
 /* Center Gallery Description Relative to Gallery Item */
+/* Center Gallery Description Relative to Gallery Item */
 .gallery-description {
-    position: absolute;
-    top: 100%;
-    
-    /* Ensure it's centered relative to the gallery-item */
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    /* Changed from absolute to flow under */
+    margin-top: -10px;
+    /* Pull it closer to the image as requested "very close" */
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 900px;    
+    max-width: 90%;
     text-align: center;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
     box-shadow: 0px 0px 5px rgba(255, 152, 0, 0.25);
     color: #ff9800;
-    font-size: 1.2rem;
-    padding: 10px;
+    font-size: 1.1rem;
+    padding: 10px 20px;
+    border-radius: 0 0 10px 10px;
+    /* rounded bottom corners only to match image if it was overlay, but here it's separate. let's keep it simple */
     border-radius: 5px;
-    pointer-events: none;
+    pointer-events: auto;
+    z-index: 10;
 }
-
-/* Ensure it's responsive */
-@media (max-width: 768px) {
-    .gallery-description {
-        font-size: 1rem;
-        width: 90%;
-    }
-}
-
 
 /* Show description only for active gallery items */
 .gallery-item.active .gallery-description {
-    display: block;
+    display: flex;
 }
 
 /* Ensure Only One Gallery Item is Visible */
@@ -152,7 +151,9 @@
     width: 100%;
     height: 100%;
     display: none;
-	position: relative;
+    position: relative;
+    flex-direction: column;
+    /* Stack image and text vertically */
     align-items: center;
     justify-content: center;
 }
@@ -188,7 +189,8 @@
 }
 
 /* Navigation Buttons */
-.prev-btn, .next-btn {
+.prev-btn,
+.next-btn {
     position: absolute;
     top: 50%;
     background: rgba(255, 152, 0, 0.7);
@@ -200,13 +202,19 @@
     transition: background 0.3s ease;
 }
 
-.prev-btn:hover, .next-btn:hover {
+.prev-btn:hover,
+.next-btn:hover {
     background: rgba(255, 152, 0, 1);
     box-shadow: 0px 0px 15px rgba(255, 152, 0, 1);
 }
 
-.prev-btn { left: -50px; }
-.next-btn { right: -50px; }
+.prev-btn {
+    left: -50px;
+}
+
+.next-btn {
+    right: -50px;
+}
 
 /* Gallery Indicators (Bullets) */
 .gallery-indicators {
@@ -217,7 +225,7 @@
     list-style: none;
     display: flex;
     gap: 8px;
-	z-index: 10;
+    z-index: 10;
 }
 
 .gallery-indicators li {
@@ -239,34 +247,164 @@
     transform: scale(1.3);
 }
 
-@media (max-width: 768px) {
-    .projects-layout {
-        flex-direction: column;
-        gap: 30px; /* Reduce spacing so it doesn’t look too stretched */
-        height: auto; /* Allows natural scrolling */
+/* Ensure it's responsive */
+@media (max-width: 1024px) {
+
+    /* Allow scrolling on mobile specifically for this page */
+    html,
+    body {
+        overflow-y: auto !important;
+        height: auto !important;
+        overflow-x: hidden;
     }
 
+    /* Main container fix */
+    #projects {
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+        /* Allow scrolling */
+        padding-bottom: 40px;
+    }
+
+    .projects-layout {
+        flex-direction: column;
+        gap: 30px;
+        height: auto;
+        width: 100%;
+        padding-top: 10px;
+    }
+
+    /* Titles */
+    .projects-title {
+        position: static;
+        margin: 20px auto;
+        transform: none;
+        font-size: 1.8rem;
+    }
+
+    /* Buttons Section */
     .projects-buttons {
-        width: 80%; /* Make buttons take more space on mobile */
-        align-items: center;
+        position: static;
+        /* Remove absolute positioning */
+        width: 90%;
+        left: auto;
+        margin-top: 0;
+        flex-direction: row;
+        /* Horizontal scroll or wrap */
+        overflow-x: auto;
+        padding-bottom: 10px;
+        gap: 15px;
+    }
+
+    .project-container {
+        width: 160px;
+        /* Fixed width for horizontal scrolling items */
+        flex-direction: column-reverse;
+        /* Stack text BELOW button */
+        flex-shrink: 0;
+    }
+
+    .project-title {
+        text-align: center;
+        width: 100%;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        white-space: normal;
     }
 
     .project-btn {
-        width: 90%; /* Make buttons bigger for easy clicking */
+        width: 100%;
+        height: 100px;
+        min-height: auto;
     }
 
+    /* Gallery Section */
     .gallery-container {
-        width: 90%;
+        position: relative;
+        /* Ensure absolute children position relative to this */
+        width: 95%;
+        margin: 20px auto;
+        max-width: none;
         height: auto;
+        display: block;
+        padding-top: 60px;
+        /* Create RESERVED SPACE for controls */
     }
 
-    .gallery-item img, .gallery-item iframe {
-        width: 100%; /* Ensure videos and images fit smaller screens */
-        height: auto;
+    /* ... (images/descriptions same) ... */
+
+    /* Navigation Arrows - Moved to RESERVED SPACE at top */
+    .prev-btn,
+    .next-btn {
+        position: absolute;
+        top: 10px;
+        /* Sit in the padding area */
+        transform: none;
+        /* Remove center transform */
+        font-size: 24px;
+        padding: 8px;
+        background: rgba(255, 152, 0, 0.2);
+        /* Subtle background */
+        border: 1px solid #ff9800;
+        border-radius: 5px;
+        /* Square/Round for buttons */
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 20;
     }
 
-    .prev-btn, .next-btn {
-        font-size: 24px; /* Reduce arrow size so they don’t cover the gallery */
-        padding: 5px;
+    .prev-btn {
+        left: 0;
     }
-}
+
+    .next-btn {
+        right: 0;
+    }
+
+    /* Indicators - Centered in the RESERVED SPACE */
+    .gallery-indicators {
+        top: 20px;
+        /* Align with buttons */
+        width: 100%;
+        justify-content: center;
+        left: 0;
+        transform: none;
+        /* Remove center transform loop if width is 100% */
+    }
+
+    .gallery-item img,
+    .gallery-item iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-width: 0 !important;
+        min-height: 200px;
+        aspect-ratio: 16/9;
+        margin: 0 auto;
+        display: block;
+    }
+
+    /* Remove Hover/Selected persistence on mobile */
+    .project-btn:hover,
+    .project-btn.selected {
+        transform: none !important;
+        box-shadow: none !important;
+        border: 2px solid #ff9800;
+        /* Keep default border */
+    }
+
+    .project-btn:active {
+        transform: scale(0.95) !important;
+        box-shadow: 0px 0px 15px rgba(255, 152, 0, 1) !important;
+        border-color: #ff9800;
+    }
+
+    /* Indicators - Move ABOVE gallery or clearly overlay */
+    .gallery-indicators {
+        top: -20px;
+        /* Move above the image */
+    }
