@@ -1,24 +1,7 @@
 // Show About Content Function
 function showAboutContent(index) {
   const contents = document.querySelectorAll(".about-content .content");
-  const navItems = document.querySelectorAll(".about-nav li");
-
-  contents.forEach((content, idx) => {
-    content.classList.toggle("active", idx === index);
-  });
-
-  navItems.forEach((item, idx) => {
-    item.classList.toggle("active", idx === index);
-  });
-}
-
-// Default show first content
-document.addEventListener("DOMContentLoaded", () => showAboutContent(0));
-
-
-function showAboutContent(index) {
-  const contents = document.querySelectorAll(".about-content .content");
-  const navItems = document.querySelectorAll(".about-nav li");
+  const navItems = document.querySelectorAll(".side-tabs li");
 
   contents.forEach((content, idx) => {
     content.classList.toggle("active", idx === index);
@@ -50,8 +33,11 @@ function showAboutContent(index) {
       }
     }, 2000); // delay after tab opens before "typing..."
   }
-
 }
+
+// Default show first content
+document.addEventListener("DOMContentLoaded", () => showAboutContent(0));
+
 // Make this globally accessible
 const showCategory = (categoryIndex) => {
   const categories = Array.from(document.querySelectorAll(".responsibility-block"));

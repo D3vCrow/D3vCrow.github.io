@@ -9,101 +9,25 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     padding-top: 60px;
+    padding-bottom: 50px;
     /* Space for fixed header */
     box-sizing: border-box;
-    overflow: hidden;
-    /* Prevent scroll on desktop if possible */
+    overflow: visible;
 }
 
-.section-title {
-    position: absolute;
-    top: 100px;
-    width: 100%;
-    text-align: center;
-    font-size: 2.5rem;
-    color: #ff9800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    z-index: 5;
-}
-
-/* Nav - Left Side */
-.about-nav {
-    position: relative;
-    /* Changed from absolute */
-    width: 250px;
-    /* Fixed width for consistency */
-    height: 60%;
-    background: rgba(0, 0, 0, 0.6);
-    border-right: 1px solid rgba(255, 152, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    border-radius: 10px 0 0 10px;
-}
-
-.about-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.about-nav li {
-    color: #fff;
-    padding: 15px 20px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 0 10px 10px 0;
-    width: 100%;
-    /* Fill width */
-    box-sizing: border-box;
-    text-align: left;
-}
-
-.about-nav li:hover,
-.about-nav li.active {
-    color: #000;
-    background: #ff9800;
-    transform: translateX(10px);
-    box-shadow: 0 0 15px rgba(255, 152, 0, 0.4);
-}
-
-/* Content - Right Side */
-.about-container {
-    font-family: 'Roboto', sans-serif;
-    position: relative;
-    /* Changed from absolute */
-    width: 60%;
-    max-width: 900px;
-    flex: 0 0 60%;
-    /* Enforce rigid width */
-    height: 60%;
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(10px);
-    border-radius: 0 10px 10px 0;
-    /* Match nav rounded corners */
-    border: 1px solid rgba(255, 152, 0, 0.2);
-    border-left: none;
-    /* Connect to nav */
-    box-shadow: 0 0 10px rgba(255, 152, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-}
+/* Title and Navigation are handled globally in main.css */
 
 .about-content {
     padding: 30px;
     flex: 1;
-    overflow-y: auto;
+    display: block;
+    overflow: visible;
+    height: auto;
+    width: 100%;
+    box-sizing: border-box;
     /* Custom Scrollbar for Content */
     scrollbar-width: thin;
     scrollbar-color: #ff9800 rgba(255, 152, 0, 0.1);
@@ -218,64 +142,17 @@
         /* Stack vertically */
         height: auto;
         min-height: 100vh;
-        padding-top: 100px;
+        padding-top: 80px;
         /* Clear header */
         padding-bottom: 40px;
         justify-content: flex-start;
     }
 
-    .section-title {
-        position: static;
-        margin-bottom: 30px;
-        font-size: 2rem;
+    .about-content {
+        padding: 15px;
     }
 
-    /* Stacked Nav */
-    .about-nav {
-        width: 90%;
-        height: auto;
-        flex-direction: row;
-        /* Horizontal Tabs */
-        border: none;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        background: transparent;
-        justify-content: center;
-    }
-
-    .about-nav ul {
-        flex-direction: row;
-        gap: 10px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .about-nav li {
-        width: auto;
-        /* Content width */
-        border-radius: 5px;
-        background: rgba(255, 255, 255, 0.1);
-        text-align: center;
-        padding: 10px 20px;
-        margin: 0;
-    }
-
-    .about-nav li:hover,
-    .about-nav li.active {
-        transform: scale(1.05);
-        /* Simple scale, no translate */
-        background: #ff9800;
-        box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
-    }
-
-    /* Stacked Content */
-    .about-container {
-        width: 90%;
-        height: auto;
-        min-height: 50vh;
-        border: 1px solid rgba(255, 152, 0, 0.2);
-        border-radius: 10px;
-    }
+    /* Stacked Content overrides no longer needed here */
 
     .skills-table {
         display: block;

@@ -8,8 +8,98 @@ body {
   font-family: 'Anton', sans-serif;
   background: #000;
   color: #f5f5f5;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   scroll-behavior: smooth;
+}
+
+/* =========================================
+   Global Unified Components
+   ========================================= */
+
+/* Unified Page Title */
+.page-title {
+  font-size: 3rem;
+  color: #ff9800;
+  text-shadow: 0 0 15px rgba(255, 152, 0, 0.5);
+  margin-bottom: 30px;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* Glassmorphism Panel Container */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 152, 0, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+/* Side Tab Navigation (Used in About & Skills) */
+.side-tabs {
+  position: relative;
+  width: 250px;
+  flex-shrink: 0;
+  height: auto;
+  min-height: 500px;
+  align-self: flex-start;
+  background: rgba(0, 0, 0, 0.6);
+  border-right: 1px solid rgba(255, 152, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+
+.side-tabs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.side-tabs li {
+  color: #fff;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0 10px 10px 0;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.side-tabs li:hover,
+.side-tabs li.active {
+  color: #000;
+  background: #ff9800;
+  transform: translateX(10px);
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.4);
+}
+
+/* Unified Layout Wrapper for Page Contents */
+.flex-layout-row {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 65vh;
+  max-width: 1200px;
+  margin: 100px auto 50px;
 }
 
 /* Fullscreen Header */
@@ -269,5 +359,48 @@ nav a.active {
   /* Loading screen adjustments */
   #loading-text {
     font-size: 1rem;
+  }
+
+  .side-tabs {
+    width: 95%;
+    margin: 0 auto;
+    height: auto;
+    flex-direction: row;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 0px;
+    background: transparent;
+    justify-content: center;
+  }
+
+  .side-tabs ul {
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .side-tabs li {
+    width: auto;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    padding: 10px 20px;
+    margin: 0;
+  }
+
+  .side-tabs li:hover,
+  .side-tabs li.active {
+    transform: scale(1.05);
+    /* Simple scale, no translate on mobile */
+    background: #ff9800;
+    box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
+  }
+
+  .flex-layout-row {
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+    margin: 20px auto;
   }
 }
