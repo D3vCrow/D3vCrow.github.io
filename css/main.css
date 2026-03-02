@@ -297,28 +297,38 @@ nav a.active {
 
 @media (max-width: 768px) {
 
-  /* Navigation adjustments */
+  /* Navigation adjustments: Thumb-Friendly Bottom Bar */
   nav {
-    width: 95%;
-    /* Wider container */
-    padding: 8px 10px;
-    /* Smaller padding */
-    border-radius: 30px;
-    top: 10px;
+    width: 90%;
+    /* Slightly narrower for a 'floating' look */
+    padding: 12px 15px;
+    border-radius: 25px;
+    top: auto;
+    /* Remove top positioning */
+    bottom: 30px;
+    /* Floating above the bottom */
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(12px);
+    z-index: 1000;
   }
 
   nav ul {
-    gap: 10px;
-    /* Smaller gap */
-    justify-content: center;
-    flex-wrap: nowrap;
-    /* Try to keep on one line if possible, or wrap clean */
-    white-space: nowrap;
+    gap: 0;
+    justify-content: space-around;
+    /* Space items evenly for thumb reach */
+    width: 100%;
   }
 
   nav a {
-    font-size: 0.9rem;
-    /* Smaller font to fit all items */
+    font-size: 0.85rem;
+    padding: 5px 8px;
+  }
+
+  nav a.active {
+    color: #ff9800;
+    text-shadow: 0px 0px 8px rgba(255, 152, 0, 0.6);
   }
 
   /* Title adjustments */
@@ -407,6 +417,6 @@ nav a.active {
     height: auto;
     min-height: auto !important;
     max-height: none;
-    margin: 35px auto 60px; /* Reduced top (half of previous), increased bottom */
+    margin: 35px auto 100px; /* Increased bottom margin for bottom nav bar */
   }
 }
