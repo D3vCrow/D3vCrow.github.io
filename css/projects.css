@@ -48,11 +48,12 @@
 
 /* Project Title Styling */
 .project-title {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     color: #ff9800;
     text-align: right;
-    width: 160px;
+    width: 240px; /* Increased to avoid wrapping on desktop */
+    line-height: 1.2;
 }
 
 /* Project Button Styling */
@@ -434,7 +435,7 @@
 
     /* Indicators - Move ABOVE gallery or clearly overlay */
     .gallery-indicators {
-        top: -20px;
+        top: -15px;
         /* Move above the image */
     }
 
@@ -444,13 +445,17 @@
         max-width: 100% !important;
         height: auto !important;
         aspect-ratio: 16/9;
+        margin: 0 auto;
     }
 
     .gallery-item img,
     .gallery-item iframe,
     .gallery-item video {
         width: 100% !important;
-        height: 100% !important;
-        position: relative !important;
+        max-width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16/9;
+        object-fit: contain !important;
+        position: static !important;
     }
 }

@@ -64,17 +64,23 @@
 
 .skills-table th:nth-child(1),
 .skills-table td:nth-child(1) {
-    width: 25%;
+    width: 30%;
+    word-break: break-word;
+    white-space: normal; /* Ensure wrapping */
 }
 
 .skills-table th:nth-child(2),
 .skills-table td:nth-child(2) {
-    width: 25%;
+    width: 20%; /* Standardized width */
+    text-align: center;
 }
 
 .skills-table th:nth-child(3),
 .skills-table td:nth-child(3) {
-    width: 50%;
+    width: 50%; /* Standardized width */
+    word-break: break-word; /* Better for long words */
+    overflow-wrap: break-word;
+    white-space: normal; /* Ensure wrapping */
 }
 
 .skills-table th,
@@ -141,10 +147,9 @@
         flex-direction: column;
         /* Stack vertically */
         height: auto;
-        min-height: 100vh;
-        padding-top: 40px;
-        /* Clear header */
-        padding-bottom: 20px;
+        min-height: auto; 
+        padding-top: 12px; /* Halved top gap */
+        padding-bottom: 40px; /* Increased bottom gap */
         justify-content: flex-start;
     }
 
@@ -154,17 +159,17 @@
 
     /* Stacked Content overrides no longer needed here */
 
-    .skills-table {
-        display: block;
+    .table-wrapper {
+        width: 100%;
         overflow-x: auto;
-        /* Horizontal scroll for table */
-        white-space: nowrap;
+        -webkit-overflow-scrolling: touch; /* Smooth scroll for iOS */
+        margin-bottom: 10px;
     }
 
-    .skills-table th,
-    .skills-table td {
-        white-space: normal;
-        /* Allow wrapping text on mobile to avoid excess scrolling */
-        min-width: 120px;
+    .skills-table {
+        display: table; /* Back to table for scroll wrapper logic */
+        width: 100%;
+        min-width: 650px; /* Force overflow for scrolling */
+        table-layout: fixed;
     }
 }

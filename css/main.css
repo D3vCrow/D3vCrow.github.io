@@ -99,7 +99,7 @@ body {
   height: auto;
   min-height: 65vh;
   max-width: 1200px;
-  margin: 100px auto 50px;
+  margin: 60px auto 40px; /* Reduced from 100px to sit higher by default */
 }
 
 /* Fullscreen Header */
@@ -368,12 +368,12 @@ nav a.active {
 
   .side-tabs {
     width: 95%;
-    margin: 0 auto;
+    margin: 15px auto; /* Added 15px top/bottom gap */
     height: auto;
+    min-height: auto !important; /* Critical: Remove the 500px fixed height */
     flex-direction: row;
     border: none;
     border-radius: 10px;
-    margin-bottom: 0px;
     background: transparent;
     justify-content: center;
   }
@@ -390,14 +390,14 @@ nav a.active {
     border-radius: 5px;
     background: rgba(255, 255, 255, 0.1);
     text-align: center;
-    padding: 10px 20px;
-    margin: 0;
+    padding: 6px 12px;
+    margin: 4px; /* Added slight margin for wrapping rows */
+    font-size: 0.85rem; /* Slightly smaller to be less 'bugger' */
   }
 
   .side-tabs li:hover,
   .side-tabs li.active {
     transform: scale(1.05);
-    /* Simple scale, no translate on mobile */
     background: #ff9800;
     box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
   }
@@ -405,7 +405,8 @@ nav a.active {
   .flex-layout-row {
     flex-direction: column;
     height: auto;
+    min-height: auto !important;
     max-height: none;
-    margin: 0 auto;
+    margin: 35px auto 60px; /* Reduced top (half of previous), increased bottom */
   }
 }

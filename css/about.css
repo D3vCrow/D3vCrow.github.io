@@ -455,16 +455,15 @@
 
   /* LAYOUT: Vertical Scroll */
   .about-section {
-    min-height: 100vh;
+    min-height: auto !important; 
     display: block;
-    padding-top: 40px;
-    /* Space for fixed nav */
-    padding-bottom: 20px;
+    padding-top: 12px; /* Halved top gap */
+    padding-bottom: 50px; /* Increased bottom gap */
     overflow: visible;
   }
 
   .about-content {
-    padding: 5px 15px;
+    padding: 0px 15px 20px;
     display: block;
     overflow: visible;
   }
@@ -475,10 +474,10 @@
   .mobile-section-header {
     display: block;
     font-family: 'Anton', sans-serif;
-    font-size: 2rem;
+    font-size: 1.8rem; /* Slightly smaller */
     color: #ff9800;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 5px; /* Tighter margin */
     margin-top: 0px;
     text-align: center;
     text-shadow: 0 0 10px rgba(255, 152, 0, 0.4);
