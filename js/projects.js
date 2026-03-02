@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
 // Loading Screen
 const assets = [
     "assets/DMB.gif",
-    "assets/Thrion_Tactics_f2.gif",
-    "assets/old_projects.gif",
-    "assets/DMB gameplay-3.gif",
-    "assets/SMB gameplay-2.gif",
-    "assets/post-apo_car.gif",
     "assets/td_ds.gif",
     "assets/box.gif",
-    "assets/thriambos.gif"
+    "assets/old_projects.gif",
+    "assets/SMB gameplay-2.gif",
+    "assets/Thrion_Tactics_f2.gif",
+    "assets/post-apo_car.gif",
+    "assets/thriambos.gif",
+    "assets/DMB gameplay-3.gif"
 ];
 
 let assetsLoaded = 0;
@@ -28,7 +28,7 @@ function updateLoadingScreen() {
     if (!loadingScreen || !loadingText || !loadingBar) return;
 
     const percent = Math.floor((assetsLoaded / totalAssets) * 100);
-    loadingText.textContent = `Loading: ${percent}%`;
+    loadingText.textContent = `${percent}% of the content loaded.`;
     loadingBar.style.width = `${percent}%`;
 
     if (assetsLoaded === totalAssets) {

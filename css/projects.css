@@ -389,15 +389,21 @@
         aspect-ratio: 16/9;
         margin: 0 auto;
         display: block;
+        object-fit: contain !important;
     }
 
-    /* Remove Hover/Selected persistence on mobile */
-    .project-btn:hover,
-    .project-btn.selected {
+    /* Remove Hover persistence on mobile */
+    .project-btn:hover {
         transform: none !important;
         box-shadow: none !important;
         border: 2px solid #ff9800;
-        /* Keep default border */
+    }
+
+    /* Keep selected highlight on mobile */
+    .project-btn.selected {
+        transform: scale(1.05) !important;
+        box-shadow: 0px 0px 15px rgba(255, 152, 0, 1) !important;
+        border: 2px solid #ff9800;
     }
 
     .project-btn:active {

@@ -142,14 +142,14 @@
         /* Stack vertically */
         height: auto;
         min-height: 100vh;
-        padding-top: 80px;
+        padding-top: 40px;
         /* Clear header */
-        padding-bottom: 40px;
+        padding-bottom: 20px;
         justify-content: flex-start;
     }
 
     .about-content {
-        padding: 15px;
+        padding: 5px 15px;
     }
 
     /* Stacked Content overrides no longer needed here */

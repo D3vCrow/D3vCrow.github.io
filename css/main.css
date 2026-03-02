@@ -256,29 +256,34 @@ nav a.active {
 /* Loading Screen */
 #loading-screen {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  padding: 10px 0;
-  text-align: center;
-  z-index: 200;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
   transition: opacity 0.5s ease;
 }
 
 #loading-text {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
+  font-size: 1.5rem;
+  margin-top: 15px;
   color: #ff9800;
+  order: 2;
 }
 
 #loading-bar-container {
-  width: 80%;
+  width: 50%;
+  max-width: 600px;
   height: 10px;
   background: #333;
-  margin: 0 auto;
   border-radius: 5px;
   overflow: hidden;
+  order: 1;
 }
 
 #loading-bar {
@@ -401,6 +406,6 @@ nav a.active {
     flex-direction: column;
     height: auto;
     max-height: none;
-    margin: 20px auto;
+    margin: 0 auto;
   }
 }
