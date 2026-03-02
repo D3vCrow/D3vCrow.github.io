@@ -14,7 +14,9 @@ const assets = [
     "assets/Thrion_Tactics_f2.gif",
     "assets/post-apo_car.gif",
     "assets/thriambos.gif",
-    "assets/DMB gameplay-3.gif"
+    "assets/DMB gameplay-3.gif",
+    "assets/compare.PNG",
+    "assets/obsidian_moon.png"
 ];
 
 let assetsLoaded = 0;
