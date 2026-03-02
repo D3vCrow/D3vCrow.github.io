@@ -6,15 +6,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Loading Screen
 const assets = [
-    "assets/DMB.gif",
-    "assets/td_ds.gif",
-    "assets/box.gif",
-    "assets/old_projects.gif",
-    "assets/SMB gameplay-2.gif",
-    "assets/Thrion_Tactics_f2.gif",
-    "assets/post-apo_car.gif",
-    "assets/thriambos.gif",
-    "assets/DMB gameplay-3.gif",
+    "assets/DMB.mp4",
+    "assets/Thrion_Tactics.mp4",
+    "assets/old_projects.mp4",
+    "assets/DMB_gameplay.mp4",
+    "assets/post-apo_car.mp4",
+    "assets/td_ds.mp4",
+    "assets/box.mp4",
+    "assets/thriambos.mp4",
+    "assets/SMB_gameplay.mp4",
     "assets/compare.PNG",
     "assets/obsidian_moon.png"
 ];
@@ -43,12 +43,22 @@ function updateLoadingScreen() {
 
 function preloadAssets() {
     assets.forEach(src => {
-        const img = new Image();
-        img.onload = img.onerror = () => {
-            assetsLoaded++;
-            updateLoadingScreen();
-        };
-        img.src = src;
+        if (src.endsWith('.mp4')) {
+            const video = document.createElement('video');
+            video.oncanplaythrough = video.onerror = () => {
+                assetsLoaded++;
+                updateLoadingScreen();
+            };
+            video.src = src;
+            video.load();
+        } else {
+            const img = new Image();
+            img.onload = img.onerror = () => {
+                assetsLoaded++;
+                updateLoadingScreen();
+            };
+            img.src = src;
+        }
     });
 }
 // Store active gallery and slide index
@@ -103,7 +113,21 @@ function showGallery(index) {
         currentSlideIndex = 0;
 
         // Highlight the selected project button
-        document.querySelectorAll('.project-btn')[index].classList.add('selected');
+        const selectedBtn = document.querySelectorAll('.project-btn')[index];
+        selectedBtn.classList.add('selected');
+
+        // Center the selected button loop on mobile
+        if (window.innerWidth <= 1024) {
+            const container = document.querySelector('.projects-buttons');
+            const parent = selectedBtn.parentElement;
+            if (container && parent) {
+                const scrollLeft = parent.offsetLeft - (container.offsetWidth / 2) + (parent.offsetWidth / 2);
+                container.scrollTo({
+                    left: scrollLeft,
+                    behavior: 'smooth'
+                });
+            }
+        }
 
         // Reset slides within this gallery
         const slides = currentGallery.querySelectorAll('.gallery-item');
@@ -113,6 +137,7 @@ function showGallery(index) {
 
         if (slides.length > 0) {
             slides[0].classList.add('active');
+            playVideo(slides[0]); // Ensure it plays
         }
 
         updateBulletHighlight(index, 0);
@@ -135,6 +160,7 @@ function changeSlide(direction) {
 
     // Show the selected slide and play video if applicable
     slides[currentSlideIndex].classList.add('active');
+    playVideo(slides[currentSlideIndex]);
 
     updateBulletHighlight(currentProjectIndex, currentSlideIndex);
 }
@@ -150,6 +176,7 @@ function jumpToSlide(galleryIndex, slideIndex) {
     });
 
     slides[slideIndex].classList.add("active");
+    playVideo(slides[slideIndex]);
 
     updateBulletHighlight(galleryIndex, slideIndex);
 }
@@ -162,7 +189,7 @@ function updateBulletHighlight(galleryIndex, activeIndex) {
     });
 }
 
-// Play a video inside an iframe when a slide is active
+// Play a video (iframe or video tag) when a slide is active
 function playVideo(slide) {
     const iframe = slide.querySelector('iframe');
     if (iframe) {
@@ -172,14 +199,23 @@ function playVideo(slide) {
             iframe.src = src;
         }
     }
+    const video = slide.querySelector('video');
+    if (video) {
+        video.play().catch(error => console.log("Autoplay blocked or failed:", error));
+    }
 }
 
-// Stop a video inside an iframe when switching slides
+// Stop a video (iframe or video tag) when switching slides
 function stopVideo(slide) {
     const iframe = slide.querySelector('iframe');
     if (iframe) {
         let src = iframe.src.split("?")[0]; // Remove autoplay
         iframe.src = src;
+    }
+    const video = slide.querySelector('video');
+    if (video) {
+        video.pause();
+        video.currentTime = 0; // Reset to start
     }
 }
 
