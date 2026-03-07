@@ -11,6 +11,7 @@
   justify-content: center;
   position: relative;
   overflow: visible;
+  padding-top: 120px; /* Space for fixed nav bar */
   padding-bottom: 50px;
 }
 
@@ -227,13 +228,15 @@
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 10px 15px;
-  box-shadow: 0 0 10px rgba(255, 152, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   position: relative;
-  transition: background 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .responsibility-block:hover {
   background: rgba(255, 152, 0, 0.08);
+  border-color: rgba(255, 152, 0, 0.4);
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.2);
 }
 
 .responsibility-block h4 {
@@ -299,7 +302,12 @@
   font-size: 1rem;
   line-height: 1.6;
   border: 1px solid rgba(255, 152, 0, 0.2);
-  box-shadow: 0 0 15px rgba(255, 152, 0, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s ease;
+}
+
+.chat-box:hover {
+  border-color: rgba(255, 152, 0, 0.4);
 }
 
 .user-label,

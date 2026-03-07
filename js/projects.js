@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     generateBulletsForAllGalleries();
+    injectFullscreenButtons();
     showGallery(0); // Show the first gallery by default
     preloadAssets();
+    startCategoryPreviews();
 });
 
 // Loading Screen
@@ -225,4 +227,142 @@ projectButtons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
         showGallery(index);
     });
+});
+// Inject fullscreen buttons into all media wrappers
+function injectFullscreenButtons() {
+    document.querySelectorAll('.gallery-item .media-wrapper').forEach(wrapper => {
+        if (!wrapper.querySelector('.fullscreen-btn')) {
+            const btn = document.createElement('div');
+            btn.className = 'fullscreen-btn';
+            btn.innerHTML = '<i class="fas fa-expand"></i>';
+            btn.onclick = (e) => {
+                e.stopPropagation();
+                toggleManualFullscreen(btn);
+            };
+            wrapper.appendChild(btn);
+        }
+    });
+}
+
+// Handle manual fullscreen toggle
+function toggleManualFullscreen(btn) {
+    // Stop propagation to prevent button click (gallery change)
+    if (window.event) window.event.stopPropagation();
+    
+    const wrapper = btn.closest('.media-wrapper');
+    if (!wrapper) return;
+
+    if (!document.fullscreenElement) {
+        if (wrapper.requestFullscreen) {
+            wrapper.requestFullscreen().catch(err => {
+                console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+            });
+        }
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+    }
+}
+
+// Rotate category button content
+function startCategoryPreviews() {
+    const buttons = document.querySelectorAll('.project-btn');
+    const galleries = document.querySelectorAll('.gallery');
+    const galleryMedias = [];
+
+    // Collect media from all galleries
+    galleries.forEach((gallery) => {
+        const medias = [];
+        gallery.querySelectorAll('.gallery-item .media-wrapper').forEach(wrapper => {
+            const video = wrapper.querySelector('video');
+            const img = wrapper.querySelector('img');
+            
+            if (video) {
+                const source = video.querySelector('source');
+                if (source) medias.push({ type: 'video', src: source.src });
+            } else if (img) {
+                medias.push({ type: 'img', src: img.src });
+            }
+        });
+        galleryMedias.push(medias);
+    });
+
+    buttons.forEach((btn, bIndex) => {
+        let currentElement = btn.querySelector('img, video');
+        if (currentElement) currentElement.classList.add('active');
+
+        if (!galleryMedias[bIndex] || galleryMedias[bIndex].length <= 1) return;
+
+        let currentIdx = 0;
+
+        const rotate = () => {
+            currentIdx = (currentIdx + 1) % galleryMedias[bIndex].length;
+            const nextMedia = galleryMedias[bIndex][currentIdx];
+
+            let nextElement;
+            if (nextMedia.type === 'video') {
+                nextElement = document.createElement('video');
+                nextElement.autoplay = true;
+                nextElement.loop = true;
+                nextElement.muted = true;
+                nextElement.playsInline = true;
+                const s = document.createElement('source');
+                s.src = nextMedia.src;
+                s.type = 'video/mp4';
+                nextElement.appendChild(s);
+            } else {
+                nextElement = document.createElement('img');
+                nextElement.src = nextMedia.src;
+            }
+
+            nextElement.className = 'btn-preview-media next';
+            btn.appendChild(nextElement);
+
+            // Force reflow
+            nextElement.offsetHeight;
+
+            nextElement.classList.add('active');
+            nextElement.classList.remove('next');
+
+            if (currentElement) {
+                currentElement.classList.remove('active');
+                currentElement.classList.add('fade-out');
+                
+                const oldEl = currentElement;
+                setTimeout(() => {
+                    if (oldEl.parentNode === btn) btn.removeChild(oldEl);
+                }, 1000);
+            }
+            currentElement = nextElement;
+        };
+
+        setInterval(rotate, 5000); // Rotate every 5 seconds
+    });
+}
+
+// Update icon and handle orientation on fullscreen change
+document.addEventListener('fullscreenchange', () => {
+    const fullscreenElement = document.fullscreenElement;
+    const btns = document.querySelectorAll('.fullscreen-btn i');
+    
+    btns.forEach(icon => {
+        if (fullscreenElement) {
+            icon.classList.remove('fa-expand');
+            icon.classList.add('fa-compress');
+        } else {
+            icon.classList.remove('fa-compress');
+            icon.classList.add('fa-expand');
+        }
+    });
+
+    // Mobile: Attempt to lock orientation to landscape when entering fullscreen
+    if (fullscreenElement && window.innerWidth <= 1024 && screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock('landscape').catch(err => {
+            console.log("Orientation lock not supported or blocked:", err);
+        });
+    } else if (!fullscreenElement && screen.orientation && screen.orientation.unlock) {
+        // Unlock orientation when exiting
+        screen.orientation.unlock();
+    }
 });

@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     text-align: center;
-    padding-top: 90px; /* Increased to give fixed nav more breathing room */
+    padding-top: 150px; /* Increased to ensure no cropping below fixed nav */
     overflow-x: hidden; /* Prevent page shifting horizontally */
 }
 
@@ -24,7 +24,7 @@
     justify-content: center;
     gap: 80px; /* Balanced gap to accommodate arrows without being 'huge' */
     position: relative;
-    padding: 0 2% 40px 2%;
+    padding: 20px 2% 40px 2%; /* Added top padding to prevent cropping of scaled buttons */
     overflow-x: hidden; /* Fail-safe for layout stability */
 }
 
@@ -86,6 +86,27 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.project-btn img.active,
+.project-btn video.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.project-btn .btn-preview-media.next {
+    opacity: 0;
+    z-index: 2;
+}
+
+.project-btn .fade-out {
+    opacity: 0;
+    z-index: 0;
 }
 
 /* Gallery Container */
@@ -95,7 +116,7 @@
     flex-direction: column;
     align-items: center;
     position: relative; /* Arrows will position relative to this */
-    margin-top: 20px;
+    margin-top: 40px; /* More breathing room */
     z-index: 5;
 }
 
@@ -124,14 +145,16 @@
     gap: 10px;
     max-width: 90%;
     text-align: center; /* Base centering is already here */
-    background: rgba(0, 0, 0, 0.82);
-    box-shadow: 0px 0px 15px rgba(255, 152, 0, 0.15);
+    background: rgba(0, 0, 0, 0.85);
+    border: 1px solid rgba(255, 152, 0, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
     color: #ff9800;
     font-size: 1.1rem;
     padding: 15px 25px;
     border-radius: 12px;
     pointer-events: auto;
     z-index: 10;
+    transition: transform 0.3s ease;
 }
 
 /* Show description only for active gallery items */
@@ -168,15 +191,57 @@
     max-width: 800px;
     max-height: 70vh; /* Prevent overflowing vertically */
     aspect-ratio: 16 / 9;
-    background: #111;
+    background: #000;
     border-radius: 12px;
     overflow: hidden;
     position: relative;
-    border: 1px solid rgba(255, 152, 0, 0.2);
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 152, 0, 0.4); /* Thicker border for media */
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Fullscreen Toggle Button */
+.fullscreen-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 152, 0, 0.5);
+    border-radius: 50%;
+    color: #ff9800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.media-wrapper:hover .fullscreen-btn {
+    opacity: 1;
+}
+
+.fullscreen-btn:hover {
+    background: rgba(255, 152, 0, 0.8);
+    color: #000;
+    transform: scale(1.1);
+}
+
+/* Mobile: always show button or show on tap */
+@media (max-width: 1024px) {
+    .fullscreen-btn {
+        opacity: 0.8;
+        bottom: 10px;
+        right: 10px;
+    }
 }
 
 .gallery-item img,
@@ -197,9 +262,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, #111 25%, #1a1a1a 50%, #111 75%);
+    background: linear-gradient(90deg, #0a0a0a 25%, #1a0f00 50%, #0a0a0a 75%);
     background-size: 200% 100%;
-    animation: loading-pulse 1.5s infinite;
+    animation: loading-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     z-index: -1;
 }
 
@@ -290,7 +355,7 @@
         min-height: 100vh;
         overflow-y: auto;
         /* Allow scrolling */
-        padding-bottom: 100px; /* Increased to account for bottom nav */
+        padding-bottom: 140px; /* Increased to account for bottom nav and gallery description */
     }
 
     .projects-layout {
@@ -319,7 +384,7 @@
         margin-top: 0;
         flex-direction: row;
         overflow-x: auto;
-        padding: 0 5% 15px 5%; /* Side padding to allow 'peek' at edges */
+        padding: 15px 5% 15px 5%; /* Added top padding for scale room */
         gap: 15px;
         justify-content: flex-start;
         scroll-behavior: smooth;
@@ -357,8 +422,8 @@
     .gallery-container {
         position: relative;
         width: 100%;
-        margin: 20px auto; /* Increased margin-top to avoid overlap with scroller */
-        padding-top: 60px; /* More space for arrows and bullets */
+        margin: 40px auto 20px auto; /* Increased margin-top for breathing room */
+        padding-top: 70px; /* More space for arrows and bullets */
         display: block;
         right: auto;
         left: auto;
@@ -459,5 +524,88 @@
         aspect-ratio: 16/9;
         object-fit: contain !important;
         position: static !important;
+    }
+}
+
+/* Landscape Fullscreen Mode for Mobile */
+@media (max-width: 1024px) and (orientation: landscape) and (max-height: 500px) {
+    /* Hide clutter */
+    nav, .projects-buttons, .projects-title, .gallery-description {
+        display: none !important;
+    }
+
+    #projects {
+        padding-top: 0 !important;
+        height: 100vh !important;
+        position: fixed !important;
+        inset: 0 !important;
+        background: #000;
+        z-index: 2000;
+        overflow: hidden !important;
+    }
+
+    .projects-layout {
+        padding: 0 !important;
+        height: 100% !important;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    .gallery-container {
+        width: 100vw !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .gallery, .gallery-item {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .media-wrapper {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-width: none !important;
+        max-height: none !important;
+        border-radius: 0 !important;
+        border: none !important;
+        aspect-ratio: auto !important; /* Allow it to fill the screen */
+        background: #000;
+    }
+
+    .gallery-item video, 
+    .gallery-item img, 
+    .gallery-item iframe {
+        width: 100vw !important;
+        height: 100vh !important;
+        object-fit: contain !important; /* Ensures the video fits without cropping */
+        display: block !important;
+    }
+
+    /* Fixed overlay controls */
+    .prev-btn, .next-btn {
+        position: fixed !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        z-index: 3000;
+        background: rgba(255, 152, 0, 0.2) !important;
+        border: 1px solid rgba(255, 152, 0, 0.5) !important;
+        height: 60px !important;
+        width: 44px !important;
+    }
+
+    .prev-btn { left: 10px !important; }
+    .next-btn { right: 10px !important; }
+
+    .gallery-indicators {
+        top: auto !important;
+        bottom: 15px !important;
+        z-index: 3000;
     }
 }

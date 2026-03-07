@@ -11,7 +11,7 @@
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    padding-top: 60px;
+    padding-top: 120px; /* Increased to match others and clear nav */
     padding-bottom: 50px;
     /* Space for fixed header */
     box-sizing: border-box;
@@ -57,9 +57,9 @@
 .skills-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 1rem;
+    font-size: 0.95rem; /* Slightly smaller for better fit */
     table-layout: fixed;
-    /* Enforce fixed column widths */
+    font-family: 'Roboto', sans-serif; /* Cleaner font for data */
 }
 
 .skills-table th:nth-child(1),
@@ -92,38 +92,41 @@
 }
 
 .skills-table thead {
-    background: rgba(255, 152, 0, 0.15);
+    background: rgba(255, 152, 0, 0.1);
     color: #ff9800;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.85rem; /* Slightly smaller for tighter look */
 }
 
 .tag {
     display: inline-block;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: white;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.8rem; /* Normalized size */
+    font-weight: 500; /* Medium weight is cleaner for Roboto */
+    color: #fff;
     text-align: center;
-    min-width: 80px;
+    min-width: 90px;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    font-family: 'Roboto', sans-serif;
 }
 
 .tag.prod {
-    background-color: #4caf50;
+    background-color: #2e7d32; /* Darker green for better contrast with white text */
 }
 
 .tag.v-exp {
-    background-color: #ff9800;
+    background-color: #ef6c00; /* Darker orange */
 }
 
 .tag.exp {
-    background-color: #03a9f4;
+    background-color: #0277bd; /* Darker blue */
 }
 
 .tag.fam {
-    background-color: #ffc107;
+    background-color: #fbc02d; /* Darker yellow/gold */
     color: #000;
 }
 
@@ -135,7 +138,7 @@
 /* =========================================
    Responsive / Mobile Styles (Max-Width 1366px)
    ========================================= */
-@media (max-width: 1366px) {
+@media (max-width: 1024px) {
 
     html,
     body {
