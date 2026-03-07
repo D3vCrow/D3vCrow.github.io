@@ -353,73 +353,150 @@
 
 
 .gamer-collection {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-auto-flow: dense;
+  gap: 15px;
+  padding: 60px 20px;
+  margin: 0 auto;
+  max-width: 1000px; /* Reduced width for more curated "vault" feel */
+  perspective: 1500px;
+}
+
+/* Variable Sizing (Bento Grid) */
+.game-card.game-large { grid-column: span 2; grid-row: span 2; }
+.game-card.game-tall { grid-row: span 2; aspect-ratio: 1 / 2; }
+
+/* Base Card Style (Bento Architecture) */
+.game-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: rgba(10, 10, 10, 0.9);
+  /* Creative Geometry: Asymmetric corners */
+  border-radius: 25px 4px 25px 4px;
+  border: 1px solid rgba(255, 152, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transform-style: preserve-3d;
+}
+
+.game-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.2, 0, 0.2, 1), filter 0.8s ease;
+  filter: grayscale(10%) brightness(0.8);
+}
+
+/* Artistic Hover: "3D Perspective Tilt" */
+.game-card:hover {
+  transform: scale(1.2) rotateX(5deg) rotateY(-5deg) translateZ(40px);
+  z-index: 50;
+  border-color: #ff9800;
+  border-radius: 4px; /* Straightens significantly for focus */
+  box-shadow: 
+    0 35px 70px rgba(0, 0, 0, 0.95), 
+    0 0 40px rgba(255, 152, 0, 0.4);
+}
+
+.game-card:hover img {
+  filter: grayscale(0%) brightness(1.2);
+  transform: scale(1.1);
+}
+
+/* Tech-Glow (HUD Brackets) */
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border: 1px solid rgba(255, 152, 0, 0);
+  background: radial-gradient(circle at center, rgba(255,152,0,0.05) 0%, transparent 70%);
+  transition: all 0.4s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.game-card:hover::before {
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  box-shadow: inset 0 0 20px rgba(255, 152, 0, 0.1);
+}
+
+/* HUD Metadata Overlay (Redesigned for Visibility) */
+.game-card::after {
+  content: attr(data-title) "\A" attr(data-year);
+  white-space: pre-wrap;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 0px;
-  margin: 0 auto;
-  border-radius: 10px;
-  max-width: 95%;
-}
-
-.gamer-timeline {
-  position: relative;
-  padding-top: 60px;
-  /* gives room for hover scaling */
-  overflow: visible;
-  margin-top: -50px;
-}
-
-
-.gamer-timeline h3 {
-  font-size: 1rem;
-  /* Smaller font */
-  margin: 0 0 0px 0;
-  /* Minimal bottom margin */
-  padding: 0;
-  /* Remove extra padding */
-  line-height: 1.1;
-  /* Compact line height */
+  justify-content: flex-end; /* Bottom-aligned for visibility */
+  align-items: center;
+  /* Transparent Tech-Gradient */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0,0,0,0.4) 30%, transparent 70%);
+  color: #fff;
+  padding: 15px;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   text-align: center;
-  color: #ff9800;
-  text-shadow: 0 0 6px rgba(255, 152, 0, 0.4);
-
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  font-family: 'Orbitron', sans-serif;
+  z-index: 4;
 }
 
-.game-icons {
-  display: flex;
-  gap: 5px;
-  flex-wrap: wrap;
-  justify-content: center;
-  position: relative;
+.game-card:hover::after {
+  opacity: 1;
+  transform: translateY(0);
+  background: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), /* Subtle scanlines */
+    linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 20%, transparent 60%);
+  background-size: 100% 4px, 100% 100%;
+  border-bottom: 2px solid #ff9800; /* Anchor line at the very bottom */
+  padding-bottom: 12px;
 }
 
-.game-icons img {
-  max-height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-  border: 2px solid #ff9800;
-  z-index: 1;
-  position: relative;
+/* Polished Sibling Dimming (More clear for navigation) */
+.gamer-collection:has(.game-card:hover) .game-card:not(:hover) {
+  opacity: 0.4; /* More visible than before */
+  filter: blur(1px) brightness(0.7) grayscale(60%);
+  transform: scale(0.98) translateZ(-5px);
 }
 
-
-
-
-/* On hover, bring image forward and dim siblings */
-.game-icons img:hover {
-  transform: scale(1.8);
-  z-index: 10;
-  box-shadow: 0 0 20px rgba(255, 152, 0, 0.9);
-  filter: brightness(1.1);
+/* Mobile Bento */
+@media (max-width: 1024px) {
+  .gamer-collection {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+    padding: 30px 10px;
+  }
 }
 
-/* Optional: fade or scale down others slightly */
-.game-icons:hover img:not(:hover) {
-  transform: scale(0.9);
-  filter: brightness(0.4);
-  filter: blur(1px);
+/* Mobile: Less aggressive scattering to prevent horizontal scroll */
+@media (max-width: 1024px) {
+  .gamer-collection {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 15px;
+    padding: 30px 15px;
+  }
+  
+  .game-card {
+    transform: none !important; /* Flatten on mobile for cleaner look */
+  }
+
+  .game-card.game-large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .game-card:hover {
+    transform: scale(1.05) !important;
+  }
 }
 
 

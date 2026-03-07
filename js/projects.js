@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     generateBulletsForAllGalleries();
-    injectFullscreenButtons();
+    injectMediaControls();
     showGallery(0); // Show the first gallery by default
     preloadAssets();
     startCategoryPreviews();
@@ -17,6 +17,8 @@ const assets = [
     "assets/compare.PNG",
     "assets/obsidian_moon.png"
 ];
+
+let isGlobalMuted = true; // Default to muted
 
 let assetsLoaded = 0;
 const totalAssets = assets.length;
@@ -200,6 +202,7 @@ function playVideo(slide) {
     }
     const video = slide.querySelector('video');
     if (video) {
+        video.muted = isGlobalMuted; // Respect global state
         video.play().catch(error => console.log("Autoplay blocked or failed:", error));
     }
 }
@@ -225,9 +228,10 @@ projectButtons.forEach((btn, index) => {
         showGallery(index);
     });
 });
-// Inject fullscreen buttons into all media wrappers
-function injectFullscreenButtons() {
+// Inject fullscreen and mute buttons into media wrappers
+function injectMediaControls() {
     document.querySelectorAll('.gallery-item .media-wrapper').forEach(wrapper => {
+        // Fullscreen Button
         if (!wrapper.querySelector('.fullscreen-btn')) {
             const btn = document.createElement('div');
             btn.className = 'fullscreen-btn';
@@ -238,6 +242,34 @@ function injectFullscreenButtons() {
             };
             wrapper.appendChild(btn);
         }
+
+        // Mute Button (Only for videos)
+        if (wrapper.querySelector('video') && !wrapper.querySelector('.mute-btn')) {
+            const btn = document.createElement('div');
+            btn.className = 'mute-btn';
+            const iconClass = isGlobalMuted ? 'fa-volume-mute' : 'fa-volume-up';
+            btn.innerHTML = `<i class="fas ${iconClass}"></i>`;
+            btn.onclick = (e) => {
+                e.stopPropagation();
+                toggleMute(btn);
+            };
+            wrapper.appendChild(btn);
+        }
+    });
+}
+
+// Handle global mute toggle
+function toggleMute(btn) {
+    isGlobalMuted = !isGlobalMuted;
+
+    // Update all mute button icons
+    document.querySelectorAll('.mute-btn i').forEach(icon => {
+        icon.className = isGlobalMuted ? 'fas fa-volume-mute' : 'fas fa-volume-up';
+    });
+
+    // Apply to current playing video immediately
+    document.querySelectorAll('.gallery-item.active video').forEach(v => {
+        v.muted = isGlobalMuted;
     });
 }
 
@@ -303,6 +335,8 @@ function startCategoryPreviews() {
             currentElement.loop = true;
             currentElement.muted = true;
             currentElement.playsInline = true;
+            currentElement.disablePictureInPicture = true;
+            currentElement.setAttribute('controlsList', 'nopictureinpicture');
             const s = document.createElement('source');
             s.src = initialMedia.src;
             s.type = 'video/mp4';
@@ -328,6 +362,8 @@ function startCategoryPreviews() {
                 nextElement.loop = true;
                 nextElement.muted = true;
                 nextElement.playsInline = true;
+                nextElement.disablePictureInPicture = true;
+                nextElement.setAttribute('controlsList', 'nopictureinpicture');
                 const s = document.createElement('source');
                 s.src = nextMedia.src;
                 s.type = 'video/mp4';

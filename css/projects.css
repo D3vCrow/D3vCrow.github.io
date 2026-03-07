@@ -203,11 +203,10 @@
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* Fullscreen Toggle Button */
-.fullscreen-btn {
+/* Fullscreen & Mute Toggle Buttons */
+.fullscreen-btn, .mute-btn {
     position: absolute;
     bottom: 15px;
-    right: 15px;
     width: 44px;
     height: 44px;
     background: rgba(0, 0, 0, 0.6);
@@ -225,22 +224,36 @@
     font-size: 1.1rem;
 }
 
-.media-wrapper:hover .fullscreen-btn {
+.fullscreen-btn {
+    right: 15px;
+}
+
+.mute-btn {
+    right: 70px; /* Space for fullscreen button */
+}
+
+.media-wrapper:hover .fullscreen-btn,
+.media-wrapper:hover .mute-btn {
     opacity: 1;
 }
 
-.fullscreen-btn:hover {
+.fullscreen-btn:hover, .mute-btn:hover {
     background: rgba(255, 152, 0, 0.8);
     color: #000;
     transform: scale(1.1);
 }
 
-/* Mobile: always show button or show on tap */
+/* Mobile: always show buttons or show on tap */
 @media (max-width: 1024px) {
-    .fullscreen-btn {
+    .fullscreen-btn, .mute-btn {
         opacity: 0.8;
         bottom: 10px;
+    }
+    .fullscreen-btn {
         right: 10px;
+    }
+    .mute-btn {
+        right: 60px;
     }
 }
 
