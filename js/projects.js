@@ -8,9 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Loading Screen
 const assets = [
-    "assets/DMB.mp4",
-    "assets/Thrion_Tactics.mp4",
-    "assets/old_projects.mp4",
     "assets/DMB_gameplay.mp4",
     "assets/post-apo_car.mp4",
     "assets/td_ds.mp4",
@@ -289,12 +286,36 @@ function startCategoryPreviews() {
     });
 
     buttons.forEach((btn, bIndex) => {
-        let currentElement = btn.querySelector('img, video');
-        if (currentElement) currentElement.classList.add('active');
+        const medias = galleryMedias[bIndex];
+        if (!medias || medias.length === 0) return;
 
-        if (!galleryMedias[bIndex] || galleryMedias[bIndex].length <= 1) return;
+        // Clear existing hardcoded content (like DMB.mp4)
+        btn.innerHTML = '';
 
         let currentIdx = 0;
+        const initialMedia = medias[0];
+        let currentElement;
+
+        // Create the first element immediately
+        if (initialMedia.type === 'video') {
+            currentElement = document.createElement('video');
+            currentElement.autoplay = true;
+            currentElement.loop = true;
+            currentElement.muted = true;
+            currentElement.playsInline = true;
+            const s = document.createElement('source');
+            s.src = initialMedia.src;
+            s.type = 'video/mp4';
+            currentElement.appendChild(s);
+        } else {
+            currentElement = document.createElement('img');
+            currentElement.src = initialMedia.src;
+        }
+
+        currentElement.className = 'active'; // Mark as active for CSS fade
+        btn.appendChild(currentElement);
+
+        if (medias.length <= 1) return;
 
         const rotate = () => {
             currentIdx = (currentIdx + 1) % galleryMedias[bIndex].length;
