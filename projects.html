@@ -31,35 +31,108 @@
             <!-- Left Side: Project Buttons -->
             <div class="projects-buttons">
                 <div class="project-container">
-                    <span class="project-title">Published Games</span>
+                    <span class="project-title">Commercial Work <span class="project-subtitle">(Client projects, contracts, shipped products)</span></span>
                     <div class="project-btn selected" onclick="toggleSelection(this);showGallery(0)">
                     </div>
                 </div>
 
                 <div class="project-container">
-                    <span class="project-title">Games In Development</span>
+                    <span class="project-title">Pyles Studio Projects <span class="project-subtitle">(Development Director & Unity Engineer)</span></span>
                     <div class="project-btn" onclick="toggleSelection(this);showGallery(1)">
                     </div>
                 </div>
 
                 <div class="project-container">
-                    <span class="project-title">Game Concepts</span>
+                    <span class="project-title">DevCrow <span class="project-subtitle">(Solo Projects & Experiments)</span></span>
                     <div class="project-btn" onclick="toggleSelection(this);showGallery(2)">
-                    </div>
-                </div>
-                <div class="project-container">
-                    <span class="project-title">Other Projects</span>
-                    <div class="project-btn" onclick="toggleSelection(this);showGallery(3)">
                     </div>
                 </div>
             </div>
 
             <!-- Gallery Container -->
             <div class="gallery-container">
-                <!-- Project 1 Gallery -->
+                <!-- Category 1: Commercial Releases & Contracts -->
                 <div class="gallery active" id="gallery-0">
                     <ol class="gallery-indicators" id="bullets-0"></ol>
                     <div class="gallery-item active">
+                        <div class="media-wrapper">
+                            <img src="Caterham.PNG" alt="Caterham Configurator" loading="lazy">
+                        </div>
+                        <p class="gallery-description"><strong>Caterham Configurator</strong><br>A web-based tool that uses Unity to produce exceptionally high-end, automotive-grade renders for Caterham cars.<br><a href="https://caterhamcars.com/en/configurator" target="_blank">View Configurator</a></p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="media-wrapper">
+                            <img src="VR2.PNG" alt="VR Airport" loading="lazy">
+                        </div>
+                        <p class="gallery-description">Served as Contractor Senior Unity Developer for e-Point on a VR project at a major German Fraport Airport. The project featured a shared VR experience for two users with Meta Quest 3 – <br><a href="https://youtu.be/Wqm-5RkbYoc">check out a sneak peek</a>. </p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="media-wrapper">
+                            <img src="assets/obsidian_moon.png" alt="Obsidian Moon" loading="lazy">
+                        </div>
+                        <div class="gallery-description">
+                            <strong style="font-size: 1.3rem; display: block; margin-bottom: 5px;">Obsidian Moon</strong>
+                            <p style="margin-bottom: 5px;">Worked as Technical Artist and Game Developer (C#) on a Unity-based title (upcoming Steam release). Designed and implemented a new cutscene system, revamped visuals, and enhanced player feedback.</p>
+                            <a href="https://store.steampowered.com/app/3462170/Obsidian_Moon/" target="_blank" style="color: #0af; font-weight: bold;">Try it on Steam!</a>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="media-wrapper">
+                            <video autoplay loop muted playsinline class="video-item">
+                                <source src="assets/SMB_gameplay.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="gallery-description">
+                            <strong style="font-size: 1.3rem; display: block; margin-bottom: 5px;">Super Pokemon Bros</strong>
+                            <p style="margin-bottom: 5px;">A custom fan-based game combining Super Mario Bros mechanics with a Pokémon theme for Pokefest 2. This project was developed as a paid contract for a client.</p>
+                            <a href="https://youtu.be/fU8lNrKd_2s" target="_blank" style="color: #0af; font-weight: bold;">View Gameplay Video</a>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="media-wrapper">
+                            <img src="assets/compare.PNG" alt="Compare Pokémons" loading="lazy">
+                        </div>
+                        <div class="gallery-description">
+                            <strong style="font-size: 1.3rem; display: block; margin-bottom: 5px;">Compare the Pokémons</strong>
+                            <p style="margin-bottom: 5px;">Designed and developed a knowledge-based comparison game for Pokefest 3 (Fantasy Festival 2025). Built as a paid project to provide an interactive client experience.</p>
+                            <a href="https://youtu.be/..." target="_blank" style="color: #0af; font-weight: bold;">View Project Video</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Pyles Studio Showcase -->
+                <div class="gallery" id="gallery-1">
+                    <ol class="gallery-indicators" id="bullets-1"></ol>
+                    <div class="gallery-item active">
+                        <div class="media-wrapper">
+                            <video autoplay loop muted playsinline class="video-item">
+                                <source src="assets/island_project.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="gallery-description">
+                            <strong style="font-size: 1.3rem; display: block; margin-bottom: 5px;">Island Project</strong>
+                            <p style="margin-bottom: 5px;">Made with Unity using HDRP for Pyles Studio. I am the solo developer and Unity engineer.</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="media-wrapper">
+                            <video autoplay loop muted playsinline class="video-item">
+                                <source src="assets/Thrion_Tactics.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <p class="gallery-description">Thrion Tactics: A strategic exploration into Pyles Studio's combat systems.</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="media-wrapper">
+                            <iframe src="https://www.youtube.com/embed/Xv7wAYQwRvM" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: DevCrow: Solo Lab -->
+                <div class="gallery" id="gallery-2">
+                    <ol class="gallery-indicators" id="bullets-2"></ol>
+                    <div class="gallery-item">
                         <div class="media-wrapper">
                             <video autoplay loop muted playsinline class="video-item">
                                 <source src="assets/DMB_gameplay.mp4" type="video/mp4">
@@ -75,37 +148,15 @@
                         <div class="media-wrapper">
                             <iframe src="https://www.youtube.com/embed/7ekmQ8gnBOc" allowfullscreen></iframe>
                         </div>
-                        <p class="gallery-description">A sneak peek at the final level of the game.</p>
+                        <p class="gallery-description">Sneak peek at the final level of the game.</p>
                     </div>
-                </div>
-
-                <!-- Project 2 Gallery -->
-                <div class="gallery" id="gallery-1">
-                    <ol class="gallery-indicators" id="bullets-1"></ol>
-                    <div class="gallery-item">
-                        <div class="media-wrapper">
-                            <video autoplay loop muted playsinline class="video-item">
-                                <source src="assets/Thrion_Tactics.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <p class="gallery-description">Thrion Tactics: !</p>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="media-wrapper">
-                            <iframe src="https://www.youtube.com/embed/Xv7wAYQwRvM" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 Gallery -->
-                <div class="gallery" id="gallery-2">
-                    <ol class="gallery-indicators" id="bullets-2"></ol>
                     <div class="gallery-item">
                         <div class="media-wrapper">
                             <video autoplay loop muted playsinline class="video-item">
                                 <source src="assets/post-apo_car.mp4" type="video/mp4">
                             </video>
                         </div>
+                        <p class="gallery-description">Technical Concept: Post-Apocalyptic Vehicle Mechanics</p>
                     </div>
                     <div class="gallery-item">
                         <div class="media-wrapper">
@@ -113,6 +164,7 @@
                                 <source src="assets/td_ds.mp4" type="video/mp4">
                             </video>
                         </div>
+                        <p class="gallery-description">Technical Concept: Top-Down Souls-like Prototype</p>
                     </div>
                     <div class="gallery-item">
                         <div class="media-wrapper">
@@ -120,6 +172,7 @@
                                 <source src="assets/box.mp4" type="video/mp4">
                             </video>
                         </div>
+                        <p class="gallery-description">Technical Concept: Advanced Physics & Interaction</p>
                     </div>
                     <div class="gallery-item">
                         <div class="media-wrapper">
@@ -132,62 +185,11 @@
                                 <source src="assets/thriambos.mp4" type="video/mp4">
                             </video>
                         </div>
+                        <p class="gallery-description">Technical Concept: RTS Navigation & Unit Logic</p>
                     </div>
                     <div class="gallery-item">
                         <div class="media-wrapper">
                             <iframe src="https://www.youtube.com/embed/iW2cXzUlMGc" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 Gallery -->
-                <div class="gallery" id="gallery-3">
-                    <ol class="gallery-indicators" id="bullets-3"></ol>
-                    <div class="gallery-item">
-                        <div class="media-wrapper">
-                            <img src="Caterham.PNG" alt="Project 3 GIF" loading="lazy">
-                        </div>
-                        <p class="gallery-description"><strong>Caterham Configurator</strong><br>A web-based tool that uses Unity to produce exceptionally high-end, automotive-grade renders for Caterham cars.<br><a href="https://caterhamcars.com/en/configurator" target="_blank">View Configurator</a></p>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="media-wrapper">
-                            <img src="VR2.PNG" alt="Project 3 GIF" loading="lazy">
-                        </div>
-                        <p class="gallery-description">Served as Contractor Senior Unity Developer for e-Point on a VR
-                            project at a major German Fraport Airport. The project featured a shared VR experience for
-                            two users with Meta Quest 3 – <br><a href="https://youtu.be/Wqm-5RkbYoc">check out a sneak
-                                peek</a>. </p>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="media-wrapper">
-                            <img src="assets/obsidian_moon.png" alt="Obsidian Moon" loading="lazy">
-                        </div>
-                        <div class="gallery-description">
-                            <strong style="font-size: 1.3rem; display: block; margin-bottom: 5px;">Obsidian Moon</strong>
-                            <p style="margin-bottom: 5px;">Worked as Technical Artist and Game Developer (C#) on a Unity-based title (upcoming Steam release). Designed and implemented a new cutscene system, revamped visuals, and enhanced player feedback.</p>
-                            <a href="https://store.steampowered.com/app/3462170/Obsidian_Moon/" target="_blank" style="color: #0af; font-weight: bold;">Try it on Steam!</a>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="media-wrapper">
-                            <img src="assets/compare.PNG" alt="Compare Pokémons" loading="lazy">
-                        </div>
-                        <div class="gallery-description">
-                            <strong style="font-size: 1.3rem; display: block; margin-bottom: 5px;">Compare the Pokémons, Pokefest 3</strong>
-                            <p style="margin-bottom: 5px;">Designed and developed a knowledge-based comparison game for Pokefest 3, co-hosted at Fantasy Festival 2025. Built an interactive experience where players selected between two Pokémon based on specific attributes.</p>
-                            <a href="https://youtu.be/..." target="_blank" style="color: #0af; font-weight: bold;">View Project Video</a>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="media-wrapper">
-                            <video autoplay loop muted playsinline class="video-item">
-                                <source src="assets/SMB_gameplay.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <div class="gallery-description">
-                            <strong style="font-size: 1.3rem; display: block; margin-bottom: 5px;">Super Pokemon Bros</strong>
-                            <p style="margin-bottom: 5px;">A custom fan-based game combining Super Mario Bros mechanics with a Pokémon theme for Pokefest 2.</p>
-                            <a href="https://youtu.be/fU8lNrKd_2s" target="_blank" style="color: #0af; font-weight: bold;">View Gameplay Video</a>
                         </div>
                     </div>
                 </div>

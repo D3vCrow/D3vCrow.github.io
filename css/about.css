@@ -383,31 +383,7 @@
   transform-style: preserve-3d;
 }
 
-.game-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 1s cubic-bezier(0.2, 0, 0.2, 1), filter 0.8s ease;
-  filter: grayscale(10%) brightness(0.8);
-}
-
-/* Artistic Hover: "3D Perspective Tilt" */
-.game-card:hover {
-  transform: scale(1.2) rotateX(5deg) rotateY(-5deg) translateZ(40px);
-  z-index: 50;
-  border-color: #ff9800;
-  border-radius: 4px; /* Straightens significantly for focus */
-  box-shadow: 
-    0 35px 70px rgba(0, 0, 0, 0.95), 
-    0 0 40px rgba(255, 152, 0, 0.4);
-}
-
-.game-card:hover img {
-  filter: grayscale(0%) brightness(1.2);
-  transform: scale(1.1);
-}
-
-/* Tech-Glow (HUD Brackets) */
+/* Base Tech-Glow (HUD HUD Brackets / Glow) */
 .game-card::before {
   content: '';
   position: absolute;
@@ -419,12 +395,7 @@
   pointer-events: none;
 }
 
-.game-card:hover::before {
-  border: 1px solid rgba(255, 152, 0, 0.3);
-  box-shadow: inset 0 0 20px rgba(255, 152, 0, 0.1);
-}
-
-/* HUD Metadata Overlay (Redesigned for Visibility) */
+/* Base Metadata HUD (Common Structure) */
 .game-card::after {
   content: attr(data-title) "\A" attr(data-year);
   white-space: pre-wrap;
@@ -432,10 +403,8 @@
   top: 0; left: 0; right: 0; bottom: 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Bottom-aligned for visibility */
+  justify-content: flex-end;
   align-items: center;
-  /* Transparent Tech-Gradient */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0,0,0,0.4) 30%, transparent 70%);
   color: #fff;
   padding: 15px;
   font-size: 0.8rem;
@@ -450,52 +419,96 @@
   z-index: 4;
 }
 
-.game-card:hover::after {
-  opacity: 1;
-  transform: translateY(0);
-  background: 
-    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), /* Subtle scanlines */
-    linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 20%, transparent 60%);
-  background-size: 100% 4px, 100% 100%;
-  border-bottom: 2px solid #ff9800; /* Anchor line at the very bottom */
-  padding-bottom: 12px;
+.game-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.2, 0, 0.2, 1), filter 0.8s ease;
+  filter: grayscale(10%) brightness(0.8);
 }
 
-/* Polished Sibling Dimming (More clear for navigation) */
-.gamer-collection:has(.game-card:hover) .game-card:not(:hover) {
-  opacity: 0.4; /* More visible than before */
-  filter: blur(1px) brightness(0.7) grayscale(60%);
-  transform: scale(0.98) translateZ(-5px);
+/* --- Hover-Only Effects (Disabled for Touch Devices) --- */
+@media (hover: hover) {
+  /* Artistic Hover: "3D Perspective Tilt" */
+  .game-card:hover {
+    transform: scale(1.2) rotateX(5deg) rotateY(-5deg) translateZ(40px);
+    z-index: 50;
+    border-color: #ff9800;
+    border-radius: 4px; /* Straightens significantly for focus */
+    box-shadow: 
+      0 35px 70px rgba(0, 0, 0, 0.95), 
+      0 0 40px rgba(255, 152, 0, 0.4);
+  }
+
+  .game-card:hover img {
+    filter: grayscale(0%) brightness(1.2);
+    transform: scale(1.1);
+  }
+
+  .game-card:hover::before {
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    box-shadow: inset 0 0 20px rgba(255, 152, 0, 0.1);
+  }
+
+  .game-card:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+    background: 
+      linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), /* Subtle scanlines */
+      linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 20%, transparent 60%);
+    background-size: 100% 4px, 100% 100%;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 12px;
+  }
+
+  /* Polished Sibling Dimming */
+  .gamer-collection:has(.game-card:hover) .game-card:not(:hover) {
+    opacity: 0.4;
+    filter: blur(1px) brightness(0.7) grayscale(60%);
+    transform: scale(0.98) translateZ(-5px);
+  }
 }
 
-/* Mobile Bento */
+/* --- Mobile / Touch Device Specifics --- */
 @media (max-width: 1024px) {
   .gamer-collection {
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
     gap: 12px;
     padding: 30px 10px;
+    perspective: none; /* Disable expensive 3D on mobile */
   }
-}
 
-/* Mobile: Less aggressive scattering to prevent horizontal scroll */
-@media (max-width: 1024px) {
-  .gamer-collection {
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-    gap: 15px;
-    padding: 30px 15px;
-  }
-  
   .game-card {
-    transform: none !important; /* Flatten on mobile for cleaner look */
+    border-radius: 12px 4px 12px 4px; /* Slightly softer for mobile */
+    transition: transform 0.3s ease; /* Snappier for touch */
   }
 
-  .game-card.game-large {
-    grid-column: span 2;
-    grid-row: span 2;
+  /* Mobile "Tap" State: Show metadata when .is-active is toggled via JS */
+  .game-card.is-active::after {
+    opacity: 1;
+    transform: translateY(0);
+    background: 
+      linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%),
+      linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 20%, transparent 60%);
+    background-size: 100% 4px, 100% 100%;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 12px;
   }
-  
-  .game-card:hover {
-    transform: scale(1.05) !important;
+
+  /* Subtle Dimming when a card is tapped */
+  .gamer-collection:has(.game-card.is-active) .game-card:not(.is-active) {
+    opacity: 0.5;
+    filter: blur(1.5px) grayscale(40%);
+  }
+
+  .game-card.is-active img {
+    filter: grayscale(0%) brightness(1.1);
+  }
+
+  /* Ensure no transform scaling on mobile to prevent clipping */
+  .game-card:hover { 
+    transform: none !important; 
+    border-color: rgba(255, 152, 0, 0.4);
   }
 }
 

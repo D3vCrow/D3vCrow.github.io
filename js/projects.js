@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // Loading Screen
 const assets = [
     "assets/DMB_gameplay.mp4",
+    "assets/island_project.mp4",
+    "assets/Thrion_Tactics.mp4",
     "assets/post-apo_car.mp4",
     "assets/td_ds.mp4",
     "assets/box.mp4",

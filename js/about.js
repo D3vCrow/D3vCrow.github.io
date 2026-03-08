@@ -126,6 +126,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     observer.observe(unitySection);
   }
+
+  // 4. Gamer Section: Mobile Tap Toggle
+  const gameCards = document.querySelectorAll('.game-card');
+  
+  if (gameCards.length > 0) {
+    gameCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Only apply toggle logic on touch devices or small screens
+        if (window.innerWidth <= 1024) {
+          e.stopPropagation();
+          
+          const wasActive = card.classList.contains('is-active');
+          
+          // Clear all other active cards
+          gameCards.forEach(c => c.classList.remove('is-active'));
+          
+          // Toggle current card
+          if (!wasActive) {
+            card.classList.add('is-active');
+          }
+        }
+      });
+    });
+
+    // Close cards when clicking anywhere else
+    document.addEventListener('click', () => {
+      if (window.innerWidth <= 1024) {
+        gameCards.forEach(card => card.classList.remove('is-active'));
+      }
+    });
+  }
 });
 
 

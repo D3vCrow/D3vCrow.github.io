@@ -3,7 +3,7 @@
     width: 100%;
     text-align: center;
     padding-top: 150px; /* Increased to ensure no cropping below fixed nav */
-    overflow-x: hidden; /* Prevent page shifting horizontally */
+    overflow: visible !important; /* Allow indicators to peak out */
 }
 
 /* Project Titles */
@@ -20,17 +20,17 @@
     display: flex;
     width: 100%;
     min-height: auto;
-    align-items: flex-start;
+    align-items: center; /* Vertically center buttons with gallery */
     justify-content: center;
-    gap: 80px; /* Balanced gap to accommodate arrows without being 'huge' */
+    gap: 120px; 
     position: relative;
     padding: 20px 2% 40px 2%; /* Added top padding to prevent cropping of scaled buttons */
-    overflow-x: hidden; /* Fail-safe for layout stability */
+    overflow: visible !important;
 }
 
 /* Left Side: Project Buttons */
 .projects-buttons {
-    width: 380px; /* Widened to ensure content fits perfectly */
+    width: 520px; /* Widened for larger 16:9 thumbnails */
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -41,7 +41,7 @@
 .project-container {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
     width: 100%;
 
 }
@@ -52,40 +52,100 @@
     font-weight: bold;
     color: #ff9800;
     text-align: right;
-    width: 240px; /* Increased to avoid wrapping on desktop */
-    line-height: 1.2;
+    width: 260px; /* Increased slightly */
+    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-right: 3px solid #ff9800;
+    border-radius: 8px 0 0 8px;
+    box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Project Button Styling */
+.project-subtitle {
+    font-size: 0.75rem;
+    font-weight: 500; /* Slightly heavier */
+    opacity: 0.6;
+    display: block;
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px; /* Professional technical spacing */
+    line-height: 1.4;
+}
+
+/* Project Button Styling (The Tech-Card) */
 .project-btn {
-    width: 70%;
-    /* Slightly bigger for better tapping on touch devices */
-    height: 140px;
+    width: 240px;
+    height: 135px; /* 16:9 Ratio */
     min-height: 80px;
-    border: 2px solid #ff9800;
-    border-radius: 10px;
+    background: #000;
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    border-radius: 4px; /* Sharper, more technical look */
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Softened Vignette Overlay */
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
 }
 
-.project-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 15px rgba(255, 152, 0, 1);
+/* Decorative Tech Brackets */
+.project-btn::before,
+.project-btn::after {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ff9800;
+    z-index: 10;
+    transition: all 0.3s ease;
+    opacity: 0.5;
 }
 
-.project-btn.selected {
-    transform: scale(1.05);
-    box-shadow: 0px 0px 15px rgba(255, 152, 0, 1);
+.project-btn::before {
+    top: 5px;
+    left: 5px;
+    border-right: none;
+    border-bottom: none;
 }
 
-/* Member Styling */
+.project-btn::after {
+    bottom: 5px;
+    right: 5px;
+    border-left: none;
+    border-top: none;
+}
+
+.project-btn:hover, .project-btn.selected {
+    transform: scale(1.05) translateX(10px); /* Reduced scale for better clarity */
+    border-color: #ff9800;
+    box-shadow: 0px 0px 25px rgba(255, 152, 0, 0.4);
+}
+
+.project-btn:hover::before, .project-btn.selected::before {
+    top: 0;
+    left: 0;
+    opacity: 1;
+}
+
+.project-btn:hover::after, .project-btn.selected::after {
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+}
+
+/* Internal Media Styling */
 .project-btn img,
 .project-btn video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -109,15 +169,40 @@
     z-index: 0;
 }
 
+/* Selected Live Scanline Effect */
+.project-btn.selected::before {
+    animation: scanline 2s linear infinite;
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 152, 0, 0.5);
+    border: none;
+    top: 0;
+    left: 0;
+}
+
+@keyframes scanline {
+    0% { top: 0; opacity: 0; }
+    50% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.project-container:hover .project-title,
+/* Fix for container hover effects */
+.project-container:hover .project-title {
+    background: rgba(255, 152, 0, 0.1);
+    transform: translateX(-5px);
+}
+
 /* Gallery Container */
 .gallery-container {
     flex: 0 1 850px; /* Fixed max width for the gallery area */
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative; /* Arrows will position relative to this */
-    margin-top: 40px; /* More breathing room */
+    position: relative; 
+    margin-top: 0; /* Centered via layout flex now */
     z-index: 5;
+    overflow: visible; /* Ensure indicators aren't cropped */
 }
 
 /* Gallery Items */
@@ -291,6 +376,7 @@
 .next-btn {
     position: absolute;
     top: 50%;
+    transform: translateY(-50%);
     background: rgba(255, 152, 0, 0.7);
     color: #000;
     font-size: 30px;
@@ -307,25 +393,25 @@
 }
 
 .prev-btn {
-    left: -70px; /* Pulled closer to avoid overlapping categoriers */
+    left: -80px; /* Adjusted to prevent overlap with new wider thumbnails */
     z-index: 20;
 }
 
 .next-btn {
-    right: -70px; /* Pulled closer to balance with left arrow */
+    right: -80px; /* Balanced with prev-btn */
     z-index: 20;
 }
 
 /* Gallery Indicators (Bullets) */
 .gallery-indicators {
     position: absolute;
-    top: -40px;
+    top: -50px; /* Standardized for desktop visibility */
     left: 50%;
     transform: translateX(-50%);
     list-style: none;
     display: flex;
     gap: 8px;
-    z-index: 10;
+    z-index: 50; /* Ensure high visibility */
 }
 
 .gallery-indicators li {
@@ -397,11 +483,12 @@
         margin-top: 0;
         flex-direction: row;
         overflow-x: auto;
-        padding: 15px 5% 15px 5%; /* Added top padding for scale room */
-        gap: 15px;
+        padding: 20px 5% 30px 5%;
+        gap: 25px;
         justify-content: flex-start;
+        align-items: flex-start;
         scroll-behavior: smooth;
-        scrollbar-width: none; /* Hide scrollbar for cleaner look */
+        scrollbar-width: none; 
         -ms-overflow-style: none;
         scroll-snap-type: x mandatory;
     }
@@ -411,132 +498,126 @@
     }
 
     .project-container {
-        width: 160px;
-        flex-direction: column-reverse;
+        width: 220px; 
+        flex-direction: column; /* Title above thumbnail */
         flex-shrink: 0;
-        scroll-snap-align: center; /* Center buttons when scrolling */
+        scroll-snap-align: center;
+        gap: 12px;
     }
 
     .project-title {
         text-align: center;
         width: 100%;
-        font-size: 0.9rem;
-        margin-bottom: 5px;
+        font-size: 0.85rem;
+        margin: 0;
+        padding: 5px 0;
+        background: none; 
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: none;
+        border-bottom: 2px solid rgba(255, 152, 0, 0.3); 
+        border-radius: 0;
         white-space: normal;
+        min-height: 55px; /* Fixed height to ensure thumbnails below are level */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        line-height: 1.4;
+    }
+
+    .project-subtitle {
+        font-size: 0.7rem;
+        opacity: 0.6;
+        margin-top: 3px;
+        letter-spacing: 0.5px;
     }
 
     .project-btn {
         width: 100%;
-        height: 100px;
+        height: 124px; 
         min-height: auto;
+        flex-shrink: 0;
+        border-radius: 4px;
     }
 
-    /* Gallery Section */
     .gallery-container {
-        position: relative;
-        width: 100%;
-        margin: 40px auto 20px auto; /* Increased margin-top for breathing room */
-        padding-top: 70px; /* More space for arrows and bullets */
-        display: block;
-        right: auto;
-        left: auto;
+        width: 100vw !important;
+        height: auto !important;
+        margin-top: 80px !important; /* Balanced gap to prevent overlap */
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        overflow: visible;
     }
 
-    /* ... (images/descriptions same) ... */
+    .gallery, .gallery-item {
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 
-    /* Navigation Arrows - Moved to RESERVED SPACE at top */
+    .media-wrapper {
+        width: 100% !important;
+        max-width: 95vw !important;
+        aspect-ratio: 16 / 9;
+        border-radius: 8px;
+    }
+
+    /* Restore Navigation Arrows for Mobile - Align ABOVE Media */
     .prev-btn,
     .next-btn {
         position: absolute;
-        top: 0px; /* Moved up into the padding area */
-        font-size: 24px;
-        padding: 8px;
-        background: rgba(255, 152, 0, 0.4);
+        top: -60px; /* Recalibrated for better vertical centering */
+        transform: none;
+        font-size: 18px;
+        padding: 5px;
+        background: rgba(255, 152, 0, 0.85);
         border: 1px solid #ff9800;
-        border-radius: 5px;
-        width: 44px;
-        height: 44px;
+        border-radius: 4px;
+        width: 46px;
+        height: 46px;
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 20;
+        z-index: 100;
+        color: #000;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.6);
     }
 
     .prev-btn {
-        left: 15px; /* Inset to avoid edge */
+        left: 8%; /* Slightly narrowed for better centering/alignment */
     }
 
     .next-btn {
-        right: 15px; /* Inset to avoid edge */
+        right: 8%;
     }
 
-    /* Indicators - Centered in the RESERVED SPACE */
+    /* Target center indicator for bullets - Above Gallery */
     .gallery-indicators {
-        top: 10px; /* Aligned with buttons */
-        width: 100%;
-        justify-content: center;
-        padding-left: 0;
-        left: 0;
-        transform: none;
+        top: -40px; /* Pulled up to completely prevent overlap with media */
+        width: auto;
+        left: 50%;
+        transform: translateX(-50%);
+        gap: 8px;
+        z-index: 100;
     }
 
-    .gallery-item img,
-    .gallery-item iframe {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        min-width: 0 !important;
-        min-height: 200px;
-        aspect-ratio: 16/9;
-        margin: 0 auto;
-        display: block;
-        object-fit: contain !important;
+    .gallery-indicators li {
+        width: 10px;
+        height: 10px;
     }
 
-    /* Remove Hover persistence on mobile */
-    .project-btn:hover {
-        transform: none !important;
-        box-shadow: none !important;
-        border: 2px solid #ff9800;
+    .gallery-indicators .active {
+        transform: scale(1.3);
     }
 
-    /* Keep selected highlight on mobile */
+    /* Disable transform persistence on mobile to avoid scroll glitches */
     .project-btn.selected {
-        transform: scale(1.05) !important;
-        box-shadow: 0px 0px 15px rgba(255, 152, 0, 1) !important;
-        border: 2px solid #ff9800;
-    }
-
-    .project-btn:active {
-        transform: scale(0.95) !important;
-        box-shadow: 0px 0px 15px rgba(255, 152, 0, 1) !important;
+        transform: scale(1.02) !important;
+        box-shadow: 0px 0px 20px rgba(255, 152, 0, 0.5) !important;
         border-color: #ff9800;
-    }
-
-    /* Indicators - Move ABOVE gallery or clearly overlay */
-    .gallery-indicators {
-        top: -15px;
-        /* Move above the image */
-    }
-
-    /* Fixed Mobile Media Wrapper */
-    .media-wrapper {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16/9;
-        margin: 0 auto; /* Restored centering */
-    }
-
-    .gallery-item img,
-    .gallery-item iframe,
-    .gallery-item video {
-        width: 100% !important;
-        max-width: 100% !important;
-        height: auto !important;
-        aspect-ratio: 16/9;
-        object-fit: contain !important;
-        position: static !important;
     }
 }
 
