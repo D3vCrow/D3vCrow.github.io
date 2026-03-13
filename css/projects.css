@@ -433,6 +433,162 @@
     transform: scale(1.3);
 }
 
+/* Premium Tactical Interface Layout */
+.gallery-description.technical {
+    font-family: 'Roboto', sans-serif;
+    text-align: left;
+    padding: 25px 30px;
+    background: radial-gradient(circle at top left, rgba(255, 152, 0, 0.1), transparent 70%),
+                rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    border-left: 5px solid #ff9800;
+    border-radius: 2px;
+    max-width: 850px;
+    position: relative;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.7),
+                inset 0 0 20px rgba(255, 152, 0, 0.05);
+    overflow: hidden;
+}
+
+/* Holographic Scanline Effect */
+.gallery-description.technical::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 152, 0, 0.03) 3px,
+        transparent 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+    animation: scanline-move 10s linear infinite;
+}
+
+@keyframes scanline-move {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(100%); }
+}
+
+/* Premium Tactical Decals */
+.gallery-description.technical .corner-decal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #ff9800;
+    z-index: 10;
+    opacity: 0.8;
+}
+
+.decal-tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.decal-bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+
+.tech-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 152, 0, 0.4);
+    padding-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.tech-header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.tech-status-tag {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    color: #0af;
+    background: rgba(0, 170, 255, 0.1);
+    padding: 2px 6px;
+    border: 1px solid rgba(0, 170, 255, 0.3);
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+}
+
+.tech-year {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff9800;
+    background: rgba(255, 152, 0, 0.15);
+    padding: 6px 12px;
+    border-radius: 0;
+    font-size: 0.9rem;
+    font-weight: 900;
+    border: 1px solid #ff9800;
+    text-shadow: 0 0 10px rgba(255, 152, 0, 0.6);
+}
+
+.tech-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px rgba(255, 152, 0, 0.2), 0 0 15px rgba(255, 152, 0, 0.2);
+}
+
+.tech-data {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+.tech-row {
+    display: flex;
+    font-size: 0.85rem;
+    letter-spacing: 1.2px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 8px 12px;
+    border-left: 2px solid rgba(255, 152, 0, 0.5);
+}
+
+.tech-row .label {
+    color: #ff9800;
+    width: 100px;
+    flex-shrink: 0;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    opacity: 0.9;
+}
+
+.tech-row .value {
+    color: #ffc107;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 193, 7, 0.3);
+}
+
+.tech-summary {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #fff;
+    margin: 0;
+    background: rgba(255, 152, 0, 0.05);
+    padding: 15px;
+    border: 1px solid rgba(255, 152, 0, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
 /* Ensure it's responsive */
 @media (max-width: 1024px) {
 
@@ -611,6 +767,49 @@
 
     .gallery-indicators .active {
         transform: scale(1.3);
+    }
+
+    /* Premium Tactical Mobile Refinements */
+    .gallery-description.technical {
+        padding: 15px 20px;
+        max-width: 95% !important;
+        margin-top: 15px;
+        border-left-width: 3px;
+    }
+
+    .tech-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .tech-title {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .tech-data {
+        grid-template-columns: 1fr; /* Force single column on mobile */
+        gap: 8px;
+    }
+
+    .tech-row {
+        padding: 6px 10px;
+    }
+
+    .tech-status-tag {
+        font-size: 0.6rem;
+        animation: status-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes status-pulse {
+        0%, 100% { opacity: 0.6; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); text-shadow: 0 0 8px #0af; }
+    }
+
+    .tech-summary {
+        font-size: 0.85rem;
+        padding: 12px;
     }
 
     /* Disable transform persistence on mobile to avoid scroll glitches */
