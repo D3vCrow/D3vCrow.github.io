@@ -398,14 +398,27 @@ nav a.active {
   }
 
   /* Title adjustments */
+  .title-wrapper {
+    width: 100%;
+    display: block;
+  }
+
   .title {
     font-size: 18vw;
     line-height: 0.9;
     letter-spacing: -2px;
-    background-position: 50% 50%;
-    /* Center the background image on mobile */
-    /* Ensure background is large enough to pan */
-    background-size: 150% auto;
+    width: 100%;
+    display: block;
+  }
+
+  .title-echo,
+  .title-echo-r,
+  .title-echo-b {
+    font-size: 18vw;
+    line-height: 0.9;
+    letter-spacing: -2px;
+    width: 100%;
+    display: block;
   }
 
   /* AKA Container adjustments */
