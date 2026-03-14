@@ -1,12 +1,85 @@
-// Moving GIF Background Effect
+
+// Video-as-text-background via canvas
+document.addEventListener("DOMContentLoaded", function () {
+  const title = document.querySelector(".title");
+  const video = document.querySelector(".title-bg-video");
+  if (!title || !video) return;
+
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+
+  video.play().catch(() => {});
+
+  setInterval(function () {
+    if (video.readyState >= 2) {
+      const w = title.offsetWidth;
+      const h = title.offsetHeight;
+      if (w > 0 && h > 0) {
+        const vw = video.videoWidth;
+        const vh = video.videoHeight;
+        const scale = Math.max(w / vw, h / vh);
+        const sw = Math.ceil(vw * scale);
+        const sh = Math.ceil(vh * scale);
+        canvas.width = sw;
+        canvas.height = sh;
+        ctx.drawImage(video, 0, 0, sw, sh);
+        title.style.backgroundImage = 'url(' + canvas.toDataURL('image/jpeg', 0.85) + ')';
+        title.style.backgroundSize = sw + 'px ' + sh + 'px';
+      }
+    }
+  }, 33);
+});
+
+// Parallax + chromatic aberration on mousemove
 document.addEventListener("mousemove", (e) => {
   const title = document.querySelector(".title");
+  const echoW = document.querySelector(".title-echo:not(.title-echo-r):not(.title-echo-b)");
+  const echoR = document.querySelector(".title-echo-r");
+  const echoB = document.querySelector(".title-echo-b");
+  const nx = e.pageX / window.innerWidth - 0.5;
+  const ny = e.pageY / window.innerHeight - 0.5;
+
   if (title) {
-    let traX = (e.pageX / window.innerWidth) * 50;
-    let traY = (e.pageY / window.innerHeight) * 50;
-    title.style.backgroundPosition = `${traX}% ${traY}%`;
+    title.style.backgroundPosition = `${(nx + 0.5) * 50}% ${(ny + 0.5) * 50}%`;
+  }
+  // White echo drifts opposite to mouse
+  if (echoW) {
+    echoW.style.transform = `translate(${nx * -10}px, ${ny * -6}px)`;
+  }
+  // Red echo drifts up-left, blue drifts down-right — chromatic split
+  if (echoR) {
+    echoR.style.transform = `translate(${nx * -16}px, ${ny * -10}px)`;
+  }
+  if (echoB) {
+    echoB.style.transform = `translate(${nx * 16}px, ${ny * 10}px)`;
   }
 });
+
+// Occasional glitch — fires randomly ~once per 10-15s
+(function scheduleGlitch() {
+  const delay = 10000 + Math.random() * 5000;
+  setTimeout(() => {
+    const echoR = document.querySelector('.title-echo-r');
+    const echoB = document.querySelector('.title-echo-b');
+    if (echoR && echoB) {
+      const gx = 8 + Math.random() * 10;
+      const gy = 3 + Math.random() * 5;
+      echoR.style.transition = 'none';
+      echoB.style.transition = 'none';
+      echoR.style.transform = `translate(${-gx}px, ${-gy}px)`;
+      echoB.style.transform = `translate(${gx}px, ${gy}px)`;
+      setTimeout(() => {
+        echoR.style.transition = '';
+        echoB.style.transition = '';
+        echoR.style.transform = '';
+        echoB.style.transform = '';
+        scheduleGlitch();
+      }, 80);
+    } else {
+      scheduleGlitch();
+    }
+  }, delay);
+})();
 
 document.addEventListener("DOMContentLoaded", function () {
   const messages = ["Game Developer", "Unity Engineer", "Game Designer"];
@@ -15,23 +88,43 @@ document.addEventListener("DOMContentLoaded", function () {
   if (container) {
     let currentIndex = 0;
 
-    function showMessage() {
-      container.textContent = messages[currentIndex];
-      container.classList.remove("fade-out");
-      container.classList.add("fade-in");
-
-      setTimeout(() => {
-        container.classList.remove("fade-in");
-        container.classList.add("fade-out");
-
-        setTimeout(() => {
-          currentIndex = (currentIndex + 1) % messages.length;
-          showMessage();
-        }, 1000); // Wait for fade out before switching
-      }, 2500); // Keep visible before fading out
+    function buildChars(text) {
+      container.innerHTML = '';
+      return text.split('').map((ch, i) => {
+        const span = document.createElement('span');
+        span.className = 'msg-char';
+        span.textContent = ch === ' ' ? '\u00A0' : ch;
+        span.style.transitionDelay = `${i * 60}ms`;
+        container.appendChild(span);
+        return span;
+      });
     }
 
-    showMessage(); // Start animation cycle
+    function cycle() {
+      const text = messages[currentIndex];
+      const chars = buildChars(text);
+
+      // Enter: left → right
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        chars.forEach(c => c.classList.add('visible'));
+      }));
+
+      // Exit: right → left
+      setTimeout(() => {
+        chars.forEach((c, i) => {
+          c.style.transitionDelay = `${(chars.length - 1 - i) * 55}ms`;
+          c.classList.add('exit');
+          c.classList.remove('visible');
+        });
+        const exitDuration = chars.length * 40 + 450;
+        setTimeout(() => {
+          currentIndex = (currentIndex + 1) % messages.length;
+          cycle();
+        }, exitDuration);
+      }, 3800);
+    }
+
+    cycle();
   }
 
   // Scroll Reveal Logic

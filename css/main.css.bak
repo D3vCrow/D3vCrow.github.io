@@ -150,49 +150,6 @@ header {
   transition: background-position 0.2s ease-out;
 }
 
-.title-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.title-echo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-weight: 900;
-  font-size: 180px;
-  line-height: 180px;
-  letter-spacing: -3px;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.02);
-  pointer-events: none;
-  will-change: transform;
-  transition: transform 0.2s ease-out;
-  mix-blend-mode: screen;
-}
-
-.title-echo-r {
-  color: rgba(255, 60, 40, 0.06);
-  transition: transform 0.28s ease-out;
-  animation: idle-float-r 6s ease-in-out infinite;
-}
-
-.title-echo-b {
-  color: rgba(40, 140, 255, 0.06);
-  transition: transform 0.16s ease-out;
-  animation: idle-float-b 6s ease-in-out infinite;
-}
-
-@keyframes idle-float-r {
-  0%, 100% { translate: 0px 0px; }
-  50%       { translate: -3px -2px; }
-}
-
-@keyframes idle-float-b {
-  0%, 100% { translate: 0px 0px; }
-  50%       { translate: 3px 2px; }
-}
-
 .title-bg-video {
   position: fixed;
   width: 1px;
@@ -231,33 +188,45 @@ header {
   font-size: 2rem;
   font-weight: bold;
   color: #ff9800;
+  text-shadow: 1px 1px 6px rgba(255, 152, 0, 0.6);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: left;
   white-space: nowrap;
-  height: 2.5rem;
   overflow: hidden;
-  letter-spacing: 2px;
+  height: 2.5rem;
+  position: relative;
 }
 
-#rotating-message-container .msg-char {
-  display: inline-block;
-  transform: translateY(115%) scale(0.85);
+/* Fade In Effect */
+.fade-in {
   opacity: 0;
-  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.5s ease;
+  animation: fadeIn 1.2s forwards ease-in-out;
 }
 
-#rotating-message-container .msg-char.visible {
-  transform: translateY(0%) scale(1);
-  opacity: 1;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
-#rotating-message-container .msg-char.exit {
-  transform: translateY(-115%) scale(0.9);
-  opacity: 0;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.8, 1),
-              opacity 0.4s ease;
+/* Fade Out Effect */
+.fade-out {
+  animation: fadeOut 1s forwards ease-in-out;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 

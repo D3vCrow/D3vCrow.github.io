@@ -308,7 +308,7 @@ function startCategoryPreviews() {
         gallery.querySelectorAll('.gallery-item .media-wrapper').forEach(wrapper => {
             const video = wrapper.querySelector('video');
             const img = wrapper.querySelector('img');
-            
+
             if (video) {
                 const source = video.querySelector('source');
                 if (source) medias.push({ type: 'video', src: source.src });
@@ -319,84 +319,97 @@ function startCategoryPreviews() {
         galleryMedias.push(medias);
     });
 
+    function createMediaElement(media) {
+        if (media.type === 'video') {
+            const el = document.createElement('video');
+            el.autoplay = true;
+            el.loop = true;
+            el.muted = true;
+            el.playsInline = true;
+            el.disablePictureInPicture = true;
+            el.setAttribute('controlsList', 'nopictureinpicture');
+            const s = document.createElement('source');
+            s.src = media.src;
+            s.type = 'video/mp4';
+            el.appendChild(s);
+            return el;
+        } else {
+            const el = document.createElement('img');
+            el.src = media.src;
+            return el;
+        }
+    }
+
     buttons.forEach((btn, bIndex) => {
         const medias = galleryMedias[bIndex];
         if (!medias || medias.length === 0) return;
 
-        // Clear existing hardcoded content (like DMB.mp4)
         btn.innerHTML = '';
 
-        let currentIdx = 0;
-        const initialMedia = medias[0];
-        let currentElement;
+        // Pre-create two slots and swap between them — no DOM insertion/removal
+        const slotA = createMediaElement(medias[0]);
+        const slotB = createMediaElement(medias.length > 1 ? medias[1] : medias[0]);
 
-        // Create the first element immediately
-        if (initialMedia.type === 'video') {
-            currentElement = document.createElement('video');
-            currentElement.autoplay = true;
-            currentElement.loop = true;
-            currentElement.muted = true;
-            currentElement.playsInline = true;
-            currentElement.disablePictureInPicture = true;
-            currentElement.setAttribute('controlsList', 'nopictureinpicture');
-            const s = document.createElement('source');
-            s.src = initialMedia.src;
-            s.type = 'video/mp4';
-            currentElement.appendChild(s);
-        } else {
-            currentElement = document.createElement('img');
-            currentElement.src = initialMedia.src;
-        }
+        slotA.className = 'active';
+        slotB.className = 'btn-preview-media';
 
-        currentElement.className = 'active'; // Mark as active for CSS fade
-        btn.appendChild(currentElement);
+        btn.appendChild(slotA);
+        btn.appendChild(slotB);
 
         if (medias.length <= 1) return;
 
+        let currentIdx = 0;
+        let activeSlot = slotA;
+        let hiddenSlot = slotB;
+
         const rotate = () => {
-            currentIdx = (currentIdx + 1) % galleryMedias[bIndex].length;
-            const nextMedia = galleryMedias[bIndex][currentIdx];
+            const nextIdx = (currentIdx + 1) % medias.length;
+            const nextMedia = medias[nextIdx];
 
-            let nextElement;
+            // Update the hidden slot's source before fading it in
             if (nextMedia.type === 'video') {
-                nextElement = document.createElement('video');
-                nextElement.autoplay = true;
-                nextElement.loop = true;
-                nextElement.muted = true;
-                nextElement.playsInline = true;
-                nextElement.disablePictureInPicture = true;
-                nextElement.setAttribute('controlsList', 'nopictureinpicture');
-                const s = document.createElement('source');
-                s.src = nextMedia.src;
-                s.type = 'video/mp4';
-                nextElement.appendChild(s);
+                const source = hiddenSlot.tagName === 'VIDEO' ? hiddenSlot.querySelector('source') : null;
+                if (source) {
+                    source.src = nextMedia.src;
+                    hiddenSlot.load();
+                } else {
+                    // Slot type mismatch — replace it
+                    const newEl = createMediaElement(nextMedia);
+                    newEl.className = 'btn-preview-media';
+                    btn.replaceChild(newEl, hiddenSlot);
+                    hiddenSlot = newEl;
+                }
             } else {
-                nextElement = document.createElement('img');
-                nextElement.src = nextMedia.src;
+                if (hiddenSlot.tagName === 'IMG') {
+                    hiddenSlot.src = nextMedia.src;
+                } else {
+                    const newEl = createMediaElement(nextMedia);
+                    newEl.className = 'btn-preview-media';
+                    btn.replaceChild(newEl, hiddenSlot);
+                    hiddenSlot = newEl;
+                }
             }
 
-            nextElement.className = 'btn-preview-media next';
-            btn.appendChild(nextElement);
+            // Swap active/hidden
+            activeSlot.classList.remove('active');
+            activeSlot.classList.add('fade-out');
+            hiddenSlot.classList.add('active');
+            hiddenSlot.classList.remove('btn-preview-media', 'fade-out');
 
-            // Force reflow
-            nextElement.offsetHeight;
+            const prevActive = activeSlot;
+            activeSlot = hiddenSlot;
+            hiddenSlot = prevActive;
 
-            nextElement.classList.add('active');
-            nextElement.classList.remove('next');
+            // Reset the now-hidden slot after fade
+            setTimeout(() => {
+                hiddenSlot.classList.remove('active', 'fade-out');
+                hiddenSlot.classList.add('btn-preview-media');
+            }, 1000);
 
-            if (currentElement) {
-                currentElement.classList.remove('active');
-                currentElement.classList.add('fade-out');
-                
-                const oldEl = currentElement;
-                setTimeout(() => {
-                    if (oldEl.parentNode === btn) btn.removeChild(oldEl);
-                }, 1000);
-            }
-            currentElement = nextElement;
+            currentIdx = nextIdx;
         };
 
-        setInterval(rotate, 5000); // Rotate every 5 seconds
+        setInterval(rotate, 5000);
     });
 }
 

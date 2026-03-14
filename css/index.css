@@ -8,8 +8,16 @@ body {
     font-family: 'Raleway', sans-serif;
     /* Subtle gradient background */
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    overflow: hidden;
-    /* Prevent scrollbars */
+    overflow: hidden; /* Prevent scrollbars on desktop */
+}
+
+/* On mobile, allow scroll if content is taller than the viewport */
+@media (max-width: 768px) {
+    html, body {
+        overflow: auto;
+        height: auto;
+        min-height: 100%;
+    }
 }
 
 /* Main Container */

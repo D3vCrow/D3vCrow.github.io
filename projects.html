@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <title>Projects | Devcrow Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Game development projects by Christoforos Papachristoforou – commercial work, Pyles Studio, and solo DevCrow experiments.">
+    <link rel="icon" href="assets/obsidian_moon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700;900&family=Roboto:wght@300;400;700&display=swap">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/projects.css">
 </head>
@@ -32,19 +34,19 @@
             <div class="projects-buttons">
                 <div class="project-container">
                     <span class="project-title">Commercial Work <span class="project-subtitle">(Client projects, contracts, shipped products)</span></span>
-                    <div class="project-btn selected" onclick="toggleSelection(this);showGallery(0)">
+                    <div class="project-btn selected" onclick="showGallery(0)">
                     </div>
                 </div>
 
                 <div class="project-container">
                     <span class="project-title">Pyles Studio Projects <span class="project-subtitle">(Development Director & Unity Engineer)</span></span>
-                    <div class="project-btn" onclick="toggleSelection(this);showGallery(1)">
+                    <div class="project-btn" onclick="showGallery(1)">
                     </div>
                 </div>
 
                 <div class="project-container">
                     <span class="project-title">DevCrow <span class="project-subtitle">(Solo Projects & Experiments)</span></span>
-                    <div class="project-btn" onclick="toggleSelection(this);showGallery(2)">
+                    <div class="project-btn" onclick="showGallery(2)">
                     </div>
                 </div>
             </div>
@@ -62,7 +64,7 @@
                     </div>
                     <div class="gallery-item">
                         <div class="media-wrapper">
-                            <img src="VR2.PNG" alt="VR Airport" loading="lazy">
+                            <img src="VR2.png" alt="VR Airport" loading="lazy">
                         </div>
                         <p class="gallery-description">Served as Contractor Senior Unity Developer for e-Point on a VR project at a major German Fraport Airport. The project featured a shared VR experience for two users with Meta Quest 3 – <br><a href="https://youtu.be/Wqm-5RkbYoc">check out a sneak peek</a>. </p>
                     </div>
@@ -78,7 +80,7 @@
                     </div>
                     <div class="gallery-item">
                         <div class="media-wrapper">
-                            <video autoplay loop muted playsinline class="video-item">
+                            <video preload="none" autoplay loop muted playsinline class="video-item">
                                 <source src="assets/SMB_gameplay.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -105,7 +107,7 @@
                     <ol class="gallery-indicators" id="bullets-1"></ol>
                     <div class="gallery-item active">
                         <div class="media-wrapper">
-                            <video autoplay loop muted playsinline class="video-item">
+                            <video preload="none" autoplay loop muted playsinline class="video-item">
                                 <source src="assets/island_project.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -116,7 +118,7 @@
                     </div>
                     <div class="gallery-item">
                         <div class="media-wrapper">
-                            <video autoplay loop muted playsinline class="video-item">
+                            <video preload="none" autoplay loop muted playsinline class="video-item">
                                 <source src="assets/Thrion_Tactics.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -136,7 +138,7 @@
                     <!-- 2018 -->
                     <div class="gallery-item active">
                         <div class="media-wrapper">
-                            <video autoplay loop muted playsinline class="video-item">
+                            <video preload="none" autoplay loop muted playsinline class="video-item">
                                 <source src="assets/post-apo_car.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -161,7 +163,7 @@
                     <!-- 2019 -->
                     <div class="gallery-item">
                         <div class="media-wrapper">
-                            <video autoplay loop muted playsinline class="video-item">
+                            <video preload="none" autoplay loop muted playsinline class="video-item">
                                 <source src="assets/td_ds.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -186,7 +188,7 @@
                     <!-- 2019 -->
                     <div class="gallery-item">
                         <div class="media-wrapper">
-                            <video autoplay loop muted playsinline class="video-item">
+                            <video preload="none" autoplay loop muted playsinline class="video-item">
                                 <source src="assets/box.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -234,7 +236,7 @@
                     <!-- 2020 -->
                     <div class="gallery-item">
                         <div class="media-wrapper">
-                            <video autoplay loop muted playsinline class="video-item">
+                            <video preload="none" autoplay loop muted playsinline class="video-item">
                                 <source src="assets/thriambos.mp4" type="video/mp4">
                             </video>
                         </div>
@@ -281,7 +283,7 @@
 
                     <div class="gallery-item">
                         <div class="media-wrapper">
-                            <video autoplay loop muted playsinline class="video-item">
+                            <video preload="none" autoplay loop muted playsinline class="video-item">
                                 <source src="assets/DMB_gameplay.mp4" type="video/mp4">
                             </video>
                         </div>

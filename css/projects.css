@@ -186,8 +186,6 @@
     100% { top: 100%; opacity: 0; }
 }
 
-.project-container:hover .project-title,
-/* Fix for container hover effects */
 .project-container:hover .project-title {
     background: rgba(255, 152, 0, 0.1);
     transform: translateX(-5px);
@@ -267,7 +265,7 @@
 .gallery-item.active:hover {
     transform: scale(1.01);
     border-radius: 5px;
-    box-shadow: 0px 0px 15px rgba(255, 152, 0, 1);
+    box-shadow: 0px 0px 15px rgba(255, 152, 0, 0.35);
 }
 
 /* Universal Media Wrapper for 16:9 Consistency */
@@ -817,6 +815,36 @@
         transform: scale(1.02) !important;
         box-shadow: 0px 0px 20px rgba(255, 152, 0, 0.5) !important;
         border-color: #ff9800;
+    }
+}
+
+/* Disable animations on mobile to reduce GPU overhead */
+@media (max-width: 1024px) {
+    .gallery-description.technical::before {
+        animation: none;
+    }
+}
+
+/* Respect user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+
+    .gallery-description.technical::before,
+    .tech-status-tag,
+    .project-btn.selected::before,
+    .media-wrapper::before {
+        animation: none;
+    }
+
+    .project-btn,
+    .project-title,
+    .media-wrapper,
+    .gallery-item.active {
+        transition: none;
     }
 }
 

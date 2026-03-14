@@ -47,7 +47,7 @@
 }
 
 .whoami-text {
-  font: Arial;
+  font-family: Arial, sans-serif;
   font-size: 1.0rem;
   line-height: 1.6;
   color: #f0f0f0;
