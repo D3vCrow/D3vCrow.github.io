@@ -1,3 +1,43 @@
+/* Custom Cursor — all portfolio pages */
+body.portfolio-page {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='20' viewBox='0 0 14 20'%3E%3Cpath d='M2 1 L2 17 L5.5 13.5 L8.5 20 L10.5 19 L7.5 12.5 L13 12.5 Z' fill='%23ff9800' stroke='rgba(0%2C0%2C0%2C0.4)' stroke-width='0.75' stroke-linejoin='round'/%3E%3C/svg%3E") 2 1, auto;
+}
+
+body.portfolio-page a,
+body.portfolio-page button,
+body.portfolio-page input[type="submit"],
+body.portfolio-page input[type="button"],
+body.portfolio-page select,
+body.portfolio-page .action-btn,
+body.portfolio-page .next-btn,
+body.portfolio-page .prev-btn,
+body.portfolio-page .project-btn,
+body.portfolio-page .gallery-item,
+body.portfolio-page .gallery-indicators span,
+body.portfolio-page .side-tabs li,
+body.portfolio-page .contact-item,
+body.portfolio-page .video-item,
+body.portfolio-page [role="button"] {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14'%3E%3Cpolygon points='7,1 13,13 1,13' fill='%23ff9800' stroke='rgba(0%2C0%2C0%2C0.35)' stroke-width='0.75' stroke-linejoin='round'/%3E%3C/svg%3E") 7 1, pointer;
+}
+
+.cursor-click {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: rgba(255, 152, 0, 0.8);
+  pointer-events: none;
+  z-index: 10000;
+  animation: cursor-pop 0.4s ease-out forwards;
+}
+
+@keyframes cursor-pop {
+  0%   { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
 /* General Styles */
 html,
 body {
@@ -132,13 +172,13 @@ header {
   overflow: hidden;
 }
 
-/* Title (Animated GIF Text Effect) */
+/* Title (Video-as-text via canvas — backgroundImage set by JS) */
 .title {
   font-weight: 900;
   font-size: 180px;
   text-align: center;
   color: transparent;
-  background: url("../assets/thrionbg.gif") no-repeat;
+  background: #000 no-repeat;
   background-size: cover;
   background-position: 50% 0%;
   -webkit-background-clip: text;

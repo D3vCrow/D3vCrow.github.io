@@ -6,15 +6,21 @@
     <title>Projects | Devcrow Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Game development projects by Christoforos Papachristoforou – commercial work, Pyles Studio, and solo DevCrow experiments.">
+    <meta property="og:title" content="Projects | Devcrow Portfolio">
+    <meta property="og:description" content="Game development projects by Christoforos Papachristoforou – commercial work, Pyles Studio, and solo DevCrow experiments.">
+    <meta property="og:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
+    <meta property="og:url" content="https://d3vcrow.github.io/projects.html">
+    <meta property="og:type" content="website">
     <link rel="icon" href="assets/obsidian_moon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700;900&family=Roboto:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/projects.css">
 </head>
 
-<body>
+<body class="portfolio-page">
 
     <!-- Navigation Bar -->
     <nav>
@@ -134,7 +140,7 @@
                 <!-- Category 3: DevCrow: Solo Lab -->
                 <div class="gallery" id="gallery-2">
                     <ol class="gallery-indicators" id="bullets-2"></ol>
-                    
+
                     <!-- 2018 -->
                     <div class="gallery-item active">
                         <div class="media-wrapper">
@@ -146,17 +152,17 @@
                             <div class="corner-decal decal-tr"></div>
                             <div class="corner-decal decal-bl"></div>
                             <div class="tech-header">
-                                <div class="tech-header-left">
-                                    <span class="tech-status-tag">[SYST: OPERATIONAL]</span>
-                                    <span class="tech-year">[2018]</span>
-                                </div>
+                                <span class="tech-year">[2018]</span>
                                 <span class="tech-title">POST-APOCALYPTIC DRIVING</span>
+                                <button class="tech-expand-btn" aria-label="Toggle details"><i class="fas fa-chevron-down"></i></button>
                             </div>
-                            <div class="tech-data">
-                                <div class="tech-row"><span class="label">ENGINE:</span> <span class="value">UNITY (BUILT-IN RP)</span></div>
-                                <div class="tech-row"><span class="label">SYSTEMS:</span> <span class="value">VEHICLE PHYSICS | RIGID-BODY DYNAMICS</span></div>
+                            <div class="tech-collapsible">
+                                <div class="tech-data">
+                                    <div class="tech-row"><span class="label">ENGINE:</span> <span class="value">UNITY (BUILT-IN RP)</span></div>
+                                    <div class="tech-row"><span class="label">SYSTEMS:</span> <span class="value">VEHICLE PHYSICS | RIGID-BODY DYNAMICS</span></div>
+                                </div>
+                                <p class="tech-summary">Professional technical exploration of atmospheric driving mechanics, tire friction models, and environmental shaders developed as a solo engineer.</p>
                             </div>
-                            <p class="tech-summary">Professional technical exploration of atmospheric driving mechanics, tire friction models, and environmental shaders developed as a solo engineer.</p>
                         </div>
                     </div>
 
@@ -171,17 +177,17 @@
                             <div class="corner-decal decal-tr"></div>
                             <div class="corner-decal decal-bl"></div>
                             <div class="tech-header">
-                                <div class="tech-header-left">
-                                    <span class="tech-status-tag">[SYST: OPERATIONAL]</span>
-                                    <span class="tech-year">[2019]</span>
-                                </div>
+                                <span class="tech-year">[2019]</span>
                                 <span class="tech-title">FANTASY TOWER DEFENCE</span>
+                                <button class="tech-expand-btn" aria-label="Toggle details"><i class="fas fa-chevron-down"></i></button>
                             </div>
-                            <div class="tech-data">
-                                <div class="tech-row"><span class="label">ENGINE:</span> <span class="value">UNITY (BUILT-IN RP)</span></div>
-                                <div class="tech-row"><span class="label">SYSTEMS:</span> <span class="value">A* PATHFINDING | WAVE LOGIC | MESH DEFORMATION</span></div>
+                            <div class="tech-collapsible">
+                                <div class="tech-data">
+                                    <div class="tech-row"><span class="label">ENGINE:</span> <span class="value">UNITY (BUILT-IN RP)</span></div>
+                                    <div class="tech-row"><span class="label">SYSTEMS:</span> <span class="value">A* PATHFINDING | WAVE LOGIC | MESH DEFORMATION</span></div>
+                                </div>
+                                <p class="tech-summary">High-performance strategy prototype focusing on optimized unit navigation, dynamic wave management, and scalable interaction systems.</p>
                             </div>
-                            <p class="tech-summary">High-performance strategy prototype focusing on optimized unit navigation, dynamic wave management, and scalable interaction systems.</p>
                         </div>
                     </div>
 
@@ -196,17 +202,17 @@
                             <div class="corner-decal decal-tr"></div>
                             <div class="corner-decal decal-bl"></div>
                             <div class="tech-header">
-                                <div class="tech-header-left">
-                                    <span class="tech-status-tag">[SYST: OPERATIONAL]</span>
-                                    <span class="tech-year">[2019]</span>
-                                </div>
+                                <span class="tech-year">[2019]</span>
                                 <span class="tech-title">VINTAGE BOXING</span>
+                                <button class="tech-expand-btn" aria-label="Toggle details"><i class="fas fa-chevron-down"></i></button>
                             </div>
-                            <div class="tech-data">
-                                <div class="tech-row"><span class="label">ENGINE:</span> <span class="value">UNITY (UNIVERSAL RP)</span></div>
-                                <div class="tech-row"><span class="label">SYSTEMS:</span> <span class="value">PHYSICS COMBAT | IK ANIMATION | HIT FEEDBACK</span></div>
+                            <div class="tech-collapsible">
+                                <div class="tech-data">
+                                    <div class="tech-row"><span class="label">ENGINE:</span> <span class="value">UNITY (UNIVERSAL RP)</span></div>
+                                    <div class="tech-row"><span class="label">SYSTEMS:</span> <span class="value">PHYSICS COMBAT | IK ANIMATION | HIT FEEDBACK</span></div>
+                                </div>
+                                <p class="tech-summary">Advanced character interaction experiment using Inverse Kinematics and physics-driven hit detection for high-impact gameplay feel.</p>
                             </div>
-                            <p class="tech-summary">Advanced character interaction experiment using Inverse Kinematics and physics-driven hit detection for high-impact gameplay feel.</p>
                         </div>
                     </div>
 
@@ -219,17 +225,17 @@
                             <div class="corner-decal decal-tr"></div>
                             <div class="corner-decal decal-bl"></div>
                             <div class="tech-header">
-                                <div class="tech-header-left">
-                                    <span class="tech-status-tag">[CORE: ARCHIVED]</span>
-                                    <span class="tech-year">[INFO]</span>
-                                </div>
+                                <span class="tech-year">[INFO]</span>
                                 <span class="tech-title">THE GREATER GAME</span>
+                                <button class="tech-expand-btn" aria-label="Toggle details"><i class="fas fa-chevron-down"></i></button>
                             </div>
-                            <div class="tech-data">
-                                <div class="tech-row"><span class="label">PLATFORM:</span> <span class="value">MOBILE / UNITY</span></div>
-                                <div class="tech-row"><span class="label">PHASE:</span> <span class="value">SHIFT TO DESIGN-FIRST ARCHITECTURE</span></div>
+                            <div class="tech-collapsible">
+                                <div class="tech-data">
+                                    <div class="tech-row"><span class="label">PLATFORM:</span> <span class="value">MOBILE / UNITY</span></div>
+                                    <div class="tech-row"><span class="label">PHASE:</span> <span class="value">SHIFT TO DESIGN-FIRST ARCHITECTURE</span></div>
+                                </div>
+                                <p class="tech-summary">Comprehensive mobile project that marked the transition into advanced systems engineering and core project architecture as a Lead Developer.</p>
                             </div>
-                            <p class="tech-summary">Comprehensive mobile project that marked the transition into advanced systems engineering and core project architecture as a Lead Developer.</p>
                         </div>
                     </div>
 
@@ -244,17 +250,17 @@
                             <div class="corner-decal decal-tr"></div>
                             <div class="corner-decal decal-bl"></div>
                             <div class="tech-header">
-                                <div class="tech-header-left">
-                                    <span class="tech-status-tag">[SYST: OPERATIONAL]</span>
-                                    <span class="tech-year">[2020]</span>
-                                </div>
+                                <span class="tech-year">[2020]</span>
                                 <span class="tech-title">THRION PROTOTYPE</span>
+                                <button class="tech-expand-btn" aria-label="Toggle details"><i class="fas fa-chevron-down"></i></button>
                             </div>
-                            <div class="tech-data">
-                                <div class="tech-row"><span class="label">ENGINE:</span> <span class="value">UNITY (URP)</span></div>
-                                <div class="tech-row"><span class="label">SYSTEMS:</span> <span class="value">RTS NAV | COMBAT LOGIC | AI BEHAVIOR TREES</span></div>
+                            <div class="tech-collapsible">
+                                <div class="tech-data">
+                                    <div class="tech-row"><span class="label">ENGINE:</span> <span class="value">UNITY (URP)</span></div>
+                                    <div class="tech-row"><span class="label">SYSTEMS:</span> <span class="value">RTS NAV | COMBAT LOGIC | AI BEHAVIOR TREES</span></div>
+                                </div>
+                                <p class="tech-summary">Tactical systems prototype for a top-down combat experience, featuring scalable unit logic and complex interaction systems built in URP.</p>
                             </div>
-                            <p class="tech-summary">Tactical systems prototype for a top-down combat experience, featuring scalable unit logic and complex interaction systems built in URP.</p>
                         </div>
                     </div>
 
@@ -267,17 +273,17 @@
                             <div class="corner-decal decal-tr"></div>
                             <div class="corner-decal decal-bl"></div>
                             <div class="tech-header">
-                                <div class="tech-header-left">
-                                    <span class="tech-status-tag">[DATA: ENHANCED]</span>
-                                    <span class="tech-year">[DATA]</span>
-                                </div>
+                                <span class="tech-year">[DATA]</span>
                                 <span class="tech-title">TECHNICAL SHOWCASE</span>
+                                <button class="tech-expand-btn" aria-label="Toggle details"><i class="fas fa-chevron-down"></i></button>
                             </div>
-                            <div class="tech-data">
-                                <div class="tech-row"><span class="label">ENGINE:</span> <span class="value">UNITY (HDRP)</span></div>
-                                <div class="tech-row"><span class="label">SYSTEMS:</span> <span class="value">ENV INTERACTION | ADVANCED LIGHTING</span></div>
+                            <div class="tech-collapsible">
+                                <div class="tech-data">
+                                    <div class="tech-row"><span class="label">ENGINE:</span> <span class="value">UNITY (HDRP)</span></div>
+                                    <div class="tech-row"><span class="label">SYSTEMS:</span> <span class="value">ENV INTERACTION | ADVANCED LIGHTING</span></div>
+                                </div>
+                                <p class="tech-summary">Showcase of advanced environmental physics and high-fidelity rendering systems integrated with core gameplay mechanics and HDRP pipelines.</p>
                             </div>
-                            <p class="tech-summary">Showcase of advanced environmental physics and high-fidelity rendering systems integrated with core gameplay mechanics and HDRP pipelines.</p>
                         </div>
                     </div>
 
@@ -291,17 +297,17 @@
                             <div class="corner-decal decal-tr"></div>
                             <div class="corner-decal decal-bl"></div>
                             <div class="tech-header">
-                                <div class="tech-header-left">
-                                    <span class="tech-status-tag">[SYST: DEPLOYED]</span>
-                                    <span class="tech-year">[2024]</span>
-                                </div>
+                                <span class="tech-year">[2024]</span>
                                 <span class="tech-title">DARN! MY BARN!</span>
+                                <button class="tech-expand-btn" aria-label="Toggle details"><i class="fas fa-chevron-down"></i></button>
                             </div>
-                            <div class="tech-data">
-                                <div class="tech-row"><span class="label">JAM:</span> <span class="value">GLOBAL GAME JAM 2024</span></div>
-                                <div class="tech-row"><span class="label">TIME:</span> <span class="value">17 DAYS (SOLO)</span></div>
+                            <div class="tech-collapsible">
+                                <div class="tech-data">
+                                    <div class="tech-row"><span class="label">JAM:</span> <span class="value">GLOBAL GAME JAM 2024</span></div>
+                                    <div class="tech-row"><span class="label">TIME:</span> <span class="value">17 DAYS (SOLO)</span></div>
+                                </div>
+                                <p class="tech-summary">Efficient rapid-prototype farm management game focused on deep systems development and core loop design under strict jam constraints.</p>
                             </div>
-                            <p class="tech-summary">Efficient rapid-prototype farm management game focused on deep systems development and core loop design under strict jam constraints.</p>
                         </div>
                     </div>
 
@@ -313,22 +319,22 @@
                             <div class="corner-decal decal-tr"></div>
                             <div class="corner-decal decal-bl"></div>
                             <div class="tech-header">
-                                <div class="tech-header-left">
-                                    <span class="tech-status-tag">[FINAL: EVALUATED]</span>
-                                    <span class="tech-year">[FINAL]</span>
-                                </div>
+                                <span class="tech-year">[FINAL]</span>
                                 <span class="tech-title">SHOWCASE REEL</span>
+                                <button class="tech-expand-btn" aria-label="Toggle details"><i class="fas fa-chevron-down"></i></button>
                             </div>
-                            <div class="tech-data">
-                                <div class="tech-row"><span class="label">FOCUS:</span> <span class="value">LEVEL DESIGN / CINEMATIC PIPELINE</span></div>
+                            <div class="tech-collapsible">
+                                <div class="tech-data">
+                                    <div class="tech-row"><span class="label">FOCUS:</span> <span class="value">LEVEL DESIGN / CINEMATIC PIPELINE</span></div>
+                                </div>
+                                <p class="tech-summary">Comprehensive deep-dive into advanced level architecture and cinematic lighting pipelines using Unity's state-of-the-art rendering features.</p>
                             </div>
-                            <p class="tech-summary">Comprehensive deep-dive into advanced level architecture and cinematic lighting pipelines using Unity's state-of-the-art rendering features.</p>
                         </div>
                     </div>
                 </div>
                 <!-- Navigation Buttons -->
-                <button class="prev-btn" onclick="changeSlide(-1)">❮</button>
-                <button class="next-btn" onclick="changeSlide(1)">❯</button>
+                <button class="prev-btn" onclick="changeSlide(-1)" aria-label="Previous project">❮</button>
+                <button class="next-btn" onclick="changeSlide(1)" aria-label="Next project">❯</button>
             </div>
         </div>
     </section>

@@ -936,6 +936,28 @@
           <a href="https://github.com/D3vCrow/" target="_blank">GitHub</a> |
           <a href="https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/" target="_blank">Linkedin</a>
         </p>
+
+        <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid #e0e0e0;">
+          <p style="font-size: 0.85rem; color: #888; margin-bottom: 10px;">Sharing this profile with a recruiter or an AI tool?</p>
+          <button
+            id="resume-brief-btn"
+            onclick="copyRecruiterBrief('software', this)"
+            data-copied="✓ Copied!"
+            aria-label="Copy recruiter-ready profile to clipboard"
+            style="
+              display: inline-flex; align-items: center; gap: 8px;
+              background: #fff; color: #0af; border: 2px solid #0af;
+              padding: 10px 22px; border-radius: 6px; font-size: 0.9rem;
+              font-family: 'Open Sans', sans-serif; font-weight: 600;
+              cursor: pointer; letter-spacing: 0.5px;
+              transition: background 0.2s ease, color 0.2s ease;
+            "
+            onmouseover="this.style.background='#0af';this.style.color='#fff';"
+            onmouseout="if(!this.classList.contains('brief-copied')){this.style.background='#fff';this.style.color='#0af';}">
+            &#x1F4CB; Copy Recruiter Brief
+          </button>
+          <p style="font-size: 0.78rem; color: #aaa; margin-top: 8px;">Copies a structured Markdown profile — skills, work history, education — ready to paste into an AI chat or recruiter email.</p>
+        </div>
       </div>
     </section>
 
@@ -999,6 +1021,7 @@
 
 
   </script>
+  <script src="js/recruiter-brief.js"></script>
 </body>
 
 </html>

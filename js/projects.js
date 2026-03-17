@@ -4,7 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
     showGallery(0); // Show the first gallery by default
     preloadAssets();
     startCategoryPreviews();
+    initExpandableDescriptions();
 });
+
+function initExpandableDescriptions() {
+    document.querySelectorAll('.gallery-description.technical').forEach(panel => {
+        const header = panel.querySelector('.tech-header');
+        if (!header) return;
+        header.addEventListener('click', (e) => {
+            e.stopPropagation();
+            panel.classList.toggle('expanded');
+        });
+    });
+}
 
 // Loading Screen
 const assets = [
@@ -363,6 +375,7 @@ function startCategoryPreviews() {
         let hiddenSlot = slotB;
 
         const rotate = () => {
+            if (document.hidden) return; // Skip when tab is not visible
             const nextIdx = (currentIdx + 1) % medias.length;
             const nextMedia = medias[nextIdx];
 

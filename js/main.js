@@ -1,4 +1,17 @@
 
+
+// Click ripple effect
+if (document.body.classList.contains('portfolio-page')) {
+  document.addEventListener('click', (e) => {
+    const el = document.createElement('div');
+    el.className = 'cursor-click';
+    el.style.left = e.clientX + 'px';
+    el.style.top = e.clientY + 'px';
+    document.body.appendChild(el);
+    el.addEventListener('animationend', () => el.remove());
+  });
+}
+
 // Video-as-text-background via canvas
 document.addEventListener("DOMContentLoaded", function () {
   const title = document.querySelector(".title");
@@ -10,24 +23,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
   video.play().catch(() => {});
 
-  setInterval(function () {
-    if (video.readyState >= 2) {
-      const w = title.offsetWidth;
-      const h = title.offsetHeight;
-      if (w > 0 && h > 0) {
-        const vw = video.videoWidth;
-        const vh = video.videoHeight;
-        const scale = Math.max(w / vw, h / vh);
-        const sw = Math.ceil(vw * scale);
-        const sh = Math.ceil(vh * scale);
-        canvas.width = sw;
-        canvas.height = sh;
-        ctx.drawImage(video, 0, 0, sw, sh);
-        title.style.backgroundImage = 'url(' + canvas.toDataURL('image/jpeg', 0.85) + ')';
-        title.style.backgroundSize = sw + 'px ' + sh + 'px';
+  let titleVisible = true;
+  new IntersectionObserver(entries => {
+    titleVisible = entries[0].isIntersecting;
+  }, { threshold: 0 }).observe(title);
+
+  let lastFrameTime = 0;
+  const frameInterval = 1000 / 30; // 30 fps cap
+
+  function drawFrame(timestamp) {
+    if (!document.hidden && titleVisible && timestamp - lastFrameTime >= frameInterval) {
+      if (video.readyState >= 2) {
+        const w = title.offsetWidth;
+        const h = title.offsetHeight;
+        if (w > 0 && h > 0) {
+          const vw = video.videoWidth;
+          const vh = video.videoHeight;
+          const scale = Math.max(w / vw, h / vh);
+          const sw = Math.ceil(vw * scale);
+          const sh = Math.ceil(vh * scale);
+          canvas.width = sw;
+          canvas.height = sh;
+          ctx.drawImage(video, 0, 0, sw, sh);
+          title.style.backgroundImage = 'url(' + canvas.toDataURL('image/jpeg', 0.85) + ')';
+          title.style.backgroundSize = sw + 'px ' + sh + 'px';
+        }
       }
+      lastFrameTime = timestamp;
     }
-  }, 33);
+    requestAnimationFrame(drawFrame);
+  }
+
+  requestAnimationFrame(drawFrame);
 });
 
 // Parallax + chromatic aberration on mousemove

@@ -5,15 +5,22 @@
     <meta charset="UTF-8">
     <title>Contact | Devcrow</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Get in touch with Christoforos Papachristoforou — Unity Developer and Game Designer available for projects and opportunities.">
+    <meta property="og:title" content="Contact | Devcrow Portfolio">
+    <meta property="og:description" content="Get in touch with Christoforos Papachristoforou — Unity Developer and Game Designer available for projects and opportunities.">
+    <meta property="og:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
+    <meta property="og:url" content="https://d3vcrow.github.io/contact.html">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="assets/obsidian_moon.png" type="image/png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap">
     <!-- Using FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/contact.css">
 </head>
 
-<body>
+<body class="portfolio-page">
 
     <!-- Navigation Bar -->
     <nav>
@@ -97,11 +104,25 @@
                 </div>
 
             </div>
+
+            <!-- AI Recruiter Brief -->
+            <div class="recruiter-brief-wrap">
+                <p class="recruiter-brief-label">Sharing my profile with a recruiter or an AI tool?</p>
+                <button
+                    class="action-btn recruiter-brief-btn"
+                    data-copied='<i class="fas fa-check"></i> Copied!'
+                    onclick="copyRecruiterBrief('game', this)"
+                    aria-label="Copy recruiter-ready profile to clipboard">
+                    <i class="fas fa-robot"></i> <span>Copy Recruiter Brief</span>
+                </button>
+                <p class="recruiter-brief-hint">Copies a structured Markdown profile — name, skills, work history, and projects — ready to paste into an AI chat or recruiter email.</p>
+            </div>
         </div>
     </section>
 
     <script src="js/main.js"></script>
     <script src="js/contact.js"></script>
+    <script src="js/recruiter-brief.js"></script>
 </body>
 
 </html>
