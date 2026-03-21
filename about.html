@@ -9,7 +9,13 @@
 	<link rel="icon" href="assets/obsidian_moon.png" type="image/png">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/about.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap">
+	<link rel="preload" as="image" href="assets/08yome-removebg-preview.png">
+	<link rel="preload" as="image" href="assets/15yome-removebg-preview.png">
+	<link rel="preload" as="image" href="assets/25yome-removebg-preview.png">
+	<link rel="preload" as="image" href="assets/35yome-removebg-preview.png">
 </head>
 
 <body class="portfolio-page">
@@ -94,9 +100,9 @@
 						</div>
 
 						<div class="about-image-row">
-							<img src="assets/IMG_1256.png" alt="Christoforos Papachristoforou" class="about-image">
-							<img src="assets/IMG_0837.jpg" alt="Christoforos Papachristoforou" class="about-image">
-							<img src="assets/IMG_1412.jpg" alt="Christoforos Papachristoforou" class="about-image">
+							<img decoding="async" src="assets/IMG_1256.png" alt="Christoforos Papachristoforou" class="about-image">
+							<img decoding="async" src="assets/IMG_0837.jpg" alt="Christoforos Papachristoforou" class="about-image">
+							<img decoding="async" src="assets/IMG_1412.jpg" alt="Christoforos Papachristoforou" class="about-image">
 						</div>
 					</div>
 					<div class="content" id="content-career">
@@ -287,14 +293,15 @@
 
 							<div class="about-image"
 								style="flex: 1; display: flex; justify-content: center; align-items: center;">
-								<img src="assets/IMG_2081.jpg" alt="Designing Games"
+								<img decoding="async" src="assets/IMG_2081.jpg" alt="Designing Games"
 									style="max-width: 75%; height: auto; border-radius: 10px;">
 							</div>
 
 							<div class="whoami-layout" style="margin-top: 40px;">
-								<div class="about-image-column"
+								<div class="about-image-column hover-reveal-wrap"
 									style="flex: 1; display: flex; flex-direction: column; gap: 10px; align-items: center;">
-									<img src="assets/IMG_2104.jpg" alt="Game Concept Sketch"
+									<img decoding="async" src="assets/IMG_2104.jpg" alt="Game Concept Sketch"
+										class="hover-reveal-img"
 										style="max-width: 75%; border-radius: 10px;"
 										onmouseover="this.src='assets/IMG_2100.jpg';"
 										onmouseout="this.src='assets/IMG_2104.jpg';">
@@ -445,174 +452,105 @@
 					</div>
 					<div class="content" id="content-gamer">
 						<h3 class="mobile-section-header">Gamer</h3>
-						<div class="gamer-timeline">
-							<h3>Games that grew me, shaped me, and still inspire me:</h3>
-						</div>
 
-						<div class="gamer-collection">
-								<div class="game-card game-large" tabindex="0" data-title="Super Mario Bros" data-year="1985">
-									<img loading="lazy" src="assets/1990_mario.jpg" alt="Super Mario Bros">
+						<div class="gamer-timeline-wrap">
+
+							<!-- Character underlay — large background element behind everything -->
+							<div class="gamer-char-underlay" id="gamer-char-underlay">
+								<img decoding="async" class="gamer-char-img active" id="gamer-char-a" src="assets/08yome-removebg-preview.png" alt="Chris age 5">
+								<img decoding="async" class="gamer-char-img" id="gamer-char-b" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Character">
+							</div>
+
+							<!-- Heading — changes per decade with a story -->
+							<h3 class="gamer-heading" id="gamer-heading">
+								<span class="gamer-heading-text active">Where it all began... pixelated dreams on a tiny screen</span>
+							</h3>
+
+							<!-- All 54 games in one flat scrollable row -->
+							<div class="gamer-cards-row" id="gamer-cards-row">
+
+								<div class="game-card" tabindex="0" data-title="Super Mario Bros" data-year="1985" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_mario.jpg" alt="Super Mario Bros"><span class="card-info"><span class="card-title">Super Mario Bros</span><span class="card-year">1985</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Prince of Persia" data-year="1989" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_persia.jpg" alt="Prince of Persia"><span class="card-info"><span class="card-title">Prince of Persia</span><span class="card-year">1989</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Lemmings" data-year="1991" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_lemmings.jpg" alt="Lemmings"><span class="card-info"><span class="card-title">Lemmings</span><span class="card-year">1991</span></span></div>
+								<div class="game-card" tabindex="0" data-title="TMNT IV" data-year="1991" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_TMNT.jpg" alt="Teenage Mutant Ninja Turtles IV"><span class="card-info"><span class="card-title">TMNT IV</span><span class="card-year">1991</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Street Fighter II" data-year="1991" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_sf2.png" alt="Street Fighter II"><span class="card-info"><span class="card-title">Street Fighter II</span><span class="card-year">1991</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Fate of Atlantis" data-year="1992" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_atlantis.png" alt="Indiana Jones and the Fate of Atlantis"><span class="card-info"><span class="card-title">Fate of Atlantis</span><span class="card-year">1992</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Super Mario Kart" data-year="1992" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_mariokart.jpg" alt="Super Mario Kart"><span class="card-info"><span class="card-title">Super Mario Kart</span><span class="card-year">1992</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Wolfenstein 3D" data-year="1992" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_wolf.jpg" alt="Wolfenstein 3D"><span class="card-info"><span class="card-title">Wolfenstein 3D</span><span class="card-year">1992</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Cadillacs &amp; Dinosaurs" data-year="1993" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_candilacs.jpg" alt="Cadillacs and Dinosaurs"><span class="card-info"><span class="card-title">Cadillacs &amp; Dinosaurs</span><span class="card-year">1993</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Gabriel Knight" data-year="1993" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_gabriel.jpg" alt="Gabriel Knight"><span class="card-info"><span class="card-title">Gabriel Knight</span><span class="card-year">1993</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Link's Awakening" data-year="1993" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_zelda.jpg" alt="Link's Awakening"><span class="card-info"><span class="card-title">Link's Awakening</span><span class="card-year">1993</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Pok&eacute;mon Red/Blue" data-year="1996" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_pokemon.jpg" alt="Pok&eacute;mon Red/Blue"><span class="card-info"><span class="card-title">Pok&eacute;mon Red/Blue</span><span class="card-year">1996</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Broken Sword" data-year="1996" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_broken.png" alt="Broken Sword"><span class="card-info"><span class="card-title">Broken Sword</span><span class="card-year">1996</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Curse of Monkey Island" data-year="1997" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_monkey.jpg" alt="The Curse of Monkey Island"><span class="card-info"><span class="card-title">Curse of Monkey Island</span><span class="card-year">1997</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Theme Hospital" data-year="1997" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_hospital.jpg" alt="Theme Hospital"><span class="card-info"><span class="card-title">Theme Hospital</span><span class="card-year">1997</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Disney's Hercules" data-year="1997" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_hercules.jpg" alt="Disney's Hercules"><span class="card-info"><span class="card-title">Disney's Hercules</span><span class="card-year">1997</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Tomba!" data-year="1997" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_tomba.png" alt="Tomba!"><span class="card-info"><span class="card-title">Tomba!</span><span class="card-year">1997</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Tekken 3" data-year="1997" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_tekken3.png" alt="Tekken 3"><span class="card-info"><span class="card-title">Tekken 3</span><span class="card-year">1997</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Oddworld: Abe's Oddysee" data-year="1997" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_abes.jpg" alt="Oddworld: Abe's Oddysee"><span class="card-info"><span class="card-title">Abe's Oddysee</span><span class="card-year">1997</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Riven" data-year="1997" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_riven.png" alt="Riven"><span class="card-info"><span class="card-title">Riven</span><span class="card-year">1997</span></span></div>
+								<div class="game-card" tabindex="0" data-title="The X-Files Game" data-year="1998" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_xfiles.jpg" alt="The X-Files Game"><span class="card-info"><span class="card-title">The X-Files Game</span><span class="card-year">1998</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Silent Hill" data-year="1999" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_silent.jpg" alt="Silent Hill"><span class="card-info"><span class="card-title">Silent Hill</span><span class="card-year">1999</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Age of Empires II" data-year="1999" data-era="0"><img decoding="async" loading="lazy" src="assets/1990_aoe2.png" alt="Age of Empires II"><span class="card-info"><span class="card-title">Age of Empires II</span><span class="card-year">1999</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Silver" data-year="1999" data-era="0"><img decoding="async" loading="lazy" src="assets/Silver.png" alt="Silver"><span class="card-info"><span class="card-title">Silver</span><span class="card-year">1999</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Worms Armageddon" data-year="1999" data-era="0"><img decoding="async" loading="lazy" src="assets/worms.jpg" alt="Worms Armageddon"><span class="card-info"><span class="card-title">Worms Armageddon</span><span class="card-year">1999</span></span></div>
+
+								<div class="game-card" tabindex="0" data-title="Lineage II" data-year="2000" data-era="1"><img decoding="async" loading="lazy" src="assets/LineageII.jpg" alt="Lineage II"><span class="card-info"><span class="card-title">Lineage II</span><span class="card-year">2000</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Mafia" data-year="2000" data-era="1"><img decoding="async" loading="lazy" src="assets/mafia.jpg" alt="Mafia"><span class="card-info"><span class="card-title">Mafia</span><span class="card-year">2000</span></span></div>
+								<div class="game-card" tabindex="0" data-title="WWF SmackDown! 2" data-year="2000" data-era="1"><img decoding="async" loading="lazy" src="assets/smackdown.png" alt="WWF SmackDown! 2"><span class="card-info"><span class="card-title">WWF SmackDown! 2</span><span class="card-year">2000</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Tony Hawk's Pro Skater 2" data-year="2000" data-era="1"><img decoding="async" loading="lazy" src="assets/tonyhawk.jpg" alt="Tony Hawk's Pro Skater 2"><span class="card-info"><span class="card-title">Tony Hawk's PS2</span><span class="card-year">2000</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Commandos 2" data-year="2001" data-era="1"><img decoding="async" loading="lazy" src="assets/Commandos2.jpg" alt="Commandos 2"><span class="card-info"><span class="card-title">Commandos 2</span><span class="card-year">2001</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Counter-Strike 1.6" data-year="2001" data-era="1"><img decoding="async" loading="lazy" src="assets/cs.jpg" alt="Counter-Strike 1.6"><span class="card-info"><span class="card-title">Counter-Strike 1.6</span><span class="card-year">2001</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Alone in the Dark" data-year="2001" data-era="1"><img decoding="async" loading="lazy" src="assets/alone.jpg" alt="Alone in the Dark"><span class="card-info"><span class="card-title">Alone in the Dark</span><span class="card-year">2001</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Max Payne" data-year="2001" data-era="1"><img decoding="async" loading="lazy" src="assets/maxpayne.jpg" alt="Max Payne"><span class="card-info"><span class="card-title">Max Payne</span><span class="card-year">2001</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Battle for Middle Earth" data-year="2002" data-era="1"><img decoding="async" loading="lazy" src="assets/bftme1.jpg" alt="Battle for Middle Earth"><span class="card-info"><span class="card-title">Battle for Middle Earth</span><span class="card-year">2002</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Warcraft III: Frozen Throne" data-year="2003" data-era="1"><img decoding="async" loading="lazy" src="assets/frozenthrone.jpg" alt="Warcraft III: The Frozen Throne"><span class="card-info"><span class="card-title">WC3: Frozen Throne</span><span class="card-year">2003</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Puzzle Pirates" data-year="2003" data-era="1"><img decoding="async" loading="lazy" src="assets/puzzlepirates.jpg" alt="Puzzle Pirates"><span class="card-info"><span class="card-title">Puzzle Pirates</span><span class="card-year">2003</span></span></div>
+								<div class="game-card" tabindex="0" data-title="DotA" data-year="2005" data-era="1"><img decoding="async" loading="lazy" src="assets/dota.jpeg" alt="DotA"><span class="card-info"><span class="card-title">DotA</span><span class="card-year">2005</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Grim Fandango Remastered" data-year="2006" data-era="1"><img decoding="async" loading="lazy" src="assets/grim.jpg" alt="Grim Fandango Remastered"><span class="card-info"><span class="card-title">Grim Fandango</span><span class="card-year">2006</span></span></div>
+
+								<div class="game-card" tabindex="0" data-title="League of Legends" data-year="2009" data-era="2"><img decoding="async" loading="lazy" src="assets/lol.jpg" alt="League of Legends"><span class="card-info"><span class="card-title">League of Legends</span><span class="card-year">2009</span></span></div>
+								<div class="game-card" tabindex="0" data-title="God of War III" data-year="2010" data-era="2"><img decoding="async" loading="lazy" src="assets/gow3.jpg" alt="God of War III"><span class="card-info"><span class="card-title">God of War III</span><span class="card-year">2010</span></span></div>
+								<div class="game-card" tabindex="0" data-title="LIMBO" data-year="2010" data-era="2"><img decoding="async" loading="lazy" src="assets/limbo.jpg" alt="LIMBO"><span class="card-info"><span class="card-title">LIMBO</span><span class="card-year">2010</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Dead Nation" data-year="2010" data-era="2"><img decoding="async" loading="lazy" src="assets/DeadNation.jpg" alt="Dead Nation"><span class="card-info"><span class="card-title">Dead Nation</span><span class="card-year">2010</span></span></div>
+								<div class="game-card" tabindex="0" data-title="LOTR: War in the North" data-year="2011" data-era="2"><img decoding="async" loading="lazy" src="assets/witn.jpg" alt="War in the North"><span class="card-info"><span class="card-title">War in the North</span><span class="card-year">2011</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Diablo III" data-year="2012" data-era="2"><img decoding="async" loading="lazy" src="assets/diablo-iii.jpg" alt="Diablo III"><span class="card-info"><span class="card-title">Diablo III</span><span class="card-year">2012</span></span></div>
+								<div class="game-card" tabindex="0" data-title="The Last of Us" data-year="2013" data-era="2"><img decoding="async" loading="lazy" src="assets/lastofus.jpg" alt="The Last of Us"><span class="card-info"><span class="card-title">The Last of Us</span><span class="card-year">2013</span></span></div>
+								<div class="game-card" tabindex="0" data-title="AC IV: Black Flag" data-year="2013" data-era="2"><img decoding="async" loading="lazy" src="assets/blackflag.jpg" alt="Assassin's Creed IV: Black Flag"><span class="card-info"><span class="card-title">AC IV: Black Flag</span><span class="card-year">2013</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Gauntlet" data-year="2014" data-era="2"><img decoding="async" loading="lazy" src="assets/gauntlet.jpg" alt="Gauntlet"><span class="card-info"><span class="card-title">Gauntlet</span><span class="card-year">2014</span></span></div>
+								<div class="game-card" tabindex="0" data-title="The Witcher 3" data-year="2015" data-era="2"><img decoding="async" loading="lazy" src="assets/Witcher3.jpg" alt="The Witcher 3"><span class="card-info"><span class="card-title">The Witcher 3</span><span class="card-year">2015</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Bloodborne" data-year="2015" data-era="2"><img decoding="async" loading="lazy" src="assets/bloodborne.jpg" alt="Bloodborne"><span class="card-info"><span class="card-title">Bloodborne</span><span class="card-year">2015</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Hunt: Showdown" data-year="2016" data-era="2"><img decoding="async" loading="lazy" src="assets/hunt.jpg" alt="Hunt: Showdown"><span class="card-info"><span class="card-title">Hunt: Showdown</span><span class="card-year">2016</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Uncharted 4" data-year="2016" data-era="2"><img decoding="async" loading="lazy" src="assets/Uncharted.jpg" alt="Uncharted 4"><span class="card-info"><span class="card-title">Uncharted 4</span><span class="card-year">2016</span></span></div>
+
+								<div class="game-card" tabindex="0" data-title="Little Nightmares" data-year="2017" data-era="3"><img decoding="async" loading="lazy" src="assets/littlenightmares.jpg" alt="Little Nightmares"><span class="card-info"><span class="card-title">Little Nightmares</span><span class="card-year">2017</span></span></div>
+								<div class="game-card" tabindex="0" data-title="Detroit: Become Human" data-year="2018" data-era="3"><img decoding="async" loading="lazy" src="assets/detroit.jpg" alt="Detroit: Become Human"><span class="card-info"><span class="card-title">Detroit: Become Human</span><span class="card-year">2018</span></span></div>
+								<div class="game-card" tabindex="0" data-title="WoW: WotLK Classic" data-year="2022" data-era="3"><img decoding="async" loading="lazy" src="assets/WoW.jpg" alt="World of Warcraft: Wrath of the Lich King Classic"><span class="card-info"><span class="card-title">WoW: WotLK Classic</span><span class="card-year">2022</span></span></div>
+								<div class="game-card" tabindex="0" data-title="The Drifter" data-year="2025" data-era="3"><img decoding="async" loading="lazy" src="assets/the_drifter.jpg" alt="The Drifter"><span class="card-info"><span class="card-title">The Drifter</span><span class="card-year">2025</span></span></div>
+
+							</div><!-- /.gamer-cards-row -->
+
+							<!-- Scrubber — anchored at bottom -->
+							<div class="gamer-scrubber-wrap">
+								<span class="gamer-year-display" id="gamer-year-display">1990</span>
+								<input
+									type="range"
+									class="gamer-slider"
+									id="gamer-slider"
+									min="1990"
+									max="2025"
+									value="1990"
+									aria-label="Timeline scrubber, drag to explore eras"
+								>
+								<div class="gamer-ticks" aria-hidden="true">
+									<div class="gamer-tick" style="left: 0%"><span>1990</span></div>
+									<div class="gamer-tick" style="left: 28.6%"><span>2000</span></div>
+									<div class="gamer-tick" style="left: 57.1%"><span>2010</span></div>
+									<div class="gamer-tick" style="left: 85.7%"><span>2020</span></div>
 								</div>
-								<div class="game-card" tabindex="0" data-title="Prince of Persia" data-year="1989">
-									<img loading="lazy" src="assets/1990_persia.jpg" alt="Prince of Persia">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Lemmings" data-year="1991">
-									<img loading="lazy" src="assets/1990_lemmings.jpg" alt="Lemmings">
-								</div>
-								<div class="game-card" tabindex="0" data-title="TMNT IV" data-year="1991">
-									<img loading="lazy" src="assets/1990_TMNT.jpg" alt="Teenage Mutant Ninja Turtles IV">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Street Fighter II" data-year="1991">
-									<img loading="lazy" src="assets/1990_sf2.png" alt="Street Fighter II">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Fate of Atlantis" data-year="1992">
-									<img loading="lazy" src="assets/1990_atlantis.png" alt="Indiana Jones and the Fate of Atlantis">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Super Mario Kart" data-year="1992">
-									<img loading="lazy" src="assets/1990_mariokart.jpg" alt="Super Mario Kart">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Wolfenstein 3D" data-year="1992">
-									<img loading="lazy" src="assets/1990_wolf.jpg" alt="Wolfenstein 3D">
-								</div>
-								<div class="game-card game-tall" tabindex="0" data-title="Cadillacs & Dinosaurs" data-year="1993">
-									<img loading="lazy" src="assets/1990_candilacs.jpg" alt="Cadillacs and Dinosaurs">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Gabriel Knight" data-year="1993">
-									<img loading="lazy" src="assets/1990_gabriel.jpg" alt="Gabriel Knight: Sins of the Fathers">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Link's Awakening" data-year="1993">
-									<img loading="lazy" src="assets/1990_zelda.jpg" alt="The Legend of Zelda: Link's Awakening">
-								</div>
-								<div class="game-card game-tall" tabindex="0" data-title="Pokémon Red/Blue" data-year="1996">
-									<img loading="lazy" src="assets/1990_pokemon.jpg" alt="Pokémon Red/Blue">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Broken Sword" data-year="1996">
-									<img loading="lazy" src="assets/1990_broken.png" alt="Broken Sword">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Curse of Monkey Island" data-year="1997">
-									<img loading="lazy" src="assets/1990_monkey.jpg" alt="The Curse of Monkey Island">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Theme Hospital" data-year="1997">
-									<img loading="lazy" src="assets/1990_hospital.jpg" alt="Theme Hospital">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Disney's Hercules" data-year="1997">
-									<img loading="lazy" src="assets/1990_hercules.jpg" alt="Disney's Hercules">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Tomba!" data-year="1997">
-									<img loading="lazy" src="assets/1990_tomba.png" alt="Tomba!">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Tekken 3" data-year="1997">
-									<img loading="lazy" src="assets/1990_tekken3.png" alt="Tekken 3">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Oddworld: Abe's Oddysee" data-year="1997">
-									<img loading="lazy" src="assets/1990_abes.jpg" alt="Oddworld: Abe's Oddysee">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Riven" data-year="1997">
-									<img loading="lazy" src="assets/1990_riven.png" alt="Riven: The Sequel to Myst">
-								</div>
-								<div class="game-card" tabindex="0" data-title="The X-Files Game" data-year="1998">
-									<img loading="lazy" src="assets/1990_xfiles.jpg" alt="The X-Files Game">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Silent Hill" data-year="1999">
-									<img loading="lazy" src="assets/1990_silent.jpg" alt="Silent Hill">
-								</div>
-								<div class="game-card game-large" tabindex="0" data-title="Age of Empires II" data-year="1999">
-									<img loading="lazy" src="assets/1990_aoe2.png" alt="Age of Empires II">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Silver" data-year="1999">
-									<img loading="lazy" src="assets/Silver.png" alt="Silver">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Worms Armageddon" data-year="1999">
-									<img loading="lazy" src="assets/worms.jpg" alt="Worms Armageddon">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Lineage II" data-year="2000">
-									<img loading="lazy" src="assets/LineageII.jpg" alt="Lineage II">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Mafia" data-year="2000">
-									<img loading="lazy" src="assets/mafia.jpg" alt="Mafia">
-								</div>
-								<div class="game-card" tabindex="0" data-title="WWF SmackDown! 2" data-year="2000">
-									<img loading="lazy" src="assets/smackdown.png" alt="WWF SmackDown! 2">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Tony Hawk's Pro Skater 2" data-year="2000">
-									<img loading="lazy" src="assets/tonyhawk.jpg" alt="Tony Hawk's Pro Skater 2">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Commandos 2" data-year="2001">
-									<img loading="lazy" src="assets/Commandos2.jpg" alt="Commandos 2">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Counter-Strike 1.6" data-year="2001">
-									<img loading="lazy" src="assets/cs.jpg" alt="Counter-Strike 1.6">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Alone in the Dark" data-year="2001">
-									<img loading="lazy" src="assets/alone.jpg" alt="Alone in the Dark">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Max Payne" data-year="2001">
-									<img loading="lazy" src="assets/maxpayne.jpg" alt="Max Payne">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Battle for Middle Earth" data-year="2002">
-									<img loading="lazy" src="assets/bftme1.jpg" alt="Battle for Middle Earth">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Warcraft III: Frozen Throne" data-year="2003">
-									<img loading="lazy" src="assets/frozenthrone.jpg" alt="Warcraft III: The Frozen Throne">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Puzzle Pirates" data-year="2003">
-									<img loading="lazy" src="assets/puzzlepirates.jpg" alt="Puzzle Pirates">
-								</div>
-								<div class="game-card" tabindex="0" data-title="DotA (Mod)" data-year="2005">
-									<img loading="lazy" src="assets/dota.jpeg" alt="DotA">
-								</div>
-								<div class="game-card game-large" tabindex="0" data-title="Grim Fandango Remastered" data-year="2006">
-									<img loading="lazy" src="assets/grim.jpg" alt="Grim Fandango">
-								</div>
-								<div class="game-card" tabindex="0" data-title="League of Legends" data-year="2009">
-									<img loading="lazy" src="assets/lol.jpg" alt="League of Legends">
-								</div>
-								<div class="game-card" tabindex="0" data-title="God of War III" data-year="2010">
-									<img loading="lazy" src="assets/gow3.jpg" alt="God of War III">
-								</div>
-								<div class="game-card" tabindex="0" data-title="LIMBO" data-year="2010">
-									<img loading="lazy" src="assets/limbo.jpg" alt="LIMBO">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Dead Nation" data-year="2010">
-									<img loading="lazy" src="assets/DeadNation.jpg" alt="Dead Nation">
-								</div>
-								<div class="game-card" tabindex="0" data-title="LOTR: War in the North" data-year="2011">
-									<img loading="lazy" src="assets/witn.jpg" alt="War in the North">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Diablo III" data-year="2012">
-									<img loading="lazy" src="assets/diablo-iii.jpg" alt="Diablo III">
-								</div>
-								<div class="game-card game-tall" tabindex="0" data-title="The Last of Us" data-year="2013">
-									<img loading="lazy" src="assets/lastofus.jpg" alt="The Last of Us">
-								</div>
-								<div class="game-card" tabindex="0" data-title="AC IV: Black Flag" data-year="2013">
-									<img loading="lazy" src="assets/blackflag.jpg" alt="Assassin's Creed IV">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Gauntlet" data-year="2014">
-									<img loading="lazy" src="assets/gauntlet.jpg" alt="Gauntlet">
-								</div>
-								<div class="game-card game-large" tabindex="0" data-title="The Witcher 3" data-year="2015">
-									<img loading="lazy" src="assets/Witcher3.jpg" alt="The Witcher 3">
-								</div>
-								<div class="game-card game-tall" tabindex="0" data-title="Bloodborne" data-year="2015">
-									<img loading="lazy" src="assets/bloodborne.jpg" alt="Bloodborne">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Hunt: Showdown" data-year="2016">
-									<img loading="lazy" src="assets/hunt.jpg" alt="Hunt: Showdown">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Uncharted 4" data-year="2016">
-									<img loading="lazy" src="assets/Uncharted.jpg" alt="Uncharted 4">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Little Nightmares" data-year="2017">
-									<img loading="lazy" src="assets/littlenightmares.jpg" alt="Little Nightmares">
-								</div>
-								<div class="game-card" tabindex="0" data-title="Detroit: Become Human" data-year="2018">
-									<img loading="lazy" src="assets/detroit.jpg" alt="Detroit: Become Human">
-								</div>
-								<div class="game-card game-large" tabindex="0" data-title="WoW: WotLK Classic" data-year="2022">
-									<img loading="lazy" src="assets/WoW.jpg" alt="World of Warcraft Classic">
-								</div>
-						</div>
+							</div><!-- /.gamer-scrubber-wrap -->
+
+						</div><!-- /.gamer-timeline-wrap -->
 					</div>
 
 

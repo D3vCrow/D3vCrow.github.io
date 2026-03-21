@@ -10,7 +10,11 @@ function resizeCanvas() {
   initColumnsData();
 }
 resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+var resizeRafId = 0;
+window.addEventListener("resize", function() {
+  cancelAnimationFrame(resizeRafId);
+  resizeRafId = requestAnimationFrame(resizeCanvas);
+});
 
 // List of common Unity C# commands
 var commands = [

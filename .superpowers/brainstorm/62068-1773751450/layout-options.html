@@ -1,0 +1,99 @@
+<h2>Gamer Timeline — Layout Options</h2>
+<p class="subtitle">The character is always centered & prominent. Pick the layout that feels best for the scrubber + cards.</p>
+
+<style>
+.preview-wrap { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+.preview-card {
+  flex: 1 1 260px;
+  border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: rgba(255,255,255,0.04);
+  min-width: 240px;
+}
+.preview-card:hover { border-color: rgba(255,152,0,0.7); box-shadow: 0 0 16px rgba(255,152,0,0.15); }
+.preview-card.selected { border-color: #ff9800; box-shadow: 0 0 20px rgba(255,152,0,0.3); }
+.preview-card h3 { margin: 0 0 8px 0; font-size: 1rem; color: #ff9800; }
+.preview-card .tag { font-size: 0.7rem; background: rgba(255,152,0,0.15); color:#ffcc80; padding: 2px 8px; border-radius: 20px; margin-bottom: 10px; display:inline-block;}
+
+/* mini mockup shared */
+.mini { border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 8px; background:#111; font-size: 0.6rem; color: #888; }
+.mini-slider { height: 12px; background: rgba(255,152,0,0.2); border-radius: 6px; position:relative; margin: 4px 0; }
+.mini-slider::after { content:''; position:absolute; left:30%; width:18px; height:18px; top:-3px; background:#ff9800; border-radius:50%; border:2px solid #000;}
+.mini-char { height: 80px; background: linear-gradient(135deg, rgba(255,152,0,0.08), rgba(0,0,0,0.3)); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:2.2rem; margin: 6px 0; border: 1px dashed rgba(255,152,0,0.2);}
+.mini-cards { display:flex; gap:5px; overflow:hidden; margin-top: 6px;}
+.mini-card { min-width: 40px; height: 40px; background: rgba(255,152,0,0.1); border-radius:4px; border: 1px solid rgba(255,152,0,0.25); flex-shrink:0; }
+.mini-year { font-size: 0.7rem; color: #ff9800; font-weight:bold; text-align:center; margin:2px 0;}
+.mini-label { text-align:center; font-size:0.6rem; color:#666; }
+.mini-era { background: rgba(255,152,0,0.08); border: 1px solid rgba(255,152,0,0.2); border-radius:4px; padding: 3px 6px; text-align:center; font-size:0.65rem; color:#ff9800; margin-bottom:4px;}
+</style>
+
+<div class="preview-wrap">
+
+  <!-- Option A -->
+  <div class="preview-card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>Slider Top — Stack Layout</h3>
+      <span class="tag">Recommended</span>
+      <div class="mini">
+        <div class="mini-era">1990 – 1999 · Age 5</div>
+        <div class="mini-slider"></div>
+        <div class="mini-year">◀ 1997 ▶</div>
+        <div class="mini-char">🧒</div>
+        <div class="mini-label">character crossfades here</div>
+        <div class="mini-cards">
+          <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
+        </div>
+        <div class="mini-label">← scroll cards →</div>
+      </div>
+      <p style="margin-top:10px; font-size:0.82rem; color:#bbb;">Scrubber at top with live year readout. Era label changes as you drag. Character below. Games in a scrollable row at the bottom. Clean top-down reading flow.</p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="preview-card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Slider Bottom — Cards Above</h3>
+      <div class="mini">
+        <div class="mini-char">🧒</div>
+        <div class="mini-cards">
+          <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
+        </div>
+        <div class="mini-label">← scroll cards →</div>
+        <div style="margin-top:6px;">
+          <div class="mini-slider"></div>
+          <div class="mini-year" style="text-align:left; padding:0 4px;">1990 ——————— 2025</div>
+        </div>
+      </div>
+      <p style="margin-top:10px; font-size:0.82rem; color:#bbb;">Character and cards dominate the visual space. Scrubber anchored at the bottom like a video timeline — familiar UX from media players. Feels like scrubbing through a memory reel.</p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="preview-card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Scrubber as Era Selector</h3>
+      <div class="mini">
+        <div style="display:flex; gap:4px; margin-bottom:4px;">
+          <div style="flex:1; padding:3px; background:rgba(255,152,0,0.3); border-radius:3px; text-align:center; font-size:0.55rem; color:#ff9800; border:1px solid #ff9800;">90s</div>
+          <div style="flex:1; padding:3px; background:rgba(255,255,255,0.04); border-radius:3px; text-align:center; font-size:0.55rem; color:#666; border:1px solid rgba(255,255,255,0.1);">2000s</div>
+          <div style="flex:1; padding:3px; background:rgba(255,255,255,0.04); border-radius:3px; text-align:center; font-size:0.55rem; color:#666; border:1px solid rgba(255,255,255,0.1);">2010s</div>
+          <div style="flex:1; padding:3px; background:rgba(255,255,255,0.04); border-radius:3px; text-align:center; font-size:0.55rem; color:#666; border:1px solid rgba(255,255,255,0.1);">2020s</div>
+        </div>
+        <div class="mini-char">🧒</div>
+        <div class="mini-cards">
+          <div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div><div class="mini-card"></div>
+        </div>
+      </div>
+      <p style="margin-top:10px; font-size:0.82rem; color:#bbb;">4 era buttons instead of a free-drag slider. Simpler, cleaner, mobile-friendly. No year readout needed — just jump between decades. Less "scrubbing through life" feel, but very accessible.</p>
+    </div>
+  </div>
+
+</div>
+
+<p style="margin-top:20px; font-size:0.8rem; color:#888;">Click to select. A and B both use a free-drag range slider — they differ only in where the scrubber lives. C swaps the scrubber for 4 era buttons.</p>

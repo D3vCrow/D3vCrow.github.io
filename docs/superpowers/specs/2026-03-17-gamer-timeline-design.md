@@ -42,8 +42,9 @@ Source: `ChatGPT_Image_Mar_17__2026__02_29_44_PM.png` — a 1328 × ~771 px spri
 | 2 | 25 | `66.6%` |
 | 3 | 35 | `100%`  |
 
-- **Crossfade:** On era change, the "next" img gets its `object-position` set, then `opacity` transitions from 0 → 1 (CSS `transition: opacity 0.5s ease`). The "current" img simultaneously fades out. Roles swap after transition ends.
-- **Fallback:** If the single-sprite clipping produces poor results (unequal character widths), split into 4 PNGs: `assets/gamer-age5.png`, `gamer-age15.png`, `gamer-age25.png`, `gamer-age35.png` — and swap `src` instead of `object-position`.
+- **Initial HTML state:** First `<img>` has class `active` (renders visible); second `<img>` has class `inactive` (renders hidden). This ensures correct display before JS initialises.
+- **Crossfade mechanism — class-toggle only:** The CSS drives all opacity via `.gamer-char-img.active { opacity: 1 }` and `.gamer-char-img.inactive { opacity: 0 }`, both with `transition: opacity 0.5s ease`. JS never sets `style.opacity` directly — it only swaps classes. On era change: set `object-position` on the inactive img, swap classes (inactive → active, active → inactive). The CSS transition handles the visual fade. After the 500ms transition, the new "inactive" img's `object-position` can be reset if desired (optional cleanup).
+- **Fallback:** If the single-sprite clipping produces poor results (unequal character widths), split into 4 PNGs: `assets/gamer-age5.png`, `gamer-age15.png`, `gamer-age25.png`, `gamer-age35.png` — swap `src` on the active img instead of toggling `object-position`.
 
 ---
 
@@ -136,7 +137,9 @@ Source: `ChatGPT_Image_Mar_17__2026__02_29_44_PM.png` — a 1328 × ~771 px spri
 
 - `<input type="range" id="gamer-slider" min="1990" max="2025" value="1995">`
 - Live year readout: `<span class="gamer-year-display">` — positioned above the slider thumb, `left` calculated in JS as `((value - min) / (max - min)) * 100%` accounting for thumb width offset
-- Era tick marks: thin vertical lines + labels at `1990`, `2000`, `2007`, `2017`, `2025`
+- Era tick marks: thin vertical lines + labels at `1990`, `2000`, `2007`, `2017`, `2025`. Each tick's `left` position is calculated as:
+  `left = ((year - 1990) / (2025 - 1990)) * 100%`
+  Explicit values: 1990 → 0%, 2000 → 28.6%, 2007 → 48.6%, 2017 → 77.1%, 2025 → 100%
 - Custom CSS styling: dark track, orange filled portion (JS-updated `background: linear-gradient(to right, #ff9800 X%, rgba(255,152,0,0.2) X%)`), orange circular thumb with `box-shadow` glow on `:hover`/`:active`
 
 ---
@@ -154,25 +157,26 @@ New function `initGamerTimeline()`:
 
 ```
 1. Build era lookup: year → era index (simple range checks)
-2. Set slider initial value to 1995 → era 0 active on load
+   1990–1999 → 0, 2000–2006 → 1, 2007–2016 → 2, 2017–2025 → 3
+2. Set slider initial value to 1995 → era 0 active on load;
+   ensure first .gamer-char-img has class "active", second has "inactive"
 3. On slider `input`:
-   a. Update year display position and text
-   b. Update scrubber fill gradient
-   c. Determine current era index
+   a. Update year display text and position
+   b. Update scrubber fill gradient via style.background
+   c. Determine current era index from slider value
    d. If era changed:
       - Update era label text
-      - Trigger character crossfade (swap opacity on two img elements)
-      - Hide old .gamer-era-cards group, show new one (add/remove .active class)
-4. Character crossfade:
-   - "next" img: set object-position, transition opacity 0→1
-   - "current" img: transition opacity 1→0
-   - After 500ms: swap roles (which is "current", which is "next")
-5. Card group swap: remove .active from old group, add .active + animate to new group
+      - Trigger character crossfade:
+          · Set object-position on the currently-inactive img for the new era
+          · Swap classes: inactive img → active, active img → inactive
+          · CSS transition handles the visual fade (no JS opacity needed)
+      - Swap card groups: remove .active from old .gamer-era-cards, add .active to new one
+4. Card group swap triggers fadeInUp animation via CSS on the newly-active group
 ```
 
-Remove old mobile tap-toggle logic for `.game-card` from the `DOMContentLoaded` block (no longer relevant — cards no longer overlap in the new layout).
+**Insertion point:** `initGamerTimeline()` must be defined and called inside the **second** `DOMContentLoaded` listener in `about.js` (the larger block starting at line 74), appended after the existing content. Do not modify the first `DOMContentLoaded` listener at line 39 — the duplicate `showAboutContent(0)` call there is a pre-existing condition and must not be touched.
 
-Called from `DOMContentLoaded` after existing `showAboutContent(0)` call.
+**Remove** the mobile tap-toggle block for `.game-card` (lines 131–159 in the second DOMContentLoaded listener) — it is no longer relevant since cards in the new layout do not overlap.
 
 ---
 
@@ -182,8 +186,8 @@ Called from `DOMContentLoaded` after existing `showAboutContent(0)` call.
 .gamer-timeline-wrap       — outer flex column container for the whole section
 .gamer-era-label           — Orbitron, orange, centered, ~0.85rem, letter-spacing
 .gamer-char-viewport       — fixed height 280px (200px mobile), overflow:hidden, relative
-.gamer-char-img            — position:absolute, top/left 0, width:100%, height:100%, object-fit:cover
-.gamer-char-img.active     — opacity:1; transition:opacity 0.5s ease
+.gamer-char-img            — position:absolute, top/left 0, width:100%, height:100%, object-fit:cover; transition:opacity 0.5s ease
+.gamer-char-img.active     — opacity:1 (crossfade driven entirely by CSS; JS only swaps classes)
 .gamer-char-img.inactive   — opacity:0
 .gamer-cards-row           — overflow-x:auto, display:flex, gap:12px, padding:16px 4px, scrollbar styled
 .gamer-era-cards           — display:none (hidden); display:flex + fadeInUp animation when .active
@@ -194,7 +198,13 @@ Called from `DOMContentLoaded` after existing `showAboutContent(0)` call.
 .gamer-tick                — thin orange line + small label below
 ```
 
-The existing `.game-card` CSS (hover effects, border, `::after` HUD) is **fully preserved** — cards render identically inside the new scrollable row. `.gamer-collection` grid CSS becomes unused but is left in place (harmless).
+The existing `.game-card` CSS (hover effects, border, `::after` HUD) is **fully preserved** — cards render identically inside the new scrollable row.
+
+**Size variant classes (`game-large`, `game-tall`):** These classes use `grid-column: span 2` / `grid-row: span 2` which has no effect in a flex container. Remove these classes from all card elements when authoring the new era-grouped HTML — cards should all be uniform size in the horizontal scroll row.
+
+**Sibling dimming:** The existing `.gamer-collection:has(.game-card:hover)` sibling-dimming rule becomes inert because `.gamer-collection` no longer exists in the DOM. This is intentional — the dimming effect is undesirable in a horizontal scroll row. Do not re-target the rule to the new container.
+
+`.gamer-collection` grid CSS becomes unused but is left in place (harmless).
 
 ---
 

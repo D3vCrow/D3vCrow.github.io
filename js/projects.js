@@ -59,18 +59,26 @@ function updateLoadingScreen() {
 function preloadAssets() {
     assets.forEach(src => {
         if (src.endsWith('.mp4')) {
-            const video = document.createElement('video');
+            let video = document.createElement('video');
             video.oncanplaythrough = video.onerror = () => {
                 assetsLoaded++;
                 updateLoadingScreen();
+                // Cleanup: release the preload element
+                video.oncanplaythrough = video.onerror = null;
+                video.src = '';
+                video = null;
             };
             video.src = src;
             video.load();
         } else {
-            const img = new Image();
+            let img = new Image();
             img.onload = img.onerror = () => {
                 assetsLoaded++;
                 updateLoadingScreen();
+                // Cleanup: release the preload element
+                img.onload = img.onerror = null;
+                img.src = '';
+                img = null;
             };
             img.src = src;
         }

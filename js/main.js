@@ -57,30 +57,41 @@ document.addEventListener("DOMContentLoaded", function () {
   requestAnimationFrame(drawFrame);
 });
 
-// Parallax + chromatic aberration on mousemove
-document.addEventListener("mousemove", (e) => {
-  const title = document.querySelector(".title");
-  const echoW = document.querySelector(".title-echo:not(.title-echo-r):not(.title-echo-b)");
-  const echoR = document.querySelector(".title-echo-r");
-  const echoB = document.querySelector(".title-echo-b");
-  const nx = e.pageX / window.innerWidth - 0.5;
-  const ny = e.pageY / window.innerHeight - 0.5;
+// Parallax + chromatic aberration on mousemove (throttled to rAF)
+{
+  let mousemoveRafPending = false;
+  let lastMouseX = 0, lastMouseY = 0;
+  document.addEventListener("mousemove", (e) => {
+    lastMouseX = e.pageX;
+    lastMouseY = e.pageY;
+    if (mousemoveRafPending) return;
+    mousemoveRafPending = true;
+    requestAnimationFrame(() => {
+      mousemoveRafPending = false;
+      const title = document.querySelector(".title");
+      const echoW = document.querySelector(".title-echo:not(.title-echo-r):not(.title-echo-b)");
+      const echoR = document.querySelector(".title-echo-r");
+      const echoB = document.querySelector(".title-echo-b");
+      const nx = lastMouseX / window.innerWidth - 0.5;
+      const ny = lastMouseY / window.innerHeight - 0.5;
 
-  if (title) {
-    title.style.backgroundPosition = `${(nx + 0.5) * 50}% ${(ny + 0.5) * 50}%`;
-  }
-  // White echo drifts opposite to mouse
-  if (echoW) {
-    echoW.style.transform = `translate(${nx * -10}px, ${ny * -6}px)`;
-  }
-  // Red echo drifts up-left, blue drifts down-right — chromatic split
-  if (echoR) {
-    echoR.style.transform = `translate(${nx * -16}px, ${ny * -10}px)`;
-  }
-  if (echoB) {
-    echoB.style.transform = `translate(${nx * 16}px, ${ny * 10}px)`;
-  }
-});
+      if (title) {
+        title.style.backgroundPosition = `${(nx + 0.5) * 50}% ${(ny + 0.5) * 50}%`;
+      }
+      // White echo drifts opposite to mouse
+      if (echoW) {
+        echoW.style.transform = `translate(${nx * -10}px, ${ny * -6}px)`;
+      }
+      // Red echo drifts up-left, blue drifts down-right — chromatic split
+      if (echoR) {
+        echoR.style.transform = `translate(${nx * -16}px, ${ny * -10}px)`;
+      }
+      if (echoB) {
+        echoB.style.transform = `translate(${nx * 16}px, ${ny * 10}px)`;
+      }
+    });
+  });
+}
 
 // Occasional glitch — fires randomly ~once per 10-15s
 (function scheduleGlitch() {
@@ -131,10 +142,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const text = messages[currentIndex];
       const chars = buildChars(text);
 
-      // Enter: left → right
-      requestAnimationFrame(() => requestAnimationFrame(() => {
+      // Enter: left → right (single rAF + offset to ensure reflow)
+      requestAnimationFrame(() => {
         chars.forEach(c => c.classList.add('visible'));
-      }));
+      });
 
       // Exit: right → left
       setTimeout(() => {

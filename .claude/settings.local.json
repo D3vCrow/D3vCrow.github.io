@@ -24,7 +24,15 @@
       "Bash(ffmpeg -i \"F:/DevCrow/portfolio/D3vCrow.github.io/assets/unused/thrionbg_old.mp4\" -vframes 1 -ss 00:00:02 -update 1 \"F:/DevCrow/portfolio/D3vCrow.github.io/assets/unused/old_frame.jpg\" -y)",
       "Bash(ffmpeg -i \"F:/DevCrow/portfolio/D3vCrow.github.io/assets/thrionbg.mp4\" -vframes 1 -ss 00:00:02 -update 1 \"F:/DevCrow/portfolio/D3vCrow.github.io/assets/unused/new_frame.jpg\" -y)",
       "Bash(ffprobe -v quiet -print_format json -show_format \"F:/DevCrow/portfolio/D3vCrow.github.io/assets/thrionbg.mp4\")",
-      "Bash(ffmpeg -i \"F:/DevCrow/portfolio/D3vCrow.github.io/assets/thrionbg.mp4\" -c copy -movflags faststart \"F:/DevCrow/portfolio/D3vCrow.github.io/assets/thrionbg_fs.mp4\" -y)"
+      "Bash(ffmpeg -i \"F:/DevCrow/portfolio/D3vCrow.github.io/assets/thrionbg.mp4\" -c copy -movflags faststart \"F:/DevCrow/portfolio/D3vCrow.github.io/assets/thrionbg_fs.mp4\" -y)",
+      "Bash(bash \"C:\\\\Users\\\\Christophoros\\\\.claude\\\\plugins\\\\cache\\\\claude-plugins-official\\\\superpowers\\\\5.0.2\\\\skills\\\\brainstorming\\\\scripts\\\\start-server.sh\" --project-dir \"F:\\\\DevCrow\\\\portfolio\\\\D3vCrow.github.io\")",
+      "Bash(ls -lh \"F:/DevCrow/portfolio/D3vCrow.github.io/assets/gamer_age\"*)",
+      "Bash(grep -v \"^$\")",
+      "Bash(xargs wc:*)",
+      "Bash(grep -r decoding= F:/DevCrow/portfolio/D3vCrow.github.io --include=*.html)",
+      "Bash(grep -n \"preload=\\\\|display=\\\\|font-display\" \"F:/DevCrow/portfolio/D3vCrow.github.io\"/*.html)",
+      "Bash(find /f/DevCrow/portfolio/D3vCrow.github.io -type d -name *partial* -o -name *part*)",
+      "Bash(grep -r \"thrion\\\\|Thrion\" /f/DevCrow/portfolio/D3vCrow.github.io --include=*.html --include=*.js --include=*.md)"
     ]
   }
 }
