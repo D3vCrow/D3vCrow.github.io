@@ -173,28 +173,80 @@ header {
   overflow: hidden;
 }
 
+/* ---- Vignette overlay ---- */
+header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 65% 60% at 50% 45%, transparent 0%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.85) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---- Film grain overlay (CSS-only) ---- */
+.portfolio-page::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  mix-blend-mode: overlay;
+}
+
 /* Title (Video-as-text via canvas — backgroundImage set by JS) */
 .title {
   font-weight: 900;
   font-size: 180px;
   text-align: center;
-  color: #fff;
-  background: #000;
+  color: transparent;
   line-height: 180px;
   letter-spacing: -3px;
   display: inline-block;
   position: relative;
   z-index: 1;
-  mix-blend-mode: screen;
-  /* screen: black bg disappears, white text reveals the video behind */
+  background-color: #000;
+  background-size: cover;
+  background-position: 50% 0%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-position 0.2s ease-out;
+  /* Cinematic entrance */
+  animation: titleEntrance 2s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes titleEntrance {
+  0%   { opacity: 0; filter: blur(12px); transform: scale(1.06); }
+  40%  { opacity: 1; filter: blur(3px); }
+  100% { opacity: 1; filter: blur(0px); transform: scale(1); }
 }
 
 .title-wrapper {
   position: relative;
   display: inline-block;
-  overflow: hidden;
-  /* Isolate blend mode to this container */
-  isolation: isolate;
+  z-index: 1;
+}
+
+/* Atmospheric warm glow behind title */
+.title-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(255,120,0,0.08) 0%, rgba(255,80,0,0.03) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  animation: glowBreathe 8s ease-in-out infinite;
+}
+
+@keyframes glowBreathe {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
 }
 
 .title-echo {
@@ -211,18 +263,32 @@ header {
   will-change: transform;
   transition: transform 0.2s ease-out;
   mix-blend-mode: screen;
+  /* Staggered entrance */
+  opacity: 0;
+  animation: echoEntrance 1.2s ease forwards;
+  animation-delay: 0.8s;
+}
+
+.title-echo-r { animation-delay: 1.0s; }
+.title-echo-b { animation-delay: 1.2s; }
+
+@keyframes echoEntrance {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 .title-echo-r {
   color: rgba(255, 60, 40, 0.06);
   transition: transform 0.28s ease-out;
-  animation: idle-float-r 6s ease-in-out infinite;
+  animation: echoEntrance 1.2s ease forwards, idle-float-r 6s ease-in-out 1.2s infinite;
+  animation-delay: 1.0s, 1.2s;
 }
 
 .title-echo-b {
   color: rgba(40, 140, 255, 0.06);
   transition: transform 0.16s ease-out;
-  animation: idle-float-b 6s ease-in-out infinite;
+  animation: echoEntrance 1.2s ease forwards, idle-float-b 6s ease-in-out 1.4s infinite;
+  animation-delay: 1.2s, 1.4s;
 }
 
 @keyframes idle-float-r {
@@ -236,32 +302,33 @@ header {
 }
 
 .title-bg-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: cover;
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
   pointer-events: none;
-  z-index: -1;
 }
 
 /* AKA & Rotating Messages */
 .aka-container {
   display: flex;
   justify-content: space-between;
-  /* Pushes AKA to left and messages to right */
   align-items: center;
   width: 80%;
   max-width: 1000px;
   position: absolute;
   bottom: 25%;
-  /* Aligns under the title */
   left: 50%;
   transform: translateX(-50%);
+  /* Cinematic entrance — fades up after title */
+  opacity: 0;
+  animation: akaEntrance 1s ease forwards;
+  animation-delay: 1.8s;
+}
+
+@keyframes akaEntrance {
+  from { opacity: 0; transform: translateX(-50%) translateY(15px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 .aka {
@@ -321,7 +388,6 @@ nav {
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.8);
-  /* Slightly darker */
   padding: 10px 20px;
   border-radius: 50px;
   backdrop-filter: blur(12px);
@@ -329,6 +395,15 @@ nav {
   border: 1px solid rgba(255, 152, 0, 0.1);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  /* Cinematic entrance — last to appear */
+  opacity: 0;
+  animation: navEntrance 0.8s ease forwards;
+  animation-delay: 2.2s;
+}
+
+@keyframes navEntrance {
+  from { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
 nav:hover {

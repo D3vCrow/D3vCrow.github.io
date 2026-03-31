@@ -42,6 +42,11 @@ class RangeHandler(http.server.SimpleHTTPRequestHandler):
     def log_message(self, fmt, *args):
         print(f"  {args[0]} {args[1]}")
 
+import socketserver
+
+class ThreadedHTTPServer(socketserver.ThreadingMixIn, http.server.HTTPServer):
+    daemon_threads = True
+
 port = int(sys.argv[1]) if len(sys.argv) > 1 else 3000
-print(f"Serving on http://localhost:{port}")
-http.server.HTTPServer(("", port), RangeHandler).serve_forever()
+print(f"Serving on http://localhost:{port} (threaded)")
+ThreadedHTTPServer(("", port), RangeHandler).serve_forever()

@@ -12,7 +12,55 @@ if (document.body.classList.contains('portfolio-page')) {
   });
 }
 
-// Video text fill is now pure CSS (mix-blend-mode) — no canvas needed
+// Video-as-text-background via canvas (optimized: 15fps, low quality, cached dimensions)
+document.addEventListener("DOMContentLoaded", function () {
+  var title = document.querySelector(".title");
+  var video = document.querySelector(".title-bg-video");
+  if (!title || !video) return;
+
+  var canvas = document.createElement("canvas");
+  var ctx = canvas.getContext("2d", { willReadFrequently: true });
+  var titleVisible = true;
+  var cachedW = 0, cachedH = 0;
+
+  video.play().catch(function(){});
+
+  new IntersectionObserver(function(entries) {
+    titleVisible = entries[0].isIntersecting;
+    if (!titleVisible) video.pause();
+    else video.play().catch(function(){});
+  }, { threshold: 0 }).observe(title);
+
+  // Cache dimensions, only recalc on resize
+  function cacheDims() {
+    cachedW = title.offsetWidth;
+    cachedH = title.offsetHeight;
+  }
+  cacheDims();
+  window.addEventListener('resize', cacheDims);
+
+  var lastFrame = 0;
+  var interval = 1000 / 15; // 15fps is plenty for background texture
+
+  function drawFrame(ts) {
+    if (!document.hidden && titleVisible && ts - lastFrame >= interval) {
+      if (video.readyState >= 2 && cachedW > 0) {
+        var vw = video.videoWidth, vh = video.videoHeight;
+        var scale = Math.max(cachedW / vw, cachedH / vh);
+        var sw = Math.ceil(vw * scale);
+        var sh = Math.ceil(vh * scale);
+        canvas.width = sw;
+        canvas.height = sh;
+        ctx.drawImage(video, 0, 0, sw, sh);
+        title.style.backgroundImage = 'url(' + canvas.toDataURL('image/jpeg', 0.5) + ')';
+        title.style.backgroundSize = sw + 'px ' + sh + 'px';
+      }
+      lastFrame = ts;
+    }
+    requestAnimationFrame(drawFrame);
+  }
+  requestAnimationFrame(drawFrame);
+});
 
 // Parallax + chromatic aberration on mousemove (throttled to rAF)
 {
@@ -50,31 +98,79 @@ if (document.body.classList.contains('portfolio-page')) {
   });
 }
 
-// Occasional glitch — fires randomly ~once per 10-15s
+// Enhanced cinematic glitch — fires randomly ~once per 10-15s
 (function scheduleGlitch() {
   const delay = 10000 + Math.random() * 5000;
   setTimeout(() => {
+    const title = document.querySelector('.title');
     const echoR = document.querySelector('.title-echo-r');
     const echoB = document.querySelector('.title-echo-b');
     if (echoR && echoB) {
-      const gx = 8 + Math.random() * 10;
-      const gy = 3 + Math.random() * 5;
+      const gx = 12 + Math.random() * 14;
+      const gy = 4 + Math.random() * 8;
       echoR.style.transition = 'none';
       echoB.style.transition = 'none';
       echoR.style.transform = `translate(${-gx}px, ${-gy}px)`;
       echoB.style.transform = `translate(${gx}px, ${gy}px)`;
+      // Brief brightness flash on title
+      if (title) {
+        title.style.filter = 'brightness(1.6) saturate(1.8)';
+        title.style.opacity = '0.85';
+      }
       setTimeout(() => {
         echoR.style.transition = '';
         echoB.style.transition = '';
         echoR.style.transform = '';
         echoB.style.transform = '';
+        if (title) {
+          title.style.filter = '';
+          title.style.opacity = '';
+        }
         scheduleGlitch();
-      }, 80);
+      }, 90);
     } else {
       scheduleGlitch();
     }
   }, delay);
 })();
+
+// Idle parallax drift — slow sine wave when mouse is still
+{
+  let idleTimer = null;
+  let idleDrifting = false;
+  let idleRaf = null;
+  const title = document.querySelector('.title');
+
+  function startIdleDrift() {
+    if (!title || idleDrifting) return;
+    idleDrifting = true;
+    const startTime = performance.now();
+    function drift(ts) {
+      if (!idleDrifting) return;
+      const elapsed = (ts - startTime) / 1000;
+      const dx = Math.sin(elapsed * 0.3) * 3;
+      const dy = Math.cos(elapsed * 0.2) * 2;
+      title.style.backgroundPosition = `${50 + dx}% ${50 + dy}%`;
+      idleRaf = requestAnimationFrame(drift);
+    }
+    idleRaf = requestAnimationFrame(drift);
+  }
+
+  function stopIdleDrift() {
+    idleDrifting = false;
+    if (idleRaf) cancelAnimationFrame(idleRaf);
+  }
+
+  function resetIdleTimer() {
+    stopIdleDrift();
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(startIdleDrift, 3000);
+  }
+
+  document.addEventListener('mousemove', resetIdleTimer);
+  // Start idle timer on load
+  idleTimer = setTimeout(startIdleDrift, 3000);
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const messages = ["Game Developer", "Unity Engineer", "Game Designer"];
