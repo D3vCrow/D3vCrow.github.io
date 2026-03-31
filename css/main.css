@@ -178,22 +178,23 @@ header {
   font-weight: 900;
   font-size: 180px;
   text-align: center;
-  color: transparent;
-  background: #000 no-repeat;
-  background-size: cover;
-  background-position: 50% 0%;
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: #fff;
+  background: #000;
   line-height: 180px;
   letter-spacing: -3px;
   display: inline-block;
   position: relative;
-  transition: background-position 0.2s ease-out;
+  z-index: 1;
+  mix-blend-mode: screen;
+  /* screen: black bg disappears, white text reveals the video behind */
 }
 
 .title-wrapper {
   position: relative;
   display: inline-block;
+  overflow: hidden;
+  /* Isolate blend mode to this container */
+  isolation: isolate;
 }
 
 .title-echo {
@@ -235,11 +236,17 @@ header {
 }
 
 .title-bg-video {
-  position: fixed;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
   pointer-events: none;
+  z-index: -1;
 }
 
 /* AKA & Rotating Messages */

@@ -58,9 +58,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 12px 20px;
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.7);
     border-right: 3px solid #ff9800;
     border-radius: 8px 0 0 8px;
     box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3);
@@ -348,7 +346,7 @@
     display: block;
 }
 
-/* Skeleton / Placeholder for Loading */
+/* Skeleton / Placeholder for Loading — stops once media is loaded */
 .media-wrapper::before {
     content: "";
     position: absolute;
@@ -360,6 +358,11 @@
     background-size: 200% 100%;
     animation: loading-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     z-index: -1;
+}
+
+.media-wrapper.is-loaded::before {
+    animation: none;
+    background: #0a0a0a;
 }
 
 @keyframes loading-pulse {
@@ -502,8 +505,8 @@
     overflow: hidden;
 }
 
-/* Holographic Scanline Effect */
-.gallery-description.technical::before {
+/* Holographic Scanline Effect — only when expanded */
+.gallery-description.technical.expanded::before {
     content: "";
     position: absolute;
     top: 0;

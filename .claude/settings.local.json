@@ -32,7 +32,11 @@
       "Bash(grep -r decoding= F:/DevCrow/portfolio/D3vCrow.github.io --include=*.html)",
       "Bash(grep -n \"preload=\\\\|display=\\\\|font-display\" \"F:/DevCrow/portfolio/D3vCrow.github.io\"/*.html)",
       "Bash(find /f/DevCrow/portfolio/D3vCrow.github.io -type d -name *partial* -o -name *part*)",
-      "Bash(grep -r \"thrion\\\\|Thrion\" /f/DevCrow/portfolio/D3vCrow.github.io --include=*.html --include=*.js --include=*.md)"
+      "Bash(grep -r \"thrion\\\\|Thrion\" /f/DevCrow/portfolio/D3vCrow.github.io --include=*.html --include=*.js --include=*.md)",
+      "Bash(sort -k5 -h -r)",
+      "Bash(ffmpeg -y -i \"assets/backup_originals/videos/island_project.mp4\" -vf \"scale=-2:720\" -c:v libx264 -crf 30 -preset fast -an \"assets/island_project.mp4\")",
+      "Bash(ffmpeg -y -i \"assets/backup_originals/videos/Thrion_Tactics.mp4\" -vf \"scale=-2:720\" -c:v libx264 -crf 28 -preset fast -an \"assets/Thrion_Tactics.mp4\")",
+      "Bash(ffmpeg -y -i \"assets/backup_originals/videos/island_project.mp4\" -vf \"scale=-2:480\" -c:v libx264 -crf 32 -preset fast -an \"assets/island_project.mp4\")"
     ]
   }
 }

@@ -5,7 +5,26 @@ document.addEventListener("DOMContentLoaded", () => {
     preloadAssets();
     startCategoryPreviews();
     initExpandableDescriptions();
+    markMediaLoaded();
 });
+
+// Stop skeleton shimmer once media has loaded
+function markMediaLoaded() {
+    document.querySelectorAll('.media-wrapper').forEach(function(wrapper) {
+        var video = wrapper.querySelector('video');
+        var img = wrapper.querySelector('img');
+        var iframe = wrapper.querySelector('iframe');
+        if (video) {
+            if (video.readyState >= 2) { wrapper.classList.add('is-loaded'); }
+            else { video.addEventListener('loadeddata', function() { wrapper.classList.add('is-loaded'); }, { once: true }); }
+        } else if (img) {
+            if (img.complete) { wrapper.classList.add('is-loaded'); }
+            else { img.addEventListener('load', function() { wrapper.classList.add('is-loaded'); }, { once: true }); }
+        } else if (iframe) {
+            iframe.addEventListener('load', function() { wrapper.classList.add('is-loaded'); }, { once: true });
+        }
+    });
+}
 
 function initExpandableDescriptions() {
     document.querySelectorAll('.gallery-description.technical').forEach(panel => {
@@ -430,7 +449,21 @@ function startCategoryPreviews() {
             currentIdx = nextIdx;
         };
 
-        setInterval(rotate, 5000);
+        var intervalId = setInterval(rotate, 5000);
+
+        // Pause preview videos and rotation when button is off-screen
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    var videos = btn.querySelectorAll('video');
+                    if (entry.isIntersecting) {
+                        videos.forEach(function(v) { v.play().catch(function(){}); });
+                    } else {
+                        videos.forEach(function(v) { v.pause(); });
+                    }
+                });
+            }, { threshold: 0 }).observe(btn);
+        }
     });
 }
 

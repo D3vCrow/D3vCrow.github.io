@@ -248,6 +248,32 @@ function initGamerTimeline() {
     }
   });
 
+  // 3D tilt effect on hover (desktop only), throttled with rAF
+  if (window.matchMedia('(hover: hover)').matches) {
+    allCards.forEach(function(card) {
+      var tiltRaf = false;
+      card.addEventListener('mousemove', function(e) {
+        if (card.classList.contains('selected') || tiltRaf) return;
+        tiltRaf = true;
+        var clientX = e.clientX, clientY = e.clientY;
+        requestAnimationFrame(function() {
+          tiltRaf = false;
+          var rect = card.getBoundingClientRect();
+          var x = clientX - rect.left;
+          var y = clientY - rect.top;
+          var rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 12;
+          var rotateX = ((rect.height / 2 - y) / (rect.height / 2)) * 12;
+          card.style.transform = 'scale(1.12) translateY(-10px) perspective(600px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+        });
+      });
+
+      card.addEventListener('mouseleave', function() {
+        if (card.classList.contains('selected')) return;
+        card.style.transform = '';
+      });
+    });
+  }
+
   // Find closest card to a given year, select it, and scroll to it
   function selectClosestCard(year) {
     let closest = null;

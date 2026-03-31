@@ -193,23 +193,37 @@
 
 .hover-reveal-img {
   cursor: pointer;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-              box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1),
-              filter 0.6s ease;
-  box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.25);
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), filter 0.6s ease;
+  outline: 2px solid rgba(255, 152, 0, 0.25);
+  outline-offset: 0;
+}
+
+/* Pulse ring using transform (GPU composited, no paint) */
+.hover-reveal-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid rgba(255, 152, 0, 0.3);
   animation: hoverHintPulse 3s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .hover-reveal-img:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 25px rgba(255, 152, 0, 0.4), 0 0 0 2px rgba(255, 152, 0, 0.5);
   filter: brightness(1.1);
+  outline-color: rgba(255, 152, 0, 0.5);
+}
+
+.hover-reveal-wrap:hover::after {
   animation: none;
+  opacity: 0;
 }
 
 @keyframes hoverHintPulse {
-  0%, 100% { box-shadow: 0 0 0 2px rgba(255, 152, 0, 0.2); }
-  50%      { box-shadow: 0 0 15px rgba(255, 152, 0, 0.35), 0 0 0 2px rgba(255, 152, 0, 0.35); }
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50%      { transform: scale(1.03); opacity: 1; }
 }
 
 .design-gallery {
@@ -536,11 +550,10 @@
     padding-bottom: 12px;
   }
 
-  /* Polished Sibling Dimming */
+  /* Sibling dimming on hover */
   .gamer-collection:has(.game-card:hover) .game-card:not(:hover) {
-    opacity: 0.4;
-    filter: blur(1px) brightness(0.7) grayscale(60%);
-    transform: scale(0.98) translateZ(-5px);
+    opacity: 0.35;
+    transform: scale(0.98);
   }
 }
 
@@ -869,14 +882,40 @@
   cursor: pointer;
   background: rgba(10, 10, 10, 0.9);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
-  transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1),
-              box-shadow 0.45s cubic-bezier(0.23, 1, 0.32, 1),
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1),
               border-color 0.3s ease,
               opacity 0.3s ease;
   z-index: 1;
   opacity: 0;
   transform: translateY(15px);
   transform-origin: center bottom;
+  /* Enable 3D transforms for tilt */
+  transform-style: preserve-3d;
+  perspective: 600px;
+  will-change: transform;
+}
+
+/* Shine/glare overlay on cards */
+.gamer-cards-row .game-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 45%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 55%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+  z-index: 5;
+  pointer-events: none;
 }
 
 /* Cards after entrance — base dim state */
@@ -887,8 +926,7 @@
   transition-delay: calc(var(--i, 0) * 35ms);
 }
 
-/* Override base .game-card pseudo-elements */
-.gamer-cards-row .game-card::before,
+/* Override base .game-card ::after pseudo-element only (::before is used for shine) */
 .gamer-cards-row .game-card::after {
   content: none;
   display: none;
@@ -960,12 +998,17 @@
     0 0 35px rgba(255, 152, 0, 0.25);
   opacity: 1;
   overflow: hidden;
-  animation: selectedPulse 2.5s ease-in-out infinite;
+  animation: selectedPulse 3s ease-in-out infinite;
+}
+
+/* Hide shine on selected cards */
+.gamer-cards-row .game-card.selected::before {
+  display: none;
 }
 
 @keyframes selectedPulse {
-  0%, 100% { box-shadow: 0 0 0 2px rgba(255,152,0,0.6), 0 -15px 50px rgba(0,0,0,0.7), 0 0 35px rgba(255,152,0,0.25); }
-  50%      { box-shadow: 0 0 0 3px rgba(255,152,0,0.8), 0 -15px 50px rgba(0,0,0,0.7), 0 0 50px rgba(255,152,0,0.4); }
+  0%, 100% { box-shadow: 0 0 0 2px rgba(255,152,0,0.5), 0 -15px 50px rgba(0,0,0,0.7), 0 0 30px rgba(255,152,0,0.2); }
+  50%      { box-shadow: 0 0 0 3px rgba(255,152,0,0.7), 0 -15px 50px rgba(0,0,0,0.7), 0 0 45px rgba(255,152,0,0.35); }
 }
 
 /* Pause infinite animations when parent has .animations-paused */
@@ -976,7 +1019,9 @@
 }
 
 .gamer-cards-row .game-card.selected img {
-  filter: grayscale(0%) brightness(1.15);
+  filter: grayscale(0%) brightness(1.1) contrast(1.05);
+  transform: scale(1.08);
+  transition: transform 6s cubic-bezier(0.2, 0, 0.2, 1), filter 0.4s ease;
 }
 
 /* Info label inside the card at the bottom when selected */
@@ -996,14 +1041,22 @@
 /* Hover effects (desktop only) */
 @media (hover: hover) {
   .gamer-cards-row .game-card:hover:not(.selected) {
-    transform: scale(1.15) translateY(-8px);
     z-index: 10;
     opacity: 1;
     border-color: rgba(255, 152, 0, 0.5);
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.6),
+      0 0 15px rgba(255, 152, 0, 0.15);
+  }
+
+  /* Shine sweep on hover */
+  .gamer-cards-row .game-card:hover:not(.selected)::before {
+    transform: translateX(100%);
   }
 
   .gamer-cards-row .game-card:hover:not(.selected) img {
-    filter: grayscale(0%) brightness(1);
+    filter: grayscale(0%) brightness(1.05);
+    transform: scale(1.08);
   }
 
   .gamer-cards-row .game-card:hover:not(.selected) .card-info {
