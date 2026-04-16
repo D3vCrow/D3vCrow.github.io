@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caterham Configurator — Christoforos Papachristoforou</title>
+  <meta name="description" content="Deep dive into the Caterham online car configurator — Unity HDRP, solo pipeline ownership, live production migration. Project page by Christoforos Papachristoforou.">
+  <link rel="icon" href="assets/obsidian_moon.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700;900&family=Raleway:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/unity.css">
+  <link rel="stylesheet" href="css/caterham.css">
+</head>
+
+<body class="portfolio-page">
+
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">DevCrow</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="unity.html" class="active" aria-current="page">Unity</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="cat-hero" aria-label="Caterham Configurator">
+    <div class="cat-hero-image" aria-hidden="true"></div>
+    <div class="cat-hero-overlay" aria-hidden="true"></div>
+    <div class="section-wrap cat-hero-content">
+      <a href="unity.html" class="back-link">&larr; Unity Portfolio</a>
+      <p class="hero-eyebrow">Commercial &middot; Feb 2021 &ndash; Dec 2024</p>
+      <h1 class="cat-hero-title">Caterham<br>Car Configurator</h1>
+      <p class="cat-hero-sub">
+        A live web configurator delivering real-time, HDRP-quality renders for every
+        Caterham spec on the market. I owned the full pipeline end-to-end &mdash;
+        from raw 3D data to the browser window.
+      </p>
+      <div class="cat-hero-ctas">
+        <a href="https://caterhamcars.com/en/configurator" target="_blank" rel="noopener noreferrer" class="btn-primary">Launch Live Configurator &#8599;</a>
+        <a href="#pipeline" class="btn-ghost">Read the Breakdown</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fast Facts -->
+  <section class="cat-facts">
+    <div class="section-wrap">
+      <div class="fact-grid">
+        <div class="fact reveal">
+          <span class="fact-num">4y</span>
+          <span class="fact-label">On the project</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">1</span>
+          <span class="fact-label">Dev owning the pipeline</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">HDRP</span>
+          <span class="fact-label">Migrated live</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">Web</span>
+          <span class="fact-label">Delivery target</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pipeline -->
+  <section id="pipeline" class="cat-body">
+    <div class="section-wrap">
+      <p class="section-label reveal">Scope</p>
+      <h2 class="section-title reveal">Full Pipeline Ownership</h2>
+      <p class="section-body reveal">
+        The role was labelled Product Owner, but the reality was end-to-end engineering
+        accountability. 3D ingestion, Unity render setup, build pipeline, Node.js
+        middleware, Azure deployment, and client-facing technical comms &mdash; all mine.
+      </p>
+
+      <div class="pipeline-grid">
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">01</p>
+          <h4>3D Data Ingestion</h4>
+          <p>Bringing Caterham's CAD and 3DS Max assets into a Unity-ready format, keeping the
+          geometry clean enough for HDRP while staying inside web delivery budgets.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">02</p>
+          <h4>Unity HDRP Setup</h4>
+          <p>Lighting, materials, render settings tuned for realism under a web build
+          constraint. The quality bar had to match Caterham's brand, not "good enough for web".</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">03</p>
+          <h4>Custom Editor Tooling</h4>
+          <p>Unity editor tools for QA, config validation, and pipeline automation &mdash; the
+          kind of tooling that made a one-person pipeline actually scale.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">04</p>
+          <h4>Node.js Middleware</h4>
+          <p>Server-side glue between the Unity build and the configurator frontend.
+          Config data, state, and delivery orchestration.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">05</p>
+          <h4>Azure Deployment</h4>
+          <p>Cloud build and delivery pipeline on Azure. Live product, real customers,
+          real accountability &mdash; no staging-only work.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">06</p>
+          <h4>Client Communications</h4>
+          <p>Direct technical communication with Caterham: scope, trade-offs, delivery
+          timelines. The work extended past code into stakeholder management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlight: HDRP migration -->
+  <section class="cat-highlight">
+    <div class="section-wrap">
+      <p class="section-label reveal">Highlight</p>
+      <h2 class="section-title reveal">Solo HDRP Migration &mdash; Live in Production</h2>
+      <p class="section-body reveal">
+        Mid-project, the configurator moved from Unity's Built-in Render Pipeline to HDRP &mdash;
+        while it was live and serving customers. I led the migration solo: assets, lighting,
+        shaders, build settings, regression testing, and release coordination. The visual
+        leap was significant; the fact that the site never went dark is the part I'm proud of.
+      </p>
+    </div>
+  </section>
+
+  <!-- Placeholder note / coming soon -->
+  <section class="cat-wip">
+    <div class="section-wrap">
+      <div class="wip-card reveal glass-card">
+        <p class="section-label">Coming Soon</p>
+        <h3>Deeper Technical Breakdown</h3>
+        <p>
+          This page is a placeholder. I'm writing up a proper deep-dive with screenshots,
+          architecture diagrams of the pipeline, and a candid retrospective on the HDRP
+          migration (what broke, what held, what I'd do differently). Check back, or
+          <a href="mailto:chr.papachristoforou@gmail.com">email me</a> if you want the
+          long version now.
+        </p>
+        <div class="wip-ctas">
+          <a class="btn-ghost" href="unity.html">Back to Unity Portfolio</a>
+          <a class="btn-primary" href="https://caterhamcars.com/en/configurator" target="_blank" rel="noopener noreferrer">See It Live &#8599;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="mailto:chr.papachristoforou@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/D3vCrow" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://d3vcrow.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
+    </div>
+    <p class="footer-copy">Athens, Greece &middot; chr.papachristoforou@gmail.com</p>
+  </footer>
+
+  <script src="js/unity.js"></script>
+</body>
+</html>

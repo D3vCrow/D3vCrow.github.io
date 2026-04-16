@@ -92,37 +92,118 @@
   </section>
 
   <!-- How I Work -->
-  <section style="background: rgba(255,152,0,0.02); border-top: 1px solid rgba(255,152,0,0.08); border-bottom: 1px solid rgba(255,152,0,0.08);">
+  <section id="how-i-work" style="background: rgba(255,152,0,0.02); border-top: 1px solid rgba(255,152,0,0.08); border-bottom: 1px solid rgba(255,152,0,0.08);">
     <div class="section-wrap">
       <p class="section-label reveal">Approach</p>
       <h2 class="section-title reveal">How I Work</h2>
       <p class="section-body reveal">
-        My Unity work is hands-on &mdash; I write the C#, I own the systems, I debug the edge cases.
-        For everything outside Unity (web apps, Python scripts, tooling), I direct AI to build.
-        I architect the solution, write the specification, review every output, and iterate until it's right.
-        I don't pretend to write it all by hand &mdash; that's the honest part.
+        Unity is hands-on &mdash; I write the C#, own the systems, debug the edge cases.
+        For web, Python tooling, localization pipelines and research &mdash; I direct AI.
+        My job there is the part AI still can't do: architecture, intent, and taste.
+        That means writing the spec, choosing the boundaries, reading every diff, and
+        refusing outputs that look right but aren't.
       </p>
 
       <div class="how-i-work-grid">
         <div class="work-method-card reveal glass-card">
           <p class="method-icon">Step 01</p>
           <h4>Architect</h4>
-          <p>Define the structure, data flow, and constraints before a single line of code is written.</p>
+          <p>Define the data flow, module boundaries, and failure modes before a single
+          prompt is written. 7 years of Unity architecture transfers here &mdash; I know
+          what a well-scoped system looks like.</p>
         </div>
         <div class="work-method-card reveal glass-card">
           <p class="method-icon">Step 02</p>
           <h4>Specify</h4>
-          <p>Write detailed prompts and specs. The quality of the output depends entirely on the quality of the input.</p>
+          <p>Write the prompt as a spec, not a wish. Success criteria, constraints,
+          existing patterns to respect. Output quality is bounded by input quality &mdash;
+          so the input is the real work.</p>
         </div>
         <div class="work-method-card reveal glass-card">
           <p class="method-icon">Step 03</p>
           <h4>Review</h4>
-          <p>Read everything. Test everything. Understand what was built &mdash; not just whether it works.</p>
+          <p>Read the diff. Run the code. Question any abstraction I didn't ask for. If I
+          can't explain what was built and why, I don't ship it &mdash; even if it passes
+          tests.</p>
         </div>
         <div class="work-method-card reveal glass-card">
           <p class="method-icon">Step 04</p>
           <h4>Iterate</h4>
-          <p>Refine, fix edge cases, improve. Keep going until it's right. The AI is the tool &mdash; I own the result.</p>
+          <p>Fix edge cases, trim gold-plating, tighten the spec where the AI guessed wrong.
+          Keep going until the result is the one I would have written if I had the time.
+          The AI is the tool. I own the result.</p>
+        </div>
+      </div>
+
+      <!-- AI Ecosystem + Proof -->
+      <div class="ai-stack-wrap reveal">
+        <div class="ai-stack-col">
+          <p class="section-label">Ecosystem</p>
+          <p class="ai-stack-intro">
+            Not just "I use ChatGPT." A tuned setup I run every day &mdash; models, my own
+            configuration on top, MCP tools, and specialized review agents.
+          </p>
+
+          <div class="ai-tiers">
+            <div class="ai-tier">
+              <span class="ai-tier-name">Models &amp; Editors</span>
+              <div class="ai-tier-chips">
+                <span class="skill-tag strong">Claude Code</span>
+                <span class="skill-tag">Claude API</span>
+                <span class="skill-tag">ChatGPT / GPT-5</span>
+                <span class="skill-tag">Cursor</span>
+                <span class="skill-tag">Sora / Midjourney</span>
+              </div>
+            </div>
+
+            <div class="ai-tier">
+              <span class="ai-tier-name">My Configuration</span>
+              <div class="ai-tier-chips">
+                <span class="skill-tag strong">Project CLAUDE.md standards</span>
+                <span class="skill-tag strong">Typed memory system</span>
+                <span class="skill-tag">Custom skills &amp; slash commands</span>
+                <span class="skill-tag">Plan-then-execute workflow</span>
+                <span class="skill-tag">Spec-driven prompting</span>
+              </div>
+            </div>
+
+            <div class="ai-tier">
+              <span class="ai-tier-name">MCP Tooling</span>
+              <div class="ai-tier-chips">
+                <span class="skill-tag">Playwright automation</span>
+                <span class="skill-tag">Live preview / browser verify</span>
+                <span class="skill-tag">Scheduled tasks</span>
+                <span class="skill-tag">Git worktrees</span>
+                <span class="skill-tag">Peer sessions</span>
+              </div>
+            </div>
+
+            <div class="ai-tier">
+              <span class="ai-tier-name">Review Agents</span>
+              <div class="ai-tier-chips">
+                <span class="skill-tag">Unity architecture review</span>
+                <span class="skill-tag">Shader &amp; VFX review</span>
+                <span class="skill-tag">Netcode patterns</span>
+                <span class="skill-tag">Code review</span>
+                <span class="skill-tag">Design &amp; accessibility</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-stack-col">
+          <p class="section-label">Proof</p>
+          <ul class="ai-proof-list">
+            <li><strong>This portfolio.</strong> HTML, CSS, JS, scroll systems, responsive layout &mdash;
+            architected and reviewed by me, written by directed AI, iterated until shipped.</li>
+            <li><strong>US-locale AI assistant</strong> (client work, pending approval). Production
+            LLM integration, prompt engineering, locale-aware behavior.</li>
+            <li><strong>Custom Unity editor tools.</strong> AI-assisted C# tooling reviewed against
+            my own hand-written Unity code &mdash; the review bar is high because I know the craft.</li>
+            <li><strong>The setup itself.</strong> The ecosystem above didn't ship by accident.
+            Tuning it &mdash; the standards, the memory, the skills, the review loops &mdash; is
+            the quiet part of the work, and the part that makes solo shipping actually scale.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -143,12 +224,16 @@
         <div class="skill-category reveal glass-card">
           <h4>AI-Directed Engineering</h4>
           <div class="skill-tag-list">
-            <span class="skill-tag strong">Prompt Architecture</span>
-            <span class="skill-tag strong">Spec Writing</span>
-            <span class="skill-tag strong">AI Output Review</span>
-            <span class="skill-tag">ChatGPT / Claude</span>
-            <span class="skill-tag">Midjourney</span>
-            <span class="skill-tag">Iteration Workflows</span>
+            <span class="skill-tag strong">System Architecture &amp; Scoping</span>
+            <span class="skill-tag strong">Spec-Driven Prompting</span>
+            <span class="skill-tag strong">Diff Review &amp; QA</span>
+            <span class="skill-tag strong">Multi-Agent Orchestration</span>
+            <span class="skill-tag">Claude Code / Cursor</span>
+            <span class="skill-tag">ChatGPT / GPT-5</span>
+            <span class="skill-tag">MCP Servers &amp; Skills</span>
+            <span class="skill-tag">LLM Integration (Client Work)</span>
+            <span class="skill-tag">Midjourney / Sora</span>
+            <span class="skill-tag">Git-Native AI Workflows</span>
           </div>
         </div>
 

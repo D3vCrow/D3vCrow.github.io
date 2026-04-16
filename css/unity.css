@@ -295,6 +295,16 @@
 
 .card-link:hover { color: #ffb74d; }
 
+.card-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+
+.card-link-muted { color: #aaa; }
+.card-link-muted:hover { color: #ffb74d; }
+
 /* Responsive */
 @media (max-width: 900px) {
   .project-card.featured {

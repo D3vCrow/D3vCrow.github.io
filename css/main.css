@@ -243,14 +243,29 @@ body.portfolio-page [role="button"] {
 
 @media (max-width: 768px) {
   .site-nav {
-    padding: 12px 20px;
+    padding: 10px 16px;
+  }
+  .site-nav .nav-brand {
+    font-size: 0.95rem;
+    letter-spacing: 2px;
   }
   .site-nav .nav-links {
-    gap: 18px;
+    gap: 14px;
+  }
+  .site-nav .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 1.5px;
   }
   .section-wrap {
     padding: 60px 20px;
   }
+}
+
+@media (max-width: 380px) {
+  .site-nav { padding: 9px 12px; }
+  .site-nav .nav-brand { letter-spacing: 1.5px; }
+  .site-nav .nav-links { gap: 10px; }
+  .site-nav .nav-links a { font-size: 0.68rem; letter-spacing: 1px; }
 }
 
 /* General Styles */
@@ -700,40 +715,6 @@ nav a.active {
 /* Responsive Adjustments */
 
 @media (max-width: 768px) {
-
-  /* Navigation adjustments: Thumb-Friendly Bottom Bar */
-  nav {
-    width: 90%;
-    /* Slightly narrower for a 'floating' look */
-    padding: 12px 15px;
-    border-radius: 25px;
-    top: auto;
-    /* Remove top positioning */
-    bottom: 30px;
-    /* Floating above the bottom */
-    background: rgba(0, 0, 0, 0.85);
-    border: 1px solid rgba(255, 152, 0, 0.3);
-    box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-  }
-
-  nav ul {
-    gap: 0;
-    justify-content: space-around;
-    /* Space items evenly for thumb reach */
-    width: 100%;
-  }
-
-  nav a {
-    font-size: 0.85rem;
-    padding: 5px 8px;
-  }
-
-  nav a.active {
-    color: #ff9800;
-    text-shadow: 0px 0px 8px rgba(255, 152, 0, 0.6);
-  }
 
   /* Title adjustments */
   .title-wrapper {
