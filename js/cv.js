@@ -14,7 +14,7 @@ Itch.io: https://d3vcrow.itch.io/
 ---
 
 ## Summary
-Unity developer and game designer with 7+ years of hands-on Unity/C# experience, including 4 years in a professional product environment. Skilled across the full game development pipeline — systems architecture, editor tooling, rendering, performance profiling, and live deployment.
+Unity developer and game designer with 7+ years of hands-on Unity/C# experience, including 4 years as sole technical owner of a commercial product. Skilled across the full game development pipeline — systems architecture, editor tooling, rendering, performance profiling, and live deployment. For tasks outside Unity (web, Python, tooling), works through a tuned Claude Code environment with project standards, review agents, and persistent memory — honest about what's hand-written and what's AI-directed.
 
 ---
 
@@ -28,34 +28,30 @@ Familiar: Multiplayer (Netcode for GameObjects / Photon / Mirror)
 
 ## Professional Experience
 
-Unity Developer / Product Owner / Generalist — Renderapp lt
+Unity Developer / Product Owner — Renderapp ltd
 Feb 2021 – Dec 2024 | Remote
-- Owned the full pipeline from 3D car data to live web configurator (Unity, 3DS Max, Node.js)
-- Solo migrated a live production project from Built-in Render Pipeline to HDRP
-- Product Owner for Caterham's online car configurator (caterhamcars.com/en/configurator)
-- Built and maintained custom editor tools for QA and workflow automation
-- Managed GitHub version control, Azure/cloud deployments, and client technical communications
+- Sole technical owner of the Caterham online car configurator for 4 years
+- Full pipeline: 3D data (3DS Max) → Unity HDRP → Node.js → Azure cloud
+- Solo-migrated a live production product from Built-in Render Pipeline to HDRP
+- Custom editor tools for QA and workflow automation
 
 Senior Unity Developer — e-Point (Contract)
-Jun 2024 – Nov 2024
-- Developed a VR experience for Fraport Airport
+Jun – Nov 2024 | Athens
+- Shared VR experience for Fraport Airport on Meta Quest 3
 
 ---
 
 ## Notable Projects
 
-Thrion — Turn-based strategy (solo dev, in development)
-Tile-based tactical gameplay with custom AI systems, procedural mechanics, and bespoke editor tooling.
+Thrion Arenas — Turn-based strategy (solo dev, in development)
+Tile-based tactical gameplay with custom AI, modular scene architecture, FMOD audio, and PlayFab backend.
 
 Darn! My Barn! — Published indie game
 https://d3vcrow.itch.io/darn-my-barn
-Solo-developed and published: gameplay, art direction, audio integration.
-
-Island Project — Open-world prototype (solo dev)
-Large-scale Unity environment exploring terrain, procedural generation, and performance at scale.`,
+Solo-developed in 17 days for Global Game Jam 2024. Gameplay, art direction, audio — all shipped alone.`,
 
 
-  software: `# Christoforos Papachristoforou — Software Engineer | Unity Developer | IT Specialist
+  software: `# Christoforos Papachristoforou — Unity Developer | AI-Directed Engineer | IT Specialist
 Location: Athens, Greece
 Email: chr.papachristoforou@gmail.com
 LinkedIn: https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/
@@ -65,32 +61,33 @@ Portfolio: https://d3vcrow.github.io
 ---
 
 ## Summary
-Software engineer with experience spanning Unity/C# product development, 3D visualization pipelines, IT operations, and team leadership. Worked in high-standard corporate environments including international airports and the automotive industry. Currently deepening Python skills with a focus on automation, data science, and AI tooling.
+Software engineer with experience spanning Unity/C# product development, 3D visualization pipelines, IT operations, and team leadership. Worked in high-standard corporate environments including international airports and the automotive industry. For web, Python, and tooling work, directs through a tuned Claude Code environment with project-scoped standards, persistent memory, and review agents — honest about what's hand-built and serious about the quality bar.
 
 ---
 
 ## Core Skills
 Expert: Unity, C#
-Experienced: Python (automation / AI tools), Git / PlasticSCM, JavaScript, 3D Rendering (HDRP / URP), Custom Tool Development
-Familiar: Web Development (HTML / CSS / JS), Node.js, Photoshop, Office 365
+Strong: AI-Directed Engineering (Claude Code, spec-driven prompting, diff review & QA), Git / GitHub, 3D Rendering (HDRP / URP), Custom Tool Development
+Working knowledge (via AI-directed): Python, JavaScript, HTML / CSS, Node.js
+Other: Azure Deployments, PlasticSCM, 3DS Max (pipeline), Photoshop, Office 365
 
 ---
 
 ## Professional Experience
 
-Unity Developer / Product Owner / Generalist — Renderapp lt
+Unity Developer / Product Owner — Renderapp ltd
 Feb 2021 – Dec 2024 | Remote
-- Managed end-to-end 3D car configurator pipeline (Unity, 3DS Max, Node.js) for automotive clients
-- Product Owner for Caterham's live online configurator (caterhamcars.com/en/configurator)
-- Developed custom workflow tools that improved QA efficiency and process reliability
-- Led technical communications, project estimations, and live deployments (Azure / cloud / private servers)
-- Managed GitHub repositories: branch management, migrations, backup/recovery
+- Sole technical owner of the Caterham online car configurator for 4 years
+- Managed end-to-end 3D pipeline: 3DS Max → Unity HDRP → Node.js → Azure cloud
+- Solo-migrated a live production product from Built-in to HDRP
+- Custom editor tools for QA and workflow automation
+- Direct technical communication with clients, estimations, and live deployments
 
 Senior Unity Developer — e-Point (Contract)
-Jun 2024 – Nov 2024
-- Developed a VR project for Fraport Airport as a contracted senior developer
+Jun – Nov 2024 | Athens
+- Developed a VR project for Fraport Airport as contracted senior developer
 
-Team Leader of Service Operations & Site Administrators — SITA / NetSquare @ Athens Int'l Airport
+Team Leader of Service Operations — SITA / NetSquare @ Athens Int'l Airport
 May 2018 – Feb 2021 | Athens
 - Led operations team and delivered staff training programs
 - Maintained SLA targets for critical airport systems; coordinated incident escalations
@@ -104,7 +101,7 @@ Aug 2014 – Nov 2016 | Athens
 ---
 
 ## Education
-B.Eng Electronic Computer Systems Engineer — ATEI of Piraeus (2008 – 2014)
+B.Eng Electronic Computer Systems Engineering — ATEI of Piraeus (2008 – 2014)
 Cisco ICND1 Certification (640-822) — New York College (2012)`
 
 };

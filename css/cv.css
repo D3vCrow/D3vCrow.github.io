@@ -1,19 +1,11 @@
 /* CV Page */
+
+/* Hero */
 .cv-hero {
   padding-top: 100px;
   padding-bottom: 60px;
   background: #000;
   border-bottom: 1px solid rgba(255, 152, 0, 0.1);
-}
-
-.cv-hero .hero-name {
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(2.5rem, 8vw, 6rem);
-  color: #f5f5f5;
-  line-height: 1;
-  margin-bottom: 16px;
-  opacity: 0;
-  animation: fade-up-cv 0.8s ease 0.2s forwards;
 }
 
 .cv-hero .hero-role {
@@ -24,7 +16,17 @@
   color: #ff9800;
   margin-bottom: 12px;
   opacity: 0;
-  animation: fade-up-cv 0.8s ease 0.4s forwards;
+  animation: fade-up-cv 0.8s ease 0.2s forwards;
+}
+
+.cv-hero .hero-name {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  color: #f5f5f5;
+  line-height: 1;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fade-up-cv 0.8s ease 0.3s forwards;
 }
 
 .cv-hero .hero-location {
@@ -32,8 +34,20 @@
   font-size: 0.9rem;
   color: #666;
   letter-spacing: 1px;
+  margin-bottom: 0;
   opacity: 0;
-  animation: fade-up-cv 0.8s ease 0.5s forwards;
+  animation: fade-up-cv 0.8s ease 0.45s forwards;
+}
+
+.cv-hero .hero-pitch {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #aaa;
+  max-width: 620px;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fade-up-cv 0.8s ease 0.6s forwards;
 }
 
 @keyframes fade-up-cv {
@@ -124,42 +138,51 @@
   color: rgba(255,152,0,0.4);
 }
 
-/* How I Work section */
-.how-i-work-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
+/* How I Work with AI */
+.ai-block {
+  margin-top: 32px;
+  padding: 32px;
+  border: 1px solid rgba(255, 152, 0, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 2px;
 }
 
-.work-method-card {
-  padding: 24px;
-  border-top: 2px solid rgba(255, 152, 0, 0.3);
-}
-
-.work-method-card .method-icon {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 3px;
-  color: #ff9800;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.work-method-card h4 {
-  font-family: 'Anton', sans-serif;
-  font-size: 1rem;
-  color: #f5f5f5;
-  margin: 0 0 8px;
-  letter-spacing: 1px;
-}
-
-.work-method-card p {
+.ai-block p {
   font-family: 'Raleway', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #aaa;
+  margin: 0 0 16px;
+  max-width: 680px;
+}
+
+.ai-block p:last-child { margin-bottom: 0; }
+
+.ai-block .ai-tools {
   font-size: 0.85rem;
-  color: #888;
+  color: #777;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,152,0,0.08);
+}
+
+.ai-block .ai-tools strong { color: #ff9800; font-weight: 700; }
+
+.ai-block .ai-proof {
+  font-size: 0.88rem;
+  color: #999;
+  padding-left: 16px;
+  border-left: 2px solid rgba(255, 152, 0, 0.35);
+  font-style: italic;
+}
+
+.ai-pitch {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
   line-height: 1.7;
-  margin: 0;
+  color: #ccc;
+  margin-top: 32px;
+  max-width: 680px;
 }
 
 /* Skills grid */
@@ -202,6 +225,49 @@
 .skill-tag.strong {
   color: #f5f5f5;
   border-color: rgba(255, 152, 0, 0.3);
+}
+
+.skill-note {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 14px;
+}
+
+.skill-note a { color: #ff9800; text-decoration: none; }
+.skill-note a:hover { color: #ffb74d; }
+
+/* Education */
+.edu-row {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,152,0,0.08);
+}
+
+.edu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.edu-item {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.5;
+}
+
+.edu-year {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  color: #ff9800;
+  white-space: nowrap;
+  min-width: 90px;
 }
 
 /* Contact section */
@@ -288,102 +354,11 @@
   color: #4caf50;
 }
 
-/* AI Ecosystem + Proof block */
-.ai-stack-wrap {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 40px;
-  margin-top: 56px;
-  padding: 32px;
-  border: 1px solid rgba(255, 152, 0, 0.12);
-  background: rgba(0, 0, 0, 0.35);
-  border-radius: 2px;
-}
-
-.ai-stack-col .section-label { margin-bottom: 12px; }
-
-.ai-stack-intro {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.88rem;
-  line-height: 1.65;
-  color: #a0a0a0;
-  margin: 0 0 20px;
-  max-width: 560px;
-}
-
-.ai-tiers {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.ai-tier {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 16px;
-  align-items: start;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255, 152, 0, 0.08);
-}
-
-.ai-tier:first-child { border-top: none; padding-top: 0; }
-
-.ai-tier-name {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: #ff9800;
-  line-height: 1.6;
-}
-
-.ai-tier-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.ai-stack-col .skill-tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.ai-proof-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.ai-proof-list li {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.9rem;
-  line-height: 1.65;
-  color: #aaa;
-  padding-left: 16px;
-  border-left: 2px solid rgba(255, 152, 0, 0.35);
-}
-
-.ai-proof-list li strong {
-  color: #f0f0f0;
-  font-weight: 800;
-}
-
+/* Responsive */
 @media (max-width: 768px) {
   .cv-timeline { padding-left: 20px; }
   .timeline-item::before { left: -24px; }
-  .ai-stack-wrap {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 24px 20px;
-    margin-top: 40px;
-  }
-  .ai-tier {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-  .ai-tier-name { font-size: 0.68rem; letter-spacing: 2px; }
+  .ai-block { padding: 24px 20px; }
+  .edu-item { flex-direction: column; gap: 4px; }
+  .edu-year { min-width: auto; }
 }
