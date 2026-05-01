@@ -46,6 +46,7 @@ body.portfolio-page [role="button"] {
   top: 0;
   left: 0;
   width: 100%;
+  box-sizing: border-box;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
