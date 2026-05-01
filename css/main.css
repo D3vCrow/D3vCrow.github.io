@@ -818,3 +818,107 @@ nav a.active {
     margin: 35px auto 100px; /* Increased bottom margin for bottom nav bar */
   }
 }
+
+/* =========================================
+   Accessibility — WCAG 2.1 AA floor
+   ========================================= */
+
+/* Skip-to-main-content link — visually hidden until keyboard focus */
+.skip-link {
+  position: absolute;
+  top: -48px;
+  left: 8px;
+  z-index: 10001;
+  padding: 8px 16px;
+  background: #ff9800;
+  color: #000;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 8px;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Visible focus rings for keyboard users */
+:focus-visible {
+  outline: 2px solid #ff9800;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================
+   Light mode — system preference override
+   ========================================= */
+@media (prefers-color-scheme: light) {
+  html,
+  body {
+    background: #fafafa;
+    color: #1a1a1a;
+  }
+
+  .site-nav {
+    background: rgba(255, 255, 255, 0.85);
+    border-bottom-color: rgba(255, 152, 0, 0.3);
+  }
+  .site-nav .nav-links a { color: #555; }
+  .site-nav .nav-links a:hover,
+  .site-nav .nav-links a.active { color: #e65100; }
+  .site-nav .nav-brand { color: #e65100; }
+
+  .site-footer {
+    background: rgba(0, 0, 0, 0.04);
+    border-top-color: rgba(255, 152, 0, 0.3);
+  }
+  .site-footer .footer-links a { color: #555; }
+  .site-footer .footer-links a:hover { color: #e65100; }
+  .site-footer .footer-copy { color: #888; }
+
+  .section-title { color: #1a1a1a; }
+  .section-body { color: #444; }
+  .section-label { color: #e65100; }
+
+  .glass-card {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: rgba(255, 152, 0, 0.4);
+  }
+  .glass-card:hover {
+    background: rgba(255, 152, 0, 0.04);
+    border-color: rgba(255, 152, 0, 0.6);
+  }
+
+  /* Soften film-grain in light mode */
+  .portfolio-page::after { opacity: 0.015; }
+}
+
+/* =========================================
+   Wider desktop breakpoint (>= 1281px)
+   ========================================= */
+@media (min-width: 1281px) {
+  .section-wrap {
+    padding: 100px 32px;
+  }
+}
