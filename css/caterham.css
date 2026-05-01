@@ -237,3 +237,140 @@
   .cat-hero-ctas .btn-primary,
   .cat-hero-ctas .btn-ghost { width: 100%; text-align: center; }
 }
+
+/* =========================================
+   Light mode — system preference override
+   ========================================= */
+@media (prefers-color-scheme: light) {
+  .cat-hero-image { filter: saturate(0.95) brightness(0.95); }
+  .cat-hero-overlay {
+    background: linear-gradient(180deg,
+      rgba(255,255,255,0.5) 0%,
+      rgba(255,255,255,0.3) 45%,
+      rgba(250,250,250,0.92) 100%);
+  }
+  .cat-hero-title { color: #1a1a1a; }
+  .cat-hero-sub { color: #444; }
+  .back-link { color: #555; }
+  .back-link:hover { color: #e65100; }
+
+  .cat-facts {
+    background: rgba(0,0,0,0.02);
+    border-top-color: rgba(255,152,0,0.25);
+    border-bottom-color: rgba(255,152,0,0.25);
+  }
+  .fact { border-left-color: rgba(255,152,0,0.3); }
+  .fact-num { color: #e65100; }
+  .fact-label { color: #555; }
+
+  .pipeline-card { border-left-color: rgba(255,152,0,0.5); }
+  .pc-step { color: #e65100; }
+  .pipeline-card h4 { color: #1a1a1a; }
+  .pipeline-card p { color: #444; }
+
+  .cat-highlight {
+    background: rgba(255,152,0,0.05);
+    border-top-color: rgba(255,152,0,0.25);
+    border-bottom-color: rgba(255,152,0,0.25);
+  }
+
+  .wip-card h3 { color: #1a1a1a; }
+  .wip-card p { color: #444; }
+  .wip-card a { color: #e65100; }
+}
+
+/* =========================================
+   Print — clean grayscale layout, expanded link URLs
+   ========================================= */
+@media print {
+  .site-nav,
+  .cat-hero-image,
+  .cat-hero-overlay,
+  .cat-hero-ctas,
+  .wip-ctas,
+  .portfolio-page::after { display: none !important; }
+
+  html, body { background: #fff !important; color: #000 !important; }
+
+  .cat-hero {
+    min-height: auto !important;
+    background: #fff !important;
+  }
+  .cat-hero-content { padding-top: 20px !important; padding-bottom: 20px !important; }
+
+  .cat-hero-title,
+  .cat-hero-sub,
+  .hero-eyebrow,
+  .back-link,
+  .section-title,
+  .section-body,
+  .section-label,
+  .fact-num,
+  .fact-label,
+  .pipeline-card h4,
+  .pipeline-card p,
+  .pc-step,
+  .wip-card h3,
+  .wip-card p { color: #000 !important; }
+
+  .cat-facts,
+  .cat-highlight,
+  .cat-wip { background: transparent !important; border-color: #ccc !important; }
+  .fact {
+    border-left: none !important;
+    border-top: 1px solid #ccc !important;
+    padding-top: 8px;
+  }
+  .fact:first-child { border-top: none !important; }
+  .pipeline-card {
+    border: 1px solid #888 !important;
+    padding: 14px 16px !important;
+    break-inside: avoid;
+  }
+  .pipeline-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .wip-card {
+    background: transparent !important;
+    border: 1px solid #888 !important;
+    padding: 20px !important;
+  }
+
+  a[href]:not(.back-link)::after {
+    content: " (" attr(href) ")";
+    font-size: 0.7rem;
+    color: #555;
+    word-break: break-all;
+  }
+
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* =========================================
+   375 px refinements
+   ========================================= */
+@media (max-width: 380px) {
+  .cat-hero-content { padding-top: 100px; padding-bottom: 50px; }
+  .cat-hero-title { font-size: 2.1rem; line-height: 1.05; }
+  .cat-hero-sub { font-size: 0.92rem; }
+  .fact-grid { gap: 16px; }
+  .fact-num { font-size: 1.5rem; }
+  .fact-label { font-size: 0.65rem; letter-spacing: 1.5px; }
+  .pipeline-card { padding: 22px 18px; }
+  .pipeline-card h4 { font-size: 1.05rem; }
+  .pipeline-card p { font-size: 0.82rem; }
+  .wip-card { padding: 24px 18px; }
+  .wip-card h3 { font-size: 1.4rem; }
+  .wip-card p { font-size: 0.88rem; }
+}
+
+/* =========================================
+   Wider desktop breakpoint (>= 1281px)
+   ========================================= */
+@media (min-width: 1281px) {
+  .cat-hero-content { padding-top: 140px; padding-bottom: 100px; }
+  .cat-hero-title { font-size: clamp(3rem, 7vw, 6.5rem); }
+  .pipeline-grid { gap: 28px; }
+  .wip-card { max-width: 820px; padding: 56px; }
+}

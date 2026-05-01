@@ -5,7 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Caterham Configurator - Christoforos Papachristoforou</title>
   <meta name="description" content="Caterham online car configurator. Unity-based, solo pipeline ownership for 4+ years across Renderapp and post-closure continuation. Project page by Christoforos Papachristoforou.">
+  <link rel="canonical" href="https://d3vcrow.github.io/caterham.html">
   <link rel="icon" href="assets/obsidian_moon.png" type="image/png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Caterham Car Configurator | Christoforos Papachristoforou">
+  <meta property="og:description" content="Unity-based web configurator for Caterham. Solo pipeline ownership for 4+ years across Renderapp and post-closure continuation.">
+  <meta property="og:url" content="https://d3vcrow.github.io/caterham.html">
+  <meta property="og:image" content="https://d3vcrow.github.io/Caterham.PNG">
+  <meta property="og:site_name" content="DevCrow">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Caterham Car Configurator | Christoforos Papachristoforou">
+  <meta name="twitter:description" content="Unity-based web configurator for Caterham. Solo pipeline ownership for 4+ years across Renderapp and post-closure continuation.">
+  <meta name="twitter:image" content="https://d3vcrow.github.io/Caterham.PNG">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,9 +29,49 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/unity.css">
   <link rel="stylesheet" href="css/caterham.css">
+
+  <!-- Structured data: WebPage + CreativeWork (Caterham project) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://d3vcrow.github.io/caterham.html",
+        "url": "https://d3vcrow.github.io/caterham.html",
+        "name": "Caterham Car Configurator | Christoforos Papachristoforou",
+        "description": "Caterham online car configurator. Unity-based, solo pipeline ownership for 4+ years across Renderapp and post-closure continuation.",
+        "isPartOf": { "@id": "https://d3vcrow.github.io/#website" },
+        "primaryImageOfPage": "https://d3vcrow.github.io/Caterham.PNG",
+        "creator": { "@id": "https://d3vcrow.github.io/#chris" },
+        "mainEntity": { "@id": "https://d3vcrow.github.io/caterham.html#project" }
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://d3vcrow.github.io/caterham.html#project",
+        "name": "Caterham Car Configurator",
+        "url": "https://caterhamcars.com/en/configurator",
+        "description": "Web-based automotive configurator delivering every Caterham spec live to customers. Solo ownership of the full pipeline (3D ingestion, Unity render setup, Node.js middleware, Azure deployment, direct Caterham comms) for 4+ years across Renderapp and post-closure continuation.",
+        "creator": { "@id": "https://d3vcrow.github.io/#chris" },
+        "datePublished": "2021-02",
+        "image": "https://d3vcrow.github.io/Caterham.PNG",
+        "about": [
+          "Unity",
+          "Web Configurator",
+          "3DS Max",
+          "Node.js",
+          "Azure",
+          "Automotive Visualization"
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="portfolio-page">
+
+  <a href="#main" class="skip-link">Skip to main content</a>
 
   <!-- Navigation -->
   <nav class="site-nav" aria-label="Main navigation">
@@ -27,6 +82,8 @@
       <li><a href="unity.html" class="active" aria-current="page">Unity</a></li>
     </ul>
   </nav>
+
+  <main id="main">
 
   <!-- Hero -->
   <section class="cat-hero" aria-label="Caterham Configurator">
@@ -158,6 +215,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">
