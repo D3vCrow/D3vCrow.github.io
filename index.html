@@ -5,11 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Christoforos Papachristoforou | DevCrow</title>
   <meta name="description" content="Unity Developer, Game Designer, and AI Systems Director based in Athens, Greece. Real Unity expertise. AI-directed engineering for everything else.">
-  <meta property="og:title" content="Christoforos Papachristoforou | DevCrow">
-  <meta property="og:description" content="Unity Developer, Game Designer, AI Systems Director.">
-  <meta property="og:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
-  <meta property="og:url" content="https://d3vcrow.github.io">
+  <link rel="canonical" href="https://d3vcrow.github.io/">
   <link rel="icon" href="assets/obsidian_moon.png" type="image/png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Christoforos Papachristoforou | DevCrow">
+  <meta property="og:description" content="Unity Developer, Game Designer, AI Systems Director. Athens, Greece. 8+ years shipping production Unity.">
+  <meta property="og:url" content="https://d3vcrow.github.io/">
+  <meta property="og:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
+  <meta property="og:site_name" content="DevCrow">
+  <meta property="profile:first_name" content="Christoforos">
+  <meta property="profile:last_name" content="Papachristoforou">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Christoforos Papachristoforou | DevCrow">
+  <meta name="twitter:description" content="Unity Developer, Game Designer, AI Systems Director. Athens, Greece.">
+  <meta name="twitter:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,26 +31,63 @@
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/home.css">
 
+  <!-- Structured data: Person + WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Christoforos Papachristoforou",
-    "alternateName": "DevCrow",
-    "url": "https://d3vcrow.github.io",
-    "email": "chr.papachristoforou@gmail.com",
-    "jobTitle": "Unity Developer & Game Designer",
-    "address": { "@type": "PostalAddress", "addressLocality": "Athens", "addressCountry": "GR" },
-    "sameAs": [
-      "https://github.com/D3vCrow",
-      "https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/",
-      "https://d3vcrow.itch.io/"
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://d3vcrow.github.io/#chris",
+        "name": "Christoforos Papachristoforou",
+        "alternateName": "DevCrow",
+        "url": "https://d3vcrow.github.io/",
+        "image": "https://d3vcrow.github.io/assets/obsidian_moon.png",
+        "email": "mailto:chr.papachristoforou@gmail.com",
+        "jobTitle": "Unity Developer",
+        "description": "Unity Developer and AI-Directed Engineer based in Athens, Greece.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Athens",
+          "addressCountry": "GR"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "ATEI of Piraeus"
+        },
+        "knowsAbout": [
+          "Unity",
+          "C#",
+          "VR Development",
+          "OEM Configurators",
+          "Game Development",
+          "Technical Art",
+          "AI-Directed Engineering",
+          "3DS Max",
+          "Render Pipelines"
+        ],
+        "sameAs": [
+          "https://github.com/D3vCrow",
+          "https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/",
+          "https://d3vcrow.itch.io/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://d3vcrow.github.io/#website",
+        "url": "https://d3vcrow.github.io/",
+        "name": "DevCrow",
+        "description": "Portfolio of Christoforos Papachristoforou. Unity, AI-directed engineering, and game development.",
+        "author": { "@id": "https://d3vcrow.github.io/#chris" }
+      }
     ]
   }
   </script>
 </head>
 
 <body class="portfolio-page">
+
+  <a href="#main" class="skip-link">Skip to main content</a>
 
   <!-- Navigation -->
   <nav class="site-nav" aria-label="Main navigation">
@@ -48,6 +98,8 @@
       <li><a href="unity.html">Unity</a></li>
     </ul>
   </nav>
+
+  <main id="main">
 
   <!-- Hero -->
   <section class="home-hero" aria-label="Hero">
@@ -89,7 +141,7 @@
           <p class="card-label">Real Expertise</p>
           <h3>Unity Developer</h3>
           <p>
-            7+ years of hands-on Unity and C#, built by me.
+            8+ years of hands-on Unity and C#, built by me.
             Render pipelines, custom editor tooling, performance profiling, systems architecture.
           </p>
           <a href="unity.html" class="card-link">See the work</a>
@@ -142,6 +194,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- Footer -->
   <footer class="site-footer">

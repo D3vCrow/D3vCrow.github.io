@@ -248,3 +248,141 @@
   .identity-grid { grid-template-columns: 1fr; }
   .home-ctas { flex-direction: column; align-items: center; }
 }
+
+/* Small phones (<= 380px) */
+@media (max-width: 380px) {
+  .home-hero { min-height: 480px; }
+  .home-aka { font-size: 0.7rem; letter-spacing: 4px; }
+  #home-rotating-msg { letter-spacing: 2px; }
+  .identity-card { padding: 24px 20px; }
+  .identity-card h3 { font-size: 1.2rem; }
+  .identity-card p { font-size: 0.9rem; line-height: 1.7; }
+  .personality-row { gap: 10px; }
+  .personality-pill { font-size: 0.7rem; padding: 5px 10px; letter-spacing: 1.5px; }
+}
+
+/* Wider desktop (>= 1281px) */
+@media (min-width: 1281px) {
+  .identity-grid { gap: 40px; }
+  .identity-card { padding: 40px; }
+  .identity-card h3 { font-size: 1.55rem; }
+}
+
+/* =========================================
+   Light mode — Home-specific overrides
+   ========================================= */
+@media (prefers-color-scheme: light) {
+  .home-hero {
+    background: #fafafa;
+  }
+  .home-hero::after {
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.12) 100%);
+  }
+  .home-hero::before { opacity: 0.5; }
+
+  .title-echo-r { color: rgba(255, 40, 40, 0.22); }
+  .title-echo-b { color: rgba(40, 120, 255, 0.22); }
+
+  .home-title {
+    filter: drop-shadow(0 0 30px rgba(255, 152, 0, 0.25));
+  }
+
+  .home-aka { color: #e65100; }
+
+  #home-rotating-msg { color: #1a1a1a; }
+
+  .scroll-hint span { color: #888; }
+  .scroll-hint::after {
+    background: linear-gradient(to bottom, #e65100, transparent);
+  }
+
+  .home-identity {
+    background: #fafafa;
+    border-top-color: rgba(255, 152, 0, 0.3);
+  }
+
+  .identity-card {
+    border-left-color: rgba(230, 81, 0, 0.4);
+  }
+  .identity-card .card-label { color: #e65100; }
+  .identity-card h3 { color: #1a1a1a; }
+  .identity-card p { color: #555; }
+  .identity-card .card-link { color: #e65100; }
+  .identity-card .card-link:hover { color: #c46500; }
+
+  .personality-pill {
+    color: #555;
+    border-color: rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* =========================================
+   Print stylesheet — homepage minimal
+   ========================================= */
+@media print {
+  @page { margin: 1.5cm 2cm; }
+
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 10pt !important;
+  }
+
+  /* Hide hero chrome and decorative animations on print */
+  .home-hero,
+  .scroll-hint,
+  .title-bg-video,
+  .skip-link,
+  .site-nav,
+  .site-footer {
+    display: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    filter: none !important;
+  }
+
+  .home-identity {
+    background: #fff !important;
+    border-top: none !important;
+    padding: 0 !important;
+  }
+
+  .section-label { color: #c46500 !important; }
+  .section-title { color: #000 !important; }
+  .section-body { color: #333 !important; }
+
+  .identity-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+    page-break-inside: avoid;
+  }
+  .identity-card {
+    border-left: 2px solid #c46500 !important;
+    padding: 12px 16px !important;
+    page-break-inside: avoid;
+  }
+  .identity-card .card-label { color: #c46500 !important; }
+  .identity-card h3 { color: #000 !important; font-size: 1.1rem !important; }
+  .identity-card p { color: #222 !important; font-size: 0.9rem !important; }
+  .identity-card .card-link { color: #000 !important; text-decoration: underline !important; }
+  .identity-card .card-link::after { content: "" !important; }
+
+  .personality-row {
+    gap: 8px !important;
+    margin-top: 16px !important;
+  }
+  .personality-pill {
+    color: #222 !important;
+    border-color: #999 !important;
+    background: transparent !important;
+  }
+}
