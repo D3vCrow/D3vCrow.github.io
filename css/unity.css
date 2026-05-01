@@ -332,3 +332,165 @@
     gap: 20px;
   }
 }
+
+/* =========================================
+   Accessibility — reduced motion (page-specific animations)
+   ========================================= */
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow,
+  .unity-hero-title,
+  .unity-hero-sub,
+  .unity-stats {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}
+
+/* =========================================
+   Light mode — system preference override
+   ========================================= */
+@media (prefers-color-scheme: light) {
+  .unity-hero { background: #fafafa; }
+  .unity-hero-bg { opacity: 0.08; }
+  .unity-hero-overlay {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.3) 40%, rgba(250,250,250,0.92) 100%);
+  }
+  .unity-hero-title { color: #1a1a1a; }
+  .unity-hero-sub { color: #555; }
+  .stat-num { color: #e65100; }
+  .stat-label { color: #888; }
+
+  .skills-matrix-section {
+    background: rgba(255,152,0,0.05);
+    border-top-color: rgba(255,152,0,0.25);
+    border-bottom-color: rgba(255,152,0,0.25);
+  }
+  .skill-tier { border-bottom-color: rgba(0,0,0,0.08); }
+  .tier-name.t-core { color: #e65100; }
+  .tier-name.t-high { color: #c66e0e; }
+  .tier-name.t-med  { color: #555; }
+  .tier-name.t-low  { color: #888; }
+  .tier-chip.t-core {
+    color: #e65100;
+    background: rgba(255,152,0,0.12);
+    border-color: rgba(255,152,0,0.5);
+  }
+  .tier-chip.t-high {
+    color: #b85a00;
+    background: rgba(255,183,77,0.12);
+    border-color: rgba(255,183,77,0.45);
+  }
+  .tier-chip.t-med {
+    color: #555;
+    background: rgba(0,0,0,0.03);
+    border-color: rgba(0,0,0,0.15);
+  }
+  .tier-chip.t-low {
+    color: #888;
+    background: transparent;
+    border-color: rgba(0,0,0,0.12);
+  }
+
+  .projects-section { border-top-color: rgba(255,152,0,0.25); }
+  .project-card {
+    background: rgba(0,0,0,0.02);
+    border-color: rgba(255,152,0,0.3);
+  }
+  .project-card:hover { border-color: rgba(255,152,0,0.6); }
+  .card-year { color: #e65100; }
+  .card-title { color: #1a1a1a; }
+  .card-tag {
+    color: #555;
+    border-color: rgba(0,0,0,0.18);
+  }
+  .card-desc { color: #555; }
+  .card-link { color: #e65100; }
+  .card-link:hover { color: #c66e0e; }
+  .card-link-muted { color: #555; }
+  .card-link-muted:hover { color: #c66e0e; }
+}
+
+/* =========================================
+   Print — clean grayscale layout, expanded link URLs
+   ========================================= */
+@media print {
+  .site-nav,
+  .unity-hero-bg,
+  .unity-hero-overlay,
+  .card-media video,
+  .card-media iframe,
+  .portfolio-page::after { display: none !important; }
+
+  html, body { background: #fff !important; color: #000 !important; }
+
+  .unity-hero {
+    min-height: auto !important;
+    background: #fff !important;
+  }
+  .unity-hero-content { padding-top: 20px !important; padding-bottom: 20px !important; }
+
+  .hero-eyebrow,
+  .unity-hero-title,
+  .unity-hero-sub,
+  .stat-num,
+  .stat-label,
+  .section-title,
+  .section-body,
+  .section-label,
+  .card-title,
+  .card-desc,
+  .card-tag,
+  .card-year,
+  .tier-name,
+  .tier-chip { color: #000 !important; }
+
+  .skills-matrix-section,
+  .projects-section { background: transparent !important; border-color: #ccc !important; }
+  .skill-tier { break-inside: avoid; border-bottom: 1px solid #ccc !important; }
+  .tier-chip { background: transparent !important; border: 1px solid #888 !important; }
+  .project-card {
+    background: transparent !important;
+    border: 1px solid #888 !important;
+    break-inside: avoid;
+  }
+  .card-media { display: none !important; }
+
+  .card-link[href]::after,
+  .card-link-muted[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.7rem;
+    color: #555;
+    word-break: break-all;
+  }
+
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* =========================================
+   375 px refinements
+   ========================================= */
+@media (max-width: 380px) {
+  .unity-hero-content { padding-top: 110px; padding-bottom: 60px; }
+  .unity-hero-title { font-size: 2.4rem; line-height: 1.05; }
+  .unity-hero-sub { font-size: 0.9rem; }
+  .stat-num { font-size: 1.5rem; }
+  .stat-label { font-size: 0.5rem; letter-spacing: 2px; }
+  .skill-tier { padding-bottom: 18px; }
+  .tier-chip { font-size: 0.72rem; padding: 4px 10px; }
+  .project-grid { gap: 16px; }
+  .card-info { padding: 16px 18px 18px; }
+  .card-title { font-size: 1rem; }
+  .card-desc { font-size: 0.82rem; }
+}
+
+/* =========================================
+   Wider desktop breakpoint (>= 1281px)
+   ========================================= */
+@media (min-width: 1281px) {
+  .project-grid {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+  }
+  .skill-tier { grid-template-columns: 220px 1fr; gap: 32px; }
+  .unity-hero-title { font-size: clamp(3.5rem, 7vw, 6.5rem); }
+}
