@@ -112,12 +112,12 @@ For 7 early Unity project folders on disk, build a once-and-for-all reference of
 
 ---
 
-## 3. Cowboy vs Hell = Darn! My Barn! — FRAMING MISMATCH ⚠️
+## 3. Cowboy vs Hell = Darn! My Barn! — REWRITE FRAMING
 - **Path:** `F:\DevCrow\Thrion Unity Files\Cowboy vs Hell`
 - **Unity:** 6000.0.26f1 (Unity 6.0 LTS)
 - **Type / genre:** 2D top-down twin-stick shooter with farm-themed bosses (Bull, Cow, Chicken)
-- **Status:** Published (GGJ 2024), 17-day solo dev — per Chris's mapping
-- **Correlation:** Maps to current "Darn! My Barn!" card. **BUT the current card calls it "farm management" and the code is 100% action shooter.** Need to reconcile what the actual game is — see open questions below.
+- **Status:** Published (GGJ 2024), 17-day solo dev
+- **Correlation:** Maps to current "Darn! My Barn!" card. **Framing resolved 2026-05-03 (Chris): the actual game is an action shooter, not "farm management" as the current card claims. The current portfolio framing is wrong and must be rewritten.**
 
 ### Mechanics & systems
 - Twin-stick character with hands as separate bones (`HandsScript`, `HandDamaged` left + right, `HandGun`)
@@ -154,8 +154,8 @@ For 7 early Unity project folders on disk, build a once-and-for-all reference of
 1. *"Hell came to the barn"* — 2D twin-stick action with farm-monster bosses (clip: vs. Bull boss)
 2. *"Built to swarm"* — DOTS local avoidance + SOAP events for performance + maintainability
 
-### Open question (CRITICAL)
-The current portfolio describes Darn! My Barn! as *"Solo-developed farm management game"*. The Cowboy vs Hell folder code is *not* farm management — it's an action shooter. Either: (a) the GGJ submission has a management layer not in this folder; (b) the framing was always inaccurate marketing-speak; (c) wrong folder mapping. **Need Chris confirmation before final card copy.**
+### Resolved 2026-05-03
+Chris confirmed the actual game is an action shooter; the current "farm management" framing is wrong. Rewrite the card around twin-stick action vs. farm-monster bosses. Suggested anchor: *"Hell came to the barn"* (presentation hook #1).
 
 ---
 
@@ -382,12 +382,12 @@ Optional — has enough depth (dual-mode novelty) to merit a `/post-apo.html` if
 
 ---
 
-## Open questions / next probes
-1. **Darn! My Barn! framing mismatch (CRITICAL)** — current card calls it "farm management"; code is action shooter. Confirm with Chris which framing is correct before card copy. *Bound: blocker for /_handoff D!MB! card-copy turn.*
-2. **Hack&Slash card placement** — under "Solo Lab" (DevCrow Experiments) or as its own section? Recommendation: Solo Lab. *Bound: default applies if not overridden by /_handoff brief.*
-3. **Detail-page count** — confirmed 3 strongest are Hack&Slash / IslandP / TD Lab. Heavy Rotten Souls optional 4th slot. *Bound: enumerated targets, decided in /_handoff.*
-4. **Greater Game year** — original portfolio said "Between 2019-2020"; any sharper range? *Bound: default `2019-2020` unless refined.*
-5. **Skill chip naming** — should DOTS/Burst be one chip ("DOTS / Burst") or two? Recommendation: one chip to start. *Bound: default single chip unless split.*
+## Open questions / next probes — STATUS 2026-05-03
+1. ✅ **Darn! My Barn! framing** — RESOLVED: action shooter, rewrite the card. Current "farm management" framing is wrong.
+2. 🔒 **Hack&Slash card placement** — LOCKED to default: Solo Lab section.
+3. 🔒 **Detail-page count** — LOCKED to default: 3 (Hack&Slash + IslandP + TD Lab); HRS optional 4th deferred to /_handoff.
+4. 🔒 **Greater Game year** — LOCKED to default: `2019-2020`.
+5. 🔒 **DOTS/Burst chip naming** — LOCKED to default: single chip "DOTS / Burst".
 
 ## Sources (workspace, grep-dominant)
 - `F:\DevCrow\portfolio\D3vCrow.github.io\unity.html` (current portfolio)
