@@ -305,6 +305,86 @@
 .card-link-muted { color: #aaa; }
 .card-link-muted:hover { color: #ffb74d; }
 
+/* Roles trio (positioning, between hero and project sections) */
+.roles-trio-section {
+  border-top: 1px solid rgba(255,152,0,0.08);
+}
+
+.roles-trio {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.role-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px;
+  background: rgba(255,152,0,0.02);
+  border: 1px solid rgba(255,152,0,0.12);
+  border-radius: 2px;
+}
+
+.role-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+  color: #ff9800;
+  margin: 0 0 18px;
+}
+
+.role-positioning {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #ddd;
+  line-height: 1.55;
+  margin: 0 0 22px;
+}
+
+.role-proof,
+.role-capabilities {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  color: #aaa;
+  line-height: 1.6;
+  flex: 1;
+}
+
+.role-proof li,
+.role-capabilities li {
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.role-proof li:last-child,
+.role-capabilities li:last-child {
+  border-bottom: none;
+}
+
+.role-anchor {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffb74d;
+  text-decoration: none;
+  margin-top: auto;
+  padding-top: 8px;
+  transition: color 0.25s;
+}
+
+.role-anchor:hover { color: #ff9800; }
+
+@media (max-width: 760px) {
+  .roles-trio { grid-template-columns: 1fr; gap: 18px; }
+  .role-card { padding: 22px 20px; }
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .project-card.featured {
@@ -378,10 +458,17 @@
   .card-tag,
   .card-year,
   .tier-name,
-  .tier-chip { color: #000 !important; }
+  .tier-chip,
+  .role-title,
+  .role-positioning,
+  .role-proof,
+  .role-capabilities,
+  .role-anchor { color: #000 !important; }
 
   .skills-matrix-section,
-  .projects-section { background: transparent !important; border-color: #ccc !important; }
+  .projects-section,
+  .roles-trio-section { background: transparent !important; border-color: #ccc !important; }
+  .role-card { background: transparent !important; border: 1px solid #888 !important; break-inside: avoid; }
   .skill-tier { break-inside: avoid; border-bottom: 1px solid #ccc !important; }
   .tier-chip { background: transparent !important; border: 1px solid #888 !important; }
   .project-card {
