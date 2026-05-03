@@ -11,10 +11,6 @@
   z-index: 0;
 }
 
-@media (prefers-color-scheme: light) {
-  .detail-hero-bg { filter: saturate(0.9) brightness(0.85); }
-}
-
 @media print {
   .detail-hero-bg { display: none !important; }
 }

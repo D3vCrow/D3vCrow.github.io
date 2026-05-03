@@ -269,54 +269,6 @@
 }
 
 /* =========================================
-   Light mode — Home-specific overrides
-   ========================================= */
-@media (prefers-color-scheme: light) {
-  .home-hero {
-    background: #fafafa;
-  }
-  .home-hero::after {
-    background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.12) 100%);
-  }
-  .home-hero::before { opacity: 0.5; }
-
-  .title-echo-r { color: rgba(255, 40, 40, 0.22); }
-  .title-echo-b { color: rgba(40, 120, 255, 0.22); }
-
-  .home-title {
-    filter: drop-shadow(0 0 30px rgba(255, 152, 0, 0.25));
-  }
-
-  .home-aka { color: #e65100; }
-
-  #home-rotating-msg { color: #1a1a1a; }
-
-  .scroll-hint span { color: #888; }
-  .scroll-hint::after {
-    background: linear-gradient(to bottom, #e65100, transparent);
-  }
-
-  .home-identity {
-    background: #fafafa;
-    border-top-color: rgba(255, 152, 0, 0.3);
-  }
-
-  .identity-card {
-    border-left-color: rgba(230, 81, 0, 0.4);
-  }
-  .identity-card .card-label { color: #e65100; }
-  .identity-card h3 { color: #1a1a1a; }
-  .identity-card p { color: #555; }
-  .identity-card .card-link { color: #e65100; }
-  .identity-card .card-link:hover { color: #c46500; }
-
-  .personality-pill {
-    color: #555;
-    border-color: rgba(0, 0, 0, 0.15);
-  }
-}
-
-/* =========================================
    Print stylesheet — homepage minimal
    ========================================= */
 @media print {

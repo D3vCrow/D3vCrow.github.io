@@ -1,3 +1,5 @@
+:root { color-scheme: dark; }
+
 /* Custom Cursor — all portfolio pages */
 body.portfolio-page {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='20' viewBox='0 0 14 20'%3E%3Cpath d='M2 1 L2 17 L5.5 13.5 L8.5 20 L10.5 19 L7.5 12.5 L13 12.5 Z' fill='%23ff9800' stroke='rgba(0%2C0%2C0%2C0.4)' stroke-width='0.75' stroke-linejoin='round'/%3E%3C/svg%3E") 2 1, auto;
@@ -873,50 +875,6 @@ nav a.active {
     opacity: 1 !important;
     transform: none !important;
   }
-}
-
-/* =========================================
-   Light mode — system preference override
-   ========================================= */
-@media (prefers-color-scheme: light) {
-  html,
-  body {
-    background: #fafafa;
-    color: #1a1a1a;
-  }
-
-  .site-nav {
-    background: rgba(255, 255, 255, 0.85);
-    border-bottom-color: rgba(255, 152, 0, 0.3);
-  }
-  .site-nav .nav-links a { color: #555; }
-  .site-nav .nav-links a:hover,
-  .site-nav .nav-links a.active { color: #e65100; }
-  .site-nav .nav-brand { color: #e65100; }
-
-  .site-footer {
-    background: rgba(0, 0, 0, 0.04);
-    border-top-color: rgba(255, 152, 0, 0.3);
-  }
-  .site-footer .footer-links a { color: #555; }
-  .site-footer .footer-links a:hover { color: #e65100; }
-  .site-footer .footer-copy { color: #888; }
-
-  .section-title { color: #1a1a1a; }
-  .section-body { color: #444; }
-  .section-label { color: #e65100; }
-
-  .glass-card {
-    background: rgba(0, 0, 0, 0.02);
-    border-color: rgba(255, 152, 0, 0.4);
-  }
-  .glass-card:hover {
-    background: rgba(255, 152, 0, 0.04);
-    border-color: rgba(255, 152, 0, 0.6);
-  }
-
-  /* Soften film-grain in light mode */
-  .portfolio-page::after { opacity: 0.015; }
 }
 
 /* =========================================

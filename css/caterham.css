@@ -239,47 +239,6 @@
 }
 
 /* =========================================
-   Light mode — system preference override
-   ========================================= */
-@media (prefers-color-scheme: light) {
-  .cat-hero-image { filter: saturate(0.95) brightness(0.95); }
-  .cat-hero-overlay {
-    background: linear-gradient(180deg,
-      rgba(255,255,255,0.5) 0%,
-      rgba(255,255,255,0.3) 45%,
-      rgba(250,250,250,0.92) 100%);
-  }
-  .cat-hero-title { color: #1a1a1a; }
-  .cat-hero-sub { color: #444; }
-  .back-link { color: #555; }
-  .back-link:hover { color: #e65100; }
-
-  .cat-facts {
-    background: rgba(0,0,0,0.02);
-    border-top-color: rgba(255,152,0,0.25);
-    border-bottom-color: rgba(255,152,0,0.25);
-  }
-  .fact { border-left-color: rgba(255,152,0,0.3); }
-  .fact-num { color: #e65100; }
-  .fact-label { color: #555; }
-
-  .pipeline-card { border-left-color: rgba(255,152,0,0.5); }
-  .pc-step { color: #e65100; }
-  .pipeline-card h4 { color: #1a1a1a; }
-  .pipeline-card p { color: #444; }
-
-  .cat-highlight {
-    background: rgba(255,152,0,0.05);
-    border-top-color: rgba(255,152,0,0.25);
-    border-bottom-color: rgba(255,152,0,0.25);
-  }
-
-  .wip-card h3 { color: #1a1a1a; }
-  .wip-card p { color: #444; }
-  .wip-card a { color: #e65100; }
-}
-
-/* =========================================
    Print — clean grayscale layout, expanded link URLs
    ========================================= */
 @media print {
