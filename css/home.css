@@ -48,23 +48,6 @@
   user-select: none;
 }
 
-/* Chromatic echo layers */
-.title-echo {
-  position: absolute;
-  inset: 0;
-  font-family: 'Anton', sans-serif;
-  font-size: clamp(3rem, 10vw, 8rem);
-  line-height: 1.05;
-  text-align: center;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  pointer-events: none;
-}
-
-.title-echo-r { color: rgba(255, 40, 40, 0.18); transform: translate(-4px, -2px); }
-.title-echo-b { color: rgba(40, 120, 255, 0.18); transform: translate(4px, 2px); }
-
 .home-title {
   font-family: 'Anton', sans-serif;
   font-size: clamp(3rem, 10vw, 8rem);

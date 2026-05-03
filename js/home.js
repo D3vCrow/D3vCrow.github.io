@@ -126,7 +126,7 @@ document.addEventListener('click', (e) => {
   const el = document.getElementById('home-rotating-msg');
   if (!el) return;
 
-  const messages = ['Game Developer', 'Unity Engineer', 'AI Systems Director', 'Game Designer'];
+  const messages = ['Game Developer', 'Unity Engineer', 'AI-Directed Engineer', 'Game Designer'];
   let idx = 0;
 
   function showMessage(msg) {
