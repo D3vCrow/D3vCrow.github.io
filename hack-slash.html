@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hack and Slash | Christoforos Papachristoforou</title>
+  <meta name="description" content="Active Unity 6.2 combat lab. Radial-drag combo selector, Timeline + Signal-driven boss phases, MultiAimConstraint camera-pitch aim offset. Project page by Christoforos Papachristoforou.">
+  <link rel="canonical" href="https://d3vcrow.github.io/hack-slash.html">
+  <link rel="icon" href="assets/obsidian_moon.png" type="image/png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Hack and Slash | Christoforos Papachristoforou">
+  <meta property="og:description" content="Active Unity 6.2 combat lab. Radial-drag combo selector, Timeline + Signal boss phases, MultiAimConstraint aim offset.">
+  <meta property="og:url" content="https://d3vcrow.github.io/hack-slash.html">
+  <meta property="og:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
+  <meta property="og:site_name" content="DevCrow">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hack and Slash | Christoforos Papachristoforou">
+  <meta name="twitter:description" content="Active Unity 6.2 combat lab. Radial-drag combo selector, Timeline + Signal boss phases, MultiAimConstraint aim offset.">
+  <meta name="twitter:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700;900&family=Raleway:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/unity.css">
+  <link rel="stylesheet" href="css/caterham.css">
+  <link rel="stylesheet" href="css/detail.css">
+
+  <!-- Structured data: WebPage + CreativeWork -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://d3vcrow.github.io/hack-slash.html",
+        "url": "https://d3vcrow.github.io/hack-slash.html",
+        "name": "Hack and Slash | Christoforos Papachristoforou",
+        "description": "Active Unity 6.2 combat lab. Radial-drag combo selector, Timeline + Signal boss phases, MultiAimConstraint aim offset.",
+        "isPartOf": { "@id": "https://d3vcrow.github.io/#website" },
+        "creator": { "@id": "https://d3vcrow.github.io/#chris" },
+        "mainEntity": { "@id": "https://d3vcrow.github.io/hack-slash.html#project" }
+      },
+      {
+        "@type": "VideoGame",
+        "@id": "https://d3vcrow.github.io/hack-slash.html#project",
+        "name": "Hack and Slash",
+        "description": "Active third-person combat lab in Unity 6.2. Radial-drag combo selector picks attacks from a queue, MultiAimConstraint keeps the rig pointed where you look, and Unity Timeline + Signal ScriptableObjects drive boss phase transitions.",
+        "creator": { "@id": "https://d3vcrow.github.io/#chris" },
+        "datePublished": "2024",
+        "gamePlatform": "PC",
+        "applicationCategory": "Game",
+        "about": [
+          "Unity 6.2",
+          "Animation Rigging",
+          "Timeline",
+          "Input System",
+          "Combat Design"
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="portfolio-page">
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">DevCrow</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="unity.html" class="active" aria-current="page">Unity</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+
+  <!-- Hero -->
+  <section class="cat-hero" aria-label="Hack and Slash">
+    <video class="detail-hero-bg" autoplay loop muted playsinline preload="metadata" aria-hidden="true">
+      <source src="assets/Theros_Solo_week5-1.mp4" type="video/mp4">
+    </video>
+    <div class="cat-hero-overlay" aria-hidden="true"></div>
+    <div class="section-wrap cat-hero-content">
+      <a href="unity.html" class="back-link">&larr; Unity Portfolio</a>
+      <p class="hero-eyebrow">Solo Lab &middot; 2024 &ndash; Active</p>
+      <h1 class="cat-hero-title">Hack<br>and Slash</h1>
+      <p class="cat-hero-sub">
+        Combat input as expression. An active third-person combat lab in Unity 6.2 where the
+        attack itself is a gesture: mouse-drag picks the strike, the queue executes it, and
+        the cooldown ring fills as you spend it. Boss phases are scripted, not state-bool soup.
+      </p>
+      <div class="cat-hero-ctas">
+        <a href="#systems" class="btn-primary">Read the Breakdown</a>
+        <a href="unity.html" class="btn-ghost">Back to Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fast Facts -->
+  <section class="cat-facts">
+    <div class="section-wrap">
+      <div class="fact-grid">
+        <div class="fact reveal">
+          <span class="fact-num">6.2</span>
+          <span class="fact-label">Unity Version</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">Active</span>
+          <span class="fact-label">Iteration Status</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">Solo</span>
+          <span class="fact-label">Development</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">3rd&middot;P</span>
+          <span class="fact-label">Camera Mode</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Systems -->
+  <section id="systems" class="cat-body">
+    <div class="section-wrap">
+      <p class="section-label reveal">Systems</p>
+      <h2 class="section-title reveal">Combat Input as Expression</h2>
+      <p class="section-body reveal">
+        Most action games turn input into a button press. Hack and Slash turns it into a gesture,
+        a pose, a lookpoint. Four named systems carry that intent.
+      </p>
+
+      <div class="pipeline-grid">
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">01</p>
+          <h4>Radial-Drag Combo Selector</h4>
+          <p>Mouse-drag on the Y-axis snaps to up / center / down. Each direction queues an attack
+          (<code>Queue&lt;int&gt;</code>), a coroutine performs the combo, and the cooldown ring fills as
+          input is spent. DOTween animates the cursor; threshold detection lives in
+          <code>AttackSelectorUI.cs</code>.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">02</p>
+          <h4>Camera-Pitch Aim Offset</h4>
+          <p>A <code>MultiAimConstraint</code> on the rig points where the camera looks. The data
+          offset is interpolated by <code>cameraTransform.eulerAngles.x</code> clamped to
+          <code>&plusmn;maxOffset</code> in <code>AimControl.cs</code>. Clean Lerp-based aim,
+          no gimbal stitching.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">03</p>
+          <h4>Timeline + Signal Boss Phases</h4>
+          <p>Boss fights scripted in Unity Timeline. Phase transitions fire via Signal ScriptableObjects
+          (<code>ActivateControlsSignal</code>, <code>DeactivateControlsSignal</code>, <code>EnterPhase2</code>).
+          Cinematics and gameplay control swap on the same playable, no narrative bool flags.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">04</p>
+          <h4>Architecture</h4>
+          <p>Generic <code>Singleton&lt;T&gt;</code> for shared state, custom <code>RPGInputActions</code>
+          via the Unity Input System, and a curated middleware stack
+          (JohnStairs RCC, Blaze AI, AYellowpaper SerializedCollections, Magic Light Probes,
+          KriptoFX VolumetricBloodFX) for the parts that don't deserve to be reinvented.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlight -->
+  <section class="cat-highlight">
+    <div class="section-wrap">
+      <p class="section-label reveal">Highlight</p>
+      <h2 class="section-title reveal">Newest On Disk</h2>
+      <p class="section-body reveal">
+        Hack and Slash is the most recent of my Unity projects, the only one running on
+        Unity 6.2. It exists to prove I'm still actively building, not just maintaining old work.
+        The radial-drag selector started as a question, what if the attack <em>is</em> the
+        input motion, and it stuck because it felt better than buttons did.
+      </p>
+    </div>
+  </section>
+
+  <!-- WIP -->
+  <section class="cat-wip">
+    <div class="section-wrap">
+      <div class="wip-card reveal glass-card">
+        <p class="section-label">Coming Soon</p>
+        <h3>Deeper Technical Breakdown</h3>
+        <p>
+          A full write-up with code excerpts from <code>AttackSelectorUI.cs</code> /
+          <code>AimControl.cs</code>, the Timeline + Signal asset wiring, and combat tuning
+          notes is on the way. Check back, or
+          <a href="mailto:chr.papachristoforou@gmail.com">email me</a> if you want it sooner.
+        </p>
+        <div class="wip-ctas">
+          <a class="btn-ghost" href="unity.html">Back to Unity Portfolio</a>
+          <a class="btn-primary" href="mailto:chr.papachristoforou@gmail.com">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="mailto:chr.papachristoforou@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/D3vCrow" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://d3vcrow.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
+    </div>
+    <p class="footer-copy">Athens, Greece &middot; chr.papachristoforou@gmail.com</p>
+  </footer>
+
+  <script src="js/unity.js"></script>
+</body>
+</html>
