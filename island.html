@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Island Project | Christoforos Papachristoforou</title>
+  <meta name="description" content="Open-world survival lab in Unity HDRP. Verlet-rope fishing line written from scratch, event-driven thirst system, Burst-compiled character mechanics, scene-spanning Singleton typology. Project page by Christoforos Papachristoforou.">
+  <link rel="canonical" href="https://d3vcrow.github.io/island.html">
+  <link rel="icon" href="assets/obsidian_moon.png" type="image/png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Island Project | Christoforos Papachristoforou">
+  <meta property="og:description" content="Open-world survival in Unity HDRP. Verlet-rope fishing, event-driven thirst, Burst-compiled character mechanics, Bakery + FMOD.">
+  <meta property="og:url" content="https://d3vcrow.github.io/island.html">
+  <meta property="og:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
+  <meta property="og:site_name" content="DevCrow">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Island Project | Christoforos Papachristoforou">
+  <meta name="twitter:description" content="Open-world survival in Unity HDRP. Verlet-rope fishing, event-driven thirst, Burst-compiled character mechanics, Bakery + FMOD.">
+  <meta name="twitter:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700;900&family=Raleway:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/unity.css">
+  <link rel="stylesheet" href="css/caterham.css">
+  <link rel="stylesheet" href="css/detail.css">
+
+  <!-- Structured data: WebPage + CreativeWork -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://d3vcrow.github.io/island.html",
+        "url": "https://d3vcrow.github.io/island.html",
+        "name": "Island Project | Christoforos Papachristoforou",
+        "description": "Open-world survival in Unity HDRP. Verlet-rope fishing, event-driven thirst, Burst-compiled character mechanics, Bakery + FMOD.",
+        "isPartOf": { "@id": "https://d3vcrow.github.io/#website" },
+        "creator": { "@id": "https://d3vcrow.github.io/#chris" },
+        "mainEntity": { "@id": "https://d3vcrow.github.io/island.html#project" }
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://d3vcrow.github.io/island.html#project",
+        "name": "Island Project",
+        "description": "Open-world survival lab in Unity HDRP. Verlet-rope fishing line written from scratch, event-driven thirst loop, Burst-compiled character mechanics holding push physics + animator layer blending + pickup state, and Singleton typology (DDOL / Dominant / Regulator) for scene-spanning state. Bakery lighting, FMOD audio. Pyles Studio.",
+        "creator": { "@id": "https://d3vcrow.github.io/#chris" },
+        "datePublished": "2024",
+        "about": [
+          "Unity HDRP",
+          "Burst",
+          "Verlet Integration",
+          "Event-Driven Design",
+          "Singleton Typology",
+          "Bakery",
+          "FMOD"
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="portfolio-page">
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">DevCrow</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="unity.html" class="active" aria-current="page">Unity</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+
+  <!-- Hero -->
+  <section class="cat-hero" aria-label="Island Project">
+    <video class="detail-hero-bg" autoplay loop muted playsinline preload="metadata" aria-hidden="true">
+      <source src="assets/island_project.mp4" type="video/mp4">
+    </video>
+    <div class="cat-hero-overlay" aria-hidden="true"></div>
+    <div class="section-wrap cat-hero-content">
+      <a href="unity.html" class="back-link">&larr; Unity Portfolio</a>
+      <p class="hero-eyebrow">Pyles Studio &middot; In Development</p>
+      <h1 class="cat-hero-title">Island<br>Project</h1>
+      <p class="cat-hero-sub">
+        Survival is system-design discipline. An open-world Unity HDRP lab where physical
+        ropes, thirst loops, and character mechanics each get their own architecture: a Verlet
+        solver simulates the fishing line, events fire the thirst meter, and a single Burst
+        component holds push physics, animator layers, and pickup state.
+      </p>
+      <div class="cat-hero-ctas">
+        <a href="#systems" class="btn-primary">Read the Breakdown</a>
+        <a href="unity.html" class="btn-ghost">Back to Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fast Facts -->
+  <section class="cat-facts">
+    <div class="section-wrap">
+      <div class="fact-grid">
+        <div class="fact reveal">
+          <span class="fact-num">HDRP</span>
+          <span class="fact-label">Render Pipeline</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">Open</span>
+          <span class="fact-label">World Survival</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">Burst</span>
+          <span class="fact-label">Character Code</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">Pyles</span>
+          <span class="fact-label">Studio Project</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Systems -->
+  <section id="systems" class="cat-body">
+    <div class="section-wrap">
+      <p class="section-label reveal">Systems</p>
+      <h2 class="section-title reveal">Survival Built From First Principles</h2>
+      <p class="section-body reveal">
+        Four systems carry the weight of the prototype, each treated as a small piece of
+        engineering rather than a feature toggle.
+      </p>
+
+      <div class="pipeline-grid">
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">01</p>
+          <h4>Verlet-Rope Fishing Line</h4>
+          <p>A fishing rod with a real rope, simulated by Verlet integration. Each segment is a
+          point with position + previous-position; constraint passes hold segment length under
+          tension, gravity, and water drag. The line bends, slacks, and tugs without a cloth
+          system, written from scratch in <code>RopeSimulator.cs</code>.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">02</p>
+          <h4>Event-Driven Thirst Loop</h4>
+          <p>Thirst, hydration, and consumption listeners are decoupled via C# events. Drinking,
+          UI updates, and survival debuffs all subscribe to the same broadcast, no polling,
+          no Update-tick coupling. Adding a new consumer is one subscription, not a refactor.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">03</p>
+          <h4>Burst-Compiled Character Mechanics</h4>
+          <p>One <code>[BurstCompile]</code> component holds push physics, animator layer
+          blending, and pickup state on the same hot path. Movement and interaction stay in
+          one place so frame-time stays predictable, and the math on hot ticks compiles to
+          tight native code instead of managed allocations.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">04</p>
+          <h4>Singleton Typology + Pipeline</h4>
+          <p>Scene-spanning state organised as DDOL / Dominant / Regulator singletons, each
+          with a different lifetime contract instead of one global blob. Lighting baked with
+          Bakery for HDRP fidelity at runtime cost, audio routed through FMOD for adaptive
+          mixes (ambient, weather, combat layers).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlight -->
+  <section class="cat-highlight">
+    <div class="section-wrap">
+      <p class="section-label reveal">Highlight</p>
+      <h2 class="section-title reveal">Lab, Not Demo</h2>
+      <p class="section-body reveal">
+        Island Project is a working surface for the systems I want to keep sharp, ropes, events,
+        Burst, lighting, audio routing, all in the same scene so they have to coexist. It's
+        in-development on purpose: each iteration is a chance to swap one piece, watch what
+        breaks, and write down what I learned.
+      </p>
+    </div>
+  </section>
+
+  <!-- WIP -->
+  <section class="cat-wip">
+    <div class="section-wrap">
+      <div class="wip-card reveal glass-card">
+        <p class="section-label">Coming Soon</p>
+        <h3>Deeper Technical Breakdown</h3>
+        <p>
+          A full write-up with the Verlet rope math, the thirst event graph, and Burst
+          component layout is on the way. Check back, or
+          <a href="mailto:chr.papachristoforou@gmail.com">email me</a> if you want it sooner.
+        </p>
+        <div class="wip-ctas">
+          <a class="btn-ghost" href="unity.html">Back to Unity Portfolio</a>
+          <a class="btn-primary" href="mailto:chr.papachristoforou@gmail.com">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="mailto:chr.papachristoforou@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/D3vCrow" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://d3vcrow.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
+    </div>
+    <p class="footer-copy">Athens, Greece &middot; chr.papachristoforou@gmail.com</p>
+  </footer>
+
+  <script src="js/unity.js"></script>
+</body>
+</html>

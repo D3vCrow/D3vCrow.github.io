@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fantasy Tower Defence | Christoforos Papachristoforou</title>
+  <meta name="description" content="Tower defence lab in Unity with five champion classes (Archer, Fire/Ice/Poison wizards, Warrior). NodeBehavior turret state machine, WaveSpawner, UnitBuilder, OverlapSphere lock-on. Project page by Christoforos Papachristoforou.">
+  <link rel="canonical" href="https://d3vcrow.github.io/td-lab.html">
+  <link rel="icon" href="assets/obsidian_moon.png" type="image/png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Fantasy Tower Defence | Christoforos Papachristoforou">
+  <meta property="og:description" content="Tower defence lab with 5 champion classes, NodeBehavior turret state machine, WaveSpawner, UnitBuilder, OverlapSphere lock-on with Quaternion.Lerp tracking.">
+  <meta property="og:url" content="https://d3vcrow.github.io/td-lab.html">
+  <meta property="og:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
+  <meta property="og:site_name" content="DevCrow">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fantasy Tower Defence | Christoforos Papachristoforou">
+  <meta name="twitter:description" content="Tower defence lab with 5 champion classes, NodeBehavior turret state machine, WaveSpawner, UnitBuilder, OverlapSphere lock-on with Quaternion.Lerp tracking.">
+  <meta name="twitter:image" content="https://d3vcrow.github.io/assets/obsidian_moon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@700;900&family=Raleway:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/unity.css">
+  <link rel="stylesheet" href="css/caterham.css">
+  <link rel="stylesheet" href="css/detail.css">
+
+  <!-- Structured data: WebPage + VideoGame -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://d3vcrow.github.io/td-lab.html",
+        "url": "https://d3vcrow.github.io/td-lab.html",
+        "name": "Fantasy Tower Defence | Christoforos Papachristoforou",
+        "description": "Tower defence lab with 5 champion classes, NodeBehavior turret state machine, WaveSpawner, UnitBuilder, OverlapSphere lock-on with Quaternion.Lerp tracking.",
+        "isPartOf": { "@id": "https://d3vcrow.github.io/#website" },
+        "creator": { "@id": "https://d3vcrow.github.io/#chris" },
+        "mainEntity": { "@id": "https://d3vcrow.github.io/td-lab.html#project" }
+      },
+      {
+        "@type": "VideoGame",
+        "@id": "https://d3vcrow.github.io/td-lab.html#project",
+        "name": "Fantasy Tower Defence",
+        "description": "Tower defence lab in Unity with five champion classes (Archer, Fire / Ice / Poison wizards, Warrior). NodeBehavior turret state machine, WaveSpawner / Waypoints architecture, UnitBuilder placement, OverlapSphere lock-on with Quaternion.Lerp tracking.",
+        "creator": { "@id": "https://d3vcrow.github.io/#chris" },
+        "datePublished": "2019",
+        "gamePlatform": "PC",
+        "applicationCategory": "Game",
+        "about": [
+          "Unity",
+          "State Machines",
+          "Tower Defence",
+          "Object Pooling",
+          "Pathfinding"
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="portfolio-page">
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" class="nav-brand">DevCrow</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="unity.html" class="active" aria-current="page">Unity</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+
+  <!-- Hero -->
+  <section class="cat-hero" aria-label="Fantasy Tower Defence">
+    <video class="detail-hero-bg" autoplay loop muted playsinline preload="metadata" aria-hidden="true">
+      <source src="assets/td_ds.mp4" type="video/mp4">
+    </video>
+    <div class="cat-hero-overlay" aria-hidden="true"></div>
+    <div class="section-wrap cat-hero-content">
+      <a href="unity.html" class="back-link">&larr; Unity Portfolio</a>
+      <p class="hero-eyebrow">Solo Lab &middot; 2019</p>
+      <h1 class="cat-hero-title">Fantasy<br>Tower Defence</h1>
+      <p class="cat-hero-sub">
+        Five champion classes, one turret state machine, and a wave system that doesn't
+        cheat. Archers, Fire / Ice / Poison wizards, and a melee Warrior, each with distinct
+        projectiles and per-class action UI. Built to learn what production state-machine
+        and pooling code actually feels like.
+      </p>
+      <div class="cat-hero-ctas">
+        <a href="#systems" class="btn-primary">Read the Breakdown</a>
+        <a href="unity.html" class="btn-ghost">Back to Portfolio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fast Facts -->
+  <section class="cat-facts">
+    <div class="section-wrap">
+      <div class="fact-grid">
+        <div class="fact reveal">
+          <span class="fact-num">5</span>
+          <span class="fact-label">Champion Classes</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">2019</span>
+          <span class="fact-label">Year Built</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">Solo</span>
+          <span class="fact-label">Development</span>
+        </div>
+        <div class="fact reveal">
+          <span class="fact-num">FSM</span>
+          <span class="fact-label">Turret AI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Systems -->
+  <section id="systems" class="cat-body">
+    <div class="section-wrap">
+      <p class="section-label reveal">Systems</p>
+      <h2 class="section-title reveal">Five Champions, One Architecture</h2>
+      <p class="section-body reveal">
+        The five classes share one turret backbone: a state machine that picks targets, fires
+        projectiles, and serves a per-class action UI. Four named systems hold it together.
+      </p>
+
+      <div class="pipeline-grid">
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">01</p>
+          <h4>NodeBehavior Turret State Machine</h4>
+          <p>Each turret runs a finite state machine: <em>Idle</em>, <em>Tracking</em>, <em>Firing</em>,
+          <em>Cooldown</em>. The five champion classes (Archer, Fire / Ice / Poison wizards,
+          Warrior) plug into the same skeleton with their own projectile prefabs, fire rates,
+          and FX, so adding a class is data + a child override, not a rewrite.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">02</p>
+          <h4>WaveSpawner + Waypoints</h4>
+          <p>Waves are authored as ordered enemy lists with delays. <code>WaveSpawner</code>
+          drives the loop, enemies follow a <code>Waypoints</code> path with index-based
+          progression instead of NavMesh, predictable, debuggable, and fast for the size of
+          the lanes.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">03</p>
+          <h4>UnitBuilder Placement</h4>
+          <p>Click a build node, pick a class, the <code>UnitBuilder</code> validates funds,
+          spawns the prefab, and binds it to the node. Placement raycasts and budget checks
+          live in one component instead of being smeared across UI, economy, and turret
+          spawn code.</p>
+        </div>
+        <div class="pipeline-card reveal glass-card">
+          <p class="pc-step">04</p>
+          <h4>OverlapSphere Lock-On + Lerp Tracking</h4>
+          <p>Targets are queried via <code>Physics.OverlapSphere</code> on a layer mask, the
+          closest valid enemy is chosen, and the turret rotates toward it via
+          <code>Quaternion.Lerp</code> for smooth tracking. Projectiles inherit the lock so
+          shots feel committed, not snapped, while the FSM stays simple.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlight -->
+  <section class="cat-highlight">
+    <div class="section-wrap">
+      <p class="section-label reveal">Highlight</p>
+      <h2 class="section-title reveal">First Grown-Up Systems</h2>
+      <p class="section-body reveal">
+        Fantasy Tower Defence is the first project where I stopped writing one-off scripts
+        and started thinking in systems: a state machine that doesn't care which class drives
+        it, a spawner that doesn't care which path it walks, a builder that doesn't care
+        which prefab it places. That mindset is the one I still ship with.
+      </p>
+    </div>
+  </section>
+
+  <!-- WIP -->
+  <section class="cat-wip">
+    <div class="section-wrap">
+      <div class="wip-card reveal glass-card">
+        <p class="section-label">Coming Soon</p>
+        <h3>Deeper Technical Breakdown</h3>
+        <p>
+          A full write-up with the NodeBehavior FSM, WaveSpawner authoring, and projectile
+          architecture is on the way. Check back, or
+          <a href="mailto:chr.papachristoforou@gmail.com">email me</a> if you want it sooner.
+        </p>
+        <div class="wip-ctas">
+          <a class="btn-ghost" href="unity.html">Back to Unity Portfolio</a>
+          <a class="btn-primary" href="mailto:chr.papachristoforou@gmail.com">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="mailto:chr.papachristoforou@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/D3vCrow" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://d3vcrow.itch.io/" target="_blank" rel="noopener noreferrer">Itch.io</a>
+    </div>
+    <p class="footer-copy">Athens, Greece &middot; chr.papachristoforou@gmail.com</p>
+  </footer>
+
+  <script src="js/unity.js"></script>
+</body>
+</html>
