@@ -468,6 +468,36 @@
   font-style: italic;
 }
 
+.stack-pillar .sp-meta {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 12px 0 0;
+  border-top: 1px dashed rgba(255,152,0,0.12);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.78rem;
+  color: #888;
+  line-height: 1.6;
+}
+
+.stack-pillar .sp-meta li {
+  margin-bottom: 4px;
+}
+
+.stack-pillar .sp-meta li:last-child {
+  margin-bottom: 0;
+}
+
+.stack-pillar .sp-meta-label {
+  display: inline-block;
+  width: 14px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: #ff9800;
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
 /* Process — worked example */
 .ai-process {
   margin-top: 32px;
@@ -689,6 +719,11 @@
     color: #000 !important;
     background: transparent !important;
   }
+  .stack-pillar .sp-meta {
+    border-top: 1px dashed #ccc !important;
+    color: #555 !important;
+  }
+  .stack-pillar .sp-meta-label { color: #c46500 !important; }
 
   /* Notable projects */
   .pb-item {

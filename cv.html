@@ -330,54 +330,9 @@
 
       <div class="ai-stack reveal">
         <h3 class="ai-stack-title">The Stack</h3>
-        <!-- DIRECTION-REWRITE [ai-stack-intro] (Chris voice pass)
-             REPLACE current "What 'AI-directed' actually means, in artifacts" with a number-stack
-             subtitle:
-               "5 pillars · [N] principles · directing AI systems to do the majority of the work"
-             Closing fragment ("directing AI systems...") = LITERAL Volaris JD anchor phrase.
-             Recruiters scanning for "AI-Directed Engineer" pattern-match instantly.
-             Principles count (5-6) fills after pillar-level Principle lines are written.
-        -->
         <p class="ai-stack-intro">
-          What &ldquo;AI-directed&rdquo; actually means, in artifacts.
+          5 pillars &middot; directing AI systems to do the majority of the work.
         </p>
-        <!-- DIRECTION-REWRITE [stack-pillars-enrichment] (Chris voice pass — applies to all 5 pillars)
-             For EACH pillar (Commands · Memory · Knowledge Bases · Forge · Audit), ADD 3 structured
-             lines below the existing prose description:
-               Number    — concrete count Chris owns
-               Principle — Osmani-derived 1-liner (paraphrase, no verbatim quote)
-               Cadence   — review/audit rhythm
-
-             PER-PILLAR DATA + suggested principles + cadences (Chris confirms):
-
-               Commands
-                 N: 9 custom skills authored (~/.claude/skills/) + ~248 installed across plugin set
-                 P: Clear contextual prompts as durable artifact
-                 C: Skill quality reviewed via cc-healer
-
-               Memory
-                 N: ~10 project-scoped + ~152 cross-project (Dev workspace)
-                 P: Trust but verify across sessions
-                 C: Memory consolidated end-of-week
-
-               Knowledge Bases
-                 N: 4 research notes + 13 handoff trails + 3 specs + 2 plans (this project)
-                 P: Ground-truth references over vibes
-                 C: Co-located per project, audited per phase
-
-               Forge
-                 [Chris fills — placeholder pending]
-
-               Audit
-                 N: 3 named review agents (cc-healer · DEEP-INDEX · audit grades)
-                 P: Output per unit of human time, not velocity
-                 C: Plan-vs-output reconciliation per phase
-
-             VISUAL TREATMENT OPEN (Chris picks): inline 1 paragraph · 3 stacked sub-lines ·
-             meta-row · table.
-             TONE: receipts, not claims. Numbers + principles + cadences = evidence the setup is
-             real, productive, dependable.
-        -->
         <div class="stack-pillars">
           <div class="stack-pillar">
             <h4 class="sp-name">Commands</h4>
@@ -388,6 +343,11 @@
               <code>/_think</code> for tradeoff analysis.
               Each carries pre-flight gates and decision policy.
             </p>
+            <ul class="sp-meta">
+              <li><span class="sp-meta-label">N</span> 9 custom skills authored, ~250 plugin skills installed</li>
+              <li><span class="sp-meta-label">P</span> Clear contextual prompts as durable artifact</li>
+              <li><span class="sp-meta-label">C</span> Skill quality reviewed via cc-healer</li>
+            </ul>
           </div>
           <div class="stack-pillar">
             <h4 class="sp-name">Memory</h4>
@@ -395,6 +355,11 @@
               Project-scoped + global persistent context.
               Past decisions, feedback rules, and project state survive between sessions.
             </p>
+            <ul class="sp-meta">
+              <li><span class="sp-meta-label">N</span> ~10 project-scoped, ~152 cross-project</li>
+              <li><span class="sp-meta-label">P</span> Trust but verify across sessions</li>
+              <li><span class="sp-meta-label">C</span> Memory consolidated end-of-week</li>
+            </ul>
           </div>
           <div class="stack-pillar">
             <h4 class="sp-name">Knowledge Bases</h4>
@@ -402,11 +367,16 @@
               Anchor docs and research notes co-located with each project (<code>knowledge/research/</code>).
               Ground-truth references for AI agents working in-repo.
             </p>
+            <ul class="sp-meta">
+              <li><span class="sp-meta-label">N</span> 4 research notes, 13 handoff trails, 3 specs, 2 plans (this project)</li>
+              <li><span class="sp-meta-label">P</span> Ground-truth references over vibes</li>
+              <li><span class="sp-meta-label">C</span> Co-located per project, audited per phase</li>
+            </ul>
           </div>
           <div class="stack-pillar">
             <h4 class="sp-name">Forge</h4>
             <p class="sp-desc">
-              <!-- TBD: Chris fills in actual Forge tooling description -->
+              <!-- TBD: Chris fills in actual Forge tooling description + N/P/C triplet -->
               <em>[Placeholder &middot; describe Forge artifact]</em>
             </p>
           </div>
@@ -418,6 +388,11 @@
               <strong>DEEP-INDEX</strong> for context-coverage gaps,
               <strong>audit grades</strong> for plan-vs-output reconciliation.
             </p>
+            <ul class="sp-meta">
+              <li><span class="sp-meta-label">N</span> 3 named review agents</li>
+              <li><span class="sp-meta-label">P</span> Output per unit of human time, not velocity</li>
+              <li><span class="sp-meta-label">C</span> Plan-vs-output reconciliation per phase</li>
+            </ul>
           </div>
         </div>
       </div>
