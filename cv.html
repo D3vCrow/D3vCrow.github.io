@@ -303,9 +303,10 @@
         <p>
           For web apps, Python tooling, localization and research, I direct AI through an
           environment I built end to end: project-scoped standards (root CLAUDE.md plus
-          per-project rules), persistent memory across sessions (~10 files this project),
-          9 custom skills authored next to ~250 plugin skills installed, and 3 review agents
-          (cc-healer, DEEP-INDEX, audit grades) that catch what I&rsquo;d miss alone.
+          per-project rules), persistent memory across sessions (8 project-scoped, 151
+          cross-project), 35 custom skills authored next to 66 plugin skills installed,
+          and 3 review patterns (weekly memory audit, <code>/_grade</code> rubric per artifact,
+          per-phase reconciliation) that catch what I&rsquo;d miss alone.
         </p>
         <p>
           I write the spec. AI writes the code. I review every diff.
@@ -344,9 +345,9 @@
               Each carries pre-flight gates and decision policy.
             </p>
             <ul class="sp-meta">
-              <li><span class="sp-meta-label">N</span> 9 custom skills authored, ~250 plugin skills installed</li>
+              <li><span class="sp-meta-label">N</span> 35 custom skills authored, 66 plugin skills installed</li>
               <li><span class="sp-meta-label">P</span> Clear contextual prompts as durable artifact</li>
-              <li><span class="sp-meta-label">C</span> Skill quality reviewed via cc-healer</li>
+              <li><span class="sp-meta-label">C</span> Skill quality reviewed via <code>/_grade</code> rubric</li>
             </ul>
           </div>
           <div class="stack-pillar">
@@ -356,7 +357,7 @@
               Past decisions, feedback rules, and project state survive between sessions.
             </p>
             <ul class="sp-meta">
-              <li><span class="sp-meta-label">N</span> ~10 project-scoped, ~152 cross-project</li>
+              <li><span class="sp-meta-label">N</span> 8 project-scoped, 151 cross-project</li>
               <li><span class="sp-meta-label">P</span> Trust but verify across sessions</li>
               <li><span class="sp-meta-label">C</span> Memory consolidated end-of-week</li>
             </ul>
@@ -368,28 +369,35 @@
               Ground-truth references for AI agents working in-repo.
             </p>
             <ul class="sp-meta">
-              <li><span class="sp-meta-label">N</span> 4 research notes, 13 handoff trails, 3 specs, 2 plans (this project)</li>
-              <li><span class="sp-meta-label">P</span> Ground-truth references over vibes</li>
+              <li><span class="sp-meta-label">N</span> 5 research notes, 15 handoff trails, 3 specs, 2 plans (this project)</li>
+              <li><span class="sp-meta-label">P</span> Receipts over claims, numbers with cadence</li>
               <li><span class="sp-meta-label">C</span> Co-located per project, audited per phase</li>
             </ul>
           </div>
           <div class="stack-pillar">
             <h4 class="sp-name">Forge</h4>
             <p class="sp-desc">
-              <!-- TBD: Chris fills in actual Forge tooling description + N/P/C triplet -->
-              <em>[Placeholder &middot; describe Forge artifact]</em>
+              Tooling I scaffold out of session work &middot;
+              <code>save-skill</code> writes a fresh SKILL.md from the current workflow,
+              <code>skill-creator</code> polishes and measures it.
+              Forge bench grows skill by skill.
             </p>
+            <ul class="sp-meta">
+              <li><span class="sp-meta-label">N</span> 2 bench tools shipping, 1 product (cc-healer) in build</li>
+              <li><span class="sp-meta-label">P</span> Do once, scaffold, run forever</li>
+              <li><span class="sp-meta-label">C</span> Forge new tool when a manual workflow recurs 3+ times</li>
+            </ul>
           </div>
           <div class="stack-pillar">
             <h4 class="sp-name">Audit</h4>
             <p class="sp-desc">
-              Review agents that catch what I&rsquo;d miss alone &middot;
-              <strong>cc-healer</strong> for skill quality,
-              <strong>DEEP-INDEX</strong> for context-coverage gaps,
-              <strong>audit grades</strong> for plan-vs-output reconciliation.
+              Review patterns that catch what I&rsquo;d miss alone &middot;
+              weekly memory audit for stale references and broken links,
+              <code>/_grade</code> rubric per artifact for correctness/completeness/clarity/risk/fit,
+              per-phase audit trails for plan-vs-output reconciliation.
             </p>
             <ul class="sp-meta">
-              <li><span class="sp-meta-label">N</span> 3 named review agents</li>
+              <li><span class="sp-meta-label">N</span> 3 review patterns</li>
               <li><span class="sp-meta-label">P</span> Output per unit of human time, not velocity</li>
               <li><span class="sp-meta-label">C</span> Plan-vs-output reconciliation per phase</li>
             </ul>
@@ -399,40 +407,10 @@
 
       <div class="ai-process reveal">
         <h3 class="ai-process-title">Process &middot; A Worked Example</h3>
-        <!-- DIRECTION-REWRITE [ai-process-intro] (Chris voice pass)
-             KEEP current "What a real session looks like, prompt to ship. Example: this CV rework
-             itself." — already evidence-flavored.
-             OPTIONAL ADD: cite the meta-fact that this section was researched + written using the
-             6 steps below. The page IS the receipt.
-             DECISION: keep + professionalize (recommended) — see steps direction below.
-                       Cut option saves space but loses the worked-example ammunition.
-        -->
         <p class="ai-process-intro">
           What a real session looks like, prompt to ship.
           Example: this CV rework itself.
         </p>
-        <!-- DIRECTION-REWRITE [process-steps] (Chris voice pass — applies to all 6 steps)
-             KEEP the 6-step structure (Brainstorm/Research/Reconcile/Spec/Code/Verify).
-             PER-STEP enrichment:
-
-               1. Brainstorm — name the gating mechanism (decision-policy gates).
-                              Output: "Phase 1 design doc" is correct.
-               2. Research   — EMBED HARD NUMBER: "5 parallel digs this CV rework" (true: this
-                              session, 2026-05-05). Name technique: multi-agent surf-and-dig.
-               3. Reconcile  — name "anchor-verify" technique. Cite live catch:
-                              rebuild → enrich (the fork that made Path R).
-               4. Spec       — replace "this document" wording (won't translate post-publish) with:
-                              "implementation-ready spec at docs/superpowers/specs/2026-05-05-cv-
-                              agent-direction-rework-implementation.md"
-               5. Code       — strong as-is. Optional: cite "ultimate guarantor" (Osmani paraphrase)
-                              — every diff reviewed before commit.
-               6. Verify     — strong as-is. Optional: name 375/768/1280 breakpoints inline.
-                              "Trust but verify" cite (paraphrased) if room.
-
-             CITATIONS available: Osmani 6 best practices · Augment 6 dimensions · Volaris JD anchor.
-             TONE: receipt-grade. Each step = named technique + concrete artifact + outcome.
-                   AI as productive/efficient/dependable executor; Chris as architect/reviewer.
-        -->
         <ol class="process-steps">
           <li>
             <strong>Brainstorm</strong> &middot;
@@ -453,7 +431,7 @@
           <li>
             <strong>Implementation spec</strong> &middot;
             Phase 2 doc with HTML/CSS deltas, print rules, scope flags.
-            Output: implementation-ready design doc.
+            Output: implementation-ready spec at <code>docs/superpowers/specs/2026-05-05-cv-agent-direction-rework-implementation.md</code>.
           </li>
           <li>
             <strong>Code phase</strong> &middot;
@@ -464,18 +442,9 @@
             mobile breakpoints, print PDF export, accessibility check before merge.
           </li>
         </ol>
-        <!-- DIRECTION-REWRITE [ai-process-tail] (Chris voice pass)
-             KEEP pattern phrase ("sequential pipeline + handoff chain") — accurate.
-             REPLACE TBD code-string with actual handoff link once stable:
-               docs/handoffs/2026-05-05-cv-phase-3-scaffold-audit-trail.md
-               (or final filename when committed)
-             OPTIONAL ANCHOR: "every Phase produces an audit trail handoff doc" is a discipline
-             marker recruiters notice — discipline + audit cadence = dependable, not hype.
-        -->
         <p class="ai-process-tail">
-          Pattern: sequential pipeline + handoff chain.
-          <!-- TBD: replace with link to actual handoff doc when stable -->
-          Audit trail at <code>docs/handoffs/2026-05-05-cv-rework-...</code>.
+          Pattern: sequential pipeline &middot; every phase produces an audit trail.
+          Latest at <code>docs/handoffs/2026-05-05-cv-phase-3-scaffold-audit-trail.md</code>.
         </p>
       </div>
     </div>
