@@ -3,7 +3,7 @@
 
 const RECRUITER_BRIEFS = {
 
-  game: `# Christoforos Papachristoforou — Unity Developer & Game Designer
+  game: `# Christoforos Papachristoforou | Unity Developer & Game Designer
 Location: Athens, Greece
 Email: chr.papachristoforou@gmail.com
 Portfolio: https://d3vcrow.github.io
@@ -14,44 +14,84 @@ Itch.io: https://d3vcrow.itch.io/
 ---
 
 ## Summary
-Unity developer and game designer with 7+ years of hands-on Unity/C# experience, including 4 years as sole technical owner of a commercial product. Skilled across the full game development pipeline — systems architecture, editor tooling, rendering, performance profiling, and live deployment. For tasks outside Unity (web, Python, tooling), works through a tuned Claude Code environment with project standards, review agents, and persistent memory — honest about what's hand-written and what's AI-directed.
+Unity developer with 8+ years hands-on (~5 professional), spanning OEM car configurators, VR experiences, festival event games, and indie titles. Sole technical owner of a commercial Unity product for 4 years (Caterham configurator at Renderapp). Comfortable across the full pipeline: systems architecture, editor tooling, render pipelines (Built-in / URP / HDRP), performance profiling, live deployment. For non-Unity work (web, Python, tooling), I work AI-assisted with Claude Code. I write the spec, AI writes the code, I review every diff.
 
 ---
 
 ## Core Unity Skills
-Production-Ready: Build Pipeline & Configuration, Custom Editor Tools, C# Architecture (OOP / SOLID / Async), Lighting, Project Settings
-Very Experienced: Render Pipelines (Built-in / URP / HDRP), Rendering Optimization (LOD / Occlusion / Batching), UI Development, Scene Management, Animation (Mecanim / Blend Trees), Camera Systems (Cinemachine), Performance Profiling, Modular & Event-Driven Systems (ScriptableObjects / C# Events)
-Experienced: AI Programming (NavMesh / Behavior Trees / State Machines), Input Systems (Legacy + New), VFX (Shader Graph / VFX Graph / Particles), Timeline & Cutscenes (Playable API), Audio (FMOD / Built-in), Physics & Interaction, Asset Management (Addressables / Asset Bundles)
-Familiar: Multiplayer (Netcode for GameObjects / Photon / Mirror)
+Strong: C# Architecture (OOP / SOLID / Async), Render Pipelines (Built-in / URP / HDRP), Custom Editor Tools, Build Pipeline & Configuration
+Solid: Performance Profiling, UI Development, Animation (Mecanim / Blend Trees), Camera (Cinemachine), AI Systems (NavMesh / Behavior Trees), VFX (Shader Graph / Particles), FMOD, PlayFab
+Working: Multiplayer (Photon / Netcode for GameObjects), Addressables, Timeline & Cutscenes
 
 ---
 
 ## Professional Experience
 
-Unity Developer / Product Owner — Renderapp ltd
-Feb 2021 – Dec 2024 | Remote
-- Sole technical owner of the Caterham online car configurator for 4 years
-- Full pipeline: 3D data (3DS Max) → Unity HDRP → Node.js → Azure cloud
-- Solo-migrated a live production product from Built-in Render Pipeline to HDRP
-- Custom editor tools for QA and workflow automation
+Independent Unity Developer / OEM Configurators (Self-employed)
+2025 – Present | Athens, Greece
+- Ongoing Caterham configurator via direct engagement with former Renderapp leadership after Renderapp's closure
+- Hyundai Tucson and Subaru Solterra car configurators delivered solo via white-label studio engagement (Sept 2025)
+- End-to-end ownership: project management, estimations, asset prep, Unity build, configurations, QC
 
-Senior Unity Developer — e-Point (Contract)
-Jun – Nov 2024 | Athens
-- Shared VR experience for Fraport Airport on Meta Quest 3
+Unity Developer / Technical Artist (Contract) at Obsidian Moon
+Dec 2025 – Mar 2026 | 4-dev team, Steam release
+- Built the cutscene system (Controller / View / ScriptableObject pattern)
+- Localized actor names, press-to-continue input, repeated-action feedback
+- Visual revamp and player feedback work across the broader build
+
+Contract Game Developer, Pokefest 3 (Fantasy Festival 2025)
+2025 | 20k+ visitors
+- Super Pokémon Bros: reworked and expanded the Pokefest 2 Unity build for the 2025 event
+- Compare the Pokémons: new interactive knowledge game, Unity, concept to delivery, solo
+
+Unity Developer / Product Owner / 3D Generalist at Renderapp ltd
+Feb 2021 – Dec 2024 | Remote
+- Product Owner and sole technical owner of the Caterham car configurator for 4 years
+- Team Lead for a 3-person workflow team
+- Full pipeline: 3DS Max → Unity HDRP → Node.js → Azure cloud
+- Multi-mode delivery from one codebase: web, dealership real-time render, VR (HTC Vive), PLUS messaging
+
+Senior Unity Developer (Contract) at e-Point
+Jun – Nov 2024 | Timisoara, Romania (remote)
+- Upgraded shared-VR experience for Fraport Airport from HTC Vive to Meta Quest 3
+- Deep package upgrade (MRTK + OpenXR + Meta XR SDK) across complex dependency chain
+- Preserved master/slave TCP networking, D-BOX motion platform, custom localization through migration
 
 ---
 
 ## Notable Projects
 
-Thrion Arenas — Turn-based strategy (solo dev, in development)
-Tile-based tactical gameplay with custom AI, modular scene architecture, FMOD audio, and PlayFab backend.
+Caterham Car Configurator
+Live web configurator, sole ownership across 4+ years (Renderapp + post-closure continuation), full pipeline.
+https://caterhamcars.com/en/configurator
 
-Darn! My Barn! — Published indie game
+Hyundai Tucson Configurator & Subaru Solterra Configurator
+Delivered Sept 2025. Solo white-label, post-Renderapp: asset prep, Unity build, configurations, QC. NDA.
+
+Fraport VR Experience
+Shared VR on Meta Quest 3, two simultaneous users, senior contract. NDA.
+
+Obsidian Moon (Steam)
+Contract: technical artist + C# developer on a 4-dev team. Cutscene system, visual revamp, player feedback.
+https://store.steampowered.com/app/3462170/Obsidian_Moon/
+
+Super Pokémon Bros & Compare the Pokémons
+Pokefest 3 at Fantasy Festival 2025 (20k+ visitors). Mario-meets-Pokémon fan game + interactive knowledge game, both Unity, solo delivery.
+
+Thrion Arenas
+Turn-based strategy, solo dev. 4 champions, modular architecture, FMOD, PlayFab. Active 2026.
+
+Darn! My Barn!
+Solo-shipped in 17 days for Global Game Jam 2024.
 https://d3vcrow.itch.io/darn-my-barn
-Solo-developed in 17 days for Global Game Jam 2024. Gameplay, art direction, audio — all shipped alone.`,
+
+---
+
+## Education
+B.Eng Electronic Computer Systems Engineering, ATEI of Piraeus (2008 – 2014)`,
 
 
-  software: `# Christoforos Papachristoforou — Unity Developer | AI-Directed Engineer | IT Specialist
+  software: `# Christoforos Papachristoforou | Software Engineer
 Location: Athens, Greece
 Email: chr.papachristoforou@gmail.com
 LinkedIn: https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/
@@ -61,39 +101,52 @@ Portfolio: https://d3vcrow.github.io
 ---
 
 ## Summary
-Software engineer with experience spanning Unity/C# product development, 3D visualization pipelines, IT operations, and team leadership. Worked in high-standard corporate environments including international airports and the automotive industry. For web, Python, and tooling work, directs through a tuned Claude Code environment with project-scoped standards, persistent memory, and review agents — honest about what's hand-built and serious about the quality bar.
+Generalist software engineer with ~12 years in tech across airport operations, automotive product, and independent freelance work. 8+ years hands-on with Unity, ~5 of those professional. Currently independent, with the Caterham car configurator as my active OEM work (ongoing engagement carried over after Renderapp closed in Dec 2024). Comfortable in high-standard corporate environments (international airports, automotive OEMs) and team-led settings. For web, Python, tooling, and automation, I work AI-assisted with Claude Code. I write the spec, AI writes the code, I review every diff.
 
 ---
 
 ## Core Skills
-Expert: Unity, C#
-Strong: AI-Directed Engineering (Claude Code, spec-driven prompting, diff review & QA), Git / GitHub, 3D Rendering (HDRP / URP), Custom Tool Development
-Working knowledge (via AI-directed): Python, JavaScript, HTML / CSS, Node.js
-Other: Azure Deployments, PlasticSCM, 3DS Max (pipeline), Photoshop, Office 365
+Strong: Unity, C#, Build Pipeline & Configuration, Custom Editor Tools, Git / GitHub
+Solid: 3D Rendering (Built-in / URP / HDRP), Custom Tool Development, 3DS Max (pipeline), Azure Deployments, PlasticSCM
+Comfortable: Python (scripting & automation), JavaScript / HTML / CSS, Node.js
+Operations / leadership: SLA management, team lead (3-5 people), staff training, incident escalation, structured QA pipelines
+AI-assisted workflow: Claude Code, spec-driven prompting, diff review & QA
 
 ---
 
 ## Professional Experience
 
-Unity Developer / Product Owner — Renderapp ltd
+Independent Unity Developer / OEM Configurators (Self-employed)
+2025 – Present | Athens, Greece
+- Ongoing Caterham configurator via direct engagement with former Renderapp leadership after Renderapp's closure
+- Hyundai Tucson and Subaru Solterra car configurators delivered solo via white-label studio engagement (Sept 2025)
+- End-to-end ownership: project management, estimations, asset prep, Unity build, QC
+
+Unity Developer / Technical Artist (Contract) at Obsidian Moon
+Dec 2025 – Mar 2026 | 4-dev team, Steam release
+- Built the cutscene system (Controller / View / ScriptableObject pattern)
+- Visual revamp and player feedback work across the broader build
+
+Unity Developer / Product Owner / 3D Generalist at Renderapp ltd
 Feb 2021 – Dec 2024 | Remote
 - Sole technical owner of the Caterham online car configurator for 4 years
-- Managed end-to-end 3D pipeline: 3DS Max → Unity HDRP → Node.js → Azure cloud
-- Solo-migrated a live production product from Built-in to HDRP
+- Team Lead for a 3-person workflow team; trained new joiners on tools and processes
+- Full pipeline: 3DS Max → Unity HDRP → Node.js → Azure cloud
 - Custom editor tools for QA and workflow automation
-- Direct technical communication with clients, estimations, and live deployments
+- Direct client communication, estimations, live deployments
 
-Senior Unity Developer — e-Point (Contract)
-Jun – Nov 2024 | Athens
-- Developed a VR project for Fraport Airport as contracted senior developer
+Senior Unity Developer (Contract) at e-Point
+Jun – Nov 2024 | Timisoara, Romania (remote)
+- Upgraded shared-VR experience for Fraport Airport from HTC Vive to Meta Quest 3
+- Deep package upgrade (MRTK + OpenXR + Meta XR SDK) across complex dependency chain
 
-Team Leader of Service Operations — SITA / NetSquare @ Athens Int'l Airport
+IT Team Leader, Service Operations at SITA / NetSquare (Athens International Airport)
 May 2018 – Feb 2021 | Athens
-- Led operations team and delivered staff training programs
-- Maintained SLA targets for critical airport systems; coordinated incident escalations
-- Built a reporting tool that reduced process time by over 90%
+- Led a team of service operations engineers; trained and performance-managed
+- Owned SLA targets for critical airport infrastructure; coordinated cross-team incident response
+- Built a reporting tool that cut process time by over 90%
 
-CUTE Specialist — Printec SA @ Athens Int'l Airport
+CUTE Specialist at Printec SA (Athens International Airport)
 Aug 2014 – Nov 2016 | Athens
 - On-site and remote support for Common-Use Terminal Equipment
 - Led airport terminal equipment upgrade and renewal program
@@ -101,8 +154,7 @@ Aug 2014 – Nov 2016 | Athens
 ---
 
 ## Education
-B.Eng Electronic Computer Systems Engineering — ATEI of Piraeus (2008 – 2014)
-Cisco ICND1 Certification (640-822) — New York College (2012)`
+B.Eng Electronic Computer Systems Engineering, ATEI of Piraeus (2008 – 2014)`
 
 };
 
