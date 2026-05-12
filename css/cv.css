@@ -180,52 +180,6 @@
   .pb-name { min-width: auto; }
 }
 
-/* How I Work with AI */
-.ai-block {
-  margin-top: 32px;
-  padding: 32px;
-  border: 1px solid rgba(255, 152, 0, 0.15);
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 2px;
-}
-
-.ai-block p {
-  font-family: 'Raleway', sans-serif;
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: #aaa;
-  margin: 0 0 16px;
-  max-width: 680px;
-}
-
-.ai-block p:last-child { margin-bottom: 0; }
-
-.ai-block .ai-tools {
-  font-size: 0.85rem;
-  color: #777;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255,152,0,0.08);
-}
-
-.ai-block .ai-tools strong { color: #ff9800; font-weight: 700; }
-
-.ai-block .ai-proof {
-  font-size: 0.88rem;
-  color: #999;
-  padding-left: 16px;
-  border-left: 2px solid rgba(255, 152, 0, 0.35);
-  font-style: italic;
-}
-
-.ai-block code {
-  font-family: 'Consolas', 'Courier New', monospace;
-  font-size: 0.85em;
-  color: #ffb74d;
-  background: rgba(255, 152, 0, 0.06);
-  padding: 1px 5px;
-  border-radius: 2px;
-}
-
 /* Skills grid */
 .skills-categories {
   margin-top: 48px;
@@ -399,7 +353,6 @@
 @media (max-width: 768px) {
   .cv-timeline { padding-left: 20px; }
   .timeline-item::before { left: -24px; }
-  .ai-block { padding: 24px 20px; }
   .edu-item { flex-direction: column; gap: 4px; }
   .edu-year { min-width: auto; }
 }
@@ -412,7 +365,6 @@
   .timeline-item::before { left: -20px; width: 6px; height: 6px; }
   .timeline-item .tl-role { font-size: 1.05rem; }
   .timeline-item ul li { font-size: 0.85rem; }
-  .ai-block { padding: 20px 16px; }
   .skills-categories { gap: 16px; }
   .skill-category h4 { font-size: 0.6rem; letter-spacing: 3px; }
   .brief-section { padding: 24px 16px; }
@@ -446,7 +398,6 @@
   /* Hide screen-only chrome */
   .site-nav,
   .skip-link,
-  .ai-block,
   .brief-section,
   .site-footer {
     display: none !important;
