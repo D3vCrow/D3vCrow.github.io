@@ -217,15 +217,34 @@
   font-style: italic;
 }
 
-.ai-pitch {
-  font-family: 'Raleway', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.7;
-  color: #ccc;
-  margin-top: 32px;
+.ai-block .ai-artifacts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
   max-width: 680px;
 }
+
+.ai-block .ai-artifacts li {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: #aaa;
+  padding: 14px 0;
+  border-bottom: 1px dashed rgba(255, 152, 0, 0.08);
+}
+
+.ai-block .ai-artifacts li:last-child { border-bottom: none; }
+
+.ai-block .ai-artifacts li code {
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.85em;
+  color: #ffb74d;
+  background: rgba(255, 152, 0, 0.06);
+  padding: 1px 5px;
+  border-radius: 2px;
+}
+
+.ai-block .ai-artifacts li strong { color: #f0f0f0; font-weight: 700; }
 
 /* Skills grid */
 .skills-categories {
