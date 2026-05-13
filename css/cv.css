@@ -377,38 +377,6 @@
   color: #4caf50;
 }
 
-/* What to Expect */
-.why-hire-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 32px;
-  max-width: 720px;
-}
-
-.why-hire-list li {
-  display: flex;
-  align-items: flex-start;
-  font-family: 'Raleway', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #ccc;
-  margin-bottom: 16px;
-}
-
-.why-hire-list li strong {
-  color: #f5f5f5;
-  font-weight: 700;
-}
-
-.why-hire-list .why-check {
-  color: #ff9800;
-  font-size: 1.3rem;
-  line-height: 1;
-  margin-right: 14px;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
   .cv-timeline { padding-left: 20px; }
@@ -596,12 +564,6 @@
   .cv-hero .hero-location { color: #333 !important; }
   .cv-hero .hero-status { color: #555 !important; }
   .cv-hero .status-dot { background: #c46500 !important; }
-
-  /* What to Expect */
-  #why-hire { page-break-inside: avoid; }
-  .why-hire-list li { color: #222 !important; }
-  .why-hire-list li strong { color: #000 !important; }
-  .why-hire-list .why-check { color: #c46500 !important; }
 
   .section-wrap {
     padding: 18px 0 !important;
