@@ -50,6 +50,34 @@
   animation: fade-up-cv 0.8s ease 0.6s forwards;
 }
 
+.cv-hero .hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 14px;
+  opacity: 0;
+  animation: fade-up-cv 0.8s ease 0.3s forwards;
+}
+
+.cv-hero .status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff9800;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.6);
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.85); }
+}
+
 @keyframes fade-up-cv {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -349,6 +377,38 @@
   color: #4caf50;
 }
 
+/* What to Expect */
+.why-hire-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 32px;
+  max-width: 720px;
+}
+
+.why-hire-list li {
+  display: flex;
+  align-items: flex-start;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 16px;
+}
+
+.why-hire-list li strong {
+  color: #f5f5f5;
+  font-weight: 700;
+}
+
+.why-hire-list .why-check {
+  color: #ff9800;
+  font-size: 1.3rem;
+  line-height: 1;
+  margin-right: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .cv-timeline { padding-left: 20px; }
@@ -534,6 +594,14 @@
   .cv-hero .hero-name { color: #000 !important; }
   .cv-hero .hero-pitch,
   .cv-hero .hero-location { color: #333 !important; }
+  .cv-hero .hero-status { color: #555 !important; }
+  .cv-hero .status-dot { background: #c46500 !important; }
+
+  /* What to Expect */
+  #why-hire { page-break-inside: avoid; }
+  .why-hire-list li { color: #222 !important; }
+  .why-hire-list li strong { color: #000 !important; }
+  .why-hire-list .why-check { color: #c46500 !important; }
 
   .section-wrap {
     padding: 18px 0 !important;
