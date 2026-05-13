@@ -36,11 +36,18 @@
     "url": "https://d3vcrow.github.io/cv.html",
     "image": "https://d3vcrow.github.io/assets/obsidian_moon.png",
     "email": "mailto:chr.papachristoforou@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Athens",
-      "addressCountry": "GR"
-    },
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Athens",
+        "addressCountry": "GR"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Arad",
+        "addressCountry": "RO"
+      }
+    ],
     "alumniOf": {
       "@type": "EducationalOrganization",
       "name": "ATEI of Piraeus"
@@ -93,7 +100,7 @@
     <div class="section-wrap">
       <p class="hero-role">Software Engineer</p>
       <h1 class="hero-name">Christoforos<br>Papachristoforou</h1>
-      <p class="hero-location">Athens, Greece &middot; chr.papachristoforou@gmail.com</p>
+      <p class="hero-location">Athens, Greece &middot; Arad, Romania &middot; chr.papachristoforou@gmail.com</p>
       <p class="hero-pitch">
         Generalist software engineer with ~12 years in tech across airport operations, automotive product, and independent freelance work.
         8+ years hands-on with Unity, ~5 of those professional.
@@ -220,23 +227,23 @@
         <div class="edu-items">
           <div class="edu-item">
             <span class="edu-year">2017 &ndash; 2018</span>
-            <span>Tech Support, IQOS Call Center, Athens &middot; customer-facing, top-rated satisfaction scores</span>
+            <span>Tech Support, IQOS Call Center, Athens</span>
           </div>
           <div class="edu-item">
             <span class="edu-year">2014</span>
-            <span>IT Support Specialist (internship), Printec SA, Athens &middot; first/second-line support, equipment logging</span>
+            <span>IT Support Specialist (internship), Printec SA, Athens</span>
           </div>
           <div class="edu-item">
             <span class="edu-year">2010 &ndash; 2013</span>
-            <span>Assistant Store Manager, Breeze Caf&eacute;, Athens &middot; staff coordination, daily operations</span>
+            <span>Assistant Store Manager, Breeze Caf&eacute;, Athens</span>
           </div>
           <div class="edu-item">
             <span class="edu-year">2009</span>
-            <span>IT Technician, Simplex Computer Services, Athens &middot; desktop and printer support</span>
+            <span>IT Technician, Simplex Computer Services, Athens</span>
           </div>
           <div class="edu-item">
             <span class="edu-year">2007 &ndash; 2008</span>
-            <span>Sales Advisor, Citibank Atlas, Athens &middot; customer-facing sales</span>
+            <span>Sales Advisor, Citibank Atlas, Athens</span>
           </div>
         </div>
       </div>
@@ -265,7 +272,7 @@
         </div>
         <div class="pb-item">
           <span class="pb-name">Thrion Arenas</span>
-          <span class="pb-detail">Turn-based strategy, solo dev. 4 champions, modular architecture, FMOD, PlayFab. Active 2026.</span>
+          <span class="pb-detail">Turn-based strategy, solo dev. 4 champions, modular architecture, FMOD, PlayFab. Active 2026 &mdash; 5,000+ hours invested.</span>
         </div>
         <div class="pb-item">
           <span class="pb-name">Obsidian Moon</span>
@@ -296,16 +303,32 @@
     <div class="section-wrap">
       <p class="section-label reveal">Skills</p>
       <h2 class="section-title reveal">What I Bring</h2>
+      <p class="skills-subtitle reveal">Hover any chip for context.</p>
 
       <div class="skills-categories">
 
         <div class="skill-category reveal glass-card">
-          <h4>Unity &amp; C#</h4>
+          <h4>Production-Ready</h4>
+          <p class="tier-desc">Fully proficient and ready for professional projects.</p>
           <div class="skill-tag-list">
+            <span class="skill-tag strong" data-desc="Over 7 years of all-around experience, including 4 years in a professional setting.">Unity</span>
+            <span class="skill-tag strong" data-desc="7+ years of writing efficient code, particularly within the Unity environment.">C#</span>
             <span class="skill-tag strong">C# Architecture (OOP / SOLID / Async)</span>
-            <span class="skill-tag strong">Render Pipelines (Built-in / URP)</span>
+            <span class="skill-tag strong">Render Pipelines (Built-in / URP / HDRP)</span>
             <span class="skill-tag strong">Custom Editor Tools</span>
             <span class="skill-tag strong">Build Pipeline &amp; Config</span>
+            <span class="skill-tag strong">Git / GitHub</span>
+            <span class="skill-tag strong">Claude Code</span>
+            <span class="skill-tag strong" data-desc="Adept at crafting effective prompts for generative AI tools (image, text, video).">Spec-Driven Prompting</span>
+            <span class="skill-tag strong">Diff Review &amp; QA</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal glass-card">
+          <h4>Foundational</h4>
+          <p class="tier-desc">Solid basic knowledge with room to grow through hands-on experience.</p>
+          <div class="skill-tag-list">
+            <span class="skill-tag" data-desc="An enthusiastic learner with multiple courses and personal projects&mdash;always striving to learn more.">Python</span>
             <span class="skill-tag">Performance Profiling</span>
             <span class="skill-tag">UI Development</span>
             <span class="skill-tag">Animation (Mecanim / Blend Trees)</span>
@@ -313,48 +336,92 @@
             <span class="skill-tag">AI Systems (NavMesh / Behavior Trees)</span>
             <span class="skill-tag">VFX (Shader Graph / Particles)</span>
             <span class="skill-tag">FMOD &middot; PlayFab</span>
-          </div>
-          <p class="skill-note">Full skill matrix on the <a href="unity.html">Unity page</a>.</p>
-        </div>
-
-        <div class="skill-category reveal glass-card">
-          <h4>AI Development Stack</h4>
-          <div class="skill-tag-list">
-            <span class="skill-tag strong">Claude Code</span>
-            <span class="skill-tag strong">Spec-Driven Prompting</span>
-            <span class="skill-tag strong">Diff Review &amp; QA</span>
-          </div>
-        </div>
-
-        <div class="skill-category reveal glass-card">
-          <h4>Tools &amp; Operations</h4>
-          <div class="skill-tag-list">
-            <span class="skill-tag strong">Git / GitHub</span>
-            <span class="skill-tag">PlasticSCM</span>
-            <span class="skill-tag">Azure Deployments</span>
-            <span class="skill-tag">3DS Max (pipeline)</span>
-            <span class="skill-tag">Photoshop &middot; Filmora</span>
-          </div>
-        </div>
-
-        <div class="skill-category reveal glass-card">
-          <h4>Beyond Unity</h4>
-          <div class="skill-tag-list">
-            <span class="skill-tag">Python (scripting &amp; automation)</span>
-            <span class="skill-tag">HTML / CSS / JS</span>
+            <span class="skill-tag" data-desc="Familiar with updating existing websites. (Fun fact: I built this site!)">HTML / CSS / JS</span>
             <span class="skill-tag">Node.js</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal glass-card">
+          <h4>Supplementary</h4>
+          <p class="tier-desc">Competent skills that effectively support core work.</p>
+          <div class="skill-tag-list">
+            <span class="skill-tag" data-desc="Experienced working with Github,Dropbox,Plasic,Unity Version Control (Previously Plastic SCM),bitBucket.">PlasticSCM</span>
+            <span class="skill-tag" data-desc="2 years of hands-on experience updating Azure VMs and building scale sets.">Azure Deployments</span>
+            <span class="skill-tag" data-desc="Over 3 years of experience using 3DS Max for data garaging in the automotive industry.">3DS Max (pipeline)</span>
+            <span class="skill-tag" data-desc="Delivered quality editing work with Photoshop, Filmora, and similar tools as needed.">Photoshop &middot; Filmora</span>
+            <span class="skill-tag" data-desc="Very comfortable working with tools like Excel, Word, and more.">Office 365</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal glass-card">
+          <h4>Rusty, But Recoverable</h4>
+          <p class="tier-desc">Skills that haven't been used recently and may need refreshing.</p>
+          <div class="skill-tag-list">
+            <span class="skill-tag rusty" data-desc="Solid foundation from earlier IT roles, supported by Cisco certification (might need a refresher).">Networking</span>
+          </div>
+        </div>
+
+        <div class="skill-category reveal glass-card">
+          <h4>Honorable Mentions</h4>
+          <div class="skill-tag-list">
+            <span class="skill-tag" data-desc="Regular use throughout my career for basic automation tasks.">Batch Scripting</span>
+            <span class="skill-tag" data-desc="Experience using RizomUV for UV mapping in automotive projects.">UV Mapping (RizomUV)</span>
           </div>
         </div>
 
       </div>
 
+      <p class="skill-note" style="margin-top: 24px;">Full Unity skill matrix on the <a href="unity.html">Unity page</a>.</p>
+
       <!-- Education -->
       <div class="edu-row reveal">
-        <p class="section-label">Education</p>
-        <div class="edu-items">
-          <div class="edu-item">
-            <span class="edu-year">2008 &ndash; 2014</span>
-            <span>B.Eng Electronic Computer Systems Engineering, ATEI of Piraeus</span>
+        <p class="section-label">Education &amp; Courses</p>
+        <div class="edu-tabs">
+          <button class="edu-tab-btn active" data-tab="edu" type="button">Education</button>
+          <button class="edu-tab-btn" data-tab="courses" type="button">Courses</button>
+        </div>
+        <div class="edu-tab-content active" data-tab-content="edu">
+          <div class="edu-items">
+            <div class="edu-item">
+              <span class="edu-year">2008 &ndash; 2014</span>
+              <span>B.Eng Electronic Computer Systems Engineering, ATEI of Piraeus</span>
+            </div>
+            <div class="edu-item">
+              <span class="edu-year">2012</span>
+              <span>Cisco ICND1 Certification (640-822), New York College</span>
+            </div>
+          </div>
+        </div>
+        <div class="edu-tab-content" data-tab-content="courses">
+          <div class="edu-items">
+            <div class="edu-item">
+              <span class="edu-year">Oct &ndash; Dec 2018</span>
+              <span>Complete C# Unity Developer 2D: Learn to Code Making Games (Udemy)</span>
+            </div>
+            <div class="edu-item">
+              <span class="edu-year">Feb &ndash; Apr 2019</span>
+              <span>Complete C# Unity Game Developer 3D (Udemy)</span>
+            </div>
+            <div class="edu-item">
+              <span class="edu-year">Nov 2020</span>
+              <span>Unity Multiplayer (Mirror): Intermediate C# &amp; Networking (Udemy)</span>
+            </div>
+            <div class="edu-item">
+              <span class="edu-year">Apr 2021</span>
+              <span>JavaScript: Getting Started (Pluralsight)</span>
+            </div>
+            <div class="edu-item">
+              <span class="edu-year">Apr 2021</span>
+              <span>Front-End Web Development Quick Start (Pluralsight)</span>
+            </div>
+            <div class="edu-item">
+              <span class="edu-year">May 2021</span>
+              <span>The Ultimate Python Basics &ndash; Bootcamp (Udemy)</span>
+            </div>
+            <div class="edu-item">
+              <span class="edu-year">May 2021</span>
+              <span>Automate the Boring Stuff with Python (Youtube + e-book)</span>
+            </div>
           </div>
         </div>
       </div>

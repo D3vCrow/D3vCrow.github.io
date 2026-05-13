@@ -379,6 +379,107 @@
   .skills-categories { gap: 28px; }
 }
 
+/* Skills tier description (under each h4) */
+.skills-subtitle {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 8px;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.skill-category .tier-desc {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.78rem;
+  color: #888;
+  margin-top: 0;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+.skill-tag.rusty {
+  color: #b89a7a;
+  border-color: rgba(180, 154, 122, 0.4);
+}
+
+/* Tooltip on data-desc skill tags (CSS-only, opt-in) */
+.skill-tag[data-desc] {
+  position: relative;
+  cursor: help;
+}
+
+.skill-tag[data-desc]::after {
+  content: attr(data-desc);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 260px;
+  padding: 10px 14px;
+  background: rgba(20, 20, 20, 0.96);
+  border: 1px solid rgba(255, 152, 0, 0.3);
+  color: #d8d8d8;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+  white-space: normal;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+  z-index: 50;
+}
+
+.skill-tag[data-desc]:hover::after,
+.skill-tag[data-desc]:focus::after {
+  opacity: 1;
+}
+
+/* Education / Courses tabs */
+.edu-tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.edu-tab-btn {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border: 1px solid rgba(255, 152, 0, 0.2);
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+
+.edu-tab-btn:hover {
+  color: #ffb74d;
+  border-color: rgba(255, 152, 0, 0.5);
+}
+
+.edu-tab-btn.active {
+  color: #ff9800;
+  border-color: #ff9800;
+  background: rgba(255, 152, 0, 0.05);
+}
+
+.edu-tab-content {
+  display: none;
+  margin-top: 8px;
+}
+
+.edu-tab-content.active {
+  display: block;
+}
+
 /* =========================================
    Print stylesheet — recruiter PDF export
    ========================================= */
@@ -488,6 +589,30 @@
   }
   .edu-item { color: #222 !important; }
   .edu-year { color: #c46500 !important; }
+
+  /* Tier descriptions */
+  .skills-subtitle,
+  .tier-desc { color: #444 !important; }
+  .skill-tag.rusty { color: #555 !important; border-color: #999 !important; }
+
+  /* Hide tooltips in print (content already visible / context elsewhere) */
+  .skill-tag[data-desc]::after { display: none !important; }
+  .skill-tag[data-desc] { cursor: auto !important; }
+
+  /* Education tabs: hide buttons, expand both tab panels */
+  .edu-tabs { display: none !important; }
+  .edu-tab-content { display: block !important; }
+  .edu-tab-content[data-tab-content="courses"] { margin-top: 14px; }
+  .edu-tab-content[data-tab-content="courses"]::before {
+    content: "Courses";
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: #c46500;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
 
   /* Contact — collapse grid, expand URLs */
   .cv-contact-grid {

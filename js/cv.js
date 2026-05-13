@@ -3,7 +3,7 @@
 const RECRUITER_BRIEFS = {
 
   software: `# Christoforos Papachristoforou | Software Engineer
-Location: Athens, Greece
+Location: Athens, Greece &middot; Arad, Romania
 Email: chr.papachristoforou@gmail.com
 LinkedIn: https://www.linkedin.com/in/christoforos-papachristoforou-a7b303157/
 GitHub: https://github.com/D3vCrow
@@ -65,7 +65,8 @@ Aug 2014 – Nov 2016 | Athens
 ---
 
 ## Education
-B.Eng Electronic Computer Systems Engineering, ATEI of Piraeus (2008 – 2014)`
+B.Eng Electronic Computer Systems Engineering, ATEI of Piraeus (2008 – 2014)
+Cisco ICND1 Certification (640-822), New York College (2012)`
 
 };
 
@@ -116,4 +117,19 @@ document.addEventListener('click', (e) => {
   el.style.top = e.clientY + 'px';
   document.body.appendChild(el);
   el.addEventListener('animationend', () => el.remove());
+});
+
+// Education / Courses tab toggle
+document.querySelectorAll('.edu-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tab = btn.dataset.tab;
+    const container = btn.closest('.edu-row');
+    if (!container) return;
+    container.querySelectorAll('.edu-tab-btn').forEach(b => {
+      b.classList.toggle('active', b === btn);
+    });
+    container.querySelectorAll('.edu-tab-content').forEach(c => {
+      c.classList.toggle('active', c.dataset.tabContent === tab);
+    });
+  });
 });
