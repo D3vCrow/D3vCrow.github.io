@@ -454,10 +454,13 @@
 
       <div class="brief-section reveal">
         <p class="section-label">For Recruiters</p>
-        <p>One-click copy of a structured candidate brief.</p>
+        <p>One-click copy of a structured candidate brief, or save the page as a print-ready PDF.</p>
         <div class="brief-btns">
-          <button class="brief-btn" onclick="copyRecruiterBrief('software', this)" data-copied="Copied!">
+          <button class="brief-btn" onclick="copyRecruiterBrief('software', this)" data-copied="Copied!" aria-live="polite">
             Copy: Recruiter Brief
+          </button>
+          <button class="brief-btn" onclick="window.print()" type="button" aria-label="Open print dialog to save CV as PDF">
+            Save as PDF
           </button>
         </div>
       </div>
@@ -477,6 +480,14 @@
     <p class="footer-copy">Athens, Greece &middot; chr.papachristoforou@gmail.com</p>
   </footer>
 
+  <script>
+    // Mirror tooltip data-desc to aria-label so screen readers announce skill chip descriptions
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.skill-tag[data-desc]').forEach(el => {
+        el.setAttribute('aria-label', el.textContent.trim() + ': ' + el.getAttribute('data-desc'));
+      });
+    });
+  </script>
   <script src="js/cv.js"></script>
 </body>
 </html>
