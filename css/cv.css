@@ -520,6 +520,26 @@
     color: #000 !important;
     font-size: 10pt !important;
     cursor: auto !important;
+    overflow: visible !important;
+    height: auto !important;
+  }
+
+  /* Flatten glass-card backgrounds + borders so cards don't bleed through on white */
+  .glass-card {
+    background: none !important;
+    border: 1px solid #ccc !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Each skill-category card avoids splitting across pages */
+  .skill-category { page-break-inside: avoid; }
+
+  /* Expand external URLs after every visible link (skip contact tile labels which already show readable handles) */
+  a[href^="http"]:not(.ct-value)::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #666;
+    word-break: break-all;
   }
 
   body.portfolio-page::after { content: none !important; }
