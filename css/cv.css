@@ -189,7 +189,7 @@
   font-size: 1rem;
   color: #f5f5f5;
   letter-spacing: 0.5px;
-  min-width: 200px;
+  width: 240px;
   flex-shrink: 0;
 }
 
@@ -205,7 +205,7 @@
 
 @media (max-width: 768px) {
   .pb-item { flex-direction: column; gap: 4px; }
-  .pb-name { min-width: auto; }
+  .pb-name { width: auto; }
 }
 
 /* Skills grid */
