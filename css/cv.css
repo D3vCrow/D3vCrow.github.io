@@ -32,7 +32,7 @@
 .cv-hero .hero-location {
   font-family: 'Raleway', sans-serif;
   font-size: 0.9rem;
-  color: #666;
+  color: #888;
   letter-spacing: 1px;
   margin-bottom: 0;
   opacity: 0;
@@ -216,7 +216,7 @@
   gap: 24px;
 }
 
-.skill-category h4 {
+.skill-category h3 {
   font-family: 'Orbitron', sans-serif;
   font-size: 0.65rem;
   letter-spacing: 4px;
@@ -321,11 +321,13 @@
 }
 
 .contact-tile .ct-value {
+  display: block;
   font-family: 'Raleway', sans-serif;
   font-size: 0.85rem;
   color: #ccc;
   text-decoration: none;
   word-break: break-all;
+  padding: 6px 0;
   transition: color 0.25s;
 }
 
@@ -394,7 +396,7 @@
   .timeline-item .tl-role { font-size: 1.05rem; }
   .timeline-item ul li { font-size: 0.85rem; }
   .skills-categories { gap: 16px; }
-  .skill-category h4 { font-size: 0.6rem; letter-spacing: 3px; }
+  .skill-category h3 { font-size: 0.6rem; letter-spacing: 3px; }
   .brief-section { padding: 24px 16px; }
   .contact-tile { padding: 16px; }
 }
@@ -621,7 +623,7 @@
 
   /* Skills */
   .skills-categories { page-break-inside: avoid; }
-  .skill-category h4 { color: #c46500 !important; border-bottom-color: #ccc !important; }
+  .skill-category h3 { color: #c46500 !important; border-bottom-color: #ccc !important; }
   .skill-tag {
     background: transparent !important;
     border-color: #999 !important;
