@@ -1,0 +1,30 @@
+# GitHub Pages build configuration.
+#
+# Purpose: stop internal working files being published to d3vcrow.github.io.
+# Before this file existed, Jekyll copied docs/ and knowledge/ verbatim into the
+# built site, so CV working notes were served at
+# https://d3vcrow.github.io/docs/handoffs/*.md with HTTP 200.
+#
+# Jekyll REPLACES its default exclude list when this key is set, it does not
+# merge. The stock defaults are therefore repeated first, before the additions.
+
+exclude:
+  # --- Jekyll defaults, repeated so setting this key does not drop them ---
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+  # --- Internal working files: never publish ---
+  - .claude/
+  - .superpowers/
+  - docs/
+  - knowledge/
+  - AGENTS.md
+  - CLAUDE.md
